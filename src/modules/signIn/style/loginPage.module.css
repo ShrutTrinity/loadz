@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.root{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 91.8vh;
+    
+  background-color: black;  
+    width: 100vw;
+}
+
+.mainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card{
+    background-color: rgb(237, 202, 51);
+    padding: 32px 32px 24px 32px;
+    color: black;
+    border-radius:1rem;
+}
+
+.cardDetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo{
+    width: 8rem;  
+    margin: 2rem;  
+}
+
+.heading{
+    font-size: 1.5rem;
+    margin: 16px 0 24px 0;
+    font-weight: 300;
+}
+
+.formControl1{
+    background-color: #FFF;
+    width: 15rem;
+    padding: 6px 9px;
+    display: flex;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.icon{
+    display: flex;
+    margin: 0 0 0 2rem;
+    align-items: center;
+    height: auto;
+    cursor: pointer;
+}
+
+.bottomform{
+    display: flex;
+    align-items: center;
+    width: 15.7rem;
+}
+
+.checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label{
+    font-size: 0.813rem;
+    margin-left: -5px;
+}
+
+.a{
+    font-size: 0.813rem;
+    color: blue;
+    margin-left: 0.39rem;
+}
+.a2{
+    font-size: 0.813rem;
+    color: blue;
+}
+
+.bottomdetail{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span{
+    font-size: 0.813rem;
+}
+
+.link3{
+    padding: 8px 0 0 0;
+}
+
+.toolbar{
+    
+  background-color: black;  
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.toolbarDetail{
+    width: 100%;
+    height: 100%;
+}
+
+.bottomLink{
+    text-decoration: none;
+    color:rgb(237, 202, 51);
+    float: right;
+    margin-left: 1rem;
+    font-size: 0.813rem;
+}
