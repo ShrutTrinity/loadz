@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './styles/portal.module.css';
-// import TextField from '@mui/material/TextField';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { grey } from '@mui/material/colors';
@@ -49,7 +48,7 @@ const Portal = () => {
                                         <div className={styles.label}>Remember Me</div>
                                     </div>
                                     <div className={styles.secondPart}>
-                                        <RouterLink className={styles.a} to='/forgetPassword'>Forgot Password?</RouterLink>
+                                        <RouterLink className={styles.a} to='/forgetPass'>Forgot Password?</RouterLink>
                                     </div>
                                 </div>
                                 <div className={styles.rules}>
