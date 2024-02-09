@@ -4,7 +4,7 @@ import Logo from '../signIn/images/loadzlogo.png'
 import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-// import Link from '@mui/material/Link';
+
 import { Link as RouterLink } from 'react-router-dom';
 
 
@@ -15,12 +15,12 @@ const ForgetPass = () => {
         <div className={styles.card}>
           <div className={styles.cardContainer}>
             <div className={styles.logo}>
-              <img className={styles.logoImage} src={Logo} alt='logo' />
+              <img className={styles.logoImage} src='https://app.loadz.com/assets/images/logos/loadzlogo.png' />
             </div>
 
             <h6 className={styles.recover}>Recover Your Password</h6>
             <div className={styles.multiInput}>
-              <TextField required sx={{marginLeft:"0.7rem"}} id="standard-basic" label="Email" variant="standard" />
+              <TextField required sx={{marginLeft:"0.7rem"}} id="standard-basic" label="Email " variant="standard" />
               <div className={styles.icon}>
                 <EmailIcon sx={{ fontSize: 20 }} />
 
@@ -34,9 +34,9 @@ const ForgetPass = () => {
             </Button>
             <div>
               <div className={styles.link}>
-              {/* <Link  underline="always"sx={{color:"blue"}}> */}
+              
               <RouterLink to="/" >{'Go Back To Login'}</RouterLink>
-              {/* </Link> */}
+              
               </div>
             </div>
           </div>

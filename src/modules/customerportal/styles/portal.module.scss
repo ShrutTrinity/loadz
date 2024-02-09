@@ -53,21 +53,14 @@ form{
 }
 
 .textField1{
-    width: 100%;
-    padding-right: 1rem;
-    margin: 1rem 0;
+    width: 450px;
 }
 
-input{
-    width: 400px ;
-}
-
-.textField2{
-    flex-direction: row;
+.input{
     display: flex;
     align-items: center;
-    width: 100%;
-    margin: 1rem 0;
+    flex-direction: row;
+    margin: 16px 0;
 }
 
 .passIcon{
@@ -131,14 +124,30 @@ ol{
     padding-bottom: 0.75rem;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 960px) {
     .heading{
         padding: 1rem;
         font-size: 20px;
     }
-    input{
-        width: 200px !important;
+    .textField1{
+        width: 300px;
     }
-
-    
+    .textField1:nth-child(1) {
+        width: 100%;
+    }
   }
+
+@media screen and (max-width: 300px) {
+    ol{
+        font-size: 0.750rem;
+    }
+    .a2{
+        font-size: 0.750rem;
+    }
+    .a{
+        font-size: 0.750rem;
+    }
+    .label{
+        font-size: 0.750rem;
+    }
+}

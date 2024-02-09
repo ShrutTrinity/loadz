@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import styles from './styles/portal.module.css';
-// import TextField from '@mui/material/TextField';
+import styles from './styles/portal.module.scss';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { grey } from '@mui/material/colors';
@@ -26,15 +25,16 @@ const Portal = () => {
                             <h1 className={styles.heading}>Login</h1>
                             <form>
                                 <div className={styles.textField1}>
-                                    {/* <TextField required id="outlined-basic" label="Enter your Email" variant="outlined"/> */}
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your Email"></input>
+                                   <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Enter your Email"></input>
                                 </div>
-                                <div className={styles.textField2}>
-                                <input class="form-control" id="exampleFormControlInput1" placeholder="Enter your Password"
-                                type={showPassword ? 'text' : 'password'}/>
-                                    <div className={styles.passIcon} onClick={togglePasswordVisibility}>
-                                        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                <div className={styles.input}>
+                                    <div className={styles.textField1}>
+                                        <input className="form-control" id="exampleFormControlInput2" placeholder="Enter your Password"
+                                            type={showPassword ? 'text' : 'password'} />
                                     </div>
+                                        <div className={styles.passIcon} onClick={togglePasswordVisibility}>
+                                            {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                        </div>
                                 </div>
                                 <div className={styles.middleLine}>
                                     <div className={styles.firstPart}>
@@ -49,7 +49,7 @@ const Portal = () => {
                                         <div className={styles.label}>Remember Me</div>
                                     </div>
                                     <div className={styles.secondPart}>
-                                        <RouterLink className={styles.a} to='/forgetPassword'>Forgot Password?</RouterLink>
+                                        <RouterLink className={styles.a} to='/forgetPass'>Forgot Password?</RouterLink>
                                     </div>
                                 </div>
                                 <div className={styles.rules}>

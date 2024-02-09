@@ -28,10 +28,10 @@ const LoginPage = () => {
                             <h6 className={styles.heading}>Login to your account</h6>
                             <form>
                                 <div className={styles.formControl1}>
-                                    <TextField id="standard-basic" required label="Email" variant="standard" InputProps={{ endAdornment: (<div className={styles.icon}><EmailIcon /></div>) }} />
+                                    <TextField id="standard-basic" required label="Email " variant="standard" InputProps={{ endAdornment: (<div className={styles.icon}><EmailIcon /></div>) }} />
                                 </div>
                                 <div className={styles.formControl1}>
-                                    <TextField id="standard-basic" required label="Password" variant="standard" type={showPassword ? 'text' : 'password'}
+                                    <TextField id="standard-basic" required label="Password " variant="standard" type={showPassword ? 'text' : 'password'}
                                         InputProps={{
                                             endAdornment: (
                                                 <div className={styles.icon} onClick={togglePasswordVisibility}>
