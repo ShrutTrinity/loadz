@@ -26,14 +26,16 @@ const Portal = () => {
                             <form>
                                 <div className={styles.textField1}>
                                     {/* <TextField required id="outlined-basic" label="Enter your Email" variant="outlined"/> */}
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your Email"></input>
+                                    <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Enter your Email"></input>
                                 </div>
-                                <div className={styles.textField2}>
-                                <input class="form-control" id="exampleFormControlInput1" placeholder="Enter your Password"
-                                type={showPassword ? 'text' : 'password'}/>
-                                    <div className={styles.passIcon} onClick={togglePasswordVisibility}>
-                                        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                <div className={styles.input}>
+                                    <div className={styles.textField1}>
+                                        <input className="form-control" id="exampleFormControlInput2" placeholder="Enter your Password"
+                                            type={showPassword ? 'text' : 'password'} />
                                     </div>
+                                        <div className={styles.passIcon} onClick={togglePasswordVisibility}>
+                                            {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                        </div>
                                 </div>
                                 <div className={styles.middleLine}>
                                     <div className={styles.firstPart}>

@@ -41,17 +41,17 @@
 }
 
 .heading{
-    font-size: 1.5rem;
+    font-size: 24px;
     margin: 16px 0 24px 0;
     font-weight: 300;
 }
 
 .formControl1{
     background-color: #FFF;
-    width: 15rem;
+    width: 260px;
     padding: 6px 9px;
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     display: flex;
     justify-content: center;
 }
@@ -84,7 +84,7 @@
 .a{
     font-size: 0.813rem;
     color: blue;
-    margin-left: 0.39rem;
+    margin-left: 12px;
 }
 .a2{
     font-size: 0.813rem;
@@ -107,7 +107,7 @@ span{
 }
 
 .toolbar{
-    
+    height: 8.2vh;
   background-color: black;  
     padding: 1.2rem;
     display: flex;

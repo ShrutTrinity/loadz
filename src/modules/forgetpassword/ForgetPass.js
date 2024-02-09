@@ -20,7 +20,7 @@ const ForgetPass = () => {
 
             <h6>Recover Your Password</h6>
             <div className={styles.multiInput}>
-              <TextField required sx={{marginLeft:"0.7rem"}} id="standard-basic" label="Email" variant="standard" />
+              <TextField required sx={{marginLeft:"0.7rem"}} id="standard-basic" label="Email " variant="standard" />
               <div className={styles.icon}>
                 <EmailIcon sx={{ fontSize: 20 }} />
 
