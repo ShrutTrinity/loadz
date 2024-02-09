@@ -75,8 +75,8 @@ const LoginPage = () => {
             </div>
             <div className={styles.toolbar}>
                 <div className={styles.toolbarDetail}>
-                    <a className={styles.bottomLink} href='/'>Terms and conditions</a>
-                    <a className={styles.bottomLink} href='/'>Privacy Policy</a>
+                    <RouterLink to='/terms' className={styles.bottomLink}>Terms and conditions</RouterLink>
+                    <RouterLink  className={styles.bottomLink} to='/privacy'>Privacy Policy</RouterLink>
                 </div>
             </div>
         </>

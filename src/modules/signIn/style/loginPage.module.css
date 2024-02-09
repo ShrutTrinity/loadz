@@ -110,6 +110,7 @@ span{
     
   background-color: black;  
     padding: 1.2rem;
+    height: 8.2vh;
     display: flex;
     align-items: center;
     flex-direction: row;
