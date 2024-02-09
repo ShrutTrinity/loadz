@@ -52,7 +52,7 @@ const LoginPage = () => {
                                         }} />
                                         <div className={styles.label}>Remember Me</div>
                                     </div>
-                                    <RouterLink className={styles.a} to='/forgetPassword'>Forgot Password?</RouterLink>
+                                    <RouterLink className={styles.a} to='/forgetPass'>Forgot Password?</RouterLink>
                                 </div>
                                 <Button variant="contained" sx={{ backgroundColor: "black", ":hover": { backgroundColor: "black" }, borderRadius: "1.125rem", width: "16rem", padding: "1.2", marginTop: "1rem", margin: "0 0rem" }}>
                                     Login
