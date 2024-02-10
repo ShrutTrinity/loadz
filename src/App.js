@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import LoginPage from './modules/signIn/LoginPage'
-import { Route,BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Route,BrowserRouter as Router, Routes, } from 'react-router-dom'
 import Portal from './modules/customerportal/Portal'
 import ForgetPass from './modules/forgetpassword/ForgetPass'
 import Subscription from './modules/subcription/Subscription'
@@ -8,9 +8,12 @@ import Termsconditions from './modules/signIn/Termsconditions'
 import Privacy from './modules/signIn/Privacy'
 
 
+
 const App = () => {
+ 
+
   return (
-    <>
+   <>
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage />} />
@@ -23,6 +26,7 @@ const App = () => {
       </Router>
     </>
   )
+    
 }
 
 export default App
