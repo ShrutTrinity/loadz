@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './subscription.module.css'
+import styles from './styles/subscription.module.scss'
 import Card from './Card'
 
 

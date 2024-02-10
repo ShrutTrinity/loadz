@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './style/termsconditions.module.css'
+import styles from './style/termsconditions.module.scss'
 
 const Privacy = () => {
     return (

@@ -1,92 +1,101 @@
-.titleBox{
- 
+$color_1: rgb(237, 202, 51);
+$font-family_1: poppins;
+$background-color_1: black;
+
+.titleBox {
     z-index: 0;
-    background-color: black;
+    background-color: $background-color_1;
     max-width: 1145px;
     margin-left: auto;
     margin-right: auto;
 
+    .titlecontainer {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 24px;
+
+        
+    }
+    
 }
-.titlecontainer{
-   margin-left: auto;
-   margin-right: auto;
-   padding: 24px;
-}
-.titleText{
+.titleText {
     margin: 128px;
 }
-.title{
+
+.title {
     text-align: center;
     margin: 0;
     font-size: 52px;
-    color: rgb(237, 202, 51);
+    color: $color_1;
     margin-left: auto;
     margin-right: auto;
-    
 }
-.title2{
+
+.title2 {
     text-align: center;
     margin: 0;
     font-weight: 300;
     font-size: 24px;
-    color: rgb(237, 202, 51);
+    color: $color_1;
     margin-left: auto;
     margin-right: auto;
-    
 }
-.terms{
+
+.terms {
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
     padding: 96px 10px 96px 10px;
 }
-p{
+
+p {
     font-size: 16px;
     line-height: 1.5;
     font-weight: 300;
 }
 
-.discriptionTitle{
+.discriptionTitle {
     display: flex;
     justify-content: center;
     margin: 0px;
-    font-family: poppins;
+    font-family: $font-family_1;
     font-weight: 300;
     font-size: 31.5714px;
     line-height: 1.235;
     padding-bottom: 32px;
 }
-.dectitle2{
+
+.dectitle2 {
     display: flex;
     justify-content: center;
     margin: 0px;
-    font-family: poppins;
+    font-family: $font-family_1;
     font-weight: 300;
     font-size: 22.2857px;
     line-height: 1.334;
     padding-bottom: 32px;
 }
-u{
-    color:rgb(237, 202, 51) ;
+
+u {
+    color: $color_1;
 }
 
 @media only screen and (max-width: 600px) {
-    .titleText{
-       
-            margin: 128px 24px 128px 24px;
-        }
-    
-    .title{
+    .titleText {
+        margin: 128px 24px 128px 24px;
+    }
+
+    .title {
         font-size: 32px;
     }
-   
-    .terms{
+
+    .terms {
         text-align: left;
-        margin: 96px 10px 96px 10px ;
+        margin: 0;
     }
-    .discriptionTitle{
+
+    .discriptionTitle {
         font-size: 20px;
     }
-}   
-
+}

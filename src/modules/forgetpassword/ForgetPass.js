@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './forgetpassword.module.css'
-
+import Logo from '../signIn/images/loadzlogo.png'
 import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -15,7 +15,7 @@ const ForgetPass = () => {
         <div className={styles.card}>
           <div className={styles.cardContainer}>
             <div className={styles.logo}>
-              <img className={styles.logoImage} src='https://app.loadz.com/assets/images/logos/loadzlogo.png' />
+              <img className={styles.logoImage} src={Logo} alt='logo' />
             </div>
 
             <h6 className={styles.recover}>Recover Your Password</h6>
@@ -34,9 +34,9 @@ const ForgetPass = () => {
             </Button>
             <div>
               <div className={styles.link}>
-           
+              
               <RouterLink to="/" >{'Go Back To Login'}</RouterLink>
-           
+              
               </div>
             </div>
           </div>

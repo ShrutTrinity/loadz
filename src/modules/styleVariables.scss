@@ -1,0 +1,26 @@
+$color_1: black;
+$color_2: blue;
+$color_3: rgb(237, 202, 51);
+$color_4: white;
+$color_5: rgba(158, 158, 158, 1);
+$color_6: rgb(39, 174, 96);
+$color_7: #777;
+$color_8: rgb(51, 51, 51);
+$background-color_1: #7a7a7a;
+$background-color_2: #22292f;
+$box_Shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+$verySmall_font:0.750rem;
+
+@mixin center () {
+    display: flex;
+	align-items: center;
+	justify-content: center;
+}
+@mixin flex-column () {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-row () {
+    display: flex;
+	justify-content: center
+}

@@ -62,7 +62,7 @@ const Portal = () => {
                                         <li>"10 Characters Minimum"</li>
                                     </ol>
                                 </div>
-                                <Button variant="contained" sx={{ backgroundColor: "rgb(237, 202, 51)", borderRadius: "1.125rem", width: "100%", padding: "1.2", marginTop: "1rem", margin: "0 0rem", fontSize: '0.813rem', ":hover": { backgroundColor: "rgb(237,202,51)" } }}>
+                                <Button variant="contained" sx={{ backgroundColor: "rgb(237, 202, 51)", borderRadius: "1.125rem", width: "100%", color:"black" ,padding: "1.2", marginTop: "1rem", marginBottom:"0.5rem", fontSize: '0.813rem', ":hover": { backgroundColor: "rgb(237,202,51)" } }}>
                                     Login
                                 </Button>
                             </form>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './style/loginPage.module.css'
+import styles from './style/loginPage.module.scss'
 import TextField from '@mui/material/TextField';
 import { grey } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
@@ -28,11 +28,13 @@ const LoginPage = () => {
                             <h6 className={styles.heading}>Login to your account</h6>
                             <form>
                                 <div className={styles.formControl1}>
-                                    <TextField id="standard-basic" required label="Email " variant="standard" InputProps={{ endAdornment: (<div className={styles.icon}><EmailIcon /></div>) }} />
+                                    <TextField id="standard-basic" required label="Email " variant="standard" InputProps={{ disableUnderline: true ,
+                                        endAdornment: (<div className={styles.icon}><EmailIcon /></div>) }} />
                                 </div>
                                 <div className={styles.formControl1}>
                                     <TextField id="standard-basic" required label="Password " variant="standard" type={showPassword ? 'text' : 'password'}
                                         InputProps={{
+                                            disableUnderline: true,
                                             endAdornment: (
                                                 <div className={styles.icon} onClick={togglePasswordVisibility}>
                                                     {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
@@ -82,5 +84,4 @@ const LoginPage = () => {
         </>
     )
 }
-
 export default LoginPage
