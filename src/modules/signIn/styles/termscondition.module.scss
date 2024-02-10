@@ -1,10 +1,7 @@
-$color_1: rgb(237, 202, 51);
-$font-family_1: poppins;
-$background-color_1: black;
-
+@import "../../styleVariables.scss";
 .titleBox {
 	z-index: 0;
-	background-color: $background-color_1;
+	background-color: $color_1;
 	max-width: 1145px;
 	margin-left: auto;
 	margin-right: auto;
@@ -21,7 +18,7 @@ $background-color_1: black;
 	text-align: center;
 	margin: 0;
 	font-size: 52px;
-	color: $color_1;
+	color: $color_3;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -30,7 +27,7 @@ $background-color_1: black;
 	margin: 0;
 	font-weight: 300;
 	font-size: 24px;
-	color: $color_1;
+	color: $color_3;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -67,7 +64,7 @@ p {
 	padding-bottom: 32px;
 }
 u {
-	color: $color_1;
+	color: $color_3;
 }
 @media only screen and (max-width: 600px) {
 	.titleText {
