@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './forgetpassword.module.scss'
+import styles from './styles/forgetpassword.module.scss'
 import Logo from '../signIn/images/loadzlogo.png'
 import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
@@ -19,7 +19,7 @@ const ForgetPass = () => {
 
             <h6>Recover Your Password</h6>
             <div className={styles.multiInput}>
-              <TextField required sx={{marginLeft:"0.7rem",borderBottom:'0'}} InputProps={{disableUnderline:true}} id="standard-basic" label="Email " variant="standard" />
+              <TextField required sx={{marginLeft:"0.7rem",borderBottom:'0'}} InputProps={{disableUnderline:true}} id="standard-basic" label="Email &nbsp;" variant="standard" />
               <div className={styles.icon}>
                 <EmailIcon sx={{ fontSize: 20 }} />
 

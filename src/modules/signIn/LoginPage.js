@@ -28,11 +28,11 @@ const LoginPage = () => {
                             <h6 className={styles.heading}>Login to your account</h6>
                             <form>
                                 <div className={styles.formControl1}>
-                                    <TextField id="standard-basic" required label="Email " variant="standard" InputProps={{ disableUnderline: true ,
+                                    <TextField id="standard-basic" required label="Email &nbsp; " variant="standard" InputProps={{ disableUnderline: true ,
                                         endAdornment: (<div className={styles.icon}><EmailIcon /></div>) }} />
                                 </div>
                                 <div className={styles.formControl1}>
-                                    <TextField id="standard-basic" required label="Password " variant="standard" type={showPassword ? 'text' : 'password'}
+                                    <TextField id="standard-basic" required label="Password  &nbsp;" variant="standard" type={showPassword ? 'text' : 'password'}
                                         InputProps={{
                                             disableUnderline: true,
                                             endAdornment: (
@@ -77,8 +77,10 @@ const LoginPage = () => {
             </div>
             <div className={styles.toolbar}>
                 <div className={styles.toolbarDetail}>
-                    <a className={styles.bottomLink} href='/'>Terms and conditions</a>
-                    <a className={styles.bottomLink} href='/'>Privacy Policy</a>
+                <div className={styles.toolbarDetail}>
+                    <RouterLink to='/terms' className={styles.bottomLink}>Terms and conditions</RouterLink>
+                    <RouterLink  className={styles.bottomLink} to='/privacy'>Privacy Policy</RouterLink>
+                </div>
                 </div>
             </div>
         </>
