@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './forgetpassword.module.css'
+import styles from './forgetpassword.module.scss'
 import Logo from '../signIn/images/loadzlogo.png'
 import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
