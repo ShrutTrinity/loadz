@@ -15,12 +15,12 @@ const ForgetPass = () => {
         <div className={styles.card}>
           <div className={styles.cardContainer}>
             <div className={styles.logo}>
-              <img className={styles.logoImage} src='https://app.loadz.com/assets/images/logos/loadzlogo.png' alt='logo'/>
+              <img className={styles.logoImage} src='https://app.loadz.com/assets/images/logos/loadzlogo.png' />
             </div>
 
             <h6 className={styles.recover}>Recover Your Password</h6>
             <div className={styles.multiInput}>
-              <TextField required sx={{marginLeft:"0.7rem"}} id="standard-basic" label="Email " variant="standard" />
+              <TextField required sx={{marginLeft:"0.7rem",borderBottom:'0'}} InputProps={{disableUnderline:true}} id="standard-basic" label="Email " variant="standard" />
               <div className={styles.icon}>
                 <EmailIcon sx={{ fontSize: 20 }} />
 

@@ -112,11 +112,11 @@ span {
   .card {
     border-radius: 5px;
     padding: 0;
-    width: 340px;
+    width: 300px;
   }
 
   .title {
-    padding: 10px;
+    padding: 32px;
   }
 
   .innerBox {
@@ -129,5 +129,18 @@ span {
 
   .startFreeButton {
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 300px){
+  
+  .card {
+    width: 256px;
+  }
+  .innerBox{
+    padding: 15px;
+  }
+  .keyFeatures{
+    padding: 20px;
   }
 }

@@ -39,7 +39,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    padding: 96px 0 96px 0;
+    padding: 96px 10px 96px 10px;
 }
 p{
     font-size: 16px;
@@ -82,10 +82,11 @@ u{
     }
    
     .terms{
-        text-align: center;
+        text-align: left;
+        margin: 96px 10px 96px 10px ;
     }
     .discriptionTitle{
         font-size: 20px;
     }
-}
+}   
 

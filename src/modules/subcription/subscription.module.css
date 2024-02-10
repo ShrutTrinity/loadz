@@ -99,8 +99,8 @@ margin-right: 80px;
         justify-content: center;
     }
     .questionContainer{
-        margin-left: 10px;
-        margin-right: 0
+        margin-left: 0;
+        margin-right: 0;
     }
     .questionTitle{
         font-size: 18px;
@@ -110,6 +110,8 @@ margin-right: 80px;
     }
     .flex{
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .questionBox{
         width: 80%;
