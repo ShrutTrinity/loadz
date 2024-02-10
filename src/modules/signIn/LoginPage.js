@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './style/loginPage.module.scss'
+import styles from './styles/loginPage.module.scss'
 import TextField from '@mui/material/TextField';
 import { grey } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';

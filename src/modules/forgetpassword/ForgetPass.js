@@ -17,7 +17,7 @@ const ForgetPass = () => {
               <img className={styles.logoImage} src={Logo} alt='logo' />
             </div>
 
-            <h6>Recover Your Password</h6>
+            <h6 className={styles.recover}>Recover Your Password</h6>
             <div className={styles.multiInput}>
               <TextField required sx={{marginLeft:"0.7rem",borderBottom:'0'}} InputProps={{disableUnderline:true}} id="standard-basic" label="Email &nbsp;" variant="standard" />
               <div className={styles.icon}>
