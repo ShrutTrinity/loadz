@@ -1,6 +1,5 @@
 import React from 'react'
-import styles from './forgetpassword.module.css'
-
+import styles from './styles/forgetpassword.module.scss'
 import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
