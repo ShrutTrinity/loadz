@@ -4,7 +4,6 @@ import Logo from '../signIn/images/loadzlogo.png'
 import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
 import { Link as RouterLink } from 'react-router-dom';
 
 
@@ -18,7 +17,7 @@ const ForgetPass = () => {
               <img className={styles.logoImage} src={Logo} alt='logo' />
             </div>
 
-            <h6 className={styles.recover}>Recover Your Password</h6>
+            <h6>Recover Your Password</h6>
             <div className={styles.multiInput}>
               <TextField required sx={{marginLeft:"0.7rem",borderBottom:'0'}} InputProps={{disableUnderline:true}} id="standard-basic" label="Email " variant="standard" />
               <div className={styles.icon}>
