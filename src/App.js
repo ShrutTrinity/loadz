@@ -6,6 +6,7 @@ import ForgetPass from './modules/forgetpassword/ForgetPass'
 import Subscription from './modules/subcription/Subscription'
 import Termsconditions from './modules/signIn/Termsconditions'
 import Privacy from './modules/signIn/Privacy'
+import Create from './modules/customerportal/Create';
 
 
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path='/subscription' element={<Subscription/>} />
           <Route exact path='/terms' element={<Termsconditions/>} />
           <Route exact path='/privacy' element={<Privacy/>} />
+          <Route exact path='/customeportal-signup' element={<Create/>} />
         </Routes>
       </Router>
     </>

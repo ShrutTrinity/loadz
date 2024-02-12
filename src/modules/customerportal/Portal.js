@@ -25,11 +25,11 @@ const Portal = () => {
                             <h1 className={styles.heading}>Login</h1>
                             <form>
                                 <div className={styles.textField1}>
-                                   <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Enter your Email"></input>
+                                   <input type="email" className="form-control rounded-0" id="exampleFormControlInput1" placeholder="Enter your Email"></input>
                                 </div>
                                 <div className={styles.input}>
                                     <div className={styles.textField1}>
-                                        <input className="form-control" id="exampleFormControlInput2" placeholder="Enter your Password"
+                                        <input className="form-control rounded-0" id="exampleFormControlInput2" placeholder="Enter your Password"
                                             type={showPassword ? 'text' : 'password'} />
                                     </div>
                                         <div className={styles.passIcon} onClick={togglePasswordVisibility}>
@@ -49,7 +49,7 @@ const Portal = () => {
                                         <div className={styles.label}>Remember Me</div>
                                     </div>
                                     <div className={styles.secondPart}>
-                                        <RouterLink className={styles.a} to='/forgetPass'>Forgot Password?</RouterLink>
+                                        <RouterLink className={styles.a1} style={{fontSize:'12px'}} to='/forgetPass'>Forgot Password?</RouterLink>
                                     </div>
                                 </div>
                                 <div className={styles.rules}>
@@ -67,7 +67,7 @@ const Portal = () => {
                                 </Button>
                             </form>
                             <div className={styles.bottom}>
-                                <RouterLink className={styles.a2} to='/sbscribe'> Don't have an account click here </RouterLink>
+                                <RouterLink className={styles.a2} to='/customeportal-signup'> Don't have an account click here </RouterLink>
                             </div>
                         </div>
                     </div>
