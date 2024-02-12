@@ -6,7 +6,7 @@
 }
 
 .root {
-   @include center();
+    @include center();
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -17,7 +17,7 @@
 
 .container {
     height: 100%;
-    @include center();    
+    @include center();
 }
 
 .cover {
@@ -52,6 +52,11 @@
             width: 450px;
         }
 
+        input::placeholder {
+            color: #adadad;
+            font-size: 13px;
+        }
+
         .input {
             @include flex-column();
             flex-direction: row;
@@ -60,7 +65,9 @@
             .passIcon {
                 margin-left: 0.5rem;
                 padding: 0.5rem;
+                cursor: pointer;
             }
+
         }
 
         .middleLine {
@@ -84,6 +91,12 @@
                 width: 100%;
                 justify-content: flex-end;
                 flex-direction: row;
+
+                .a1{
+                    font-size: 13px;
+                    font-weight: 500;
+                    margin-right: 12px;
+                }
             }
         }
 
@@ -129,7 +142,11 @@
     }
 
     @media screen and (max-width: 300px) {
-       ol,.a2,.a,.label {
+
+        ol,
+        .a2,
+        .a,
+        .label {
             font-size: $verySmall_font;
         }
     }

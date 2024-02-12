@@ -1,0 +1,156 @@
+@import '../../styleVariables.scss';
+
+* {
+    margin: 0;
+    font-family: $font-family_1;
+    padding: 0;
+}
+
+.root {
+    @include center();
+    flex-direction: column;
+    font-family: $font-family_1;
+
+    .logoCover {
+        margin: 28px;
+    }
+
+    .logo {
+        width: 128px;
+    }
+
+    .container {
+        background-color: $color_4;
+        color: $color_1;
+        border-radius: 16px;
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+        border-radius: 16px solid red;
+        overflow: hidden;
+        min-width: 275px;
+        max-width: 689px;
+
+        .heading {
+            color: $color_4;
+            padding: 16px;
+            text-align: center;
+            margin: 0;
+            font-size: 24px;
+            font-weight: inherit;
+            background-color: $background-color_2;
+        }
+    }
+
+    .Createform {
+        padding: 12px 32px;
+    }
+
+    input::placeholder {
+        color: #999999da;
+        font-size: 13px;
+      }
+
+    .inputControl1 {
+        width: 100%;
+        margin: 8px 0 16px 0;
+    }
+
+    .inputControl2 {
+        width: 100%;
+        @include flex-column;
+    }
+
+    .mobileIcon {
+        padding: 0 8px 0 0;
+    }
+
+    .input2 {
+        width: 100%;
+    }
+
+    .passIcon {
+        padding: 0 0 0 8px;
+    }
+
+    .inputControl2:nth-child(2) {
+        margin: 16px 0;
+    }
+
+    .rules {
+        margin: 14px 0 0 0;
+        display: flex;
+        flex-direction: column;
+
+        p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        ol {
+            margin: 0.2rem 0rem;
+            list-style: decimal;
+            color: $color_5;
+            font-size: 13px;
+        }
+    }
+
+    .inputControl3 {
+        width: 100%;
+        margin: 12px 0 16px 0 ;
+        @include flex-column;
+    }
+
+    .defaultPermission {
+        @include flex-column();
+        margin-bottom: 10px;
+
+        p {
+            font-size: 13px;
+            margin: 0 4px 0 4px;
+            font-weight: 300;
+        }
+    }
+
+    label {        
+        font-size: 13px;
+        font-weight: 400;
+        .inlineContainer{
+            @include flex-column();
+            margin-bottom: 4px;
+        }
+
+        p {
+            font-size: 13px;
+            font-weight: 400;
+            margin: 0 4px 0 4px;
+
+            a{
+                color: $color_3;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .root{
+        @include center();
+        height: 100vh;
+    }
+    .container {
+        border-radius: 10px;
+        max-width: 500px;   
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .container {
+        max-width: 200px; 
+    }
+}
