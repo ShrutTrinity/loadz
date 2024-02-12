@@ -69,6 +69,8 @@
 
     .checkbox {
         @include center();
+        margin: 0;
+        padding: 0;
 
         .label {
             font-size: 0.813rem;
@@ -76,12 +78,16 @@
         }
     }
 
-    .a {
-        font-size: 0.813rem;
+    .a{
+        font-size: 13px;
         color: $color_2;
-        margin-left: 12px;
+        margin-left: 12.6px;
     }
 }
+
+    .a2{
+        font-size: 13px;
+    }
 
 .bottomdetail {
     padding-top: 2rem;

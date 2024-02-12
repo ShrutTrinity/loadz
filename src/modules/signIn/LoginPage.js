@@ -28,11 +28,11 @@ const LoginPage = () => {
                             <h6 className={styles.heading}>Login to your account</h6>
                             <form>
                                 <div className={styles.formControl1}>
-                                    <TextField id="standard-basic" required label="Email &nbsp; " variant="standard" InputProps={{ disableUnderline: true ,
+                                    <TextField id="standard-basic" required label="Email&nbsp; " variant="standard" InputProps={{ disableUnderline: true ,
                                         endAdornment: (<div className={styles.icon}><EmailIcon /></div>) }} />
                                 </div>
                                 <div className={styles.formControl1}>
-                                    <TextField id="standard-basic" required label="Password  &nbsp;" variant="standard" type={showPassword ? 'text' : 'password'}
+                                    <TextField id="standard-basic" required label="Password &nbsp;" variant="standard" type={showPassword ? 'text' : 'password'}
                                         InputProps={{
                                             disableUnderline: true,
                                             endAdornment: (
