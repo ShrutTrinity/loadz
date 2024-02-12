@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles/company.module.scss'
 import Logo from '../signIn/images/loadzlogo.png'
+import phone from './images/phone.png'
 
 const Company = () => {
     return (
@@ -48,7 +49,7 @@ const Company = () => {
                                 </div>
                             </div>
                             <div >
-                                <img className={styles.phnImage} src='https://app.loadz.com/assets/images/phone.png' alt='phone' />
+                                <img className={styles.phnImage} src={phone}alt='phone' />
                             </div>
                         </div>
                     </div>
