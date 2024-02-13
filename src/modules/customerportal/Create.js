@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logo from '../signIn/images/loadzlogo.png';
+import Logo from '../../images/loadzlogo.png';
 import styles from './styles/createNew.module.scss';
 import SecurityUpdateGoodIcon from '@mui/icons-material/SecurityUpdateGood';
 import VisibilityIcon from '@mui/icons-material/Visibility';

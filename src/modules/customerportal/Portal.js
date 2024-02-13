@@ -49,7 +49,7 @@ const Portal = () => {
                                         <div className={styles.label}>Remember Me</div>
                                     </div>
                                     <div className={styles.secondPart}>
-                                        <RouterLink className={styles.a1} style={{fontSize:'12px'}} to='/forgetPass'>Forgot Password?</RouterLink>
+                                        <RouterLink className={styles.a1} style={{fontSize:'12px'}} to='/forgetPassword'>Forgot Password?</RouterLink>
                                     </div>
                                 </div>
                                 <div className={styles.rules}>
