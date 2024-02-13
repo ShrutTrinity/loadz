@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './styles/company.module.scss'
 import Logo from '../signIn/images/loadzlogo.png'
 import phone from './images/phone.png'
-
 const Company = () => {
     return (
         <>
@@ -60,14 +59,8 @@ const Company = () => {
                                 <img className={styles.logo} src={Logo} alt='logo' />
                                 <button className={styles.getstarted} > Get Started</button>
                             </div>
-
                         </div>
-
-
-
-
                     </div>
-
                 </div>
             </div>
         </>
