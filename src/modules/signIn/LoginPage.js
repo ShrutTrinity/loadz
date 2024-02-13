@@ -52,7 +52,7 @@ const LoginPage = () => {
                                                 color: grey[900],
                                             },
                                         }} />
-                                        <div className={styles.label}>Remember Me</div>
+                                        <div className={styles.label1}>Remember Me</div>
                                     </div>
                                     <RouterLink className={styles.a} to='/forgetPass'>Forgot Password?</RouterLink>
                                 </div>
