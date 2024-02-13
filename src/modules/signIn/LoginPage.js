@@ -10,9 +10,9 @@ import EmailIcon from '@mui/icons-material/Email';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link as RouterLink } from 'react-router-dom';
-import Card from '../../card/Card';
+import Card from '../../components/card/Card';
 
-
+const versions = "V1.0.0/ v1.0.1"
 const LoginPage = () => {
     const formik = useFormik({
         initialValues: {
@@ -118,7 +118,7 @@ const LoginPage = () => {
                                 Want to Pay Hauling Invoices?
                             </RouterLink>
                        </Card>
-                <span style={{ color: 'white' }}>V1.0.0/ v1.0.1</span>
+                <span style={{ color: 'white' }}>{versions}</span>
             </div>
             <div className={styles.toolbar}>
                 <div className={styles.toolbarDetail}>
