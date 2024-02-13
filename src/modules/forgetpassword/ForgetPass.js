@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styles from './styles/forgetpassword.module.scss'
 import Card from '../../card/Card';
 import EmailIcon from '@mui/icons-material/Email';
@@ -8,6 +8,8 @@ import { Link as RouterLink } from 'react-router-dom';
 
 
 const ForgetPass = () => {
+  
+
   return (
     <>
       <div className={styles.container}>
@@ -33,8 +35,7 @@ const ForgetPass = () => {
         </Card>
       </div>
     </>
-  )
+  );
 }
 
-export default ForgetPass
-
+export default ForgetPass;

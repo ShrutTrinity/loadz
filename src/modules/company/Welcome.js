@@ -2,8 +2,7 @@ import React from 'react'
 import styles from './styles/company.module.scss'
 import Logo from '../../images/loadzlogo.png'
 import phone from './images/phone.png'
-
-const Company = () => {
+const Welcome = () => {
     return (
         <>
             <div className={styles.container}>
@@ -60,18 +59,12 @@ const Company = () => {
                                 <img className={styles.logo} src={Logo} alt='logo' />
                                 <button className={styles.getstarted} > Get Started</button>
                             </div>
-
                         </div>
-
-
-
-
                     </div>
-
                 </div>
             </div>
         </>
     )
 }
 
-export default Company
+export default Welcome

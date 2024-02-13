@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import styles from './styles/loginPage.module.scss'
+import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import styles from './styles/loginPage.module.scss';
 import TextField from '@mui/material/TextField';
 import { grey } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
@@ -10,7 +12,21 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link as RouterLink } from 'react-router-dom';
 import Card from '../../card/Card';
 
+const versions = "V1.0.0/ v1.0.1"
 const LoginPage = () => {
+    const formik = useFormik({
+        initialValues: {
+            password: '',
+            rememberMe: false,
+        },
+        validationSchema: Yup.object({
+            password: Yup.string().min(8, 'Password is too short')
+         
+        }),
+        onSubmit: (values) => {
+            console.log(values);
+        },
+    });
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -86,7 +102,7 @@ const LoginPage = () => {
             Want to Pay Hauling Invoices?
           </RouterLink>
         </Card>
-        <span style={{ color: 'white' }}>V1.0.0/ v1.0.1</span>
+        <span style={{ color: 'white' }}>{versions}</span>
       </div>
       <div className={styles.toolbar}>
         <div className={styles.toolbarDetail}>

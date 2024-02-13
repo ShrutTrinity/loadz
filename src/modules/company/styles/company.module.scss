@@ -94,19 +94,16 @@
         display: flex;
         position: relative;
 
-        // padding: 20px 0 0 90px;
         .videodiv {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
-            // height: 100%;
             margin-left: 20px;
 
             .video {
                 height: 60%;
-                // margin-left: 20px;
                 width: 72%;
             }
 
