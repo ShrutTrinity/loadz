@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './styles/forgetpassword.module.scss'
-import Logo from '../signIn/images/loadzlogo.png'
+import React from 'react';
+import styles from './styles/forgetpassword.module.scss';
+import Logo from '../signIn/images/loadzlogo.png';
 import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -8,6 +8,8 @@ import { Link as RouterLink } from 'react-router-dom';
 
 
 const ForgetPass = () => {
+  
+
   return (
     <>
       <div className={styles.container}>
@@ -18,32 +20,43 @@ const ForgetPass = () => {
             </div>
 
             <h6 className={styles.recover}>Recover Your Password</h6>
-            <div className={styles.multiInput}>
-              <TextField required sx={{marginLeft:"0.7rem",borderBottom:'0'}} InputProps={{disableUnderline:true}} id="standard-basic" label="Email &nbsp;" variant="standard" />
-              <div className={styles.icon}>
-                <EmailIcon sx={{ fontSize: 20 }} />
+            <form >
+              <div className={styles.multiInput}>
+                <TextField
+                  sx={{ marginLeft: "0.7rem", borderBottom: '0', zIndex: '2' }}
+                  type='email'
+                  InputProps={{ disableUnderline: true }}
+                  id="email"
+                  name="email"
+                  label="Email &nbsp;"
+                  required
+                  variant="standard"
+                
+                />
 
+                <div className={styles.icon}>
+                  <EmailIcon sx={{ fontSize: 20 }} />
+                </div>
               </div>
 
-            </div>
-        
-            <Button variant="contained"   sx={{  textTransform: 'none',backgroundColor:"black",borderRadius:18,width:"14rem",":hover":{backgroundColor:"black"}}}>
-            <RouterLink to="#" className={styles.resetlink}>Send reset link</RouterLink>
-            
-            </Button>
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{ textTransform: 'none', backgroundColor: "black", borderRadius: 18, width: "14rem", ":hover": { backgroundColor: "black" } }}
+              >
+                <RouterLink to="#" className={styles.resetlink}>Send reset link</RouterLink>
+              </Button>
+            </form>
             <div>
               <div className={styles.link}>
-              
-              <RouterLink to="/" >{'Go Back To Login'}</RouterLink>
-              
+                <RouterLink to="/" >{'Go Back To Login'}</RouterLink>
               </div>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default ForgetPass
-
+export default ForgetPass;

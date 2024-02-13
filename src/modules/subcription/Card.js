@@ -17,7 +17,7 @@ const Card = (props) => {
         <button className={styles.startFreeButton}><Link to='/subscription/company' className={styles.btntext}>Start for Free</Link></button>
         <p className={styles.trialText}>30 day free trial to start</p>
       </div>
-    </div>
+    </div>    
   )
 }
 

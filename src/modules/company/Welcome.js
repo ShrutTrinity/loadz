@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles/company.module.scss'
 import Logo from '../signIn/images/loadzlogo.png'
 import phone from './images/phone.png'
-const Company = () => {
+const Welcome = () => {
     return (
         <>
             <div className={styles.container}>
@@ -67,4 +67,4 @@ const Company = () => {
     )
 }
 
-export default Company
+export default Welcome

@@ -48,7 +48,7 @@
 .formControl1 {
     background-color: $color_4;
     width: 260px;
-    padding: 6px 9px;
+    padding: 0px 9px;
     display: flex;
     margin-bottom: 16px;
     @include flex-row();
@@ -61,6 +61,24 @@
         cursor: pointer;
         padding-bottom: 10px
     }
+}
+.formControl11 {
+    background-color: $color_4;
+    width: 260px;
+    padding: 0px 9px;
+    display: flex;
+    // margin-bottom: 16px;
+    @include flex-row();
+
+    .icon {
+        display: flex;
+        margin: 0 0 0 2rem;
+        align-items: center;
+        height: auto;
+        cursor: pointer;
+        padding-bottom: 10px
+    }
+    
 }
 
 .bottomform {
