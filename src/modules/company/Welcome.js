@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles/company.module.scss'
 import Logo from '../../images/loadzlogo.png'
-import phone from './images/phone.png'
+import phone from '../../images/phone.png'
 const Welcome = () => {
     return (
         <>

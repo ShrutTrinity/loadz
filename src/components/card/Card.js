@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../images/loadzlogo.png';
-import styles from '../modules/signIn/styles/loginPage.module.scss';
+import Logo from '../../images/loadzlogo.png';
+import styles from '../../modules/signIn/styles/loginPage.module.scss';
 
 const Card = ({children}) => {
     return (
