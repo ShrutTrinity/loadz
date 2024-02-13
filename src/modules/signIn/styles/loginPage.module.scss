@@ -34,6 +34,10 @@
     width: 8rem;
     margin: 2rem;
 }
+.a2{
+        font-size: 13px;
+    color: blue
+}
 
 .heading {
     font-size: 24px;
@@ -55,6 +59,7 @@
         align-items: center;
         height: auto;
         cursor: pointer;
+        padding-bottom: 10px
     }
 }
 
@@ -67,9 +72,9 @@
         margin: 0;
         padding: 0;
 
-        .label {
+        .label1 {
             font-size: 0.813rem;
-            margin-left: -5px;
+            margin-left: -6px;
         }
     }
 
@@ -113,4 +118,10 @@
 		margin-left: 1rem;
 		font-size: 0.813rem;
 	}
+}
+
+@media screen and (max-width:350px){
+    .card{
+        padding: 5px;
+    }
 }

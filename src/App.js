@@ -7,7 +7,9 @@ import Subscription from './modules/subcription/Subscription'
 import Termsconditions from './modules/signIn/Termsconditions'
 import Privacy from './modules/signIn/Privacy'
 import Create from './modules/customerportal/Create';
-import Create01 from './modules/createaccount/Create01';
+import Company from './modules/company/Company';
+
+
 
 const App = () => {
  
@@ -23,7 +25,7 @@ const App = () => {
           <Route exact path='/terms' element={<Termsconditions/>} />
           <Route exact path='/privacy' element={<Privacy/>} />
           <Route exact path='/customeportal-signup' element={<Create/>} />
-          <Route exact path='/subscription/company/1' element={<Create01/>} />
+          <Route exact path='/subscription/company' element={<Company />} />
         </Routes>
       </Router>
     </>
