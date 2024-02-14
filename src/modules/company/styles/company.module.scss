@@ -85,7 +85,6 @@
             }
         }
 
-
     }
 
     .col2 {
@@ -293,5 +292,17 @@
             }
         }}
 
+    }
+}
+@media only screen and (max-height: 600px){
+    .flex{
+        .col1{
+            height: auto;
+            .videodiv2{
+                .video2{
+                    height: 200px;
+                }
+            }
+        }
     }
 }

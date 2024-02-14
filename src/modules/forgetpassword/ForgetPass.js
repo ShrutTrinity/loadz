@@ -19,7 +19,9 @@ const ForgetPass = () => {
             <form >
               <div className={styles.multiInput}>
                 <TextField
-                  sx={{ marginLeft: "0.7rem", borderBottom: '0', zIndex: '2' }}
+                  sx={{ marginLeft: "0.7rem", borderBottom: '0', zIndex: '2' ,'& .MuiInputLabel-root': {
+                                        fontSize: 13,
+                                    },}}
                   type='email'
                   InputProps={{ disableUnderline: true }}
                   id="email"

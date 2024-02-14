@@ -17,10 +17,12 @@ $font-family_1: poppins;
 	align-items: center;
 	justify-content: center;
 }
+
 @mixin flex-column () {
     display: flex;
     align-items: center;
 }
+
 @mixin flex-row () {
     display: flex;
 	justify-content: center
