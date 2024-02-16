@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import CustomStepper from '../../components/stepper/CustomStepper'
 import BoxComponent from '../../components/formBox/Box';
 import Logo from '../../images/loadzlogo.png';
@@ -12,11 +12,12 @@ import Button from '@mui/material/Button';
 import persionImage from '../../images/uploadpicture.svg'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import {Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import Send from '../../components/uploadFile/Send';
+import FilePopUp from '../../components/uploadPopUp';
 
 
-const CustomTextField = ({ label, placeholder,type ,children4 }) => {
+const CustomTextField = ({ label, placeholder, type, children4 }) => {
   return (
     <FormControl
       sx={{
@@ -42,13 +43,28 @@ const CustomTextField = ({ label, placeholder,type ,children4 }) => {
 const CreateAccount = () => {
 
   const [showPassword, setShowPassword] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleClickOpen = () => {
+    setShowPopUp(!showPopUp)
+  };
+  const handleClosePop = () => {
+    setShowPopUp(false);
+  }
+
+  const handleImageSelect = (imageUrl) => {
+    setSelectedImage(imageUrl);
+
+  };
 
   return (
     <>
+      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onClose={handleClosePop}/>}
       <CustomStepper currentstep='1' />
       <BoxComponent className={styles.mainContainer}
         children1={
@@ -86,10 +102,10 @@ const CreateAccount = () => {
                 </div>
                 <CustomTextField
                   label="Password"
-                  type= {showPassword ? 'text' : 'password'}
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   children4={
-                    <div style={{cursor:'pointer'}} onClick={togglePasswordVisibility}>
+                    <div style={{ cursor: 'pointer' }} onClick={togglePasswordVisibility}>
                       {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
                     </div>
                   }
@@ -151,11 +167,7 @@ const CreateAccount = () => {
                   <a href='/'>Login</a>
                 </div>
               </div>
-              <Send 
-                children={
-                  <img src={persionImage} alt='Upload person logo' /> 
-                }
-              />
+              <Send children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={persionImage} alt='Default Person logo' onClick={handleClickOpen} />} />
             </div>
           </form>
         }

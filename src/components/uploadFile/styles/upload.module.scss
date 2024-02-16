@@ -13,10 +13,21 @@
         padding: 0 32px;
         @include center();
         width: 100%;
+        cursor: pointer;
+    }
+}
 
-        img{
-            width: 100%;
-            cursor: pointer;
-        }
+
+@media screen and (max-width : 960px) {
+    .mainDiv{
+        flex-direction: column-reverse;
+    }
+    .firstHalf{
+        width: 100%;
+        padding: 0;
+    }
+    .secondHalf{
+        width: 100%;
+        margin: 0 0 ;
     }
 }

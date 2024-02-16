@@ -67,6 +67,10 @@
     font-size: 13px;
 }
 
+img{
+    max-width: 100%;
+}
+
 @media screen and (max-width : 960px) {
     .mainDiv{
         flex-direction: column-reverse;

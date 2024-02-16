@@ -1,0 +1,63 @@
+@import '../../../modules/styleVariables.scss';
+
+.root {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0px;
+    height: 100vh;
+    width: 100vw;
+
+    .container {
+        width: auto;
+        height: 320px;
+        @include flex-row();
+        background-color: white;
+        margin: 32px;
+        border-radius: 4px;
+
+        label {
+            cursor: pointer;
+            position: relative;
+            @include center();
+            padding: 10px 0;
+
+            .input {
+                position: absolute;
+                padding: 6px 0;
+                pointer-events: none;
+                display: block;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.bordercover {
+    margin: 10px;
+    border-radius: 10px;
+    border: 10px dashed #add8e6;
+    width: 306px;
+    height: 100%;
+    text-align: center;
+    padding: 0;
+    @include center();
+
+    .popImage{
+        padding: 0;
+        @include flex-column();
+        flex-direction: column;
+    
+        img{
+            width: 60px;
+        }
+        .fileFormate{
+            font-size: 13px;
+            display: flex;
+            gap: 4px;
+        }
+    }
+}
