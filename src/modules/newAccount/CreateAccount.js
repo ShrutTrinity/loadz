@@ -1,4 +1,4 @@
-import React, {  useState  } from 'react'
+import React, { useState } from 'react'
 import CustomStepper from '../../components/stepper/CustomStepper'
 import BoxComponent from '../../components/formBox/Box';
 import Logo from '../../images/loadzlogo.png';
@@ -10,44 +10,15 @@ import Button from '@mui/material/Button';
 import persionImage from '../../images/uploadpicture.svg'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import {  Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import Send from '../../components/uploadFile/Send';
-import FilePopUp from '../../components/uploadPopUp';
-
-
-const CustomTextField = ({ label, placeholder, type, children4 }) => {
-  return (
-    <FormControl
-      sx={{
-        width: '100%'
-      }}
-      variant="standard">
-      <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
-      <TextField
-        sx={{
-          width: '100%',
-          marginBottom: '16px'
-        }}
-        type={type}
-        placeholder={placeholder} required id="fullWidth"
-        InputProps={{
-          endAdornment: (children4)
-        }}
-      />
-    </FormControl>
-  )
-}
 import useVideoPopup from '../../hooks/useVideopopup'
 import Video from '../../components/videotag'
-
-
 import CustomTextField from '../../components/textfield/CustomeTextfield';
 
 const CreateAccount = () => {
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showPopUp, setShowPopUp] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -59,21 +30,8 @@ const CreateAccount = () => {
   };
 
 
-  const handleClickOpen = () => {
-    setShowPopUp(!showPopUp)
-  };
-  const handleClosePop = () => {
-    setShowPopUp(false);
-  }
-
-  const handleImageSelect = (imageUrl) => {
-    setSelectedImage(imageUrl);
-
-  };
-
   return (
     <>
-      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onClose={handleClosePop}/>}
        {isPopupOpen && <Video
         className={styles.popup}
         setIsOpen={handleToggle}  
@@ -123,7 +81,7 @@ const CreateAccount = () => {
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   children4={
-                    <div style={{  cursor:  'pointer'  }} onClick={togglePasswordVisibility}>
+                    <div style={{ cursor: 'pointer' }} onClick={togglePasswordVisibility}>
                       {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
                     </div>
                   }
@@ -185,7 +143,11 @@ const CreateAccount = () => {
                   <a href='/'>Login</a>
                 </div>
               </div>
-              <Send children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={persionImage} alt='Default Person logo' onClick={handleClickOpen} />} />
+              <Send
+                children={
+                  <img src={persionImage} alt='Upload person logo' />
+                }
+              />
             </div>
           </form>
         }

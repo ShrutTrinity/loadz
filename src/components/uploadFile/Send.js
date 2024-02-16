@@ -6,6 +6,7 @@ const Send = ({children}) => {
     <div className={styles.secondHalf}>
     <div className={styles.secondContainer}>
       <div className={styles.upload}>
+        {/* <img src={persionImage} alt='Upload person logo' /> */}
         {children}
       </div>
     </div>
