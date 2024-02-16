@@ -27,7 +27,6 @@ const ForgetPass = () => {
                   label="Email &nbsp;"
                   required
                   variant="standard"
-                
                 />
 
                 <div className={styles.icon}>
