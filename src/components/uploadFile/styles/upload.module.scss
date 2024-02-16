@@ -1,0 +1,22 @@
+@import '../../../modules/styleVariables.scss';
+
+.secondHalf{
+    width: 33.33%;
+    margin-top: 20px;
+
+    .secondContainer{
+        @include center();
+        margin-bottom: 32px;
+    }
+
+    .upload{
+        padding: 0 32px;
+        @include center();
+        width: 100%;
+
+        img{
+            width: 100%;
+            cursor: pointer;
+        }
+    }
+}
