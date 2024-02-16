@@ -8,7 +8,6 @@ const Card = ({children,button}) => {
             <div className={styles.card}>
             {button}
                 <div className={styles.cardDetail}>
-                    
                         <img className={styles.logo} src={Logo} alt='logo' />
                         {children}
                 </div>

@@ -1,0 +1,41 @@
+@import "../../styleVariables.scss";
+.form{
+    padding: 0 50px;
+}
+.companySetup{
+    @include center();
+    float: left;
+    
+
+    .label{
+        font-size: 20px;
+        font-weight: 600;
+
+    }
+    .custom-toggle-switch {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: white;
+        margin-right: 10px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .label {
+        color: rgb(0, 0, 0);
+      }
+      
+      .custom-toggle-switch.on .circle {
+        background-color: yellow;
+      }
+      
+      .custom-toggle-switch.off {
+        background-color: black;
+      }
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles/company.module.scss'
 import Logo from '../../images/loadzlogo.png'
 import phone from '../../images/phone.png'
+import { Link } from 'react-router-dom'
 const Welcome = () => {
     return (
         <>
@@ -57,7 +58,9 @@ const Welcome = () => {
                             <iframe src="https://player.vimeo.com/video/785867459?h=9407503e01" className={styles.video} title="Vimeo video" allowfullscreen></iframe>
                             <div className={styles.flex3}>
                                 <img className={styles.logo} src={Logo} alt='logo' />
+                               <Link to='/'>
                                 <button className={styles.getstarted} > Get Started</button>
+                                </Link>
                             </div>
                         </div>
                     </div>

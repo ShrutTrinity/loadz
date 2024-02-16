@@ -26,10 +26,9 @@ const ForgetPass = () => {
                   InputProps={{ disableUnderline: true }}
                   id="email"
                   name="email"
-                  label="Email &nbsp;"
+                  label="Email"
                   required
                   variant="standard"
-                
                 />
 
                 <div className={styles.icon}>

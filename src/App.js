@@ -11,6 +11,7 @@ import Welcome from './modules/company/Welcome';
 import Otppage from './modules/OTP/Otppage';
 import Index from './components/videotag';
 import RecoverPassword from './modules/recoverpassword';
+import SetupPreference from './modules/setupPreference';
 
 const App = () => {
  
@@ -29,6 +30,7 @@ const App = () => {
           <Route exact path='/subscription/company/1' element={<Otppage />} />
           <Route exact path='/forgetPassword/id' element={<RecoverPassword />} />
           <Route exact path='/a' element={<Index />} />
+          <Route exact path='/b' element={<SetupPreference />} />
         </Routes>
       </Router>
     </>
