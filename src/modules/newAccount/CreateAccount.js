@@ -15,30 +15,11 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link as RouterLink } from 'react-router-dom';
 import Send from '../../components/uploadFile/Send';
 import FilePopUp from '../../components/uploadPopUp';
+import useVideoPopup from '../../hooks/useVideopopup'
+import Video from '../../components/videotag'
+import CustomTextField from '../../components/textfield/CustomeTextfield';
 
 
-const CustomTextField = ({ label, placeholder, type, children4 }) => {
-  return (
-    <FormControl
-      sx={{
-        width: '100%'
-      }}
-      variant="standard">
-      <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
-      <TextField
-        sx={{
-          width: '100%',
-          marginBottom: '16px'
-        }}
-        type={type}
-        placeholder={placeholder} required id="fullWidth"
-        InputProps={{
-          endAdornment: (children4)
-        }}
-      />
-    </FormControl>
-  )
-}
 
 const CreateAccount = () => {
 
@@ -61,11 +42,24 @@ const CreateAccount = () => {
     setSelectedImage(imageUrl);
   };
 
+  const { isPopupOpen, handleToggle }  = useVideoPopup();
+  const handleClick = () => {
+    handleToggle();
+  };
+
   return (
     <>
+      {isPopupOpen && <Video
+        className={styles.popup}
+        setIsOpen={handleToggle}  
+        srcLink='https://player.vimeo.com/video/785867491'
+        title='COMPANY SETUP' 
+        discription='Create your companys administrators account'
+        
+      />}
       {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onClose={handleClosePop}/>}
       <CustomStepper currentstep='1' />
-      <BoxComponent className={styles.mainContainer}
+      <BoxComponent className={styles.mainContainer}   handleClick={handleClick}
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
         }

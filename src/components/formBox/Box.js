@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './styles/box.module.scss';
 import help from '../../images/help.svg';
-// import LoginPage from '../../modules/signIn/LoginPage'
 
-const Box = ({ children1, children2, children3 }) => {
+
+const Box = ({ children1, children3 ,handleClick}) => {
 
     return (
         <>
@@ -13,7 +13,7 @@ const Box = ({ children1, children2, children3 }) => {
                         <div className={styles.header}>
                             {children1}
                             <div className={styles.content2}>
-                                <img src={help} className={styles.helpLogo} alt='helpLogo' />
+                                <img src={help} className={styles.helpLogo} onClick={handleClick} alt='helpLogo' />
                                 {/* {isOpen && <LoginPage videoLink={children2} />} */}
                             </div>
                         </div>

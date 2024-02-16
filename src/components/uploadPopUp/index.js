@@ -3,20 +3,20 @@ import styles from './styles/popup.module.scss'
 
 const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose }) => {
 
-  const popUpRef = useRef();
+  // const popUpRef = useRef();
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (popUpRef.current && !popUpRef.current.contains(event.target)) {
-        onClose();
-      }
-    }
-    document.addEventListener('click', handleClickOutside);
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (popUpRef.current && !popUpRef.current.contains(event.target)) {
+  //       onClose();
+  //     }
+  //   }
+  //   document.addEventListener('click', handleClickOutside);
 
-    return () => {
-      document.removeEventListener('click', handleClickOutside)
-    }
-  },[onClose])
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutside)
+  //   }
+  // },[onClose])
 
 
   const handleFileChange = (event) => {
@@ -32,7 +32,7 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose }) => {
 
 
   return (
-    <div className={styles.root} ref={popUpRef}>
+    <div className={styles.root} >
       <div className={styles.container}>
         <label>
           <input type='file' className={styles.input} onChange={handleFileChange} />
