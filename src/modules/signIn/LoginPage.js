@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles/loginPage.module.scss';
@@ -21,15 +21,14 @@ const LoginPage = () => {
             rememberMe: false,
         },
         validationSchema: Yup.object({
-            password: Yup.string().required('Please enter your password').min(8, 'Password is too short')
-
+            password: Yup.string().min(8, 'Password is too short')
         }),
         onSubmit: (values) => {
             console.log(values);
         },
     });
 
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);

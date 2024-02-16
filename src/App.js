@@ -8,6 +8,7 @@ import Termsconditions from './modules/signIn/Termsconditions'
 import Privacy from './modules/signIn/Privacy'
 import Create from './modules/customerportal/Create';
 import Welcome from './modules/company/Welcome';
+import CreateAccount from './modules/newAccount/CreateAccount';
 import Otppage from './modules/OTP/Otppage';
 import Index from './components/videotag';
 import RecoverPassword from './modules/recoverpassword';
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path='/terms' element={<Termsconditions/>} />
           <Route exact path='/privacy' element={<Privacy/>} />
           <Route exact path='/customeportal-signup' element={<Create/>} />
+          <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/0' element={<Welcome />} />
           <Route exact path='/subscription/company/1' element={<Otppage />} />
           <Route exact path='/forgetPassword/id' element={<RecoverPassword />} />
