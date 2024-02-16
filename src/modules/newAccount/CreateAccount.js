@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import persionImage from '../../images/uploadpicture.svg'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Link as RouterLink } from 'react-router-dom';
+import {Link as RouterLink } from 'react-router-dom';
 import Send from '../../components/uploadFile/Send';
 
 
@@ -157,7 +157,7 @@ const CreateAccount = () => {
                 }
               />
             </div>
-          </form >
+          </form>
         }
       />
     </>
