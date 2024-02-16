@@ -3,12 +3,14 @@
 * {
     padding: 0;
     margin: 0;
+
     font-family: $font-family_1;
 }
 
 .frameRoot {
     @include center();
     flex-direction: column;
+    
 }
 
 .subRoot {
@@ -19,6 +21,7 @@
 .mainContainer {
     margin: 0 15px;
     padding: 0px 16px 0px 16px;
+    z-index: 0;
 
     .header {
         display: flex;
