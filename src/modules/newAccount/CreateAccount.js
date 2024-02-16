@@ -1,10 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import CustomStepper from '../../components/stepper/CustomStepper'
 import BoxComponent from '../../components/formBox/Box';
 import Logo from '../../images/loadzlogo.png';
 import styles from './styles/new.module.scss';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
 import EmailIcon from '@mui/icons-material/Email';
 import { grey } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
@@ -12,49 +10,45 @@ import Button from '@mui/material/Button';
 import persionImage from '../../images/uploadpicture.svg'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import {Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import Send from '../../components/uploadFile/Send';
+import useVideoPopup from '../../hooks/useVideopopup'
+import Video from '../../components/videotag'
 
 
-const CustomTextField = ({ label, placeholder,type ,children4 }) => {
-  return (
-    <FormControl
-      sx={{
-        width: '100%'
-      }}
-      variant="standard">
-      <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
-      <TextField
-        sx={{
-          width: '100%',
-          marginBottom: '16px'
-        }}
-        type={type}
-        placeholder={placeholder} required id="fullWidth"
-        InputProps={{
-          endAdornment: (children4)
-        }}
-      />
-    </FormControl>
-  )
-}
+import CustomTextField from '../../components/textfield/CustomeTextfield';
 
 const CreateAccount = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+ 
+  const { isPopupOpen, handleToggle }  = useVideoPopup();
+  const handleClick = () => {
+    handleToggle();
+  };
+
 
   return (
     <>
+       {isPopupOpen && <Video
+        className={styles.popup}
+        setIsOpen={handleToggle}  
+        srcLink='https://player.vimeo.com/video/785867491'
+        title='COMPANY SETUP' 
+        discription='Create your companys administrators account'
+        
+      />}
       <CustomStepper currentstep='1' />
-      <BoxComponent className={styles.mainContainer}
+      <BoxComponent className={styles.mainContainer}  handleClick={handleClick}
+
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
         }
-        children2={''}
+  
         children3={
           <form>
             <div className={styles.mainDiv}>
@@ -86,10 +80,10 @@ const CreateAccount = () => {
                 </div>
                 <CustomTextField
                   label="Password"
-                  type= {showPassword ? 'text' : 'password'}
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   children4={
-                    <div style={{cursor:'pointer'}} onClick={togglePasswordVisibility}>
+                    <div style={{ cursor: 'pointer' }} onClick={togglePasswordVisibility}>
                       {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
                     </div>
                   }
@@ -151,15 +145,16 @@ const CreateAccount = () => {
                   <a href='/'>Login</a>
                 </div>
               </div>
-              <Send 
+              <Send
                 children={
-                  <img src={persionImage} alt='Upload person logo' /> 
+                  <img src={persionImage} alt='Upload person logo' />
                 }
               />
             </div>
           </form>
         }
       />
+
     </>
   )
 }
