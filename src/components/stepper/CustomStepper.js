@@ -85,7 +85,7 @@ const CustomStepper = ({ currentstep }) => {
 
 
     return (
-        displayStepper &&  <Stepper sx={{position: 'relative'}}
+        displayStepper &&  <Stepper
                 activeStep={currentstep - 1}
                 alternativeLabel
                 connector={<CustomStepConnector />}
