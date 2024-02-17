@@ -3,8 +3,6 @@ import CustomStepper from '../../components/stepper/CustomStepper'
 import BoxComponent from '../../components/formBox/Box';
 import Logo from '../../images/loadzlogo.png';
 import styles from './styles/new.module.scss';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
 import EmailIcon from '@mui/icons-material/Email';
 import { grey } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
@@ -31,8 +29,9 @@ const CreateAccount = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleClickOpen = () => {
-    setShowPopUp(!showPopUp)
+  const handleClickOpen = (event) => {
+    event.stopPropagation();
+    setShowPopUp(true)
   };
   const handleClosePop = () => {
     setShowPopUp(false);
@@ -40,6 +39,7 @@ const CreateAccount = () => {
 
   const handleImageSelect = (imageUrl) => {
     setSelectedImage(imageUrl);
+    setShowPopUp(false)
   };
 
   const { isPopupOpen, handleToggle }  = useVideoPopup();
@@ -57,8 +57,9 @@ const CreateAccount = () => {
         discription='Create your companys administrators account'
         
       />}
-      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onClose={handleClosePop}/>}
-      <CustomStepper currentstep='1' />
+      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onOpen={handleClickOpen} onClose={handleClosePop}/>}
+
+ <CustomStepper currentstep='1'  /> 
       <BoxComponent className={styles.mainContainer}   handleClick={handleClick}
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />

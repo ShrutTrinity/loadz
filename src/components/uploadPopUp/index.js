@@ -1,23 +1,22 @@
-import React, { useRef, useEffect } from 'react'
-import styles from './styles/popup.module.scss'
+import React, { useRef, useEffect } from 'react';
+import styles from './styles/popup.module.scss';
 
-const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose }) => {
+const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,onOpen }) => {
+  const popUpRef = useRef();
 
-  // const popUpRef = useRef();
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popUpRef.current && !popUpRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (popUpRef.current && !popUpRef.current.contains(event.target)) {
-  //       onClose();
-  //     }
-  //   }
-  //   document.addEventListener('click', handleClickOutside);
+    document.addEventListener('click', handleClickOutside);
 
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside)
-  //   }
-  // },[onClose])
-
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [onClose]);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -30,26 +29,24 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose }) => {
     }
   };
 
-
   return (
-    <div className={styles.root} >
+    <div className={styles.root}>
       <div className={styles.container}>
-        <label>
+        <label ref={popUpRef}>
           <input type='file' className={styles.input} onChange={handleFileChange} />
           <div className={styles.bordercover}>
             <div className={styles.popImage}>
-              <img src={imageUrlforPopUp} alt="person logo" />
+              <img src={imageUrlforPopUp} alt="person logo" onClick={(event) => onOpen(event)}  />
               &nbsp;
               <div className={styles.fileFormate}>
-                JPEG ,PNG ,JPG
+                JPEG, PNG, JPG
               </div>
             </div>
           </div>
         </label>
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-export default FilePopUp
+export default FilePopUp;
