@@ -1,10 +1,10 @@
 import React from 'react'
 import WestIcon from '@mui/icons-material/West';
 
-const Reversebtn = () => {
+const Reversebtn = ({onBack}) => {
   return (
     <>
-      <WestIcon fontSize="small" />
+      <WestIcon fontSize="small" sx={{cursor:'pointer'}}  onClick={onBack} />
     </>
   )
 }

@@ -7,7 +7,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Card from '../../components/card/Card';
 import Reversebtn from '../../components/button/Reversebtn';
 
-const Otppage = () => {
+const Otppage = ({childrenForCloseOtp}) => {
   const email = ' fenikothadiya@gmail.com'
 
 
@@ -15,48 +15,49 @@ const Otppage = () => {
     <>
       <div className={styles.container}>
 
-        <Card button={<Reversebtn />}>
-          <h6 className={styles.recover}>Please Enter OTP we've send to <br /> 
+        <Card button={<Reversebtn onBack={childrenForCloseOtp}/>} >
+        <h6 className={styles.recover}>Please Enter OTP we've send to <br />
           <b style={{ fontWeight: 700 }}>{email} </b>
-          </h6>
-          <form >
-            <div className={styles.multiInput}>
-              <TextField
-                sx={{ marginLeft: "0.7rem", borderBottom: '0', zIndex: '2',
-                                    '& .MuiInputLabel-root': {
-                                        fontSize: 13,
-                                    },
-                                }} 
-                type='email'
-                InputProps={{ disableUnderline: true }}
-                id="email"
-                name="email"
-                label="OTP"
-                required
-                variant="standard"
+        </h6>
+        <form >
+          <div className={styles.multiInput}>
+            <TextField
+              sx={{
+                marginLeft: "0.7rem", borderBottom: '0', zIndex: '2',
+                '& .MuiInputLabel-root': {
+                  fontSize: 13,
+                },
+              }}
+              type='email'
+              InputProps={{ disableUnderline: true }}
+              id="email"
+              name="email"
+              label="OTP"
+              required
+              variant="standard"
 
-              />
+            />
 
-              <div className={styles.icon}>
-                <EmailIcon sx={{ fontSize: 20 }} />
-              </div>
-            </div>
-
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{ textTransform: 'none', marginTop: '10px', backgroundColor: "black", borderRadius: 18, width: "14rem", ":hover": { backgroundColor: "black" } }}
-            >
-              <RouterLink to="#" className={styles.resetlink}>Verify OTP</RouterLink>
-            </Button>
-          </form>
-          <div>
-            <div className={styles.link}>
-              <RouterLink className={styles.link} to="/" >{'Resend OTP'}</RouterLink>
+            <div className={styles.icon}>
+              <EmailIcon sx={{ fontSize: 20 }} />
             </div>
           </div>
-        </Card>
-      </div>
+
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ textTransform: 'none', marginTop: '10px', backgroundColor: "black", borderRadius: 18, width: "14rem", ":hover": { backgroundColor: "black" } }}
+          >
+            <RouterLink to="#" className={styles.resetlink}>Verify OTP</RouterLink>
+          </Button>
+        </form>
+        <div>
+          <div className={styles.link}>
+            <RouterLink className={styles.link} to="/" >{'Resend OTP'}</RouterLink>
+          </div>
+        </div>
+      </Card>
+    </div >
     </>
   );
 }

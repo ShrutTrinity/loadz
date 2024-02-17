@@ -17,13 +17,13 @@ import useVideoPopup from '../../hooks/useVideopopup'
 import Video from '../../components/videotag'
 import CustomTextField from '../../components/textfield/CustomeTextfield';
 import Otppage from '../OTP/Otppage';
+import OtpPopupHandle from '../../hooks/OtpPopupHandle';
 
 const CreateAccount = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [optPopup, setOtpPopUp] = useState(false)
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -45,10 +45,15 @@ const CreateAccount = () => {
   const handleClick = () => {
     handleToggle();
   };
-
-  const handleOtpPopup = () => {
-    setOtpPopUp(!optPopup)
+  
+  const { optPopup, handleOtpPopup,closeOtpPopup } = OtpPopupHandle();
+  const forOtpPopup = () => {
+    handleOtpPopup();
   }
+  const forCloseOtpPopup = () => {
+    closeOtpPopup();
+  }
+
 
   return (
     <>
@@ -60,10 +65,14 @@ const CreateAccount = () => {
         discription='Create your companys administrators account'
 
       />}
-      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onOpen={handleClickOpen} onClose={handleClosePop}/>}
-
- <CustomStepper currentstep='1'  /> 
-      <BoxComponent className={styles.mainContainer}   handleClick={handleClick}
+      {showPopUp && <FilePopUp
+        imageUrlforPopUp={selectedImage || persionImage}
+        onSelect={handleImageSelect}
+        onClose={handleClosePop}
+      />}
+      {optPopup && <Otppage childrenForCloseOtp={forCloseOtpPopup} />}
+      <CustomStepper currentstep='1' />
+      <BoxComponent className={styles.mainContainer} handleClick={handleClick}
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
         }
@@ -143,7 +152,7 @@ const CreateAccount = () => {
                 </div>
                 <div className={styles.button1}>
                   <Button
-                    type='submit'
+                    type='button'
                     variant='contained'
                     sx={{
                       backgroundColor: 'black',
@@ -155,7 +164,7 @@ const CreateAccount = () => {
                       marginTop: '1rem',
                       margin: '0 0rem'
                     }}
-                    onSubmit={handleOtpPopup}
+                    onClick={forOtpPopup}
                   >
                     CREATE AN ACCOUNT
                   </Button>

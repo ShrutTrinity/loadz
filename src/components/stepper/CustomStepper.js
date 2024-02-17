@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
         backgroundColor: 'transparent'
     },
     step: {
-        paddingLeft: '0px !important'
+        paddingLeft: '0px !important', 
     },
     stepIcon: {
         width: '60px',
@@ -101,7 +101,8 @@ const CustomStepper = ({ currentstep }) => {
                             <span style={{
                                 fontSize: "20px",
                                 fontWeight: 'bolder',
-                                padding: '0px'
+                                padding: '0px',
+                                letterSpacing: '0px'
                             }}>{label}</span>
                         </StepLabel>
                     </Step>
