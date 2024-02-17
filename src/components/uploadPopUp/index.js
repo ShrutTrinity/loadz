@@ -1,23 +1,7 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import styles from './styles/popup.module.scss'
 
-const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose }) => {
-
-  // const popUpRef = useRef();
-
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (popUpRef.current && !popUpRef.current.contains(event.target)) {
-  //       onClose();
-  //     }
-  //   }
-  //   document.addEventListener('click', handleClickOutside);
-
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside)
-  //   }
-  // },[onClose])
-
+const FilePopUp = ({ imageUrlforPopUp, onSelect }) => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];

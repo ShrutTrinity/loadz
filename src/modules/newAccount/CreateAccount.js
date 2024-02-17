@@ -3,8 +3,6 @@ import CustomStepper from '../../components/stepper/CustomStepper'
 import BoxComponent from '../../components/formBox/Box';
 import Logo from '../../images/loadzlogo.png';
 import styles from './styles/new.module.scss';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
 import EmailIcon from '@mui/icons-material/Email';
 import { grey } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
@@ -18,14 +16,14 @@ import FilePopUp from '../../components/uploadPopUp';
 import useVideoPopup from '../../hooks/useVideopopup'
 import Video from '../../components/videotag'
 import CustomTextField from '../../components/textfield/CustomeTextfield';
-
-
+import Otppage from '../OTP/Otppage';
 
 const CreateAccount = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [optPopup, setOtpPopUp] = useState(false)
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -37,29 +35,41 @@ const CreateAccount = () => {
   const handleClosePop = () => {
     setShowPopUp(false);
   }
-
   const handleImageSelect = (imageUrl) => {
     setSelectedImage(imageUrl);
+    setShowPopUp(false)
   };
 
-  const { isPopupOpen, handleToggle }  = useVideoPopup();
+  const { isPopupOpen, handleToggle } = useVideoPopup();
   const handleClick = () => {
     handleToggle();
   };
+
+  const handleOtpPopup = () => {
+    setOtpPopUp(!optPopup)
+  }
 
   return (
     <>
       {isPopupOpen && <Video
         className={styles.popup}
-        setIsOpen={handleToggle}  
+        setIsOpen={handleToggle}
         srcLink='https://player.vimeo.com/video/785867491'
-        title='COMPANY SETUP' 
+        title='COMPANY SETUP'
         discription='Create your companys administrators account'
-        
+
       />}
-      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onClose={handleClosePop}/>}
+      {showPopUp && <FilePopUp
+        imageUrlforPopUp={selectedImage || persionImage}
+        onSelect={handleImageSelect}
+        onClose={handleClosePop}
+      />}
+      {
+        optPopup && <Otppage 
+        />
+      }
       <CustomStepper currentstep='1' />
-      <BoxComponent className={styles.mainContainer}   handleClick={handleClick}
+      <BoxComponent className={styles.mainContainer} handleClick={handleClick}
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
         }
@@ -151,6 +161,7 @@ const CreateAccount = () => {
                       marginTop: '1rem',
                       margin: '0 0rem'
                     }}
+                    onSubmit={handleOtpPopup}
                   >
                     CREATE AN ACCOUNT
                   </Button>
