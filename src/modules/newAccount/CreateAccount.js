@@ -16,9 +16,14 @@ import FilePopUp from '../../components/uploadPopUp';
 import useVideoPopup from '../../hooks/useVideopopup'
 import Video from '../../components/videotag'
 import CustomTextField from '../../components/textfield/CustomeTextfield';
-import Otppage from '../OTP/Otppage';
+
+
+
+
 
 const CreateAccount = () => {
+  
+
 
   const [showPassword, setShowPassword] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
@@ -60,10 +65,10 @@ const CreateAccount = () => {
         discription='Create your companys administrators account'
 
       />}
-      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onOpen={handleClickOpen} onClose={handleClosePop}/>}
+      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onOpen={handleClickOpen} onClose={handleClosePop} />}
 
- <CustomStepper currentstep='1'  /> 
-      <BoxComponent className={styles.mainContainer}   handleClick={handleClick}
+      <CustomStepper currentstep='1' />
+      <BoxComponent className={styles.mainContainer} handleClick={handleClick}
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
         }
@@ -75,13 +80,18 @@ const CreateAccount = () => {
                 <CustomTextField
                   label="Enter Address"
                   placeholder="Enter Email"
-                  type="email"
+                  type='email'
+                  name='email'
                   children4={
                     <div className={styles.icon}>
                       <EmailIcon />
                     </div>
                   }
+          
                 />
+               
+         
+              
                 <div className={styles.combiner}>
                   <div className={styles.combine1}>
                     <CustomTextField
@@ -156,6 +166,7 @@ const CreateAccount = () => {
                       margin: '0 0rem'
                     }}
                     onSubmit={handleOtpPopup}
+                 
                   >
                     CREATE AN ACCOUNT
                   </Button>

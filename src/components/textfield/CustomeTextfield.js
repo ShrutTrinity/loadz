@@ -3,7 +3,7 @@ import styles from '../../modules/newAccount/styles/new.module.scss';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 
-const CustomTextField = ({ label, placeholder, type, children4 }) => {
+const CustomTextField = ({ label, placeholder, type, children4}) => {
     return (
       <FormControl
         sx={{
@@ -11,7 +11,7 @@ const CustomTextField = ({ label, placeholder, type, children4 }) => {
         }}
         variant="standard">
         <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
-        <TextField
+        <TextField 
           sx={{
             width: '100%',
             marginBottom: '16px'
@@ -21,6 +21,8 @@ const CustomTextField = ({ label, placeholder, type, children4 }) => {
           InputProps={{
             endAdornment: (children4)
           }}
+          
+       
         />
       </FormControl>
     )

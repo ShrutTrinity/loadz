@@ -15,7 +15,7 @@ const Welcome = () => {
                             <p className={`text-white ${styles.discription}`}>Welcome to Loadz. The next sections will help you get started with the loadz platform.Just follow the instructions in the next, and you ll be up and running in no time.</p>
                         </div>
                         <div className={styles.videodiv2}>
-                            <iframe src="https://player.vimeo.com/video/785867459?h=9407503e01" className={styles.video2} title="Vimeo video" allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/785867459?h=9407503e01" className={styles.video2} title="Vimeo video" allowFullScreen></iframe>
                         </div>
                         <div className={styles.overviewFlex}>
                             <div className={styles.overviewPoint}>
@@ -55,7 +55,7 @@ const Welcome = () => {
                     </div>
                     <div className={styles.col2}>
                         <div className={styles.videodiv}>
-                            <iframe src="https://player.vimeo.com/video/785867459?h=9407503e01" className={styles.video} title="Vimeo video" allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/785867459?h=9407503e01" className={styles.video} title="Vimeo video" allowFullScreen></iframe>
                             <div className={styles.flex3}>
                                 <img className={styles.logo} src={Logo} alt='logo' />
                                <Link to='/subscription/company/1'>
