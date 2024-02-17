@@ -17,7 +17,8 @@ const Video = (props) => {
   return (
     <>
       {isBoxVisible && (
-        <Grid container justifyContent="center" alignItems="center" style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed',zIndex:10 }}>
+        <Grid container justifyContent="center" alignItems="center" 
+        style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed',zIndex:10 }}>
           <Box
             sx={{
               width: '80vw',

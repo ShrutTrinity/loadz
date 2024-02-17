@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles/loginPage.module.scss';
@@ -65,7 +65,7 @@ const LoginPage = () => {
                         </div>
                         <div className={styles.formControl11}>
                             <TextField
-                                sx={{
+                            sx={{
                                     '& .MuiInputLabel-root': {
                                         fontSize: 13,
                                     },
@@ -76,6 +76,7 @@ const LoginPage = () => {
                                 variant='standard'
                                 required
                                 type={showPassword ? 'text' : 'password'}
+                                {...formik.getFieldProps('password')}
                                 InputProps={{
                                     disableUnderline: true,
                                     endAdornment: (
@@ -84,14 +85,12 @@ const LoginPage = () => {
                                         </div>
                                     ),
                                 }}
-                                {...formik.getFieldProps('password')}
+                               
                             />
 
                         </div>
-                        <div style={{ color: 'red', marginBottom: '16px', fontSize: '12px' }}>
-                            {formik.errors.email && formik.touched.email ? (
-                            <div>{}</div>
-                            ) : null}
+                        <div  style={{ color: 'red', marginBottom: '16px', fontSize: '12px' }}>
+                            {formik.touched.password && formik.errors.password}
                         </div>
                         <div className={styles.bottomform}>
                             <div className={styles.checkbox}>

@@ -6,6 +6,7 @@ const OtpPopupHandle = () => {
     
   const handleOtpPopup = () => {
     setOtpPopUp(!optPopup)
+    console.log("set true")
   }
 
   const closeOtpPopup = () => {
@@ -20,7 +21,7 @@ const OtpPopupHandle = () => {
     };
   }, [optPopup]);
 
-  return { optPopup, handleOtpPopup, closeOtpPopup};
+  return { optPopup, handleOtpPopup, closeOtpPopup,setOtpPopUp};
 }
 
 export default OtpPopupHandle
