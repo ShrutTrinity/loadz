@@ -29,8 +29,9 @@ const CreateAccount = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleClickOpen = () => {
-    setShowPopUp(!showPopUp)
+  const handleClickOpen = (event) => {
+    event.stopPropagation();
+    setShowPopUp(true)
   };
   const handleClosePop = () => {
     setShowPopUp(false);
@@ -59,17 +60,10 @@ const CreateAccount = () => {
         discription='Create your companys administrators account'
 
       />}
-      {showPopUp && <FilePopUp
-        imageUrlforPopUp={selectedImage || persionImage}
-        onSelect={handleImageSelect}
-        onClose={handleClosePop}
-      />}
-      {
-        optPopup && <Otppage 
-        />
-      }
-      <CustomStepper currentstep='1' />
-      <BoxComponent className={styles.mainContainer} handleClick={handleClick}
+      {showPopUp && <FilePopUp imageUrlforPopUp={selectedImage || persionImage} onSelect={handleImageSelect} onOpen={handleClickOpen} onClose={handleClosePop}/>}
+
+ <CustomStepper currentstep='1'  /> 
+      <BoxComponent className={styles.mainContainer}   handleClick={handleClick}
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
         }

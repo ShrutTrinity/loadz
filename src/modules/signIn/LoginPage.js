@@ -21,7 +21,7 @@ const LoginPage = () => {
             rememberMe: false,
         },
         validationSchema: Yup.object({
-            password: Yup.string().min(8, 'Password is too short')
+            password: Yup.string().required("Password is required").min(8, 'Password is too short')
         }),
         onSubmit: (values) => {
             console.log(values);
