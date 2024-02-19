@@ -36,6 +36,7 @@ const CreateAccount = () => {
   const handleClosePop = () => {
     setShowPopUp(false);
   }
+  
   const handleImageSelect = (imageUrl) => {
     setSelectedImage(imageUrl);
     setShowPopUp(false)
@@ -63,7 +64,6 @@ const CreateAccount = () => {
         srcLink='https://player.vimeo.com/video/785867491'
         title='COMPANY SETUP'
         discription='Create your companys administrators account'
-
       />}
       {showPopUp && <FilePopUp
         imageUrlforPopUp={selectedImage || persionImage}
@@ -76,7 +76,6 @@ const CreateAccount = () => {
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
         }
-        children2={''}
         children3={
           <form>
             <div className={styles.mainDiv}>
@@ -174,7 +173,7 @@ const CreateAccount = () => {
                   <a href='/'>Login</a>
                 </div>
               </div>
-              <Send children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={persionImage} alt='Default Person logo' onClick={handleClickOpen} />} />
+              <Send className={styles.uploadimg} children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={persionImage} alt='Default Person logo' onClick={handleClickOpen} />} />
             </div>
           </form>
         }

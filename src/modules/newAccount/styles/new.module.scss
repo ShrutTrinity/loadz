@@ -101,11 +101,17 @@ img{
         padding: 0;
         width: 100%;
     }
+    .uploadimg{
+        width: 70%;
+    }
 }
 
 @media screen and (max-width : 300px) {
     .loadzLogo{
         padding: 40px 0;
         width: 100px;
+    }
+    .uploadimg{
+        width: 40%;
     }
 }

@@ -33,7 +33,8 @@ const useStyles = makeStyles(() => ({
 const CustomStepConnector = withStyles(() => ({
     alternativeLabel: {
         top: '30px !important',
-        zIndex: -1
+        zIndex: -1,
+        width:'100%'
     },
     line: {
         borderColor: 'black !important',
@@ -71,7 +72,7 @@ const CustomStepper = ({ currentstep }) => {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 810) {
+            if (window.innerWidth < 750) {
                 setDisplayStepper(false);
             } else {
                 setDisplayStepper(true);
