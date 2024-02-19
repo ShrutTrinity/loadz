@@ -36,7 +36,7 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,onOpen }) => {
           <input type='file' className={styles.input} onChange={handleFileChange} />
           <div className={styles.bordercover}>
             <div className={styles.popImage}>
-              <img src={imageUrlforPopUp} alt="person logo" onClick={(event) => onOpen(event)}  />
+              <img src={imageUrlforPopUp} alt="person logo"onClick={(event) => onOpen && onOpen(event)} />
               &nbsp;
               <div className={styles.fileFormate}>
                 JPEG, PNG, JPG
