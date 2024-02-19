@@ -18,9 +18,8 @@ import Video from '../../components/videotag'
 import CustomTextField from '../../components/textfield/CustomeTextfield';
 import Otppage from '../OTP/Otppage';
 import OtpPopupHandle from '../../hooks/OtpPopupHandle';
+import validationSchema from '../../components/validation/validationshema'
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
-
 
 const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -37,21 +36,7 @@ const CreateAccount = () => {
       termsAndConditions: false,
       privacyPolicy: false,
     },
-    validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Email is required'),
-      firstName: Yup.string().required('First Name is required'),
-      lastName: Yup.string().required('Last Name is required'),
-      password: Yup.string().required('password is required').min(8, 'Password must be at least 8 characters')
-        .matches(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-          'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character',
-        )
-        .required('Password is required'),
-      termsAndConditions: Yup.boolean().oneOf([true], 'You must accept the terms and conditions'),
-      privacyPolicy: Yup.boolean().oneOf([true], 'You must accept the privacy policy'),
-    }),
-
-
+    validationSchema:validationSchema,
     onSubmit: (values) => {
       console.log(values)
 

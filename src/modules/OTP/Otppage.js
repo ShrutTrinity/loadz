@@ -53,7 +53,7 @@ const Otppage = ({childrenForCloseOtp}) => {
         </form>
         <div>
           <div className={styles.link}>
-            <RouterLink className={styles.link} to="/" >{'Resend OTP'}</RouterLink>
+            <RouterLink className={styles.link} to="/subscription/company/2" >{'Resend OTP'}</RouterLink>
           </div>
         </div>
       </Card>

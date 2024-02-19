@@ -10,8 +10,6 @@ import Create from './modules/customerportal/Create';
 import Welcome from './modules/company/Welcome';
 import CreateAccount from './modules/newAccount/CreateAccount';
 import SetupOfCompany from './modules/companySetup/SetupOfCompany';
-
-
 const App = () => {
  
   return (
