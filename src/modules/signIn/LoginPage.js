@@ -76,6 +76,7 @@ const LoginPage = () => {
                                 variant='standard'
                                 required
                                 type={showPassword ? 'text' : 'password'}
+                                {...formik.getFieldProps('password')}
                                 InputProps={{
                                     disableUnderline: true,
                                     endAdornment: (
@@ -84,7 +85,7 @@ const LoginPage = () => {
                                         </div>
                                     ),
                                 }}
-                                {...formik.getFieldProps('password')}
+                               
                             />
 
                         </div>
