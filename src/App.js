@@ -10,6 +10,7 @@ import Create from './modules/customerportal/Create';
 import Welcome from './modules/company/Welcome';
 import CreateAccount from './modules/newAccount/CreateAccount';
 import SetupOfCompany from './modules/companySetup/SetupOfCompany';
+import IncludeTruck from './modules/addTruck/IncludeTruck';
 
 const App = () => {
  
@@ -27,7 +28,7 @@ const App = () => {
           <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/0' element={<Welcome />} />
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
-
+          <Route exact path='/subscription/company/5' element={<IncludeTruck />} />
         </Routes>
       </Router>
     </>

@@ -33,6 +33,26 @@ const getValidationSchemaforsecond = () => {
   });
 };
 
+const priceTagsSchema = () => {
+  return Yup.object().shape({
+    commission: Yup.string().required('Default Commission Rate is required'),
+    wage: Yup.string().required('Default Hourly Wage is required'),
+    waitRate: Yup.string().required('Company Wait Rate is required'),
+    salesTax: Yup.string().required('Sales Tax Rate Amount is required')
+  })
+}
 
+const addTruckSchema = () => {
+  return Yup.object().shape({
+    truckNo: Yup.string().required('Truck No Required'),
+    VIN: Yup.string().required('Truck VIN # Required'),
+    color: Yup.string().required('Truck Color Required'),
+    year: Yup.string().required('Truck Year Required'),
+    mnufacturer: Yup.string().required('Truck manufacturer Required'),
+    model: Yup.string().required('Truck Model Required'),
+    expiryDate: Yup.string().required('Insurance Expire Date Required'),
+    trailerNo: Yup.string().required('Trailer No Required')
+  })
+}
 
-export { getValidationSchema,getValidationSchemaforsecond};
+export { getValidationSchema,getValidationSchemaforsecond,priceTagsSchema,addTruckSchema};

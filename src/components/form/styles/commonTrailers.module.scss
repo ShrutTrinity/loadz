@@ -1,0 +1,40 @@
+@import '../../../modules/styleVariables.scss';
+
+.requiredAll{
+    color: red;
+}
+.truckForm {
+    padding: 30px;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+    margin-bottom: 10px;
+  
+    .detail {
+      gap: 6px;
+      display: flex;
+  
+      .inputNo {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        line-height: 28px;
+        flex-direction: column;
+      }
+      .inputNo:nth-child(1),
+      .inputNo:nth-child(2) {
+        width: 16.666667%;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 770px) {
+    .truckForm {
+      .detail {
+        flex-direction: column;
+        .inputNo {
+          width: 100% !important;
+          margin-bottom: -14px;
+        }
+      }
+    }
+  }
+  

@@ -54,30 +54,27 @@ const SetupOfCompany = () => {
     },
     validationSchema: getValidationSchemaforsecond,
     onSubmit: (values) => {
-      console.log(values)
-      console.log("feni")
       setGopreference(true)
-
     },
   });
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value.replace(/\D/g, '');
-  
+
     let formattedNumber;
     if (inputValue.length === 10) {
       formattedNumber = `(${inputValue.slice(0, 3)}) ${inputValue.slice(3, 6)}-${inputValue.slice(6, 10)}`;
     } else {
       formattedNumber = inputValue;
     }
-  
+
     // Set the formatted number back to the formik field
     formik.setFieldValue('phone', formattedNumber);
-  
+
     // If you need to validate on change, you can manually trigger validation
     formik.validateField('phone');
   };
-  
+
 
   const handleClickOpen = (event) => {
     event.stopPropagation();
@@ -276,9 +273,10 @@ const SetupOfCompany = () => {
                   {formik.touched.condition && formik.errors.condition}
                 </div>
                 <div className={styles.flexitems}>
-                  <div className={styles.add}>
-                    <span className={styles.plusicon} onClick={handleAddContact}>+</span>
-                    Add another content</div>
+                    <div className={styles.add}>
+                      <span className={styles.plusicon} onClick={handleAddContact}>+</span>
+                      Add another content
+                    </div>
 
                   <Button variant="contained"
                     type='submit'

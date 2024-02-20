@@ -9,7 +9,8 @@ import Tags from '../../components/priceTags/index'
 import SolidButton from '../../components/button/SolidButton'
 import SetupOfCompany from '../companySetup/SetupOfCompany'
 import AddDriver from '../createDriver/AddDriver'
-
+import { useFormik } from 'formik';
+import { priceTagsSchema } from '../../components/validation/validationshema'
 
 const Preference = () => {
 
@@ -17,6 +18,19 @@ const Preference = () => {
   const [isBack, setIsBack] = useState(false);
   const [isNext, setIsNext] = useState(false);
   const [value, setValue] = useState(true)
+
+  const formik = useFormik({
+    initialValues: {
+      commission: '',
+      wage: '',
+      waitRate: '',
+      salesTax: '',
+    },
+    validationSchema: priceTagsSchema,
+    onSubmit: (values) => {
+      setIsNext(!isNext)
+    },
+  });
 
   const handleClick = () => {
     handleToggle();
@@ -30,17 +44,13 @@ const Preference = () => {
     setIsBack(!isBack);
   };
 
-  const to_Next_Page = () => {
-    setIsNext(!isNext)
-  }
-
   return (
     <>
       {
         isPopupOpen && <Video
           className={styles.popup}
           setIsOpen={handleToggle}
-          srcLink='https://player.vimeo.com/video/785867571'
+          srcLink='https://player.vimeo.com/video/785867727'
           title='COMPANY PREFERENCES'
           discription='Company Setting for Sales Tax, Commission Rates, Waiting Time Rates, and Automatic Invoice time'
         />
@@ -55,7 +65,7 @@ const Preference = () => {
                 <h2 className={styles.heading}>SETUP PREFERENCES</h2>
               }
               children3={
-                <form>
+                <form onSubmit={formik.handleSubmit}>
                   <div className={styles.companyPreference}>
                     <label className={styles.switchCover}>
                       Do you sell material?
@@ -65,16 +75,16 @@ const Preference = () => {
                     </label>
                     {value ?
                       <div>
-                        <Tags symbol='%' tagTitle='Default Commission Rate' />
-                        <Tags symbol='$' tagTitle='Default Hourly Wage' />
-                        <Tags symbol='$' tagTitle='Company Wait Rate' />
+                        <Tags formik={formik} name='commission' symbol='%' tagTitle='Default Commission Rate' />
+                        <Tags formik={formik} name='wage' symbol='$' tagTitle='Default Hourly Wage' />
+                        <Tags formik={formik} name='waitRate' symbol='$' tagTitle='Company Wait Rate' />
                       </div>
                       :
                       <div>
-                        <Tags symbol='%' tagTitle='Sales Tax Rate Amount' />
-                        <Tags symbol='%' tagTitle='Default Commission Rate' />
-                        <Tags symbol='$' tagTitle='Default Hourly Wage' />
-                        <Tags symbol='$' tagTitle='Company Wait Rate' />
+                        <Tags formik={formik} name='salesTax' symbol='%' tagTitle='Sales Tax Rate Amount' />
+                        <Tags formik={formik} name='commission' symbol='%' tagTitle='Default Commission Rate' />
+                        <Tags formik={formik} name='wage' symbol='$' tagTitle='Default Hourly Wage' />
+                        <Tags formik={formik} name='waitRate' symbol='$' tagTitle='Company Wait Rate' />
                       </div>
                     }
                     <div className={styles.smallContainer}>
@@ -86,7 +96,7 @@ const Preference = () => {
                     </div>
                     <div className={styles.buttonContainer}>
                       <SolidButton buttonValue={'Back'} onClick={BackTO_prev_Page} />
-                      <SolidButton buttonValue={'NEXT'} onClick={to_Next_Page} />
+                      <SolidButton buttonValue={'NEXT'} onClick={formik.handleSubmit} />
                     </div>
                   </div>
                 </form>

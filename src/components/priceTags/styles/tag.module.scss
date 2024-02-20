@@ -31,8 +31,15 @@ input[type="number"] {
       justify-content: space-between;
     }
 
+    .error{
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+
     .labField {
       display: flex;
+      flex-direction: row;
       align-items: flex-end;
 
       input {

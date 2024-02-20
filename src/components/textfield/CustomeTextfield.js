@@ -33,17 +33,13 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
              sx: {
               '@media (max-width: 600px)': {
                     padding: '8px 14px',
-
                   },
          },
 
           }
-
-
         }}
       {...formik.getFieldProps(name)}
       />
-
     </FormControl>
   )
 }
