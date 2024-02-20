@@ -45,8 +45,6 @@ const Preference = () => {
           discription='Company Setting for Sales Tax, Commission Rates, Waiting Time Rates, and Automatic Invoice time'
         />
       }
-      {/* {isBack && <SetupOfCompany />}
-      {isNext && <AddDriver />} */}
       {isBack === true ? <SetupOfCompany /> : isNext === true ? <AddDriver /> :
         <div>
           <CustomStepper currentstep='3' />
