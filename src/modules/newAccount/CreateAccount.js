@@ -95,6 +95,7 @@ const CreateAccount = () => {
       />}
       {optPopup && asisPopupOpen && <Otppage childrenForCloseOtp={forCloseOtpPopup} />}
       <CustomStepper currentstep='1' />
+      <div className={styles.page}>
       <BoxComponent className={styles.mainContainer} handleClick={handleClick}
         children1={
           <img src={Logo} className={styles.loadzLogo} alt='logo' />
@@ -224,7 +225,6 @@ const CreateAccount = () => {
                       margin: '0 0rem'
                     }}
                     onSubmit={formik.handleSubmit}
-
                   >
                     CREATE AN ACCOUNT
                   </Button>
@@ -239,6 +239,7 @@ const CreateAccount = () => {
           </form>
         }
       />
+      </div>
     </>
   )
 }

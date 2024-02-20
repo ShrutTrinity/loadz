@@ -1,0 +1,92 @@
+@import "../../../modules/styleVariables.scss";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.labelContainer {
+  line-height: 1;
+  flex-direction: column;
+  @include flex-column();
+  width: 100%;
+  justify-content: flex-start;
+  min-width: 700px;
+
+  .smallContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    .labTitle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .labField {
+      display: flex;
+      align-items: flex-end;
+
+      input {
+        max-width: 250px;
+        margin-left: 15px;
+        height: 54px;
+        padding: 10px;
+        border: 1px solid #000;
+      }
+      .symbolOfPercent {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 54px;
+        background: #8e8e8e;
+        border: 1px solid #000;
+        border-left: 0.3px solid balck;
+        color: #fff;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+    .labelContainer {
+        line-height: 1;
+        flex-direction: column;
+        width: 100%;
+        align-items: start;
+        min-width: 100px;
+      
+        .smallContainer {
+          max-width: 100%;
+          min-width: 100px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 40px;
+      
+          .labTitle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+          }
+      
+          .labField {
+            display: flex;
+            align-items: flex-end;
+      
+            input {
+              max-width: 100px;
+            }
+          }
+        }
+      }
+}

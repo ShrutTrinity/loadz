@@ -1,41 +1,119 @@
 @import "../../styleVariables.scss";
-.form{
-    padding: 0 50px;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family_1;
 }
-.companySetup{
-    @include center();
-    float: left;
-    
+.page {
+  margin: 0 15px;
+}
+.heading {
+  font-size: 30px;
+  font-weight: bold;
+}
+.companyPreference {
+  font-size: 20px;
+  font-weight: 600;
+  float: left;
+  clear: both;
+}
 
-    .label{
-        font-size: 20px;
-        font-weight: 600;
+.switchCover {
+  margin-top: 0px;
+  display: inline-block;
+  margin-bottom: 40px;
+  .switchLabel {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+}
+.smallContainer {
+  display: flex;
+  justify-content: space-between;
+  min-width: 700px;
 
+  .labTitle{
+    @include flex-column();
+    line-height: normal;
+  }
+
+  .labField {
+    display: flex;
+    align-items: flex-end;
+    input {
+      max-width: 250px;
+      margin-left: 15px;
+      height: 54px;
+      padding: 10px;
+      border: 1px solid #000;
     }
-    .custom-toggle-switch {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
+    .symbolOfPercent {
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 54px;
+      background: #8e8e8e;
+      border: 1px solid #000;
+      border-left: none;
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+}
+
+.buttonContainer {
+  margin: 44px 0;
+  @include flex-column();
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+  .page {
+    margin: 0;
+    padding: 0 15px;
+  }
+  .smallContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100px;
+    max-width: 100%;
+    
+    .labTitle{
+      width: 70%;
+    }
+    .labField {
+      display: flex;
+      align-items: flex-end;
+      input {
+        max-width: 100px;
       }
-      
-      .circle {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: white;
-        margin-right: 10px;
-        transition: background-color 0.3s ease;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .companyPreference {
+    font-size: 17px;
+    line-height: 55px;
+  }
+  .heading{
+    font-size: 25px;
+  }
+  .smallContainer {
+    .labTitle{
+      width: 60%;
+    }
+    .labField {
+      display: flex;
+      align-items: flex-end;
+      input {
+        max-width: 100px;
       }
-      
-      .label {
-        color: rgb(0, 0, 0);
-      }
-      
-      .custom-toggle-switch.on .circle {
-        background-color: yellow;
-      }
-      
-      .custom-toggle-switch.off {
-        background-color: black;
-      }
+    }
+  }
 }
