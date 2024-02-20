@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useVideoPopup = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
 
   const handleToggle = () => {
     setIsPopupOpen(!isPopupOpen);

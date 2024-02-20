@@ -18,7 +18,7 @@ import Video from '../../components/videotag'
 import CustomTextField from '../../components/textfield/CustomeTextfield';
 import Otppage from '../OTP/Otppage';
 import OtpPopupHandle from '../../hooks/OtpPopupHandle';
-import validationSchema from '../../components/validation/validationshema'
+import {getValidationSchema} from '../../components/validation/validationshema'
 import { useFormik } from 'formik';
 
 const CreateAccount = () => {
@@ -36,7 +36,7 @@ const CreateAccount = () => {
       termsAndConditions: false,
       privacyPolicy: false,
     },
-    validationSchema:validationSchema,
+    validationSchema:getValidationSchema,
     onSubmit: (values) => {
       console.log(values)
 

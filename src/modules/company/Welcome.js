@@ -3,13 +3,14 @@ import styles from './styles/company.module.scss'
 import Logo from '../../images/loadzlogo.png'
 import phone from '../../images/phone.png'
 import { Link } from 'react-router-dom'
+import triangle from '../../images/tringle2.svg'
 const Welcome = () => {
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.flex}>
                     <div className={styles.col1}>
-                        <img src='https://app.loadz.com/assets/images/tringle2.svg' className={styles.img} alt='black' />
+                        <img src={triangle} className={styles.img} alt='black' />
                         <div className={styles.headingDiscription}>
                             <h1 className={`text-white ${styles.heading}`} >Welcome</h1>
                             <p className={`text-white ${styles.discription}`}>Welcome to Loadz. The next sections will help you get started with the loadz platform.Just follow the instructions in the next, and you ll be up and running in no time.</p>

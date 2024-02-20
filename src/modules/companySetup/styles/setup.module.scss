@@ -7,9 +7,11 @@
 }
 
 .heading {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 700;
+  color: $color_1;
   margin-bottom: 28px;
+  margin-top: 28px;
 }
 
 .mainDiv {
@@ -31,12 +33,15 @@
       width: 100%;
       display: flex;
       gap: 6px;
+      .telephone{
+        font-size: 14px
+      }
 
       .Address {
         width: 30%;
       }
       .zipCode {
-        width: 18%;
+        width: 100%;
       }
       .formLabel1 {
         font-size: 14px;
@@ -50,8 +55,48 @@
     .selector {
       display: flex;
       flex-direction: column;
+      
     }
   }
+ 
+}
+.contain1{
+  padding: 0 26px;
+  display: flex;
+  align-items: center;
+  margin: 16px 0 24px 0;
+}
+.conditions{
+  font-size: 12px;
+  line-height: 15px;
+}
+.flexitems {
+  padding: 0 26px;
+  display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    .add{
+      display: flex;
+      align-items: center;
+    }
+  .plusicon{
+
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  margin-right: 10px ;
+  width: 43px;
+  padding: 0!important;
+  display: flex;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  line-height: 33px;
+  cursor: pointer;
+  }
+  
 }
 
 @media screen and (max-width: 960px) {
