@@ -225,7 +225,6 @@ const CreateAccount = () => {
                       margin: '0 0rem'
                     }}
                     onSubmit={formik.handleSubmit}
-
                   >
                     CREATE AN ACCOUNT
                   </Button>

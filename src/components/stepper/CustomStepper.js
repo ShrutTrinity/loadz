@@ -3,13 +3,14 @@ import { Stepper, Step, StepLabel, StepConnector } from '@mui/material';
 import { makeStyles, withStyles } from '@mui/styles';
 import clsx from 'clsx';
 import styles from './styles/stepper.module.scss';
+import CheckIcon from '@mui/icons-material/Check';
 
 const useStyles = makeStyles(() => ({
     stepper: {
         backgroundColor: 'transparent'
     },
     step: {
-        paddingLeft: '0px !important', 
+        paddingLeft: '0px !important',
     },
     stepIcon: {
         width: '60px',
@@ -34,7 +35,7 @@ const CustomStepConnector = withStyles(() => ({
     alternativeLabel: {
         top: '30px !important',
         zIndex: -1,
-        width:'100%'
+        width: '100%'
     },
     line: {
         borderColor: 'black !important',
@@ -44,15 +45,16 @@ const CustomStepConnector = withStyles(() => ({
 }))(StepConnector);
 
 
-function CustomStepIcon({ icon, active }) {
+function CustomStepIcon({ icon, active, completed }) {
     const classes = useStyles();
     return (
         <div
             className={clsx(classes.stepIcon, {
-                [classes.activeStepIcon]: active,
+                [classes.activeStepIcon]: active || completed,
             })}
+            style={{ backgroundColor : completed ? 'black' : active ? 'rgb(237, 202, 51)' : 'black'}}
         >
-            {icon}
+            {completed ? <CheckIcon sx={{color:'white',height:'45px',width:'45px'}} /> : icon}
         </div>
     );
 }
@@ -86,29 +88,30 @@ const CustomStepper = ({ currentstep }) => {
 
 
     return (
-        displayStepper &&  <Stepper
-                activeStep={currentstep - 1}
-                alternativeLabel
-                connector={<CustomStepConnector />}
-                className={styles.stepper}
-            >
-                {steps.map((label) => (
-                    <Step
-                        key={label}
-                        sx={{ paddingLeft: '0px' }}
-                    >
-                        <StepLabel
-                            StepIconComponent={CustomStepIcon}>
-                            <span style={{
-                                fontSize: "20px",
-                                fontWeight: 'bolder',
-                                padding: '0px',
-                                letterSpacing: '0px'
-                            }}>{label}</span>
-                        </StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
+        displayStepper && <Stepper
+            activeStep={currentstep - 1}
+            alternativeLabel
+            connector={<CustomStepConnector />}
+            className={styles.stepper}
+        >
+            {steps.map((label, index) => (
+                <Step
+                    key={label}
+                    sx={{ paddingLeft: '0px' }}
+                    completed={index < currentstep - 1}
+                >
+                    <StepLabel
+                        StepIconComponent={CustomStepIcon}>
+                        <span style={{
+                            fontSize: "20px",
+                            fontWeight: 'bolder',
+                            padding: '0px',
+                            letterSpacing: '0px'
+                        }}>{label}</span>
+                    </StepLabel>
+                </Step>
+            ))}
+        </Stepper>
     )
 }
 
