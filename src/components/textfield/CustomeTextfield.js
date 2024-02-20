@@ -17,6 +17,7 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
       variant="standard">
       <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
       <TextField
+    
         sx={{
           width: '100%',
           marginBottom: '16px'
@@ -31,6 +32,7 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
           endAdornment: (children4),
           inputProps:{
              sx: {
+              padding:'12px 14px',
               '@media (max-width: 600px)': {
                     padding: '8px 14px',
 

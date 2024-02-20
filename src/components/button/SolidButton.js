@@ -6,6 +6,7 @@ const SolidButton = ({buttonValue,onClick}) => {
         onClick={onClick}
             sx={{
                 backgroundColor: 'black',
+                borderRadius:'5px',
                 fontSize: '18px',
                 cursor: 'pointer',
                 '&:hover': {

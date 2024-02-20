@@ -10,10 +10,58 @@
   font-weight: bold;
   margin-bottom: 0;
 }
+.page{
+  margin: 0px 20px;
+}
 .conatainer {
   margin-top: 20px;
 
   .switchCover{
     font-size: 14px;
   }
+
+  .flexitems {
+    padding: 0 26px;
+    display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      justify-content: space-between;
+      .add{
+        display: flex;
+        align-items: center;
+      }
+    .plusicon{
+  
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin-right: 10px ;
+    width: 43px;
+    padding: 0!important;
+    display: flex;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    line-height: 33px;
+    cursor: pointer;
+    }
+    
+  }
+}
+
+@media screen and (max-width: 600px) {
+  
+  .conatainer{
+  
+
+    .flexitems{
+      flex-direction: column;
+      gap: 10px;
+
+    
+  }
+  }
+
+    
 }

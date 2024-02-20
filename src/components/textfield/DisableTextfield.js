@@ -4,7 +4,10 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 
 
-const NorequiredTextField = ({ label, placeholder, type, children4, name, id, formik }) => {
+const DisableTextField = ({ label, placeholder, type, children4, name, id, formik }) => {
+
+
+  
 
   return (
     <FormControl
@@ -12,20 +15,22 @@ const NorequiredTextField = ({ label, placeholder, type, children4, name, id, fo
         width: '100%'
       }}
       variant="standard">
-      <label className={styles.formLabel1}>{label}</label>
+      <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
       <TextField
+        disabled
         sx={{
           width: '100%',
           marginBottom: '16px'
         }}
-        id={id}
-        name={name} 
-        type={type}
         placeholder={placeholder} 
         InputProps={{
+          maxLength: 10,
           endAdornment: (children4),
           inputProps:{
              sx: {
+                cursor:'no-drop',
+                color:'#b3b3b3',
+                backgroundColor:'#d1d1d1',
               padding:'12px 14px',
               '@media (max-width: 600px)': {
                     padding: '8px 14px',
@@ -37,7 +42,6 @@ const NorequiredTextField = ({ label, placeholder, type, children4, name, id, fo
 
 
         }}
-      // {...formik.getFieldProps(name)}
       />
 
     </FormControl>
@@ -45,4 +49,4 @@ const NorequiredTextField = ({ label, placeholder, type, children4, name, id, fo
 }
 
 
-export default NorequiredTextField
+export default DisableTextField
