@@ -4,10 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 
 
-const CustomTextField = ({ label, placeholder, type, children4, name, id, formik }) => {
-
-
-  
+const NorequiredTextField = ({ label, placeholder, type, children4, name, id, formik }) => {
 
   return (
     <FormControl
@@ -15,19 +12,17 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
         width: '100%'
       }}
       variant="standard">
-      <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
+      <label className={styles.formLabel1}>{label}</label>
       <TextField
         sx={{
           width: '100%',
           marginBottom: '16px'
         }}
-
         id={id}
         name={name} 
         type={type}
-        placeholder={placeholder} required
+        placeholder={placeholder} 
         InputProps={{
-          maxLength: 10,
           endAdornment: (children4),
           inputProps:{
              sx: {
@@ -41,7 +36,7 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
 
 
         }}
-      {...formik.getFieldProps(name)}
+      // {...formik.getFieldProps(name)}
       />
 
     </FormControl>
@@ -49,4 +44,4 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
 }
 
 
-export default CustomTextField
+export default NorequiredTextField

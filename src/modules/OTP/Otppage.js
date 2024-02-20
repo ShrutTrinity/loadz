@@ -28,10 +28,9 @@ const Otppage = ({childrenForCloseOtp}) => {
                   fontSize: 13,
                 },
               }}
-              type='email'
+       
               InputProps={{ disableUnderline: true }}
-              id="email"
-              name="email"
+              
               label="OTP"
               required
               variant="standard"
@@ -48,7 +47,7 @@ const Otppage = ({childrenForCloseOtp}) => {
             variant="contained"
             sx={{ textTransform: 'none', marginTop: '10px', backgroundColor: "black", borderRadius: 18, width: "14rem", ":hover": { backgroundColor: "black" } }}
           >
-            <RouterLink to="#" className={styles.resetlink}>Verify OTP</RouterLink>
+            <RouterLink to="/subscription/company/2" className={styles.resetlink}>Verify OTP</RouterLink>
           </Button>
         </form>
         <div>
