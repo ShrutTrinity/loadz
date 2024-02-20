@@ -33,9 +33,9 @@ const AddDriver = () => {
         children3={
           <div className={styles.conatainer}>
             <label className={styles.switchCover}>
-              Do you sell material?
+              Do you have drivers?
               <label className={styles.switchLabel}>
-                <SwitchMUI />
+                <SwitchMUI valueOfSwitch={true}/>
               </label>
             </label>
           </div>
