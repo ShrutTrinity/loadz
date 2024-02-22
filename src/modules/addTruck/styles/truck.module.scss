@@ -24,6 +24,11 @@
   display: flex;
   margin: 44px 0;
   gap: 10px;
+
+  .buttons{
+    display: flex;
+    gap: 6px;
+  }
 }
 .TruckAddbutton {
   gap: 8px;
@@ -51,6 +56,14 @@
 }
 
 @media screen and (max-width: 600px) {
+  .bottomContainer{
+    display: block;
+    .buttons{
+      display: flex;
+      @include flex-row();
+      justify-content: space-between;
+    }
+  }
   .TruckAddbutton {
     @include center();
     margin: 20px 0 44px;

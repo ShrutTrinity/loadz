@@ -30,7 +30,7 @@ const IncludeTruck = () => {
       mnufacturer: '',
       model: '',
       expiryDate: '',
-      trailerNo:'',
+      trailerNo: '',
     },
     validationSchema: addTruckSchema,
     onSubmit: (values) => {
@@ -55,7 +55,6 @@ const IncludeTruck = () => {
   }
 
   const skipThis_Page = () => {
-    // in return return next page
     setSkip(!skip)
   }
   return (
@@ -112,9 +111,11 @@ const IncludeTruck = () => {
                         Add another content
                       </div>
                     </div>
-                    <SolidButton buttonValue={'Skip'} onClick={skipThis_Page}/>
-                    <SolidButton buttonValue={'Back'} onClick={back_To_Page}/>
-                    <SolidButton buttonValue={'next'} onClick={formik.handleSubmit} />
+                    <div className={styles.buttons}>
+                      <SolidButton buttonValue={'Skip'} onClick={skipThis_Page} />
+                      <SolidButton buttonValue={'Back'} onClick={back_To_Page} />
+                      <SolidButton buttonValue={'next'} onClick={formik.handleSubmit} />
+                    </div>
                   </div>
                 </div>
               }

@@ -286,7 +286,6 @@ const SetupOfCompany = () => {
                       fontSize: '18px',
                       '&:hover': {
                         background: "black",
-
                       }
 
                     }}>Next</Button>
