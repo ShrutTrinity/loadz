@@ -58,7 +58,6 @@ const getValidationSchemaforsix = () => {
 
 
 
-export { getValidationSchema, getValidationSchemaforsecond, getValidationSchemaforforth,getValidationSchemaforsix};
 const priceTagsSchema = () => {
   return Yup.object().shape({
     commission: Yup.string().required('Default Commission Rate is required'),
@@ -81,4 +80,4 @@ const addTruckSchema = () => {
   })
 }
 
-export { getValidationSchema,getValidationSchemaforsecond,priceTagsSchema,addTruckSchema};
+export { getValidationSchema,getValidationSchemaforsecond,priceTagsSchema,addTruckSchema, getValidationSchemaforforth,getValidationSchemaforsix};
