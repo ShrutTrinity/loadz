@@ -12,7 +12,7 @@ const CommonTrailers = ({ formik }) => {
             Trailer Type.<span className={styles.requiredAll}>*</span>
             <select
               className="form-select"
-              style={{ height: '56px', borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '15px', borderRadius: '5px' }}
+              style={{  borderColor: '#c4c4c4', padding: '9px 14px 13px 9px', fontSize: '15px', borderRadius: '5px' }}
               aria-label="Default select example"
               name="trailerType"
             >

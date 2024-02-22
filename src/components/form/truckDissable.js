@@ -1,13 +1,14 @@
-import CustomTextField from "../textfield/CustomeTextfield"
+
 import { Checkbox } from "@mui/material"
 import styles from './styles/commonTruck.module.scss';
+import DisableTextField from "../textfield/DisableTextfield";
 
-const CommonTruckForm = ({ formik }) => {
+const Disabletruck = ({ formik }) => {
   return (
     <div className={styles.truckForm}>
       <div className={styles.detail}>
         <label className={styles.inputNo}>
-          <CustomTextField
+          <DisableTextField
             label='Truck No.'
             placeholder='Truck No'
             type='text'
@@ -19,7 +20,7 @@ const CommonTruckForm = ({ formik }) => {
           </div>
         </label>
         <label className={styles.inputNo}>
-          <CustomTextField
+          <DisableTextField
             label='VIN#'
             placeholder='VIN#'
             type='text'
@@ -31,7 +32,7 @@ const CommonTruckForm = ({ formik }) => {
           </div>
         </label>
         <label className={styles.inputNo}>
-          <CustomTextField
+          <DisableTextField
             label='Color'
             placeholder='Color'
             type='text'
@@ -43,7 +44,7 @@ const CommonTruckForm = ({ formik }) => {
           </div>
         </label>
         <label className={styles.inputNo}>
-          <CustomTextField
+          <DisableTextField
             label='Year'
             placeholder='Year'
             type='number'
@@ -55,7 +56,7 @@ const CommonTruckForm = ({ formik }) => {
           </div>
         </label>
         <label className={styles.inputNo}>
-          <CustomTextField
+          <DisableTextField
             label='Manufacturer'
             placeholder='Manufacturer*'
             type='text'
@@ -67,7 +68,7 @@ const CommonTruckForm = ({ formik }) => {
           </div>
         </label>
         <label className={styles.inputNo}>
-          <CustomTextField
+          <DisableTextField
             label='Model'
             placeholder='Model'
             type='text'
@@ -79,7 +80,7 @@ const CommonTruckForm = ({ formik }) => {
           </div>
         </label>
         <label className={styles.inputNo}>
-          <CustomTextField
+          <DisableTextField
             label='Insurance Expiry'
             placeholder=''
             type='date'
@@ -93,15 +94,18 @@ const CommonTruckForm = ({ formik }) => {
         <div className={styles.checkBox}>
           <span>Is Dump Truck?</span>
           <Checkbox
+          disabled
             required
             name='dumpTruck'
-            sx={{
-
+            inputProps={{
+                sx:{
               color: 'balck',
               '&.Mui-checked': {
-                color: 'rgb(237, 202, 51)',
+                backgroundColor: 'rgb(237, 202, 51)',
+                boxShadow:'gray'
               },
               transform: 'scale(0.8)'
+            }
             }}
           />
         </div>
@@ -110,4 +114,4 @@ const CommonTruckForm = ({ formik }) => {
   )
 }
 
-export default CommonTruckForm
+export default Disabletruck

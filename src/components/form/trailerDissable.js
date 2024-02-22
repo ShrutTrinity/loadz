@@ -1,9 +1,10 @@
-import CustomTextField from "../textfield/CustomeTextfield";
+
+import DisableTextField from "../textfield/DisableTextfield";
 import styles from './styles/commonTrailers.module.scss';
 
 const trolyType = ['Belly Dump', 'End Dump', 'Cement', 'Box']
 
-const CommonTrailers = ({ formik }) => {
+const Disabletrailer = () => {
   return (
     <>
       <div className={styles.truckForm}>
@@ -11,8 +12,9 @@ const CommonTrailers = ({ formik }) => {
           <label className={styles.inputNo}>
             Trailer Type.<span className={styles.requiredAll}>*</span>
             <select
+            disabled
               className="form-select"
-              style={{ height: '56px', borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '15px', borderRadius: '5px' }}
+              style={{  cursor:'no-drop', padding: '9px 14px 13px 9px', color:'#b3b3b3', backgroundColor:'#d1d1d1', fontSize: '15px', borderRadius: '5px' }}
               aria-label="Default select example"
               name="trailerType"
             >
@@ -25,16 +27,13 @@ const CommonTrailers = ({ formik }) => {
             </select>
           </label>
           <label className={styles.inputNo}>
-            <CustomTextField
+            <DisableTextField
               label='Trailer No.'
               placeholder='Trailer No.'
               type='number'
               name='trailerNo'
-              formik={formik}
             />
-            <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-              {formik.touched.trailerNo && formik.errors.trailerNo}
-            </div>
+            
           </label>
 
         </div>
@@ -43,4 +42,4 @@ const CommonTrailers = ({ formik }) => {
   )
 }
 
-export default CommonTrailers
+export default Disabletrailer

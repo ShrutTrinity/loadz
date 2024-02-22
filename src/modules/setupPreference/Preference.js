@@ -10,7 +10,7 @@ import SolidButton from '../../components/button/SolidButton'
 import SetupOfCompany from '../companySetup/SetupOfCompany'
 import AddDriver from '../createDriver/AddDriver'
 import { useFormik } from 'formik';
-import { priceTagsSchema } from '../../components/validation/validationshema'
+import { getValidationSchema, priceTagsSchema } from '../../components/validation/validationshema'
 
 const Preference = () => {
 
@@ -19,6 +19,8 @@ const Preference = () => {
   const [isNext, setIsNext] = useState(false);
   const [value, setValue] = useState(true)
 
+  const schema = value ? priceTagsSchema : getValidationSchema 
+
   const formik = useFormik({
     initialValues: {
       commission: '',
@@ -26,7 +28,7 @@ const Preference = () => {
       waitRate: '',
       salesTax: '',
     },
-    validationSchema: priceTagsSchema,
+    validationSchema: schema,
     onSubmit: (values) => {
       setIsNext(!isNext)
     },

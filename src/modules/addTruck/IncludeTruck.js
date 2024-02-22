@@ -11,6 +11,8 @@ import SolidButton from '../../components/button/SolidButton'
 import { useFormik } from 'formik'
 import { addTruckSchema } from '../../components/validation/validationshema'
 import AddDriver from '../createDriver/AddDriver'
+import Disabletruck from '../../components/form/truckDissable'
+import Disabletrailer from '../../components/form/trailerDissable'
 
 const IncludeTruck = () => {
 
@@ -20,6 +22,8 @@ const IncludeTruck = () => {
   const [nextPage, setNextPage] = useState(false);
   const [prevPage, setPrevPage] = useState(false);
   const [skip, setSkip] = useState(false);
+  const [value, setValue] = useState(true)
+  const [value2, setValue2] = useState(true)
 
   const formik = useFormik({
     initialValues: {
@@ -49,13 +53,22 @@ const IncludeTruck = () => {
   const addTrailers = () => {
     setTrailerCount((prevCount) => prevCount + 1)
   }
-
+  const to_Next_Page = () =>{
+    setNextPage(!nextPage)
+  
+  }
   const back_To_Page = () => {
     setPrevPage(!prevPage)
   }
 
   const skipThis_Page = () => {
     setSkip(!skip)
+  }
+  const handleSwitchVlue = () => {
+    setValue(!value)
+  }
+  const handleSwitchVlue2 = () => {
+    setValue2(!value2)
   }
   return (
     <>
@@ -82,11 +95,13 @@ const IncludeTruck = () => {
                   <label className={styles.switchCover}>
                     Do you have Trucks ?
                     <label className={styles.switchLabel}>
-                      <SwitchMUI valueOfSwitch={true} />
+                      <SwitchMUI valueOfSwitch={value} handleSwitchValue={handleSwitchVlue} />
                     </label>
                   </label>
-                  {[...Array(TruckCount)].map((index) => (
+                  {value ? [...Array(TruckCount)].map((index) => (
                     <CommonTruckForm formik={formik} key={index} />
+                  )) : [...Array(TruckCount)].map((index) => (
+                    <Disabletruck key={index} />
                   ))}
                   <div className={styles.TruckAddbutton} style={{ margin: '44px 0' }}>
                     <div className={styles.add} onClick={addTruck}>
@@ -98,11 +113,13 @@ const IncludeTruck = () => {
                   <label className={styles.switchCover}>
                     Do you have Trailers ?
                     <label className={styles.switchLabel}>
-                      <SwitchMUI valueOfSwitch={true} />
+                      <SwitchMUI valueOfSwitch={value2}  handleSwitchValue={handleSwitchVlue2} />
                     </label>
                   </label>
-                  {[...Array(TrailerCount)].map((index) => (
+                  {value2 ? [...Array(TrailerCount)].map((index) => (
                     <CommonTrailers formik={formik} key={index} />
+                  )) : [...Array(TrailerCount)].map((index) => (
+                    <Disabletrailer  key={index} />
                   ))}
                   <div className={styles.bottomContainer}>
                     <div className={styles.TruckAddbutton}>
@@ -114,7 +131,7 @@ const IncludeTruck = () => {
                     <div className={styles.buttons}>
                       <SolidButton buttonValue={'Skip'} onClick={skipThis_Page} />
                       <SolidButton buttonValue={'Back'} onClick={back_To_Page} />
-                      <SolidButton buttonValue={'next'} onClick={formik.handleSubmit} />
+                      <SolidButton buttonValue={'next'} onClick={value ? formik.handleSubmit : to_Next_Page} />
                     </div>
                   </div>
                 </div>
