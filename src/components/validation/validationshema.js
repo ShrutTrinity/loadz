@@ -42,8 +42,20 @@ const getValidationSchemaforforth = () => {
     Hourlywage:Yup.string().required('Hourly Wage required'),
     CommissionRate:Yup.string().required('Commission Rate required')
   });
+
+};
+
+const getValidationSchemaforsix = () => {
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+  return Yup.object().shape({
+    phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Phone Number is required'),
+    firstName: Yup.string().required('First Name is required'),
+    lastName: Yup.string().required('Last Name is required'),
+    usertype:Yup.string().required('Usertype is required'),
+
+  });
 };
 
 
 
-export { getValidationSchema, getValidationSchemaforsecond, getValidationSchemaforforth };
+export { getValidationSchema, getValidationSchemaforsecond, getValidationSchemaforforth,getValidationSchemaforsix};
