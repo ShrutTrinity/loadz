@@ -17,27 +17,10 @@ const IOSSwitch = styled((props) => (
       transform: 'translateX(28px)',
       color: 'rgb(237, 202, 51)',
       '& + .MuiSwitch-track': {
-        backgroundColor: theme.palette.mode === 'dark' ? 'white' : 'black',
+        backgroundColor:'black',
         opacity: 1,
-        border: 0,
-      },
-      '&.Mui-disabled + .MuiSwitch-track': {
-        opacity: 0.5,
-      },
-    },
-    '&.Mui-focusVisible .MuiSwitch-thumb': {
-      color: 'black',
-      border: '6px solid #fff',
-    },
-    '&.Mui-disabled .MuiSwitch-thumb': {
-      color:
-        theme.palette.mode === 'light'
-          ? theme.palette.grey[900]
-          : theme.palette.grey[900],
-    },
-    '&.Mui-disabled + .MuiSwitch-track': {
-      opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
-    },
+      }
+    }
   },
   '& .MuiSwitch-thumb': {
     boxSizing: 'border-box',
@@ -48,7 +31,7 @@ const IOSSwitch = styled((props) => (
   },
   '& .MuiSwitch-track': {
     borderRadius: 58 / 2,
-    backgroundColor: theme.palette.mode === 'light' ? 'black' : 'white',
+    backgroundColor: 'black',
     opacity: 1,
     transition: theme.transitions.create(['background-color'], {
       duration: 500,
@@ -58,7 +41,7 @@ const IOSSwitch = styled((props) => (
 
 const SwitchMUI = ({ handleSwitchValue, valueOfSwitch }) => {
   const handleChange = () => {
-    handleSwitchValue(); 
+    handleSwitchValue();
   };
 
   return (

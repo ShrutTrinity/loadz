@@ -3,8 +3,7 @@ import styles from '../../modules/newAccount/styles/new.module.scss';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 
-
-const NorequiredTextField = ({ label, placeholder, type, children4, name, id, formik }) => {
+const NorequiredTextField = ({ label, placeholder, type, children4, name, id }) => {
 
   return (
     <FormControl

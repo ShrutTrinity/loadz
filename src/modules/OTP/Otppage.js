@@ -30,10 +30,10 @@ const Otppage = ({childrenForCloseOtp}) => {
               }}
        
               InputProps={{ disableUnderline: true }}
+              type='number'
               label="OTP"
               required
               variant="standard"
-
             />
 
             <div className={styles.icon}>

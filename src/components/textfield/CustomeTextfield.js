@@ -6,9 +6,6 @@ import TextField from '@mui/material/TextField';
 
 const CustomTextField = ({ label, placeholder, type, children4, name, id, formik }) => {
 
-
-  
-
   return (
     <FormControl
       sx={{
