@@ -17,8 +17,8 @@ const Video = (props) => {
   return (
     <>
       {isBoxVisible && (
-        <Grid container justifyContent="center" alignItems="center" 
-        style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed',zIndex:10 }}>
+        <Grid container justifyContent="center" alignItems="center"
+          style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', zIndex: 10 }}>
           <Box
             sx={{
               width: '80vw',
@@ -45,9 +45,9 @@ const Video = (props) => {
                 top: '0px',
                 right: '0px',
                 color: 'white',
-          
+
                 '@media (max-width: 1000px)': {
-                  fontSize: '14px', // Adjust the font size for smaller screens
+                  fontSize: '14px',
                 },
               }}
               onClick={handleCloseButtonClick}
@@ -73,9 +73,7 @@ const Video = (props) => {
 
                   },
                 }}
-
               >
-
                 {props.title}
               </Typography>
 
