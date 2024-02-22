@@ -26,6 +26,7 @@ const NorequiredTextField = ({ label, placeholder, type, children4, name, id, fo
           endAdornment: (children4),
           inputProps:{
              sx: {
+              padding:'12px 14px',
               '@media (max-width: 600px)': {
                     padding: '8px 14px',
 

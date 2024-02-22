@@ -1,27 +1,24 @@
 import React, { useState } from 'react'
 import CustomStepper from '../../components/stepper/CustomStepper'
 import BoxComponent from '../../components/formBox/Box'
-import styles from './styles/addDriver.module.scss'
+import styles from './styles/webuser.module.scss'
 import Video from '../../components/videotag'
-import SwitchMUI from '../../components/switch/SwitchMUI'
 import useVideoPopupSecond from '../../hooks/useVideoPopupSecond'
-import CommonDriverForm from '../../components/form/commonDriverForm'
 import { useFormik } from 'formik';
-import { getValidationSchemaforforth } from '../../components/validation/validationshema'
+import {  getValidationSchemaforsix } from '../../components/validation/validationshema'
 import SolidButton from '../../components/button/SolidButton'
 import Preference from '../setupPreference/Preference'
-import Disabledriverform from '../../components/form/Disabledriverform'
+import { Link } from 'react-router-dom'
+import Webuserform from '../../components/form/Webuserform'
 
 
 
-const AddDriver = () => {
 
-  const [driverCount, setdriverCount] = useState(1);
+const Webuser = () => {
+
+  const [webcount, setWebcount] = useState(1);
   const [isBack, setIsBack] = useState(false);
   const [isNext, setIsNext] = useState(false);
-  const [value, setValue] = useState(true)
-
-
 
   const { isPopupOpen, handleToggle } = useVideoPopupSecond();
   const formik = useFormik({
@@ -29,10 +26,10 @@ const AddDriver = () => {
       firstName: '',
       lastName: '',
       phone: '',
-      Hourlywage: '',
-      CommissionRate: ''
+      usertype: '',
+  
     },
-    validationSchema: getValidationSchemaforforth,
+    validationSchema: getValidationSchemaforsix,
     onSubmit: (values) => {
       console.log(values)
       to_Next_Page()
@@ -44,7 +41,7 @@ const AddDriver = () => {
     handleToggle();
   };
   const handleAddContact = () => {
-    setdriverCount((prevCount) => prevCount + 1);
+    setWebcount((prevCount) => prevCount + 1);
   };
   const BackTO_prev_Page = () => {
     setIsBack(!isBack);
@@ -52,10 +49,9 @@ const AddDriver = () => {
 
   const to_Next_Page = () => {
     setIsNext(!isNext)
+    console.log("check")
   }
-  const handleSwitchVlue = () => {
-    setValue(!value)
-  }
+ 
 
   return (
     <>
@@ -63,45 +59,42 @@ const AddDriver = () => {
         isPopupOpen && <Video
           className={styles.popup}
           setIsOpen={handleToggle}
-          srcLink='https://player.vimeo.com/video/785867673'
-          title='ADD DRIVERS'
-          discription='Add drivers to your profile. You may change pay rate and commission rates if necessary.'
+          srcLink='https://player.vimeo.com/video/785867732'
+          title='ADD WEB USERS'
+          discription='Add additional portal users. New users must be assigned a user permission role; Administrator, Power Dispatcher, or Dispatcher Role.'
         />
       }
       {isBack === true ? <Preference /> : isNext === true ? < Preference/> :
       <div>
-        <CustomStepper currentstep="4" />
+        <CustomStepper currentstep="6" />
         <div className={styles.page}>
           <BoxComponent className={styles.mainContainer}
             handleClick={handleClick}
             children1={
-              <h2 className={styles.heading}>ADD DRIVERS</h2>
+              <h2 className={styles.heading}>ADD WEB USERS</h2>
             }
             children3={
               <div className={styles.conatainer}>
-                <label className={styles.switchCover}>
-                  Do you have drivers?
-                  <label className={styles.switchLabel}>
-                    <SwitchMUI handleSwitchValue={handleSwitchVlue} valueOfSwitch={value} />
-                  </label>
-                </label>
-                { value ? [...Array(driverCount)].map((index) => (
-                  <CommonDriverForm key={index} formik={formik} />
-                )) : [...Array(driverCount)].map((index)=>(
-                  <Disabledriverform key={index}/>
-                ))
-                }
+              
+             {  [...Array(webcount)].map((index) => (
+                  <Webuserform key={index} formik={formik} />
+                )) }
+                
                 <div className={styles.flexitems}>
                   <div className={styles.add}>
                     <span className={styles.plusicon} onClick={handleAddContact}>+</span>
-                    Add another content</div>
+                    Add another user</div>
 
                   <div style={{ display: 'flex' }}>
+                  <div style={{ marginRight: '10px' }}>
+                     <Link to='/'> <SolidButton buttonValue='Skip'  /></Link>
+                    </div>
                     <div style={{ marginRight: '10px' }}>
                       <SolidButton buttonValue='Back' onClick={BackTO_prev_Page} />
                     </div>
+                   
 
-                    <SolidButton buttonValue='Next' type='submit' onClick={value ? formik.handleSubmit : to_Next_Page}  />
+                    <SolidButton buttonValue='Next' type='submit' onClick={ formik.handleSubmit}  />
 
 
                   </div>
@@ -116,4 +109,4 @@ const AddDriver = () => {
   )
 }
 
-export default AddDriver
+export default Webuser

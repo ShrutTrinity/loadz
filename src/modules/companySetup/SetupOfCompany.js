@@ -26,7 +26,7 @@ const statesArray = [
   'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
   'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
 ];
-
+  
 const SetupOfCompany = () => {
 
 
@@ -173,12 +173,12 @@ const SetupOfCompany = () => {
                           <label className={styles.formLabel1}>State<span className={styles.requiredAll}>*</span></label>
                           <select
                             className="form-select"
-                            style={{ height: '60% !important', borderColor: '#c4c4c4' }}
+                            style={{ height: '100% !important', borderColor: '#c4c4c4',padding: '13px 14px 13px 10px',fontSize:'12px' }}
                             aria-label="Default select example"
                             name="state"
                             {...formik.getFieldProps('state')}
                           >
-                            <option value="">Select a State</option>
+                            <option value="" style={{}}>Select a State</option>
                             {statesArray.map((state, index) => (
                               <option key={index} value={state}>
                                 {state}
@@ -215,8 +215,18 @@ const SetupOfCompany = () => {
                             handleInputChange(e);
                           }}
                           placeholder='phone'
-                          inputProps={{
+                          InputProps={{
                             maxLength: 10,
+                            inputProps: {
+                              sx: {
+                                padding: '12px 14px',
+                                '@media (max-width: 600px)': {
+                                  padding: '8px 14px',
+
+                                },
+                              },
+
+                            }
                           }}
                           value={formik.values.phone}
                           onBlur={formik.handleBlur}

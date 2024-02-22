@@ -119,7 +119,7 @@ const CreateAccount = () => {
                   }
                   {...formik.getFieldProps('email')}
                 />
-                <div style={{ color: 'red', marginTop: '-32px', marginBottom: '16px', fontSize: '12px' }}>
+                <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
                   {formik.touched.email && formik.errors.email}
                 </div>
 
@@ -132,7 +132,7 @@ const CreateAccount = () => {
                       name='firstName'
                       placeholder="First Name"
                     />
-                  <div style={{ color: 'red', marginTop: '-32px', marginBottom: '16px', fontSize: '12px' }}>
+                  <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
                     {formik.touched.firstName && formik.errors.firstName}
                   </div>
                   </div>
@@ -143,7 +143,7 @@ const CreateAccount = () => {
                       name='lastName'
                       placeholder="Last Name"
                     />
-                  <div style={{ color: 'red', marginTop: '-32px', marginBottom: '16px', fontSize: '12px' }}>
+                  <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
                     {formik.touched.lastName && formik.errors.lastName}
                   </div>
                   </div>
@@ -162,7 +162,7 @@ const CreateAccount = () => {
                   }
 
                 />
-                <div style={{ color: 'red', marginTop: '-32px', marginBottom: '16px', fontSize: '12px' }}>
+                <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
                   {formik.touched.password && formik.errors.password}
                 </div>
                 <div className={styles.bottomContainer}>
