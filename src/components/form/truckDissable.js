@@ -3,7 +3,7 @@ import { Checkbox } from "@mui/material"
 import styles from './styles/commonTruck.module.scss';
 import DisableTextField from "../textfield/DisableTextfield";
 
-const Disabletruck = ({ formik }) => {
+const Disabletruck = () => {
   return (
     <div className={styles.truckForm}>
       <div className={styles.detail}>
@@ -13,11 +13,9 @@ const Disabletruck = ({ formik }) => {
             placeholder='Truck No'
             type='text'
             name='truckNo'
-            formik={formik}
+            
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-            {formik.touched.truckNo && formik.errors.truckNo}
-          </div>
+        
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -25,11 +23,9 @@ const Disabletruck = ({ formik }) => {
             placeholder='VIN#'
             type='text'
             name='VIN'
-            formik={formik}
+            
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-            {formik.touched.VIN && formik.errors.VIN}
-          </div>
+        
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -37,23 +33,18 @@ const Disabletruck = ({ formik }) => {
             placeholder='Color'
             type='text'
             name='color'
-            formik={formik}
+            
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-            {formik.touched.color && formik.errors.color}
-          </div>
+         
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
             label='Year'
             placeholder='Year'
             type='number'
-            name='year'
-            formik={formik}
+            name='year' 
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-            {formik.touched.year && formik.errors.year}
-          </div>
+          
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -61,11 +52,9 @@ const Disabletruck = ({ formik }) => {
             placeholder='Manufacturer*'
             type='text'
             name='mnufacturer'
-            formik={formik}
+            
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-            {formik.touched.mnufacturer && formik.errors.mnufacturer}
-          </div>
+        
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -73,11 +62,8 @@ const Disabletruck = ({ formik }) => {
             placeholder='Model'
             type='text'
             name='model'
-            formik={formik}
+            
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-            {formik.touched.model && formik.errors.model}
-          </div>
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -85,11 +71,8 @@ const Disabletruck = ({ formik }) => {
             placeholder=''
             type='date'
             name='expiryDate'
-            formik={formik}
+            
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
-            {formik.touched.expiryDate && formik.errors.expiryDate}
-          </div>
         </label>
         <div className={styles.checkBox}>
           <span>Is Dump Truck?</span>
