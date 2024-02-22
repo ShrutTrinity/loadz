@@ -11,6 +11,7 @@ import { getValidationSchemaforforth } from '../../components/validation/validat
 import SolidButton from '../../components/button/SolidButton'
 import Preference from '../setupPreference/Preference'
 import Disabledriverform from '../../components/form/Disabledriverform'
+import IncludeTruck from '../addTruck/IncludeTruck'
 
 
 
@@ -68,7 +69,7 @@ const AddDriver = () => {
           discription='Add drivers to your profile. You may change pay rate and commission rates if necessary.'
         />
       }
-      {isBack === true ? <Preference /> : isNext === true ? < Preference/> :
+      {isBack === true ? <Preference /> : isNext === true ? <IncludeTruck /> :
       <div>
         <CustomStepper currentstep="4" />
         <div className={styles.page}>

@@ -10,7 +10,8 @@ import SolidButton from '../../components/button/SolidButton'
 import SetupOfCompany from '../companySetup/SetupOfCompany'
 import AddDriver from '../createDriver/AddDriver'
 import { useFormik } from 'formik';
-import { getValidationSchema, priceTagsSchema } from '../../components/validation/validationshema'
+import { priceTagsSchema } from '../../components/validation/validationshema'
+import { priceTagsSchemaSales } from '../../components/validation/validationshema'
 
 const Preference = () => {
 
@@ -19,19 +20,19 @@ const Preference = () => {
   const [isNext, setIsNext] = useState(false);
   const [value, setValue] = useState(true)
 
-  const schema = value ? priceTagsSchema : getValidationSchema 
+  const veryfySwitchValue = value ? priceTagsSchema : priceTagsSchemaSales 
 
   const formik = useFormik({
     initialValues: {
       commission: '',
       wage: '',
       waitRate: '',
-      salesTax: '',
+      salesTax: ''
     },
-    validationSchema: schema,
+    validationSchema: veryfySwitchValue, 
     onSubmit: (values) => {
-      setIsNext(!isNext)
-    },
+        setIsNext(!isNext)
+      }
   });
 
   const handleClick = () => {

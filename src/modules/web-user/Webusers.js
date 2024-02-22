@@ -7,9 +7,10 @@ import useVideoPopupSecond from '../../hooks/useVideoPopupSecond'
 import { useFormik } from 'formik';
 import {  getValidationSchemaforsix } from '../../components/validation/validationshema'
 import SolidButton from '../../components/button/SolidButton'
-import Preference from '../setupPreference/Preference'
+import LoginPage from '../signIn/LoginPage'
 import { Link } from 'react-router-dom'
 import Webuserform from '../../components/form/Webuserform'
+import IncludeTruck from '../addTruck/IncludeTruck'
 
 
 
@@ -64,7 +65,7 @@ const Webuser = () => {
           discription='Add additional portal users. New users must be assigned a user permission role; Administrator, Power Dispatcher, or Dispatcher Role.'
         />
       }
-      {isBack === true ? <Preference /> : isNext === true ? < Preference/> :
+      {isBack === true ? <IncludeTruck /> : isNext === true ? <LoginPage /> :
       <div>
         <CustomStepper currentstep="6" />
         <div className={styles.page}>
@@ -94,7 +95,7 @@ const Webuser = () => {
                     </div>
                    
 
-                    <SolidButton buttonValue='Next' type='submit' onClick={formik.handleSubmit}  />
+                    <SolidButton buttonValue='Next' type='submit' onClick={ formik.handleSubmit}  />
 
 
                   </div>

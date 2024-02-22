@@ -52,7 +52,6 @@ const getValidationSchemaforsix = () => {
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
     usertype:Yup.string().required('Usertype is required'),
-
   });
 };
 
@@ -63,7 +62,14 @@ const priceTagsSchema = () => {
     commission: Yup.string().required('Default Commission Rate is required'),
     wage: Yup.string().required('Default Hourly Wage is required'),
     waitRate: Yup.string().required('Company Wait Rate is required'),
-    salesTax: Yup.string().required('Sales Tax Rate Amount is required')
+  })
+}
+const priceTagsSchemaSales = () => {
+  return Yup.object().shape({
+    salesTax:Yup.string().required('Sales Tax Rate Amount is required'),
+    commission: Yup.string().required('Default Commission Rate is required'),
+    wage: Yup.string().required('Default Hourly Wage is required'),
+    waitRate: Yup.string().required('Company Wait Rate is required'),
   })
 }
 
@@ -80,4 +86,4 @@ const addTruckSchema = () => {
   })
 }
 
-export { getValidationSchema,getValidationSchemaforsecond,priceTagsSchema,addTruckSchema, getValidationSchemaforforth,getValidationSchemaforsix};
+export { getValidationSchema,getValidationSchemaforsecond,priceTagsSchema,priceTagsSchemaSales,addTruckSchema, getValidationSchemaforforth,getValidationSchemaforsix};
