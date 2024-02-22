@@ -42,7 +42,6 @@ const getValidationSchemaforforth = () => {
     Hourlywage:Yup.string().required('Hourly Wage required'),
     CommissionRate:Yup.string().required('Commission Rate required')
   });
-
 };
 
 const getValidationSchemaforsix = () => {
@@ -54,8 +53,6 @@ const getValidationSchemaforsix = () => {
     usertype:Yup.string().required('Usertype is required'),
   });
 };
-
-
 
 const priceTagsSchema = () => {
   return Yup.object().shape({
