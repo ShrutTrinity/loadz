@@ -11,6 +11,7 @@ import SetupOfCompany from '../companySetup/SetupOfCompany'
 import AddDriver from '../createDriver/AddDriver'
 import { useFormik } from 'formik';
 import { priceTagsSchema } from '../../components/validation/validationshema'
+import { priceTagsSchemaSales } from '../../components/validation/validationshema'
 
 const Preference = () => {
 
@@ -19,17 +20,19 @@ const Preference = () => {
   const [isNext, setIsNext] = useState(false);
   const [value, setValue] = useState(true)
 
+  const veryfySwitchValue = value ? priceTagsSchema : priceTagsSchemaSales 
+
   const formik = useFormik({
     initialValues: {
       commission: '',
       wage: '',
       waitRate: '',
-      salesTax: '',
+      salesTax: ''
     },
-    validationSchema: priceTagsSchema,
+    validationSchema: veryfySwitchValue, 
     onSubmit: (values) => {
-      setIsNext(!isNext)
-    },
+        setIsNext(!isNext)
+      }
   });
 
   const handleClick = () => {
