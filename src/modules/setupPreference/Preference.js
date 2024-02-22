@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import CustomStepper from '../../components/stepper/CustomStepper'
 import styles from './styles/setupPreference.module.scss'
 import BoxComponent from '../../components/formBox/Box'
@@ -19,6 +19,7 @@ const Preference = () => {
   const [isBack, setIsBack] = useState(false);
   const [isNext, setIsNext] = useState(false);
   const [value, setValue] = useState(true)
+  
 
   const veryfySwitchValue = value ? priceTagsSchema : priceTagsSchemaSales 
 
@@ -32,6 +33,7 @@ const Preference = () => {
     validationSchema: veryfySwitchValue, 
     onSubmit: (values) => {
         setIsNext(!isNext)
+      
       }
   });
 
@@ -45,6 +47,7 @@ const Preference = () => {
 
   const BackTO_prev_Page = () => {
     setIsBack(!isBack);
+    
   };
 
   return (

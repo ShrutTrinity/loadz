@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import CustomStepper from '../../components/stepper/CustomStepper'
 import BoxComponent from '../../components/formBox/Box'
 import styles from './styles/setup.module.scss'
@@ -28,13 +28,13 @@ const statesArray = [
 ];
   
 const SetupOfCompany = () => {
-
-
+  
+  
   const { isPopupOpen, handleToggle } = useVideoPopup();
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [contactCount, setContactCount] = useState(1);
-  const [gopreference, setGopreference] = useState(false)
+  const [gopreference, setGopreference] = useState(false);
 
 
   const formik = useFormik({
@@ -57,6 +57,7 @@ const SetupOfCompany = () => {
       setGopreference(true)
     },
   });
+
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value.replace(/\D/g, '');
@@ -172,13 +173,14 @@ const SetupOfCompany = () => {
                         <div className={styles.selector}>
                           <label className={styles.formLabel1}>State<span className={styles.requiredAll}>*</span></label>
                           <select
+                          
                             className="form-select"
-                            style={{ height: '100% !important', borderColor: '#c4c4c4',padding: '13px 14px 13px 10px',fontSize:'12px' }}
+                            style={{  borderColor: '#c4c4c4',padding: '13px 14px 13px 10px',fontSize:'13px' }}
                             aria-label="Default select example"
                             name="state"
                             {...formik.getFieldProps('state')}
                           >
-                            <option value="" style={{}}>Select a State</option>
+                            <option value="" selected disabled >Select a State</option>
                             {statesArray.map((state, index) => (
                               <option key={index} value={state}>
                                 {state}
