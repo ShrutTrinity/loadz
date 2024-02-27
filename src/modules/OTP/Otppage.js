@@ -10,7 +10,6 @@ import Reversebtn from '../../components/button/Reversebtn';
 const Otppage = ({childrenForCloseOtp}) => {
   const email = ' fenikothadiya@gmail.com'
 
-
   return (
     <>
       <div className={styles.container}>
