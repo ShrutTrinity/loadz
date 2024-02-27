@@ -96,9 +96,8 @@ const NavigationBar = () => {
               onChange={handleChange}
               sx={{
                 position:'inherit',
-                padding:0,
                 '& .MuiSelect-icon': {
-                  display: 'none', // Hide the dropdown icon
+                  display: 'none',
                 }
               }}
             >
