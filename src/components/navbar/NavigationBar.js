@@ -30,21 +30,62 @@ const NavigationBar = () => {
 
   
   return (
-    <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', color: 'black' }} position="static">
-      <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-          <MenuIcon />
-        </IconButton>
-    
+    <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'relative' }}>
+      {searchField === true ?
+        <SearchField handleSearchClose={handleSearchClose} />
+        :
+        <Toolbar sx={{ position: 'relative', zIndex: '-1' }}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          </Typography>
+          <div>
+            <Select
+              labelId="custom-select"
+              id="custom-select"
+              value={selectedValue}
+              onChange={handleChange}
+              sx={{
+                position:'inherit',
+                '& .MuiSelect-icon': {
+                  display: 'none',
+                }
+              }}
+            >
+              <MenuItem value={10}><img src={US} alt='EN' />America</MenuItem>
+              <MenuItem value={20}><img src={US} alt='TR' />Turkish</MenuItem>
+              <MenuItem value={30}><img src={US} alt='AR' />Arabic</MenuItem>
+              <MenuItem>Learn More</MenuItem>
+            </Select>
+            <Button sx={{ padding: '12px', minWidth: '0px', margin: '0px', color: 'black', backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none', ':hover': { backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none' } }} onClick={toggleFullscreen} variant="contained" color="primary">
+              {isFullscreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
+            </Button>
+            <Button
+            sx={{
+              padding: '6px 8px',
+              minWidth: '64px',
+              margin: '0px',
+              color: 'black',
+              backgroundColor: 'rgb(237, 202, 51)',
+              boxShadow: 'none',
+              ':hover': {
+                backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none'
+              }
+            }}
+            onClick={toggleFullscreen} variant="contained" color="primary">
+            <YouTubeIcon />
+          </Button>
+          <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
+            <SearchIcon />
+          </IconButton>
 
-        <div>
-        
-          <Select labelId="custom-select" id="custom-select" value={selectedValue} onChange={handleChange}>
-            <MenuItem value='EN'><img src={US} alt='EN' />America </MenuItem>
-            <MenuItem value='TR'><img src={US} alt='TR' />Turkish</MenuItem>
-            <MenuItem value='SR'><img src={US} alt='AR' />Arabic</MenuItem>
-            <MenuItem>Learn More</MenuItem>
-          </Select>
           <IconButton
             size="large"
             aria-label="account of current user"
