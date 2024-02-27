@@ -36,7 +36,7 @@ const NavigationBar = () => {
           <MenuIcon />
         </IconButton>
     
-    
+
         <div>
         
           <Select labelId="custom-select" id="custom-select" value={selectedValue} onChange={handleChange}>
