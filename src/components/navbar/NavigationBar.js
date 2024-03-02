@@ -9,13 +9,17 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Select from '@mui/material/Select';
 import US from '../../images/us.png';
-import './styles/navbar.module.scss';
+import TR from '../../images/tr.png';
+import SA from '../../images/sa.png'
+import Gear from '../../images/GearIcon.svg';
+import styles from './styles/navbar.module.scss';
 import Button from '@mui/material/Button';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchField from '../searchPiont/SearchField';
+import { Link as RouterLink } from 'react-router-dom';
 
 
 const NavigationBar = () => {
@@ -46,7 +50,6 @@ const NavigationBar = () => {
 
   const toggleFullscreen = () => {
     if (!isFullscreen) {
-      // Enter fullscreen
       if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
       } else if (document.documentElement.webkitRequestFullscreen) {
@@ -57,7 +60,6 @@ const NavigationBar = () => {
         document.documentElement.msRequestFullscreen();
       }
     } else {
-      // Exit fullscreen
       if (document.exitFullscreen) {
         document.exitFullscreen();
       } else if (document.webkitExitFullscreen) {
@@ -72,7 +74,7 @@ const NavigationBar = () => {
   };
 
   return (
-    <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'relative' }}>
+    <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none', color: "black",position:"relative" }}>
       {searchField === true ?
         <SearchField handleSearchClose={handleSearchClose} />
         :
@@ -86,7 +88,8 @@ const NavigationBar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
           </Typography>
           <div>
             <Select
@@ -94,71 +97,113 @@ const NavigationBar = () => {
               id="custom-select"
               value={selectedValue}
               onChange={handleChange}
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    backgroundColor: 'rgb(237, 202, 51)',
+                    borderRadius: '8px',
+                  },
+                },
+                MenuListProps: {
+                  style: {
+                    backgroundColor: 'rgb(237, 202, 51)'
+                  },
+                },
+              }}
               sx={{
-                position:'inherit',
+                boxShadow: "none",
+                fontSize:'13px',
                 '& .MuiSelect-icon': {
-                  display: 'none',
-                }
+                  display: 'none'
+                },
+                ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input": {
+                  paddingRight: ' 0 !important',
+                  paddingLeft: ' 0 !important'
+                },
+                ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
+                "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
               }}
             >
-              <MenuItem value={10}><img src={US} alt='EN' />America</MenuItem>
-              <MenuItem value={20}><img src={US} alt='TR' />Turkish</MenuItem>
-              <MenuItem value={30}><img src={US} alt='AR' />Arabic</MenuItem>
-              <MenuItem>Learn More</MenuItem>
+              <MenuItem sx={{fontSize:'13px'}} value={10}><img className={styles.languageIcon} src={US} alt='EN' />America</MenuItem>
+              <MenuItem sx={{fontSize:'13px'}} value={20}><img className={styles.languageIcon} src={TR} alt='TR' />Turkish</MenuItem>
+              <MenuItem sx={{fontSize:'13px'}} value={30}><img className={styles.languageIcon} src={SA} alt='AR' />Arabic</MenuItem>
+              <MenuItem sx={{fontSize:'13px'}} >Learn More</MenuItem>
             </Select>
-            <Button sx={{ padding: '12px', minWidth: '0px', margin: '0px', color: 'black', backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none', ':hover': { backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none' } }} onClick={toggleFullscreen} variant="contained" color="primary">
+
+            <Button sx={{
+              padding: '12px', minWidth: '0px', margin: '0px', color: 'black', backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none',
+              ':hover': { backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none' }
+            }}
+              onClick={toggleFullscreen} variant="contained" color="primary"
+            >
               {isFullscreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
             </Button>
-            <Button
-            sx={{
-              padding: '6px 8px',
-              minWidth: '64px',
-              margin: '0px',
-              color: 'black',
-              backgroundColor: 'rgb(237, 202, 51)',
-              boxShadow: 'none',
-              ':hover': {
-                backgroundColor: 'rgb(237, 202, 51)', boxShadow: 'none'
-              }
-            }}
-            onClick={toggleFullscreen} variant="contained" color="primary">
-            <YouTubeIcon />
-          </Button>
-          <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
-            <SearchIcon />
-          </IconButton>
 
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            // onClick={handleMenu}
-            color="inherit"
-          >
-            <AccountCircle />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-          </Menu>
-        </div>
+            <RouterLink to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
+              <Button
+                sx={{
+                  padding: '6px 8px',
+                  minWidth: '64px',
+                  margin: '0px',
+                  color: 'black',
+                  backgroundColor: 'rgb(237, 202, 51)',
+                  boxShadow: 'none',
+                  ':hover': {
+                    backgroundColor: 'rgb(237, 202, 51)',
+                    boxShadow: 'none'
+                  }
+                }}
+                variant="contained" color="primary">
+                <YouTubeIcon />
+              </Button>
+            </RouterLink>
 
-      </Toolbar>
+            <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
+              <SearchIcon />
+            </IconButton>
+
+            <IconButton size="large" aria-label="Settings" >
+              <img className={styles.gearIcon} src={Gear} alt='Gear Icon'/>
+            </IconButton>
+
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              // onClick={handleMenu}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+            </Menu>
+          </div>
+
+        </Toolbar>
       }
     </AppBar >
 
