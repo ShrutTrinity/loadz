@@ -10,13 +10,6 @@ import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchField from '../searchPiont/SearchField';
-
-
-const NavigationBar = ({toggleDrawer,Open}) => {
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedValue, setSelectedValue] = useState(10);
-  const [isFullscreen, setIsFullscreen] = useState(false);
 import { Link as RouterLink } from 'react-router-dom';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import TextSlider from './TextSlider';
@@ -25,7 +18,7 @@ import FullScreenIcon from './FullScreenIcon';
 import ProfileDetail from './ProfileDetail';
 
 
-const NavigationBar = ({ toggleDrawer }) => {
+const NavigationBar = ({toggleDrawer,Open}) => {
 
   const [searchField, setSearchField] = useState(false);
   const [textSelectorOpen, setTextSelectorOpen] = useState(false)
@@ -63,7 +56,8 @@ const NavigationBar = ({ toggleDrawer }) => {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2, display:`${Open ? 'none' :'block'} `}}
-            onClick={toggleDrawer}
+            onClick={toggleDrawer} 
+            
           >
             <MenuIcon />
           </IconButton>
@@ -136,8 +130,8 @@ const NavigationBar = ({ toggleDrawer }) => {
           </div>
         </Toolbar>
       }
-    </AppBar >
-
+    </AppBar>
+    </div>
   )
 }
 
