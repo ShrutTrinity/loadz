@@ -81,48 +81,55 @@ const Body = () => {
     };
     const bodyStyles = {
         width: `calc(100% - ${open ? 290 : 0}px)`,
-        zIndex:10
+        zIndex: 10
     };
 
     if (window.innerWidth <= 1300) {
         bodyStyles.width = '100%';
-      var  bodyclick = handleDrawerClose
+        var bodyclick = handleDrawerClose;
+        //   bodyStyles.opacity= `${open ?'.9': '1'}`
+        //   bodyStyles.backgroundColor= `${open ?'rgba(0,0,0,0.5)': ' '}`
     }
     return (
         <>
-          <PersistentDrawerLeft open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
+            <PersistentDrawerLeft open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
 
-            <div className={styles.body} style={bodyStyles}  onClick={bodyclick} >
+            <div className={styles.body} style={bodyStyles} onClick={bodyclick} >
                 <h2 className={styles.company}>Company Name</h2>
                 <div className={styles.contain}>
                     <div className={styles.flex}>
                         <div className={styles.chart}>
                             <div className={styles.border}>
-                                <Chart options={options} series={options.series} width={`${open ? '99%' : '100%'}`} height={`${open ? '280%' : '280%'}`} />
+                                <Chart options={options} series={options.series} width={`${open ? '99%' : '100%'}`} height={`${open ? '260%' : '260%'}`} />
                             </div>
                         </div>
                         <div className={styles.boxes}>
-                            <div className={styles.box}>
-                                <div className={styles.context}>
-                                    <div className={styles.zero}> 0 </div>
-                                    <div className={styles.job}> Jobs In Process </div>
-                                    <div className={styles.ticket}> Ticket Count : 0 </div>
-                                </div>
-                            </div>
-                            <div className={styles.box}>
+                           
+                                <a className={styles.box} style={{ cursor: 'pointer' }} href='#Progress'>
+                               
+                                    <div className={styles.context} >
+                                        <div className={styles.zero}> 0 </div>
+                                        <div className={styles.job}> Jobs In Process </div>
+                                        <div className={styles.ticket}> Ticket Count : 0 </div>
+                                    </div>
+
+                          
+                                </a>
+
+                            <a className={styles.box} style={{ cursor: 'pointer' }} href='#Complated'>
                                 <div className={styles.context}>
                                     <div className={styles.zero}> 0 </div>
                                     <div className={styles.job}> Jobs Delayed</div>
                                     <div className={styles.ticket}> Ticket Count : 0 </div>
                                 </div>
-                            </div>
-                            <div className={styles.box}>
+                            </a>
+                            <a className={styles.box} style={{ cursor: 'pointer' }} href='#Delayed'>
                                 <div className={styles.context}>
                                     <div className={styles.zero}> 0 </div>
                                     <div className={styles.job}> Jobs Complated </div>
                                     <div className={styles.ticket}> Ticket Count : 0 </div>
                                 </div>
-                            </div>
+                            </a>
                             <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
                                 <div className={styles.context} style={{ color: 'black' }}>
                                     <div className={styles.ticket}> {curMonth}</div>
@@ -132,33 +139,32 @@ const Body = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.contain2}>
-                        <h3 className={styles.title}>In Progress</h3>
-
+                    <div className={styles.contain2} >
+                        <h3 className={styles.title} id='Progress'>In Progress</h3>
                         <div className={styles.flex2}>
                             <div className={styles.detail} >
-                            There are no tickets in progress
+                                There are no tickets in progress
                             </div>
                         </div>
 
 
                     </div>
-                    <div className={styles.contain2}>
+                    <div className={styles.contain2} id='Complated'> 
                         <h3 className={styles.title}>Completed Today</h3>
 
                         <div className={styles.flex2}>
                             <div className={styles.detail}>
-                            There are no tickets completed today
+                                There are no tickets completed today
                             </div>
                         </div>
 
 
                     </div>
-                    <div className={styles.contain2}>
+                    <div className={styles.contain2} id='Delayed'>
                         <h3 className={styles.title}>Delayed</h3>
                         <div className={styles.flex2}>
                             <div className={styles.detail} >
-                            There are no delayed tickets
+                                There are no delayed tickets
                             </div>
                         </div>
 
