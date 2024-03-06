@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './styles/header.module.scss'
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+
 import Drawer from '@mui/material/Drawer';
 import iconButton from '../../images/menu_ico.png';
 import Profile from '../../images/profile.jpg'
@@ -9,34 +9,32 @@ import According from '../According';
 import logo from '../../images/loadzlogo.png'
 import banner from '../../images/banner.png'
 import NavigationBar from './NavigationBar';
-
-
-
+import { AppBar } from '@mui/material';
 
 const DrawerContent = styled('div')(({ theme }) => ({
-
-    overflowY:'hidden',
+ 
+    overflowY: 'hidden',
     paddingTop: '70px !important',
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     padding: theme.spacing(2),
 
-    ':hover' :{
-        overflowY:'auto',
-    '&::-webkit-scrollbar': {
-        display:'block',
-        width: '7px',
-        transition: 'width 5s ease',
-    },
-    '&::-webkit-scrollbar-thumb': {
-        backgroundColor: '#D3D3D3',
-        borderRadius: '4px',
-        transition: 'background-color 5s ease',
-    },
-    '&::-webkit-scrollbar-track': {
-        backgroundColor: theme.palette.background.paper,
-        transition: 'background-color 5s ease',
-    },
-}
+    ':hover': {
+        overflowY: 'auto',
+        '&::-webkit-scrollbar': {
+            display: 'block',
+            width: '7px',
+            transition: 'width 5s ease',
+        },
+        '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#D3D3D3',
+            borderRadius: '4px',
+            transition: 'background-color 5s ease',
+        },
+        '&::-webkit-scrollbar-track': {
+            backgroundColor: theme.palette.background.paper,
+            transition: 'background-color 5s ease',
+        },
+    }
 
 }));
 
@@ -48,56 +46,47 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft() {
-
-    const [open, setOpen] = React.useState(false);
-
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
+export default function PersistentDrawerLeft({ open, handleDrawerOpen, handleDrawerClose }) {   
     const data = [
-    { header: 'DASHBOARD', detail: { 'REQUEST BOARD': '/request-board' } },
-    { header: 'Jobs', detail: {} },
-    { header: 'CUSTOMERS', detail: { 'UNINVOICED TICKETS': '/uninvoiced-tickets' } },
-    { header: 'TRUCK', detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
-    { header: 'DRIVER LIST', detail: { 'TIME SHEETS': '/time-sheets' } },
-    { header: 'USER LIST', detail: {} },
-    { header: 'SUBCONTRACTORS', detail: {} },
-    { header: 'OWNER OPERATORS', detail: {} },
-];
-    
+        { header: 'DASHBOARD', detail: { 'REQUEST BOARD': '/request-board' } },
+        { header: 'Jobs', detail: {} },
+        { header: 'CUSTOMERS', detail: { 'UNINVOICED TICKETS': '/uninvoiced-tickets' } },
+        { header: 'TRUCK', detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
+        { header: 'DRIVER LIST', detail: { 'TIME SHEETS': '/time-sheets' } },
+        { header: 'USER LIST', detail: {} },
+        { header: 'SUBCONTRACTORS', detail: {} },
+        { header: 'OWNER OPERATORS', detail: {} },
+    ];
+
 
     return (
-        <Box sx={{ display: 'flex' }}>
-           
-                  <NavigationBar toggleDrawer={handleDrawerOpen}/>
-            <Drawer
-               
-                variant="persistent"
-                anchor="left"
-                open={open}
-            >
-                <DrawerHeader>
-                    <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{ cursor: 'pointer', height: '20px', width: '20px', borderRadius: '50%' }} />
-                </DrawerHeader>
-                <div className={styles.profile}>
-                    <img src={Profile} alt='profile' onClick={handleDrawerClose} className={styles.img2} />
+       
+     
+      <AppBar position="static" sx={{backgroundColor:'black'}}>
+            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} />
+                <Drawer
+                    variant="persistent"
+                    anchor="left"
+                    open={open}>
+                    <DrawerHeader>
+                        <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{ cursor: 'pointer', height: '20px', width: '20px', borderRadius: '50%' }} />
+                    </DrawerHeader>
+                    <div className={styles.profile}>
+                        <img src={Profile} alt='profile'  className={styles.img2} />
+                    </div>
+                    <DrawerContent>
+                        {data.map((item, index) => (
+                            <According key={index} header={item.header} detail={item.detail} />
+                        ))}
+                        <img src={banner} className={styles.banner} alt='logo' />
+                    </DrawerContent>
 
-                </div>
-                
-                <DrawerContent>
-                {data.map((item, index) => (
-                <According key={index} header={item.header} detail={item.detail} />
-            ))}
-            <img src={banner} className={styles.banner} alt='logo'/>
-                </DrawerContent>
-               
-            <img src={logo} className={styles.img} alt='logo'/>
-            </Drawer>
-                    </Box>
-    );
+                    <img src={logo} className={styles.img} alt='logo' />
+                </Drawer>
+                </AppBar>
+            
+
+
+
+            );
 }

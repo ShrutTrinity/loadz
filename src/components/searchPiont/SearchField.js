@@ -12,27 +12,28 @@ const Search = styled('div')(() => ({
     '&:hover': {
       backgroundColor: 'rgb(237, 202, 51)',
     },
-    marginLeft: 0,
-    width: '100vw',
+    marginLeft: 0 ,
+    width: '100%',
     padding:'10px',
     color:'balck'
   }));
   const StyledInputBase = styled(InputBase)(() => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
+      width: '85vw',
       padding: '10px 10px 10px 10px',
       paddingLeft: '5px',
-      width: '92vw'
     },
   }));
 
 
-const SearchField = ({handleSearchClose}) => {
+const SearchField = ({handleSearchClose,Open}) => {
   return (
-    <Search sx={{}}>
+    <Search>
         <StyledInputBase
+        sx={{width:`${Open? '65vw':'85vw'}`}}
           placeholder="Search…"
-          inputProps={{ 'aria-label': 'search' }}
+          inputProps={{ 'aria-label':'search' }}
         />
         <IconButton sx={{ float: 'right',margin:'0px 15px' }} onClick={handleSearchClose}>
           <CloseIcon />
@@ -42,3 +43,5 @@ const SearchField = ({handleSearchClose}) => {
 }
 
 export default SearchField
+
+
