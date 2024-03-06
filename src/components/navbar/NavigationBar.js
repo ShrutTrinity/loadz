@@ -10,6 +10,13 @@ import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchField from '../searchPiont/SearchField';
+
+
+const NavigationBar = ({toggleDrawer,Open}) => {
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedValue, setSelectedValue] = useState(10);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 import { Link as RouterLink } from 'react-router-dom';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import TextSlider from './TextSlider';
@@ -44,9 +51,10 @@ const NavigationBar = ({ toggleDrawer }) => {
   };
 
   return (
-    <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed' }}>
+    <div>  
+      <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)` }}>
       {searchField === true ?
-        <SearchField handleSearchClose={handleSearchClose} />
+        <SearchField handleSearchClose={handleSearchClose} Open={Open}/>
         :
         <Toolbar sx={{ zIndex: '-1', paddingRight: '8px !important' }}>
           <IconButton
@@ -54,7 +62,7 @@ const NavigationBar = ({ toggleDrawer }) => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, display:`${Open ? 'none' :'block'} `}}
             onClick={toggleDrawer}
           >
             <MenuIcon />
@@ -129,6 +137,7 @@ const NavigationBar = ({ toggleDrawer }) => {
         </Toolbar>
       }
     </AppBar >
+
   )
 }
 

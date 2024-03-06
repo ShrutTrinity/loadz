@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles/body.module.scss'
 import PersistentDrawerLeft from './header'
 import Chart from 'react-apexcharts'
+import { Link } from 'react-router-dom';
+
 
 var options = {
     series: [{
@@ -9,7 +11,10 @@ var options = {
         // data: [1,1.1,1.2,2.2,5]
     }],
     chart: {
-        height: 350,
+
+        width: "100%",
+        height: "100%",
+
         type: 'line',
         zoom: {
             enabled: false
@@ -18,15 +23,24 @@ var options = {
             show: false
         }
     },
+    plotOptions: {
+        bar: {
+            horizontal: true,
+            borderRadius: 10,
+            columnWidth: '100%',
+            barHeight: '100%',
+            colors: {
+                backgroundBarColors: ['#E7E7E6'],
+                backgroundBarRadius: '11px',
+            },
+        },
+    },
     yaxis: {
         logBase: 5,
         min: 0,
         max: 5,
         tickAmount: 5,
-    }
-
-    ,
-
+    },
     dataLabels: {
         enabled: false
     },
@@ -49,58 +63,120 @@ var options = {
 };
 var today = new Date();
 var dd = String(today.getDate());
-var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 var curMonth = months[today.getMonth()]
+var curYear = today.getFullYear()
 
 
 const Body = () => {
+
+    const [open, setOpen] = useState(false);
+
+    const handleDrawerOpen = () => {
+        setOpen(true);
+    };
+
+    const handleDrawerClose = () => {
+        setOpen(false);
+    };
+    const bodyStyles = {
+        width: `calc(100% - ${open ? 290 : 0}px)`,
+        zIndex:10
+    };
+
+    if (window.innerWidth <= 1300) {
+        bodyStyles.width = '100%';
+      var  bodyclick = handleDrawerClose
+    }
     return (
         <>
+          <PersistentDrawerLeft open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
 
-            <PersistentDrawerLeft />
-            <div className={styles.body}>
-                <h2 className={styles.company}>company name</h2>
-                <div className={styles.flex}>
-
-                    <div className={styles.chart}>
-                        <div className={styles.border}>
-                            <Chart options={options} series={options.series} />
+            <div className={styles.body} style={bodyStyles}  onClick={bodyclick} >
+                <h2 className={styles.company}>Company Name</h2>
+                <div className={styles.contain}>
+                    <div className={styles.flex}>
+                        <div className={styles.chart}>
+                            <div className={styles.border}>
+                                <Chart options={options} series={options.series} width={`${open ? '99%' : '100%'}`} height={`${open ? '280%' : '280%'}`} />
+                            </div>
                         </div>
+                        <div className={styles.boxes}>
+                            <div className={styles.box}>
+                                <div className={styles.context}>
+                                    <div className={styles.zero}> 0 </div>
+                                    <div className={styles.job}> Jobs In Process </div>
+                                    <div className={styles.ticket}> Ticket Count : 0 </div>
+                                </div>
+                            </div>
+                            <div className={styles.box}>
+                                <div className={styles.context}>
+                                    <div className={styles.zero}> 0 </div>
+                                    <div className={styles.job}> Jobs Delayed</div>
+                                    <div className={styles.ticket}> Ticket Count : 0 </div>
+                                </div>
+                            </div>
+                            <div className={styles.box}>
+                                <div className={styles.context}>
+                                    <div className={styles.zero}> 0 </div>
+                                    <div className={styles.job}> Jobs Complated </div>
+                                    <div className={styles.ticket}> Ticket Count : 0 </div>
+                                </div>
+                            </div>
+                            <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
+                                <div className={styles.context} style={{ color: 'black' }}>
+                                    <div className={styles.ticket}> {curMonth}</div>
+                                    <div className={styles.zero}> {dd} </div>
+                                    <div className={styles.ticket}> {curYear}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.contain2}>
+                        <h3 className={styles.title}>In Progress</h3>
+
+                        <div className={styles.flex2}>
+                            <div className={styles.detail} >
+                            There are no tickets in progress
+                            </div>
+                        </div>
+
 
                     </div>
-                    <div className={styles.boxes}>
-                        <div className={styles.box}>
-                            <div className={styles.context}>
-                                <div className={styles.zero}> 0 </div>
-                                <div className={styles.job}> Jobs In Process </div>
-                                <div className={styles.ticket}> Ticket Count : 0 </div>
+                    <div className={styles.contain2}>
+                        <h3 className={styles.title}>Completed Today</h3>
+
+                        <div className={styles.flex2}>
+                            <div className={styles.detail}>
+                            There are no tickets completed today
                             </div>
                         </div>
-                        <div className={styles.box}>
-                            <div className={styles.context}>
-                                <div className={styles.zero}> 0 </div>
-                                <div className={styles.job}> Jobs Delayed </div>
-                                <div className={styles.ticket}> Ticket Count : 0 </div>
-                            </div>
-                        </div>
-                        <div className={styles.box}>
-                            <div className={styles.context}>
-                                <div className={styles.zero}> 0 </div>
-                                <div className={styles.job}> Jobs Complated </div>
-                                <div className={styles.ticket}> Ticket Count : 0 </div>
-                            </div>
-                        </div>
-                        <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
-                            <div className={styles.context} style={{ color: 'black' }}>
-                                <div className={styles.ticket}> {curMonth}</div>
-                                <div className={styles.zero}> {dd} </div>
-                                <div className={styles.ticket}> Ticket Count : 0 </div>
+
+
+                    </div>
+                    <div className={styles.contain2}>
+                        <h3 className={styles.title}>Delayed</h3>
+                        <div className={styles.flex2}>
+                            <div className={styles.detail} >
+                            There are no delayed tickets
                             </div>
                         </div>
 
 
                     </div>
 
+                </div>
+                <div className={styles.toolbar}>
+                    <div className={styles.toolbarDetail}>
+                        <div className={styles.toolbarDetail}>
+                            <Link to='/terms' className={styles.bottomLink}>
+                                Terms and conditions
+                            </Link>
+                            <Link className={styles.bottomLink} to='/privacy'>
+                                Privacy Policy
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
