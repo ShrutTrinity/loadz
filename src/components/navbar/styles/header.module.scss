@@ -1,0 +1,28 @@
+.profile{
+    display: flex;
+    padding:0 0 30px 0px;
+    justify-content: center;
+    align-items: center;
+
+ box-shadow: 0 4px 9px -6px #222;
+ 
+}
+.img2{
+    cursor: 'pointer';
+  max-height: 100%;
+  max-width: 100%;
+}
+.img{
+ margin-left: auto;
+ margin-right: auto;
+ padding-bottom: 20px;
+ padding-top: 20px;
+  height: 70px;
+  width: 150px;
+}
+.banner{
+  display: flex;
+  width: 66.66%;
+  margin-left: auto;
+  margin-right: auto;
+}

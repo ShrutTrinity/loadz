@@ -11,6 +11,8 @@ import Welcome from './modules/company/Welcome';
 import CreateAccount from './modules/newAccount/CreateAccount';
 import SetupOfCompany from './modules/companySetup/SetupOfCompany';
 import NavigationBar from './components/navbar/NavigationBar';
+import Body from './components/navbar/body';
+import ProfileDetail from './components/navbar/ProfileDetail';
 
 const App = () => {
  
@@ -29,6 +31,8 @@ const App = () => {
           <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/nav' element={<NavigationBar />} />
+          <Route exact path='/body' element={<Body />} />
+          <Route exact path='/body1' element={<ProfileDetail />} />
         </Routes>
       </Router>
     </>

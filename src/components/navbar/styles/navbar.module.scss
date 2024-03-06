@@ -1,6 +1,41 @@
-.languageIcon{
-    margin: 0 10px 0 0;
+.languageIcon {
+  margin: 0 10px 0 0;
 }
-.gearIcon{
-    width: 25px;
+.gearIcon {
+  width: 25px;
+}
+.userCover {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column !important;
+  margin: 0px 4px;
+
+  .userName{
+    margin: 0px;
+    font-size: 13px;
+    color: black;
+    font-family: poppins;
+    font-weight: 300;
+  }
+  .userCompany{
+    font-size: 11px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+  }
+}
+.userLogo{
+  padding: 3px;
+  background-color: #bdbdbd;
+  height: 35px;
+  width: 35px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .userLatter{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
 }

@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Accountcontainer{
+    padding: 0px 16px 0px 6px;
+    background: #fff;
+
+    img{
+       width: 24px;
+       height: 24px;
+       min-width: 36px;
+    }
+    .accounRoute{
+        font-size: 13px;
+        font-weight: 300;
+    }
+}
+.Accountcontainer:nth-child(2){
+    padding: 0px 16px;
+}

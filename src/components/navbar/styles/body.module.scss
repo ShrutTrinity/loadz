@@ -1,0 +1,56 @@
+.body {
+    background-color: black;
+    margin-top: 60px;
+    position: relative;
+    .company{
+        color: white;
+        margin: 30px 0 0 30px;
+        padding: 20px 0 0 20px;
+    }
+    .flex{
+        margin: 30px;
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        
+        .chart {
+            border: 2px solid yellow;
+            width: 50%;
+            .border{
+            background-color: white;
+            padding: 10px;
+            height: 440px;
+            margin: 20px;
+            }
+        }
+        .boxes{
+            display: flex;
+            width: 50%;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .box{
+                border: 2px solid yellow;
+                width: 45%; 
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                .context{
+                    color: white;
+                    padding: 40px;
+                .zero{
+                    font-size: 60px;
+                    font-weight: 700;
+                }
+                .job{
+                    color: rgba(249, 168, 37,1);
+                }
+            }
+            }
+        }
+    }
+}
