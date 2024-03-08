@@ -21,6 +21,7 @@ var options = {
         // data: [1,1.1,1.2,2.2,5]
     }],
     chart: {
+
         width: "100%",
         height: "100%",
 
@@ -122,80 +123,78 @@ const Body = () => {
                                         <div className={styles.ticket}> Ticket Count : 0 </div>
                                     </div>
 
-                          
-                                </a>
 
-                            <a className={styles.box} style={{ cursor: 'pointer' }} href='#Complated'>
-                                <div className={styles.context}>
-                                    <div className={styles.zero}> 0 </div>
-                                    <div className={styles.job}> Jobs Delayed</div>
-                                    <div className={styles.ticket}> Ticket Count : 0 </div>
-                                </div>
-                            </a>
-                            <a className={styles.box} style={{ cursor: 'pointer' }} href='#Delayed'>
-                                <div className={styles.context}>
-                                    <div className={styles.zero}> 0 </div>
-                                    <div className={styles.job}> Jobs Complated </div>
-                                    <div className={styles.ticket}> Ticket Count : 0 </div>
-                                </div>
-                            </a>
-                            <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
-                                <div className={styles.context} style={{ color: 'black' }}>
-                                    <div className={styles.ticket}> {curMonth}</div>
-                                    <div className={styles.zero}> {dd} </div>
-                                    <div className={styles.ticket}> {curYear}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.contain2} >
-                        <h3 className={styles.title} id='Progress'>In Progress</h3>
-                        <div className={styles.flex2}>
-                            <div className={styles.detail} >
-                                There are no tickets in progress
-                            </div>
-                        </div>
+              </a>
 
-
-                    </div>
-                    <div className={styles.contain2} id='Complated'> 
-                        <h3 className={styles.title}>Completed Today</h3>
-
-                        <div className={styles.flex2}>
-                            <div className={styles.detail}>
-                                There are no tickets completed today
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div className={styles.contain2} id='Delayed'>
-                        <h3 className={styles.title}>Delayed</h3>
-                        <div className={styles.flex2}>
-                            <div className={styles.detail} >
-                                There are no delayed tickets
-                            </div>
-                        </div>
-
-
-                    </div>
-
+              <a className={styles.box} style={{ cursor: 'pointer' }} href='#Complated'>
+                <div className={styles.context}>
+                  <div className={styles.zero}> 0 </div>
+                  <div className={styles.job}> Jobs Delayed</div>
+                  <div className={styles.ticket}> Ticket Count : 0 </div>
                 </div>
-                <div className={styles.toolbar}>
-                    <div className={styles.toolbarDetail}>
-                        <div className={styles.toolbarDetail}>
-                            <Link to='/terms' className={styles.bottomLink}>
-                                Terms and conditions
-                            </Link>
-                            <Link className={styles.bottomLink} to='/privacy'>
-                                Privacy Policy
-                            </Link>
-                        </div>
-                    </div>
+              </a>
+              <a className={styles.box} style={{ cursor: 'pointer' }} href='#Delayed'>
+                <div className={styles.context}>
+                  <div className={styles.zero}> 0 </div>
+                  <div className={styles.job}> Jobs Complated </div>
+                  <div className={styles.ticket}> Ticket Count : 0 </div>
                 </div>
+              </a>
+              <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
+                <div className={styles.context} style={{ color: 'black' }}>
+                  <div className={styles.ticket}> {curMonth}</div>
+                  <div className={styles.zero}> {dd} </div>
+                  <div className={styles.ticket}> {curYear}</div>
+                </div>
+              </div>
             </div>
-        </>
-    )
+          </div>
+          <div className={styles.contain2} id='Progress'>
+            <h3 className={styles.title}>In Progress</h3>
+            <div className={styles.flex2}>
+              <div className={styles.detail} >
+                There are no tickets in progress
+              </div>
+            </div>
+          </div>
+          <div className={styles.contain2} id='Complated'>
+            <h3 className={styles.title}>Completed Today</h3>
+
+            <div className={styles.flex2}>
+              <div className={styles.detail}>
+                There are no tickets completed today
+              </div>
+            </div>
+
+
+          </div>
+          <div className={styles.contain2} id='Delayed'>
+            <h3 className={styles.title}>Delayed</h3>
+            <div className={styles.flex2}>
+              <div className={styles.detail} >
+                There are no delayed tickets
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div className={styles.toolbar}>
+          <div className={styles.toolbarDetail}>
+            <div className={styles.toolbarDetail}>
+              <Link to='/terms' className={styles.bottomLink}>
+                Terms and conditions
+              </Link>
+              <Link className={styles.bottomLink} to='/privacy'>
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default Body

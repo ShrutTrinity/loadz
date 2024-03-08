@@ -89,7 +89,7 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
             </IconButton>
             {textSelectorOpen && <TextSlider />}
 
-            <FullScreenIcon />
+              <FullScreenIcon />
 
             <RouterLink target = '_blank'to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
               <Button
@@ -110,37 +110,37 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
               </Button>
             </RouterLink>
 
-            <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
-              <SearchIcon />
-            </IconButton>
+              <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
+                <SearchIcon />
+              </IconButton>
 
             <IconButton size="large" aria-label="Settings" onClick={handleOpen} >
               <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
             </IconButton>
           
 
-            <IconButton
-              sx={{
-                padding: '6px 16px',
-                borderRadius: '18px',
-                cursor: 'pointer'
-              }}
-              onClick={toggleProfileDetail}
-              onBlur={closeProfileDetail}
-            >
-              <div className={styles.userCover}>
-                <span className={styles.userName}>User</span>
-                <p className={styles.userCompany}>Company</p>
-              </div>
-              <div className={styles.userLogo}>
-                <h1 className={styles.userLatter}>U</h1>
-              </div>
-              {profileDetail && <ProfileDetail />}
-            </IconButton>
-          </div>
-        </Toolbar>
-      }
-    </AppBar>
+              <IconButton
+                sx={{
+                  padding: '6px 16px',
+                  borderRadius: '18px',
+                  cursor: 'pointer'
+                }}
+                onClick={toggleProfileDetail}
+                onBlur={closeProfileDetail}
+              >
+                <div className={styles.userCover}>
+                  <span className={styles.userName}>User</span>
+                  <p className={styles.userCompany}>Company</p>
+                </div>
+                <div className={styles.userLogo}>
+                  <h1 className={styles.userLatter}>U</h1>
+                </div>
+                {profileDetail && <ProfileDetail />}
+              </IconButton>
+            </div>
+          </Toolbar>
+        }
+      </AppBar>
     </div>
   )
 }

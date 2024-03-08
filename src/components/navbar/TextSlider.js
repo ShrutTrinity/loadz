@@ -36,18 +36,19 @@ const marks = [
 ];
 
 const TextSlider = () => {
+
   return (
     <List
       sx={{
         position: 'absolute',
-        marginLeft:'-30px',
+        marginLeft: '-50px',
         bgcolor: 'rgb(237, 202, 51)',
         zIndex: 999,
-        width:'100%',
+        width: '100%',
         maxWidth: '300px',
         padding: '12px 24px',
         borderRadius: '8px',
-        boxShadow:'rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px'
+        boxShadow: 'rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px'
       }}
     >
       <div className={styles.divHeader}>
