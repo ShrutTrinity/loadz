@@ -12,7 +12,7 @@ import CreateAccount from './modules/newAccount/CreateAccount';
 import SetupOfCompany from './modules/companySetup/SetupOfCompany';
 import NavigationBar from './components/navbar/NavigationBar';
 import Body from './components/navbar/body';
-import ProfileDetail from './components/navbar/ProfileDetail';
+import Error from './components/navbar/Error';
 
 const App = () => {
  
@@ -32,7 +32,7 @@ const App = () => {
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/nav' element={<NavigationBar />} />
           <Route exact path='/body' element={<Body />} />
-          <Route exact path='/body1' element={<ProfileDetail />} />
+          <Route exact path='/404' element={<Error />} />
         </Routes>
       </Router>
     </>

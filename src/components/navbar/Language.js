@@ -5,6 +5,7 @@ import US from '../../images/us.png';
 import TR from '../../images/tr.png';
 import SA from '../../images/sa.png'
 import styles from './styles/navbar.module.scss'
+import { Link } from 'react-router-dom';
 
 
 const Language = () => {
@@ -59,7 +60,11 @@ const Language = () => {
       <MenuItem sx={{ fontSize: '13px' }} value={'10'}><img className={styles.languageIcon} src={US} alt='EN' />{selectedValue === '10' ? "EN" : "America"}</MenuItem>
       <MenuItem sx={{ fontSize: '13px' }} value={'20'}><img className={styles.languageIcon} src={TR} alt='TR' />{selectedValue === '20' ? "TR" : "Turkish"}</MenuItem>
       <MenuItem sx={{ fontSize: '13px' }} value={'30'}><img className={styles.languageIcon} src={SA} alt='AR' />{selectedValue === '30' ? "AR" : "Arabic"}</MenuItem>
-      <MenuItem sx={{ fontSize: '13px' }} >Learn More</MenuItem>
+      <MenuItem sx={{ fontSize: '13px' }} >
+        <Link to='/404' style={{ color: 'black', textDecoration: 'none' }}>
+          Learn More
+        </Link>
+      </MenuItem>
     </Select>
   )
 }

@@ -18,7 +18,7 @@ import FullScreenIcon from './FullScreenIcon';
 import ProfileDetail from './ProfileDetail';
 
 
-const NavigationBar = ({toggleDrawer,Open}) => {
+const NavigationBar = ({ toggleDrawer, Open }) => {
 
   const [searchField, setSearchField] = useState(false);
   const [textSelectorOpen, setTextSelectorOpen] = useState(false)
@@ -44,93 +44,100 @@ const NavigationBar = ({toggleDrawer,Open}) => {
   };
 
   return (
-    <div>  
-      <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)` }}>
-      {searchField === true ?
-        <SearchField handleSearchClose={handleSearchClose} Open={Open}/>
-        :
-        <Toolbar sx={{ zIndex: '-1', paddingRight: '8px !important' }}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2, display:`${Open ? 'none' :'block'} `}}
-            onClick={toggleDrawer} 
-            
-          >
-            <MenuIcon />
-          </IconButton>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          </Typography>
-          <div>
-            <Language />
-
+    <div>
+      <AppBar
+        sx={{
+          backgroundColor: 'rgb(237, 202, 51)',
+          color: "black",
+          position: 'fixed',
+          width: `calc(100% - ${Open ? 290 : 0}px)`
+        }}
+      >
+        {searchField === true ?
+          <SearchField handleSearchClose={handleSearchClose} Open={Open} />
+          :
+          <Toolbar sx={{ zIndex: '-1', paddingRight: '8px !important' }}>
             <IconButton
-              color='inherit'
-              onClick={toggleTextSelector}
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2, display: `${Open ? 'none' : 'block'} ` }}
+              onClick={toggleDrawer}
+
             >
-              <TextFieldsIcon
+              <MenuIcon />
+            </IconButton>
+
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            </Typography>
+            <div>
+              <Language />
+
+              <IconButton
+                color='inherit'
+                onClick={toggleTextSelector}
+              >
+                <TextFieldsIcon
+                  sx={{
+                    margin: '12px',
+                    cursor: 'pointer'
+                  }}
+                />
+              </IconButton>
+              {textSelectorOpen && <TextSlider />}
+
+              <FullScreenIcon />
+
+              <RouterLink to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
+                <Button
+                  sx={{
+                    padding: '6px 8px',
+                    minWidth: '64px',
+                    margin: '0px',
+                    color: 'black',
+                    backgroundColor: 'rgb(237, 202, 51)',
+                    boxShadow: 'none',
+                    ':hover': {
+                      backgroundColor: 'rgb(237, 202, 51)',
+                      boxShadow: 'none'
+                    }
+                  }}
+                  variant="contained" color="primary">
+                  <YouTubeIcon />
+                </Button>
+              </RouterLink>
+
+              <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
+                <SearchIcon />
+              </IconButton>
+
+              <IconButton size="large" aria-label="Settings" >
+                <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
+              </IconButton>
+
+              <IconButton
                 sx={{
-                  margin: '12px',
+                  padding: '6px 16px',
+                  borderRadius: '18px',
                   cursor: 'pointer'
                 }}
-              />
-            </IconButton>
-            {textSelectorOpen && <TextSlider />}
-
-            <FullScreenIcon />
-
-            <RouterLink to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
-              <Button
-                sx={{
-                  padding: '6px 8px',
-                  minWidth: '64px',
-                  margin: '0px',
-                  color: 'black',
-                  backgroundColor: 'rgb(237, 202, 51)',
-                  boxShadow: 'none',
-                  ':hover': {
-                    backgroundColor: 'rgb(237, 202, 51)',
-                    boxShadow: 'none'
-                  }
-                }}
-                variant="contained" color="primary">
-                <YouTubeIcon />
-              </Button>
-            </RouterLink>
-
-            <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
-              <SearchIcon />
-            </IconButton>
-
-            <IconButton size="large" aria-label="Settings" >
-              <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
-            </IconButton>
-
-            <IconButton
-              sx={{
-                padding: '6px 16px',
-                borderRadius: '18px',
-                cursor: 'pointer'
-              }}
-              onClick={toggleProfileDetail}
-              onBlur={closeProfileDetail}
-            >
-              <div className={styles.userCover}>
-                <span className={styles.userName}>User</span>
-                <p className={styles.userCompany}>Company</p>
-              </div>
-              <div className={styles.userLogo}>
-                <h1 className={styles.userLatter}>U</h1>
-              </div>
-              {profileDetail && <ProfileDetail />}
-            </IconButton>
-          </div>
-        </Toolbar>
-      }
-    </AppBar>
+                onClick={toggleProfileDetail}
+                onBlur={closeProfileDetail}
+              >
+                <div className={styles.userCover}>
+                  <span className={styles.userName}>User</span>
+                  <p className={styles.userCompany}>Company</p>
+                </div>
+                <div className={styles.userLogo}>
+                  <h1 className={styles.userLatter}>U</h1>
+                </div>
+                {profileDetail && <ProfileDetail />}
+              </IconButton>
+            </div>
+          </Toolbar>
+        }
+      </AppBar>
     </div>
   )
 }

@@ -6,60 +6,60 @@ import { Link } from 'react-router-dom';
 
 
 var options = {
-    series: [{
-        name: "Desktops",
-        // data: [1,1.1,1.2,2.2,5]
-    }],
-    chart: {
+  series: [{
+    name: "Desktops",
+    // data: [1,1.1,1.2,2.2,5]
+  }],
+  chart: {
 
-        width: "100%",
-        height: "100%",
+    width: "100%",
+    height: "100%",
 
-        type: 'line',
-        zoom: {
-            enabled: false
-        },
-        toolbar: {
-            show: false
-        }
+    type: 'line',
+    zoom: {
+      enabled: false
     },
-    plotOptions: {
-        bar: {
-            horizontal: true,
-            borderRadius: 10,
-            columnWidth: '100%',
-            barHeight: '100%',
-            colors: {
-                backgroundBarColors: ['#E7E7E6'],
-                backgroundBarRadius: '11px',
-            },
-        },
-    },
-    yaxis: {
-        logBase: 5,
-        min: 0,
-        max: 5,
-        tickAmount: 5,
-    },
-    dataLabels: {
-        enabled: false
-    },
-    stroke: {
-        curve: 'straight'
-    },
-    title: {
-        text: 'Product Trends by Month',
-        align: 'left'
-    },
-    grid: {
-        row: {
-            colors: ['#f3f3f3', 'transparent'],
-            opacity: 0
-        },
-    },
-    xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    toolbar: {
+      show: false
     }
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      borderRadius: 10,
+      columnWidth: '100%',
+      barHeight: '100%',
+      colors: {
+        backgroundBarColors: ['#E7E7E6'],
+        backgroundBarRadius: '11px',
+      },
+    },
+  },
+  yaxis: {
+    logBase: 5,
+    min: 0,
+    max: 5,
+    tickAmount: 5,
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    curve: 'straight'
+  },
+  title: {
+    text: 'Product Trends by Month',
+    align: 'left'
+  },
+  grid: {
+    row: {
+      colors: ['#f3f3f3', 'transparent'],
+      opacity: 0
+    },
+  },
+  xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+  }
 };
 var today = new Date();
 var dd = String(today.getDate());
@@ -70,123 +70,121 @@ var curYear = today.getFullYear()
 
 const Body = () => {
 
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-    const bodyStyles = {
-        width: `calc(100% - ${open ? 290 : 0}px)`,
-        zIndex: 10
-    };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  const bodyStyles = {
+    width: `calc(100% - ${open ? 290 : 0}px)`,
+    zIndex: 10
+  };
 
-    if (window.innerWidth <= 1300) {
-        bodyStyles.width = '100%';
-        var bodyclick = handleDrawerClose;
-        //   bodyStyles.opacity= `${open ?'.9': '1'}`
-        //   bodyStyles.backgroundColor= `${open ?'rgba(0,0,0,0.5)': ' '}`
-    }
-    return (
-        <>
-            <PersistentDrawerLeft open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
+  if (window.innerWidth <= 1300) {
+    bodyStyles.width = '100%';
+    var bodyclick = handleDrawerClose;
+    //   bodyStyles.opacity= `${open ?'.9': '1'}`
+    //   bodyStyles.backgroundColor= `${open ?'rgba(0,0,0,0.5)': ' '}`
+  }
+  return (
+    <>
+      <PersistentDrawerLeft open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
 
-            <div className={styles.body} style={bodyStyles} onClick={bodyclick} >
-                <h2 className={styles.company}>Company Name</h2>
-                <div className={styles.contain}>
-                    <div className={styles.flex}>
-                        <div className={styles.chart}>
-                            <div className={styles.border}>
-                                <Chart options={options} series={options.series} width={`${open ? '99%' : '100%'}`} height={`${open ? '260%' : '260%'}`} />
-                            </div>
-                        </div>
-                        <div className={styles.boxes}>
-                           
-                                <a className={styles.box} style={{ cursor: 'pointer' }} href='#Progress'>
-                               
-                                    <div className={styles.context} >
-                                        <div className={styles.zero}> 0 </div>
-                                        <div className={styles.job}> Jobs In Process </div>
-                                        <div className={styles.ticket}> Ticket Count : 0 </div>
-                                    </div>
-
-                          
-                                </a>
-
-                            <a className={styles.box} style={{ cursor: 'pointer' }} href='#Complated'>
-                                <div className={styles.context}>
-                                    <div className={styles.zero}> 0 </div>
-                                    <div className={styles.job}> Jobs Delayed</div>
-                                    <div className={styles.ticket}> Ticket Count : 0 </div>
-                                </div>
-                            </a>
-                            <a className={styles.box} style={{ cursor: 'pointer' }} href='#Delayed'>
-                                <div className={styles.context}>
-                                    <div className={styles.zero}> 0 </div>
-                                    <div className={styles.job}> Jobs Complated </div>
-                                    <div className={styles.ticket}> Ticket Count : 0 </div>
-                                </div>
-                            </a>
-                            <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
-                                <div className={styles.context} style={{ color: 'black' }}>
-                                    <div className={styles.ticket}> {curMonth}</div>
-                                    <div className={styles.zero}> {dd} </div>
-                                    <div className={styles.ticket}> {curYear}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.contain2} >
-                        <h3 className={styles.title} id='Progress'>In Progress</h3>
-                        <div className={styles.flex2}>
-                            <div className={styles.detail} >
-                                There are no tickets in progress
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div className={styles.contain2} id='Complated'> 
-                        <h3 className={styles.title}>Completed Today</h3>
-
-                        <div className={styles.flex2}>
-                            <div className={styles.detail}>
-                                There are no tickets completed today
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div className={styles.contain2} id='Delayed'>
-                        <h3 className={styles.title}>Delayed</h3>
-                        <div className={styles.flex2}>
-                            <div className={styles.detail} >
-                                There are no delayed tickets
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-                <div className={styles.toolbar}>
-                    <div className={styles.toolbarDetail}>
-                        <div className={styles.toolbarDetail}>
-                            <Link to='/terms' className={styles.bottomLink}>
-                                Terms and conditions
-                            </Link>
-                            <Link className={styles.bottomLink} to='/privacy'>
-                                Privacy Policy
-                            </Link>
-                        </div>
-                    </div>
-                </div>
+      <div className={styles.body} style={bodyStyles} onClick={bodyclick} >
+        <h2 className={styles.company}>Company Name</h2>
+        <div className={styles.contain}>
+          <div className={styles.flex}>
+            <div className={styles.chart}>
+              <div className={styles.border}>
+                <Chart options={options} series={options.series} width={`${open ? '99%' : '100%'}`} height={`${open ? '260%' : '260%'}`} />
+              </div>
             </div>
-        </>
-    )
+            <div className={styles.boxes}>
+
+              <a className={styles.box} style={{ cursor: 'pointer' }} href='#Progress'>
+
+                <div className={styles.context} >
+                  <div className={styles.zero}> 0 </div>
+                  <div className={styles.job}> Jobs In Process </div>
+                  <div className={styles.ticket}> Ticket Count : 0 </div>
+                </div>
+
+
+              </a>
+
+              <a className={styles.box} style={{ cursor: 'pointer' }} href='#Complated'>
+                <div className={styles.context}>
+                  <div className={styles.zero}> 0 </div>
+                  <div className={styles.job}> Jobs Delayed</div>
+                  <div className={styles.ticket}> Ticket Count : 0 </div>
+                </div>
+              </a>
+              <a className={styles.box} style={{ cursor: 'pointer' }} href='#Delayed'>
+                <div className={styles.context}>
+                  <div className={styles.zero}> 0 </div>
+                  <div className={styles.job}> Jobs Complated </div>
+                  <div className={styles.ticket}> Ticket Count : 0 </div>
+                </div>
+              </a>
+              <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
+                <div className={styles.context} style={{ color: 'black' }}>
+                  <div className={styles.ticket}> {curMonth}</div>
+                  <div className={styles.zero}> {dd} </div>
+                  <div className={styles.ticket}> {curYear}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.contain2} id='Progress'>
+            <h3 className={styles.title}>In Progress</h3>
+            <div className={styles.flex2}>
+              <div className={styles.detail} >
+                There are no tickets in progress
+              </div>
+            </div>
+          </div>
+          <div className={styles.contain2} id='Complated'>
+            <h3 className={styles.title}>Completed Today</h3>
+
+            <div className={styles.flex2}>
+              <div className={styles.detail}>
+                There are no tickets completed today
+              </div>
+            </div>
+
+
+          </div>
+          <div className={styles.contain2} id='Delayed'>
+            <h3 className={styles.title}>Delayed</h3>
+            <div className={styles.flex2}>
+              <div className={styles.detail} >
+                There are no delayed tickets
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div className={styles.toolbar}>
+          <div className={styles.toolbarDetail}>
+            <div className={styles.toolbarDetail}>
+              <Link to='/terms' className={styles.bottomLink}>
+                Terms and conditions
+              </Link>
+              <Link className={styles.bottomLink} to='/privacy'>
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default Body
