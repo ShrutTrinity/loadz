@@ -13,6 +13,8 @@ import SetupOfCompany from './modules/companySetup/SetupOfCompany';
 import NavigationBar from './components/navbar/NavigationBar';
 import Body from './components/navbar/body';
 import ProfileDetail from './components/navbar/ProfileDetail';
+import Setting from './components/navbar/Setting';
+import Button from './components/navbar/Button';
 
 const App = () => {
  
@@ -32,6 +34,8 @@ const App = () => {
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/nav' element={<NavigationBar />} />
           <Route exact path='/body' element={<Body />} />
+          <Route exact path='/Setting' element={<Setting />} />
+          <Route exact path='/btn' element={<Button />} />
           <Route exact path='/body1' element={<ProfileDetail />} />
         </Routes>
       </Router>

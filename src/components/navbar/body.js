@@ -4,14 +4,23 @@ import PersistentDrawerLeft from './header'
 import Chart from 'react-apexcharts'
 import { Link } from 'react-router-dom';
 
-
+var today = new Date();
+var dd = String(today.getDate());
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+var curMonth = months[today.getMonth()]
+var month = (today.getUTCMonth() + 1) 
+.toString().padStart(2, '0') 
+var curYear = today.getFullYear()
+const lastWeekDate = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+var lastdd = String(lastWeekDate.getDate());
+var lastMonth = (lastWeekDate.getUTCMonth() + 1).toString().padStart(2, '0') 
+var lastYear = lastWeekDate.getFullYear()
 var options = {
     series: [{
         name: "Desktops",
         // data: [1,1.1,1.2,2.2,5]
     }],
     chart: {
-
         width: "100%",
         height: "100%",
 
@@ -48,7 +57,7 @@ var options = {
         curve: 'straight'
     },
     title: {
-        text: 'Product Trends by Month',
+        text:`${lastdd}/${lastMonth}/${lastYear} to ${dd}/${month}/${curYear}`,
         align: 'left'
     },
     grid: {
@@ -61,42 +70,42 @@ var options = {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     }
 };
-var today = new Date();
-var dd = String(today.getDate());
-var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-var curMonth = months[today.getMonth()]
-var curYear = today.getFullYear()
 
 
 const Body = () => {
 
     const [open, setOpen] = useState(false);
-
+    const [setting, setSetting] = useState(false);
+  
+    const handleOpen = () => {
+        setSetting(true)
+      }
+      const handleClosse = () => {
+        console.log("abc")
+        setSetting(false)
+      }
     const handleDrawerOpen = () => {
         setOpen(true);
     };
-
     const handleDrawerClose = () => {
         setOpen(false);
     };
     const bodyStyles = {
         width: `calc(100% - ${open ? 290 : 0}px)`,
-        zIndex: 10
+        zIndex: 10,
     };
 
     if (window.innerWidth <= 1300) {
         bodyStyles.width = '100%';
         var bodyclick = handleDrawerClose;
-        //   bodyStyles.opacity= `${open ?'.9': '1'}`
-        //   bodyStyles.backgroundColor= `${open ?'rgba(0,0,0,0.5)': ' '}`
     }
+   
     return (
         <>
-            <PersistentDrawerLeft open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
-
-            <div className={styles.body} style={bodyStyles} onClick={bodyclick} >
+            <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
+            <div className={styles.body} style={bodyStyles} onClick={bodyclick}  >
                 <h2 className={styles.company}>Company Name</h2>
-                <div className={styles.contain}>
+                <div className={styles.contain} >
                     <div className={styles.flex}>
                         <div className={styles.chart}>
                             <div className={styles.border}>

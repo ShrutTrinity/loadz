@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -16,9 +16,10 @@ import TextSlider from './TextSlider';
 import Language from './Language';
 import FullScreenIcon from './FullScreenIcon';
 import ProfileDetail from './ProfileDetail';
+import Setting from './Setting';
 
 
-const NavigationBar = ({toggleDrawer,Open}) => {
+const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
 
   const [searchField, setSearchField] = useState(false);
   const [textSelectorOpen, setTextSelectorOpen] = useState(false)
@@ -27,6 +28,7 @@ const NavigationBar = ({toggleDrawer,Open}) => {
   const handleSearch = () => {
     setSearchField(true)
   }
+  
   const handleSearchClose = () => {
     setSearchField(false);
   }
@@ -42,10 +44,18 @@ const NavigationBar = ({toggleDrawer,Open}) => {
   const closeProfileDetail = () => {
     setProfileDetail(false);
   };
+  useEffect(() => {
+    document.body.style.overflow = setting ? 'hidden' : 'auto';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [setting]);
 
   return (
     <div>  
-      <AppBar sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)` }}>
+      {setting && <Setting handleClose={handleClose}/>}
+      <AppBar  sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)` }}>
       {searchField === true ?
         <SearchField handleSearchClose={handleSearchClose} Open={Open}/>
         :
@@ -66,7 +76,6 @@ const NavigationBar = ({toggleDrawer,Open}) => {
           </Typography>
           <div>
             <Language />
-
             <IconButton
               color='inherit'
               onClick={toggleTextSelector}
@@ -82,7 +91,7 @@ const NavigationBar = ({toggleDrawer,Open}) => {
 
             <FullScreenIcon />
 
-            <RouterLink to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
+            <RouterLink target = '_blank'to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
               <Button
                 sx={{
                   padding: '6px 8px',
@@ -105,9 +114,10 @@ const NavigationBar = ({toggleDrawer,Open}) => {
               <SearchIcon />
             </IconButton>
 
-            <IconButton size="large" aria-label="Settings" >
+            <IconButton size="large" aria-label="Settings" onClick={handleOpen} >
               <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
             </IconButton>
+          
 
             <IconButton
               sx={{
