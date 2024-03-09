@@ -3,8 +3,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import US from '../../images/us.png';
 import TR from '../../images/tr.png';
-import SA from '../../images/sa.png'
-import styles from './styles/navbar.module.scss'
+import SA from '../../images/sa.png';
 import { Link } from 'react-router-dom';
 
 
@@ -57,10 +56,19 @@ const Language = () => {
         }
       }}
     >
-      <MenuItem sx={{ fontSize: '13px' }} value={'10'}><img className={styles.languageIcon} src={US} alt='EN' />{selectedValue === '10' ? "EN" : "America"}</MenuItem>
-      <MenuItem sx={{ fontSize: '13px' }} value={'20'}><img className={styles.languageIcon} src={TR} alt='TR' />{selectedValue === '20' ? "TR" : "Turkish"}</MenuItem>
-      <MenuItem sx={{ fontSize: '13px' }} value={'30'}><img className={styles.languageIcon} src={SA} alt='AR' />{selectedValue === '30' ? "AR" : "Arabic"}</MenuItem>
-      <MenuItem sx={{ fontSize: '13px' }} >
+      <MenuItem sx={{ fontSize: '13px', marginLeft: '0 4px' }} value={'10'}>
+        <img style={{ width: '20px', height: '14.5px' }} src={US} alt='EN' />
+        {selectedValue === '10' ? "EN" : "America"}
+      </MenuItem>
+      <MenuItem sx={{ fontSize: '13px', marginLeft: '0 4px' }} value={'20'}>
+        <img style={{ width: '20px', height: '14.5px' }} src={TR} alt='TR' />
+        {selectedValue === '20' ? "TR" : "Turkish"}
+      </MenuItem>
+      <MenuItem sx={{ fontSize: '13px', marginLeft: '0 4px' }} value={'30'}>
+        <img style={{ width: '20px', height: '14.5px' }} src={SA} alt='AR' />
+        {selectedValue === '30' ? "AR" : "Arabic"}
+      </MenuItem>
+      <MenuItem sx={{ fontSize: '13px', marginLeft: '0 4px' }} >
         <Link to='/404' style={{ color: 'black', textDecoration: 'none' }}>
           Learn More
         </Link>

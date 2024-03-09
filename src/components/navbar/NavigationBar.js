@@ -16,13 +16,15 @@ import TextSlider from './TextSlider';
 import Language from './Language';
 import FullScreenIcon from './FullScreenIcon';
 import ProfileDetail from './ProfileDetail';
-
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import VerticalComponent from './VerticalComponent';
 
 const NavigationBar = ({ toggleDrawer, Open }) => {
 
   const [searchField, setSearchField] = useState(false);
   const [textSelectorOpen, setTextSelectorOpen] = useState(false)
   const [profileDetail, setProfileDetail] = useState(false);
+  const [verticalNav, setVerticalNav] = useState(false);
 
   const handleSearch = () => {
     setSearchField(true)
@@ -43,8 +45,13 @@ const NavigationBar = ({ toggleDrawer, Open }) => {
     setProfileDetail(false);
   };
 
+  const openVerticalNav = () => {
+    setVerticalNav(true);
+  }
+
   return (
     <div>
+      {verticalNav && <VerticalComponent />}
       <AppBar
         sx={{
           backgroundColor: 'rgb(237, 202, 51)',
@@ -53,8 +60,9 @@ const NavigationBar = ({ toggleDrawer, Open }) => {
           width: `calc(100% - ${Open ? 290 : 0}px)`
         }}
       >
+
         {searchField === true ?
-          <SearchField handleSearchClose={handleSearchClose} Open={Open} />
+          <SearchField handleSearchClose={handleSearchClose} Open={Open} widthOfSearchField='100vw' />
           :
           <Toolbar sx={{ zIndex: '-1', paddingRight: '8px !important' }}>
             <IconButton
@@ -72,49 +80,52 @@ const NavigationBar = ({ toggleDrawer, Open }) => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             </Typography>
             <div>
-              <Language />
+              <span className={styles.navComponents}>
+                <Language />
 
-              <IconButton
-                color='inherit'
-                onClick={toggleTextSelector}
-              >
-                <TextFieldsIcon
-                  sx={{
-                    margin: '12px',
-                    cursor: 'pointer'
-                  }}
-                />
-              </IconButton>
-              {textSelectorOpen && <TextSlider />}
+                <IconButton
+                  color='inherit'
+                  onClick={toggleTextSelector}
+                >
+                  <TextFieldsIcon
+                    sx={{
+                      margin: '12px',
+                      cursor: 'pointer'
+                    }}
+                  />
+                </IconButton>
+                {textSelectorOpen && <TextSlider />}
 
-              <FullScreenIcon />
+                <FullScreenIcon />
 
-              <RouterLink to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
-                <Button
-                  sx={{
-                    padding: '6px 8px',
-                    minWidth: '64px',
-                    margin: '0px',
-                    color: 'black',
-                    backgroundColor: 'rgb(237, 202, 51)',
-                    boxShadow: 'none',
-                    ':hover': {
+                <RouterLink to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
+                  <Button
+                    sx={{
+                      padding: '6px 8px',
+                      minWidth: '64px',
+                      margin: '0px',
+                      color: 'black',
                       backgroundColor: 'rgb(237, 202, 51)',
-                      boxShadow: 'none'
-                    }
-                  }}
-                  variant="contained" color="primary">
-                  <YouTubeIcon />
-                </Button>
-              </RouterLink>
+                      boxShadow: 'none',
+                      ':hover': {
+                        backgroundColor: 'rgb(237, 202, 51)',
+                        boxShadow: 'none'
+                      }
+                    }}
+                    variant="contained" color="primary">
+                    <YouTubeIcon />
+                  </Button>
+                </RouterLink>
 
-              <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
-                <SearchIcon />
-              </IconButton>
+                <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
+                  <SearchIcon />
+                </IconButton>
 
-              <IconButton size="large" aria-label="Settings" >
-                <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
-              </IconButton>
+                <IconButton size="large" aria-label="Settings" >
+                  <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
+                </IconButton>
+
+              </span>
 
               <IconButton
                 sx={{
@@ -134,6 +145,10 @@ const NavigationBar = ({ toggleDrawer, Open }) => {
                 </div>
                 {profileDetail && <ProfileDetail />}
               </IconButton>
+
+              <span className={styles.downArrow} >
+                <KeyboardArrowDownIcon onClick={openVerticalNav} />
+              </span>
             </div>
           </Toolbar>
         }

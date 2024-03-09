@@ -42,8 +42,8 @@ const TextSlider = () => {
       sx={{
         position: 'absolute',
         marginLeft: '-50px',
+        zIndex:2,
         bgcolor: 'rgb(237, 202, 51)',
-        zIndex: 999,
         width: '100%',
         maxWidth: '300px',
         padding: '12px 24px',

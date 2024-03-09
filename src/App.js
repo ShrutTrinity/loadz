@@ -13,6 +13,7 @@ import SetupOfCompany from './modules/companySetup/SetupOfCompany';
 import NavigationBar from './components/navbar/NavigationBar';
 import Body from './components/navbar/body';
 import Error from './components/navbar/Error';
+import VerticalComponent from './components/navbar/VerticalComponent';
 
 const App = () => {
  
@@ -33,6 +34,7 @@ const App = () => {
           <Route exact path='/nav' element={<NavigationBar />} />
           <Route exact path='/body' element={<Body />} />
           <Route exact path='/404' element={<Error />} />
+          <Route exact path='/405' element={<VerticalComponent />} />
         </Routes>
       </Router>
     </>
