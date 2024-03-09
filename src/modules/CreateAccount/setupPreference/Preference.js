@@ -1,17 +1,17 @@
 import React, {  useState } from 'react'
-import CustomStepper from '../../components/stepper/CustomStepper'
+import CustomStepper from '../../../components/stepper/CustomStepper'
 import styles from './styles/setupPreference.module.scss'
-import BoxComponent from '../../components/formBox/Box'
-import Video from '../../components/videotag'
-import useVideoPopup from '../../hooks/useVideoPopupSecond'
-import SwitchMUI from '../../components/switch/SwitchMUI'
-import Tags from '../../components/priceTags/index'
-import SolidButton from '../../components/button/SolidButton'
+import BoxComponent from '../../../components/formBox/Box'
+import Video from '../../../components/videotag'
+import useVideoPopup from '../../../hooks/useVideoPopupSecond'
+import SwitchMUI from '../../../components/switch/SwitchMUI'
+import Tags from '../../../components/priceTags/index'
+import SolidButton from '../../../components/button/SolidButton'
 import SetupOfCompany from '../companySetup/SetupOfCompany'
 import AddDriver from '../createDriver/AddDriver'
 import { useFormik } from 'formik';
-import { priceTagsSchema } from '../../components/validation/validationshema'
-import { priceTagsSchemaSales } from '../../components/validation/validationshema'
+import { priceTagsSchema } from '../../../components/validation/validationshema'
+import { priceTagsSchemaSales } from '../../../components/validation/validationshema'
 
 const Preference = () => {
 

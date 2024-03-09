@@ -2,14 +2,14 @@ import React from 'react';
 import LoginPage from './modules/Authentication/Login/LoginPage'
 import { Route,BrowserRouter as Router, Routes, } from 'react-router-dom'
 import Portal from './modules/customerportal/Portal'
-import ForgetPass from './modules/forgetpassword/ForgetPass'
+import ForgetPass from './modules/Authentication/forgetpassword/ForgetPass'
 import Subscription from './modules/subcription/Subscription'
 import Termsconditions from './components/Conditions/Termsconditions'
 import Privacy from './components/Conditions/Privacy'
 import Create from './modules/customerportal/Create';
 import Welcome from './modules/company/Welcome';
 import CreateAccount from './modules/newAccount/CreateAccount';
-import SetupOfCompany from './modules/companySetup/SetupOfCompany';
+import SetupOfCompany from './modules/CreateAccount/companySetup/SetupOfCompany';
 import NavigationBar from './components/navbar/NavigationBar';
 import Body from './components/navbar/body';
 import Error from './components/navbar/Error';
