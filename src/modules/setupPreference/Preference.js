@@ -8,7 +8,7 @@ import SwitchMUI from '../../components/switch/SwitchMUI'
 import Tags from '../../components/priceTags/index'
 import SolidButton from '../../components/button/SolidButton'
 import SetupOfCompany from '../companySetup/SetupOfCompany'
-import AddDriver from '../createDriver/AddDriver'
+import AddDriver from '../CreateAccount/createDriver/AddDriver'
 import { useFormik } from 'formik';
 import { priceTagsSchema } from '../../components/validation/validationshema'
 import { priceTagsSchemaSales } from '../../components/validation/validationshema'
