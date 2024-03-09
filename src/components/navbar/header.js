@@ -46,7 +46,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft({setting,handleOpen,handleClose, open , handleDrawerOpen, handleDrawerClose }) {   
+export default function PersistentDrawerLeft({setting,handleOpen,handleClose, open , handleDrawerOpen, handleDrawerClose,toggleTextSelector,textSelectorOpen }) {   
     const data = [
         { header: 'DASHBOARD', detail: { 'REQUEST BOARD': '/request-board' } },
         { header: 'Jobs', detail: {} },
@@ -63,7 +63,7 @@ export default function PersistentDrawerLeft({setting,handleOpen,handleClose, op
        
      
       <AppBar position="static" sx={{backgroundColor:'black'}}>
-            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen} />
+            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen}  textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector}/>
                 <Drawer
                     variant="persistent"
                     anchor="left"

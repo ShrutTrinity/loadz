@@ -77,6 +77,11 @@ const Body = () => {
 
     const [open, setOpen] = useState(false);
     const [setting, setSetting] = useState(false);
+    const [textSelectorOpen, setTextSelectorOpen] = useState(false)
+
+    const toggleTextSelector = () => {
+      setTextSelectorOpen(!textSelectorOpen);
+    };
   
     const handleOpen = () => {
         setSetting(true)
@@ -85,13 +90,14 @@ const Body = () => {
         console.log("abc")
         setSetting(false)
       }
+
     const handleDrawerOpen = () => {
         setOpen(true);
     };
     const handleDrawerClose = () => {
         setOpen(false);
     };
-    const bodyStyles = {
+    const bodyStyles = {   
         width: `calc(100% - ${open ? 290 : 0}px)`,
         zIndex: 10,
     };
@@ -103,8 +109,8 @@ const Body = () => {
    
     return (
         <>
-            <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} />
-            <div className={styles.body} style={bodyStyles} onClick={bodyclick}  >
+            <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
+            <div className={styles.body} style={bodyStyles} onClick={textSelectorOpen ? toggleTextSelector : bodyclick}   >
                 <h2 className={styles.company}>Company Name</h2>
                 <div className={styles.contain} >
                     <div className={styles.flex}>

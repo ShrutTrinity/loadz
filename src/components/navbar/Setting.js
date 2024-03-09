@@ -15,12 +15,11 @@ const Setting = ({handleClose}) => {
   
 
   const handleClickInside = (event) => {
-   
     event.stopPropagation();
   };
   return (
     <>
-      <div className={styles.container}onClick={handleClose} >
+      <div className={styles.container} onClick={handleClose} >
         <div className={styles.flotright}  onClick={handleClickInside}>
           <div className={styles.title}>
             Settings

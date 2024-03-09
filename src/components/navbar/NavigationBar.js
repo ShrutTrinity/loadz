@@ -19,10 +19,9 @@ import ProfileDetail from './ProfileDetail';
 import Setting from './Setting';
 
 
-const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
+const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleTextSelector,textSelectorOpen }) => {
 
   const [searchField, setSearchField] = useState(false);
-  const [textSelectorOpen, setTextSelectorOpen] = useState(false)
   const [profileDetail, setProfileDetail] = useState(false);
 
   const handleSearch = () => {
@@ -33,9 +32,7 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
     setSearchField(false);
   }
 
-  const toggleTextSelector = () => {
-    setTextSelectorOpen(!textSelectorOpen);
-  };
+
 
   const toggleProfileDetail = () => {
     setProfileDetail(!profileDetail);
