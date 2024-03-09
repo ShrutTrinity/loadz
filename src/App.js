@@ -8,11 +8,11 @@ import Termsconditions from './components/Conditions/Termsconditions'
 import Privacy from './components/Conditions/Privacy'
 import Create from './modules/customerportal/Create';
 import Welcome from './modules/company/Welcome';
-import CreateAccount from './modules/newAccount/CreateAccount';
+import CreateAccount from './modules/CreateAccount/newAccount/CreateAccount';
 import SetupOfCompany from './modules/CreateAccount/companySetup/SetupOfCompany';
 import NavigationBar from './components/navbar/NavigationBar';
-import Body from './components/navbar/body';
-import Error from './components/navbar/Error';
+import Body from './modules/dashboard/body';
+import Error from './modules/ErrorPage/Error';
 
 const App = () => {
  
@@ -31,7 +31,7 @@ const App = () => {
           <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/nav' element={<NavigationBar />} />
-          <Route exact path='/body' element={<Body />} />
+          <Route exact path='/dashboard' element={<Body />} />
           <Route exact path='/404' element={<Error />} />
         </Routes>
       </Router>

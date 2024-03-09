@@ -4,7 +4,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link as RouterLink } from 'react-router-dom';
-import Card from '../../components/card/Card';
+import Card from '../../../components/card/Card';
 
 
 const ForgetPass = () => {

@@ -45,23 +45,16 @@
     font-size: 22px;
     line-height: 33px;
     cursor: pointer;
-    }
-    
+    }  
   }
 }
 
 @media screen and (max-width: 600px) {
   
   .conatainer{
-  
-
     .flexitems{
       flex-direction: column;
       gap: 10px;
-
-    
   }
-  }
-
-    
+  }   
 }

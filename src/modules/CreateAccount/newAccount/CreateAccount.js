@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-import CustomStepper from '../../components/stepper/CustomStepper'
-import BoxComponent from '../../components/formBox/Box';
-import Logo from '../../images/loadzlogo.png';
+import CustomStepper from '../Components/stepper/CustomStepper'
+import BoxComponent from '../Components/formBox/Box';
+import Logo from '../../../images/loadzlogo.png';
 import styles from './styles/new.module.scss';
 import EmailIcon from '@mui/icons-material/Email';
 import { grey } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
-import persionImage from '../../images/uploadpicture.svg'
+import persionImage from '../../../images/uploadpicture.svg'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link as RouterLink } from 'react-router-dom';
-import Send from '../../components/uploadFile/Send';
-import FilePopUp from '../../components/uploadPopUp';
-import useVideoPopup from '../../hooks/useVideopopup'
-import Video from '../../components/videotag'
-import CustomTextField from '../../components/textfield/CustomeTextfield';
-import Otppage from '../OTP/Otppage';
-import OtpPopupHandle from '../../hooks/OtpPopupHandle';
-import {getValidationSchema} from '../../components/validation/validationshema'
+import Send from '../Components/uploadFile/Send';
+import FilePopUp from '../Components/uploadPopUp';
+import useVideoPopup from '../../../hooks/useVideopopup'
+import Video from '../Components/videotag'
+import CustomTextField from '../../../components/textfield/CustomeTextfield';
+import Otppage from '../../Authentication/OTP/Otppage';
+import OtpPopupHandle from '../../../hooks/OtpPopupHandle';
+import {getValidationSchema} from '../../../validation/validationshema'
 import { useFormik } from 'formik';
 
 const CreateAccount = () => {
