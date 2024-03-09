@@ -3,7 +3,7 @@ import styles from '../forgetpassword/styles/forgetpassword.module.scss';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link as RouterLink } from 'react-router-dom';
-import Card from '../../components/card/Card';
+import Card from '../../../components/card/Card';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
