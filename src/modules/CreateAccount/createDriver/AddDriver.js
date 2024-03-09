@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import CustomStepper from '../../../components/stepper/CustomStepper'
-import BoxComponent from '../../../components/formBox/Box'
+import CustomStepper from '../Components/stepper/CustomStepper'
+import BoxComponent from '../Components/formBox/Box'
 import styles from './styles/addDriver.module.scss'
-import Video from '../../../components/videotag'
-import SwitchMUI from '../../../components/switch/SwitchMUI'
+import Video from '../Components/videotag'
+import SwitchMUI from '../Components/switch/SwitchMUI'
 import useVideoPopupSecond from '../../../hooks/useVideoPopupSecond'
-import CommonDriverForm from '../../../components/form/commonDriverForm'
+import CommonDriverForm from '../Components/form/commonDriverForm'
 import { useFormik } from 'formik';
-import { getValidationSchemaforforth } from '../../../components/validation/validationshema'
+import { getValidationSchemaforforth } from '../../../validation/validationshema'
 import SolidButton from '../../../components/button/SolidButton'
 import Preference from '../setupPreference/Preference'
-import Disabledriverform from '../../../components/form/Disabledriverform'
+import Disabledriverform from '../Components/form/Disabledriverform'
 import IncludeTruck from '../addTruck/IncludeTruck'
 
 
