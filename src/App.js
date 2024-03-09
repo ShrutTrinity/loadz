@@ -33,8 +33,6 @@ const App = () => {
           <Route exact path='/nav' element={<NavigationBar />} />
           <Route exact path='/body' element={<Body />} />
           <Route exact path='/404' element={<Error />} />
-       
-
         </Routes>
       </Router>
     </>

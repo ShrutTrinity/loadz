@@ -14,24 +14,25 @@ const Search = styled('div')(() => ({
     },
     marginLeft: 0 ,
     width: '100%',
+    display:'flex',
     padding:'10px',
     color:'balck'
   }));
-  const StyledInputBase = styled(InputBase)(() => ({
+  const StyledInputBase = styled(InputBase)(({widthOfSearchField}) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
-      width: '85vw',
+      width: {widthOfSearchField},
       padding: '10px 10px 10px 10px',
       paddingLeft: '5px',
     },
   }));
 
 
-const SearchField = ({handleSearchClose,Open}) => {
+const SearchField = ({handleSearchClose,Open,widthOfSearchField}) => {
   return (
     <Search>
         <StyledInputBase
-        sx={{width:`${Open? '65vw':'85vw'}`}}
+        sx={{width:`${Open? '85vw':widthOfSearchField}`}}
           placeholder="Search…"
           inputProps={{ 'aria-label':'search' }}
         />

@@ -18,11 +18,14 @@ import FullScreenIcon from './FullScreenIcon';
 import ProfileDetail from './ProfileDetail';
 import Setting from './Setting';
 
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import VerticalComponent from './VerticalComponent';
 
 const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleTextSelector,textSelectorOpen }) => {
 
   const [searchField, setSearchField] = useState(false);
   const [profileDetail, setProfileDetail] = useState(false);
+  const [verticalNav, setVerticalNav] = useState(false);
 
   const handleSearch = () => {
     setSearchField(true)
@@ -38,9 +41,6 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
     setProfileDetail(!profileDetail);
   }
 
-  const closeProfileDetail = () => {
-    setProfileDetail(false);
-  };
   useEffect(() => {
     document.body.style.overflow = setting ? 'hidden' : 'auto';
 
@@ -49,12 +49,17 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
     };
   }, [setting]);
 
+  const openVerticalNav = () => {
+    setVerticalNav(!verticalNav);
+  }
+
   return (
     <div>  
       {setting && <Setting handleClose={handleClose}/>}
+        {verticalNav && <VerticalComponent closeVerticalNav={openVerticalNav} />}
       <AppBar  sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)` }}>
       {searchField === true ?
-        <SearchField handleSearchClose={handleSearchClose} Open={Open}/>
+        <SearchField handleSearchClose={handleSearchClose} Open={Open}  widthOfSearchField='100vw' />
         :
         <Toolbar sx={{ zIndex: '-1', paddingRight: '8px !important' }}>
           <IconButton
@@ -67,26 +72,28 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
             
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton>   
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          </Typography>
-          <div>
-            <Language />
-            <IconButton
-              color='inherit'
-              onClick={toggleTextSelector}
-            >
-              <TextFieldsIcon
-                sx={{
-                  margin: '12px',
-                  cursor: 'pointer'
-                }}
-              />
-            </IconButton>
-            {textSelectorOpen && <TextSlider />}
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            </Typography>
+            <div>
+              <span className={styles.navComponents}>
+                <Language />
 
-              <FullScreenIcon />
+                <IconButton
+                  color='inherit'
+                  onClick={toggleTextSelector}
+                >
+                  <TextFieldsIcon
+                    sx={{
+                      margin: '12px',
+                      cursor: 'pointer'
+                    }}
+                  />
+                </IconButton>
+                {textSelectorOpen && <TextSlider />}
+
+                <FullScreenIcon />
 
             <RouterLink target = '_blank'to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
               <Button
@@ -107,14 +114,16 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
               </Button>
             </RouterLink>
 
-              <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
-                <SearchIcon />
-              </IconButton>
+                <IconButton size="large" aria-label="search" color="inherit" onClick={handleSearch}>
+                  <SearchIcon />
+                </IconButton>
 
             <IconButton size="large" aria-label="Settings" onClick={handleOpen} >
               <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
             </IconButton>
           
+
+              </span>
 
               <IconButton
                 sx={{
@@ -123,7 +132,6 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
                   cursor: 'pointer'
                 }}
                 onClick={toggleProfileDetail}
-                onBlur={closeProfileDetail}
               >
                 <div className={styles.userCover}>
                   <span className={styles.userName}>User</span>
@@ -134,6 +142,10 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
                 </div>
                 {profileDetail && <ProfileDetail />}
               </IconButton>
+
+              <span className={styles.downArrow} >
+                <KeyboardArrowDownIcon onClick={openVerticalNav} />
+              </span>
             </div>
           </Toolbar>
         }

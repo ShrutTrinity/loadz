@@ -1,0 +1,69 @@
+@import "../../../modules/styleVariables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: $font-family_1;
+}
+
+.verticalBody {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1200;
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  position: fixed;
+}
+
+.gearIcon {
+  height: 22px;
+  width: 22px;
+  font-size: 22px;
+}
+
+.container {
+  position: relative;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 20px;
+  width: min-content;
+  height: 100vh;
+  text-align: center;
+  justify-content: flex-start;
+  background-color: $color_3;
+  color: $color_1;
+
+  .languageContainer {
+    padding: 12px 0;
+  }
+}
+.searchField {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: min-content;
+    width: 60vw;
+    color: $color_1;
+    top: 24px;
+    z-index: 1300;
+}
+.textSelector{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    color: $color_1;
+    height: min-content;
+    position: relative;
+    top: 20rem;
+}
+@media only screen and (max-width: 600px) {
+	.container{
+        padding: 32px 10px;
+    }
+}
+@media only screen and (max-width: 400px) {
+	.container{
+        padding: 32px 0px;
+    }
+}

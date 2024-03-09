@@ -12,7 +12,7 @@ const ProfileDetail = () => {
         marginLeft:'-5px',
         top:'50px',
         bgcolor: 'rgb(237, 202, 51)',
-        zIndex: 999,
+        zIndex: 11,
         maxWidth: '150px',
         borderRadius: '8px',
         padding:'8px 0',

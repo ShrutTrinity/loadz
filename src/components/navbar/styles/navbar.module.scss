@@ -1,5 +1,5 @@
-.languageIcon {
-  margin: 0 10px 0 0;
+.navComponents{
+  display: contents;
 }
 .gearIcon {
   width: 25px;
@@ -39,3 +39,17 @@
     margin-bottom: 0px;
   }
 }
+.downArrow{
+  cursor: pointer;
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+	.downArrow{
+    display: contents;
+  }
+  .navComponents{
+    display: none;
+  }
+}
+
