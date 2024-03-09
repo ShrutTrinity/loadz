@@ -18,7 +18,7 @@
         }
 
         .img {
-            width: 182.3px;
+            width: 186px;
             position: absolute;
             top: 0;
             height: 100vh;
@@ -132,7 +132,7 @@
 
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width:1500px) {
     .flex {
         .col1 {
             .overviewFlex {
@@ -170,7 +170,7 @@
 
                 .video2 {
                     width: 100%;
-                    height: 360px;
+                    height: 300px;
                     // padding-bottom: 55%;
                 }
             }
@@ -203,12 +203,12 @@
     }
 
 }
-@media only screen and (min-width: 950px){
+@media only screen and (max-width: 950px){
     .flex{
         .col1{
             .videodiv2{
                 .video2{
-                    height: 530px;
+                    // height: 530px;
                 }
             }
             .overviewFlex{
@@ -219,8 +219,7 @@
         }
     }
     }
-
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
     .flex{
         .col1{
             height: auto;
