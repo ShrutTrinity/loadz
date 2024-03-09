@@ -15,6 +15,12 @@
   position: fixed;
 }
 
+.gearIcon {
+  height: 22px;
+  width: 22px;
+  font-size: 22px;
+}
+
 .container {
   position: relative;
   z-index: 1200;
@@ -26,10 +32,7 @@
   text-align: center;
   justify-content: flex-start;
   background-color: $color_3;
-
-  .gearIcon {
-    width: 15px;
-  }
+  color: $color_1;
 
   .languageContainer {
     padding: 12px 0;

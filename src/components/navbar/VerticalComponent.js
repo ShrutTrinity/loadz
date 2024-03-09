@@ -41,11 +41,15 @@ const VerticalComponent = () => {
         </div>
       }
       <div className={styles.container}>
-        <IconButton size="large" aria-label="search" color="black"
+        <IconButton size="large" aria-label="search"
           onClick={handleSearch}
+          sx={{
+            color:'black',
+          }}
         >
           <SearchIcon />
         </IconButton>
+        
         <RouterLink to='https://youtube.com/@loadzloadzonline2510' style={{ color: 'black' }}>
           <Button
             sx={{
@@ -66,7 +70,7 @@ const VerticalComponent = () => {
         <FullScreenIcon />
 
         <IconButton size="large" aria-label="Settings" >
-          <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
+          <img src={Gear} className={styles.gearIcon}  alt='Gear Icon' />
         </IconButton>
 
         <div className={styles.languageContainer}>
