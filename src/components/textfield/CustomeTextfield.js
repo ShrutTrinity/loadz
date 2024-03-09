@@ -14,30 +14,29 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
       variant="standard">
       <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
       <TextField
-    
+
         sx={{
           width: '100%',
           marginBottom: '16px'
         }}
 
         id={id}
-        name={name} 
+        name={name}
         type={type}
         placeholder={placeholder} required
         InputProps={{
           maxLength: 10,
           endAdornment: (children4),
-          inputProps:{
-             sx: {
-              padding:'12px 14px',
+          inputProps: {
+            sx: {
+              padding: '12px 14px',
               '@media (max-width: 600px)': {
-                    padding: '8px 14px',
-                  },
-         },
-
+                padding: '8px 14px',
+              },
+            },
           }
         }}
-      {...formik.getFieldProps(name)}
+        {...formik.getFieldProps(name)}
       />
     </FormControl>
   )

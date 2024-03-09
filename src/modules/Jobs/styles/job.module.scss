@@ -1,0 +1,22 @@
+@import '../../styleVariables.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: $font-family_1;
+}
+.navigationbar{
+    z-index: 10;
+}
+.container{
+    margin: 63px 0 0 0;
+    padding: 32px;
+    flex-direction: column;
+}
+.titleText{
+    font-size: 32px;
+    font-weight: 600;
+}
+.subcontainer{
+    display: flex;
+}
