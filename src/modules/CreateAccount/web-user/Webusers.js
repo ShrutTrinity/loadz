@@ -1,22 +1,18 @@
 import React, { useState } from 'react'
-import CustomStepper from '../../components/stepper/CustomStepper'
-import BoxComponent from '../../components/formBox/Box'
+import CustomStepper from '../Components/stepper/CustomStepper'
+import BoxComponent from '../Components/formBox/Box'
 import styles from './styles/webuser.module.scss'
-import Video from '../../components/videotag'
-import useVideoPopupSecond from '../../hooks/useVideoPopupSecond'
+import Video from '../Components/videotag'
+import useVideoPopupSecond from '../../../hooks/useVideoPopupSecond'
 import { useFormik } from 'formik';
-import {  getValidationSchemaforsix } from '../../validation/validationshema'
-import SolidButton from '../../components/button/SolidButton'
-import LoginPage from '../Authentication/Login/LoginPage'
+import {  getValidationSchemaforsix } from '../../../validation/validationshema'
+import SolidButton from '../../../components/button/SolidButton'
+import LoginPage from '../../Authentication/Login/LoginPage'
 import { Link } from 'react-router-dom'
-import Webuserform from '../../components/form/Webuserform'
+import Webuserform from '../Components/form/Webuserform'
 import IncludeTruck from '../addTruck/IncludeTruck'
 
-
-
-
 const Webuser = () => {
-
   const [webcount, setWebcount] = useState(1);
   const [isBack, setIsBack] = useState(false);
   const [isNext, setIsNext] = useState(false);

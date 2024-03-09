@@ -7,11 +7,11 @@ import SwitchMUI from '../../../components/switch/SwitchMUI'
 import useVideoPopupSecond from '../../../hooks/useVideoPopupSecond'
 import CommonDriverForm from '../../../components/form/commonDriverForm'
 import { useFormik } from 'formik';
-import { getValidationSchemaforforth } from '../../../validation/validationshema';
+import { getValidationSchemaforforth } from '../../../components/validation/validationshema'
 import SolidButton from '../../../components/button/SolidButton'
-import Preference from '../../setupPreference/Preference'
+import Preference from '../setupPreference/Preference'
 import Disabledriverform from '../../../components/form/Disabledriverform'
-import IncludeTruck from '../../addTruck/IncludeTruck'
+import IncludeTruck from '../addTruck/IncludeTruck'
 
 
 

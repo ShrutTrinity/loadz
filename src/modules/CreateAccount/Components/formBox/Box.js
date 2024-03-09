@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/box.module.scss';
-import help from '../../images/help.svg';
+import help from '../../../../images/help.svg';
 
 
 const Box = ({ children1, children3 ,handleClick}) => {
