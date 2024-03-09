@@ -46,15 +46,15 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft({ open, handleDrawerOpen, handleDrawerClose }) {   
+export default function PersistentDrawerLeft({setting,handleOpen,handleClose, open , handleDrawerOpen, handleDrawerClose }) {   
     const data = [
         { header: 'DASHBOARD', detail: { 'REQUEST BOARD': '/request-board' } },
         { header: 'Jobs', detail: {} },
         { header: 'CUSTOMERS', detail: { 'UNINVOICED TICKETS': '/uninvoiced-tickets' } },
         { header: 'TRUCK', detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
         { header: 'DRIVER LIST', detail: { 'TIME SHEETS': '/time-sheets' } },
-        { header: 'USER LIST', detail: {} },
-        { header: 'SUBCONTRACTORS', detail: {} },
+        { header: 'USER LIST', detail:{}},
+        { header: 'SUBCONTRACTORS', detail:{}},
         { header: 'OWNER OPERATORS', detail: {} },
     ];
 
@@ -63,13 +63,13 @@ export default function PersistentDrawerLeft({ open, handleDrawerOpen, handleDra
        
      
       <AppBar position="static" sx={{backgroundColor:'black'}}>
-            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} />
+            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen} />
                 <Drawer
                     variant="persistent"
                     anchor="left"
                     open={open}>
                     <DrawerHeader>
-                        <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{ cursor: 'pointer', height: '20px', width: '20px', borderRadius: '50%' }} />
+                        <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{cursor:'pointer', height: '20px', width: '20px', borderRadius: '50%' }} />
                     </DrawerHeader>
                     <div className={styles.profile}>
                         <img src={Profile} alt='profile'  className={styles.img2} />
@@ -80,13 +80,8 @@ export default function PersistentDrawerLeft({ open, handleDrawerOpen, handleDra
                         ))}
                         <img src={banner} className={styles.banner} alt='logo' />
                     </DrawerContent>
-
                     <img src={logo} className={styles.img} alt='logo' />
                 </Drawer>
                 </AppBar>
-            
-
-
-
             );
 }
