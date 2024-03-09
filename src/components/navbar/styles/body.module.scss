@@ -109,8 +109,7 @@
         height: 5vh;
         padding-top: 10px;
         bottom: 0px;
-        width: 100%;
-        right: 30px;
+        width: 100vw;
         background-color: $color_1;
         @include flex-column();
         flex-direction: row;
@@ -174,3 +173,29 @@
     }
 }
 
+@media screen and (max-width: 300px){
+    .body{
+    
+    .toolbar {
+       
+
+        padding-top: 0px;
+        
+
+        .toolbarDetail {
+
+            margin-right: 10px;
+          
+        }
+
+        .bottomLink {
+            text-decoration: none;
+            color: $color_3;
+            float: right;
+            margin-left: 1rem;
+            font-size: 12px;
+        }
+    }
+}
+
+}

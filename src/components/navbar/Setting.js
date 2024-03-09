@@ -12,8 +12,6 @@ import Formcontroller from './Formcontroller';
 
 
 const Setting = ({handleClose}) => {
-  
-
   const handleClickInside = (event) => {
     event.stopPropagation();
   };
