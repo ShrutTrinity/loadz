@@ -44,9 +44,6 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
     setProfileDetail(!profileDetail);
   }
 
-  const closeProfileDetail = () => {
-    setProfileDetail(false);
-  };
   useEffect(() => {
     document.body.style.overflow = setting ? 'hidden' : 'auto';
 
@@ -56,13 +53,13 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
   }, [setting]);
 
   const openVerticalNav = () => {
-    setVerticalNav(true);
+    setVerticalNav(!verticalNav);
   }
 
   return (
     <div>  
       {setting && <Setting handleClose={handleClose}/>}
-        {verticalNav && <VerticalComponent />}
+        {verticalNav && <VerticalComponent closeVerticalNav={openVerticalNav} />}
       <AppBar  sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)` }}>
       {searchField === true ?
         <SearchField handleSearchClose={handleSearchClose} Open={Open}  widthOfSearchField='100vw' />
@@ -138,7 +135,6 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose}) => {
                   cursor: 'pointer'
                 }}
                 onClick={toggleProfileDetail}
-                onBlur={closeProfileDetail}
               >
                 <div className={styles.userCover}>
                   <span className={styles.userName}>User</span>

@@ -12,7 +12,7 @@ import TextFieldsIcon from '@mui/icons-material/TextFields';
 import SearchField from '../searchPiont/SearchField';
 import TextSlider from './TextSlider';
 
-const VerticalComponent = () => {
+const VerticalComponent = ({closeVerticalNav}) => {
 
   const [searchField, setSearchField] = useState(false);
   const [textSelectorOpen, setTextSelectorOpen] = useState(false)
@@ -28,19 +28,21 @@ const VerticalComponent = () => {
     setTextSelectorOpen(!textSelectorOpen);
   };
 
+  const handleClickInside = event => event.stopPropagation();
+
   return (
-    <div className={styles.verticalBody}>
+    <div className={styles.verticalBody} onClick={closeVerticalNav}>
       {searchField &&
-        <div className={styles.searchField}>
+        <div className={styles.searchField} onClick={handleClickInside}>
           <SearchField handleSearchClose={handleSearchClose} widthOfSearchField='100%' />
         </div>
       }
       { textSelectorOpen &&
-        <div className={styles.textSelector}>
+        <div className={styles.textSelector} onClick={handleClickInside}>
           <TextSlider />    
         </div>
       }
-      <div className={styles.container}>
+      <div className={styles.container} onClick={handleClickInside}>
         <IconButton size="large" aria-label="search"
           onClick={handleSearch}
           sx={{
