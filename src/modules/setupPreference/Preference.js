@@ -10,8 +10,8 @@ import SolidButton from '../../components/button/SolidButton'
 import SetupOfCompany from '../companySetup/SetupOfCompany'
 import AddDriver from '../createDriver/AddDriver'
 import { useFormik } from 'formik';
-import { priceTagsSchema } from '../../components/validation/validationshema'
-import { priceTagsSchemaSales } from '../../components/validation/validationshema'
+import { priceTagsSchema } from '../../validation/validationshema'
+import { priceTagsSchemaSales } from '../../validation/validationshema'
 
 const Preference = () => {
 

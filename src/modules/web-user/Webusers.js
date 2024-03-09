@@ -5,7 +5,7 @@ import styles from './styles/webuser.module.scss'
 import Video from '../../components/videotag'
 import useVideoPopupSecond from '../../hooks/useVideoPopupSecond'
 import { useFormik } from 'formik';
-import {  getValidationSchemaforsix } from '../../components/validation/validationshema'
+import {  getValidationSchemaforsix } from '../../validation/validationshema'
 import SolidButton from '../../components/button/SolidButton'
 import LoginPage from '../signIn/LoginPage'
 import { Link } from 'react-router-dom'

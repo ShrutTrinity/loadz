@@ -35,8 +35,6 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
     setSearchField(false);
   }
 
-
-
   const toggleProfileDetail = () => {
     setProfileDetail(!profileDetail);
   }

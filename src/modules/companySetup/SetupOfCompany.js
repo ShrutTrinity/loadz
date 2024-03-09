@@ -7,7 +7,7 @@ import CustomTextField from '../../components/textfield/CustomeTextfield'
 import companyLogoImage from '../../images/upload_logo.svg';
 import Send from '../../components/uploadFile/Send';
 import FilePopUp from '../../components/uploadPopUp';
-import { getValidationSchemaforsecond } from '../../components/validation/validationshema'
+import { getValidationSchemaforsecond } from '../../validation/validationshema'
 import { useFormik } from 'formik';
 import useVideoPopup from '../../hooks/useVideoPopupSecond'
 import CommonForm from '../../components/form/CommonForm'
