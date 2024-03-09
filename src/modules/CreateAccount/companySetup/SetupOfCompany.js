@@ -1,21 +1,21 @@
 import React, { useState} from 'react'
-import CustomStepper from '../../components/stepper/CustomStepper'
-import BoxComponent from '../../components/formBox/Box'
+import CustomStepper from '../Components/stepper/CustomStepper'
+import BoxComponent from '../Components/formBox/Box'
 import styles from './styles/setup.module.scss'
-import Video from '../../components/videotag'
-import CustomTextField from '../../components/textfield/CustomeTextfield'
-import companyLogoImage from '../../images/upload_logo.svg';
-import Send from '../../components/uploadFile/Send';
-import FilePopUp from '../../components/uploadPopUp';
-import { getValidationSchemaforsecond } from '../../validation/validationshema'
+import Video from '../Components/videotag'
+import CustomTextField from '../../../components/textfield/CustomeTextfield'
+import companyLogoImage from '../../../images/upload_logo.svg';
+import Send from '../Components/uploadFile/Send';
+import FilePopUp from '../Components/uploadPopUp';
+import { getValidationSchemaforsecond } from '../../../validation/validationshema'
 import { useFormik } from 'formik';
-import useVideoPopup from '../../hooks/useVideoPopupSecond'
-import CommonForm from '../../components/form/CommonForm'
+import useVideoPopup from '../../../hooks/useVideoPopupSecond'
+import CommonForm from '../Components/form/CommonForm'
 import Checkbox from '@mui/material/Checkbox';
 import { grey } from '@mui/material/colors'
 import TextField from '@mui/material/TextField'
 import { Button } from '@mui/material'
-import NorequiredTextField from '../../components/textfield/NorequiredTextfield'
+import NorequiredTextField from '../../../components/textfield/NorequiredTextfield'
 import Preference from '../setupPreference/Preference'
 
 const statesArray = [

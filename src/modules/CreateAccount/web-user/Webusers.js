@@ -84,7 +84,7 @@ const Webuser = () => {
 
                   <div style={{ display: 'flex' }}>
                   <div style={{ marginRight: '10px' }}>
-                     <Link to='/'> <SolidButton buttonValue='Skip'/></Link>
+                     <Link to='/dashboard'> <SolidButton buttonValue='Skip'/></Link>
                     </div>
                     <div style={{ marginRight: '10px' }}>
                       <SolidButton buttonValue='Back' onClick={BackTO_prev_Page} />

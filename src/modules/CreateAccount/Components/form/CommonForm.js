@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles/commonform.module.scss'
-import CustomTextField from '../textfield/CustomeTextfield'
-import NorequiredTextField from '../textfield/NorequiredTextfield'
+import NorequiredTextField from '../../../../components/textfield/NorequiredTextfield'
+import CustomTextField from '../../../../components/textfield/CustomeTextfield'
 
 const CommonForm = ({formik}) => {
     return (
