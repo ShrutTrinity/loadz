@@ -1,35 +1,54 @@
-@import '../../styleVariables.scss';
+@import "../../styleVariables.scss";
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: $font-family_1;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family_1;
 }
-.navigationbar{
-    z-index: 10;
+.navigationbar {
+  z-index: 10;
 }
-.container{
-    margin: 63px 0 0 0;
-    padding: 32px 32px 0 32px;
-    // height:100vh;
-    flex-direction: column;
+.container {
+  margin: 63px 0 0 0;
+  padding: 32px 32px 0 32px;
+  // height:100vh;
+  flex-direction: column;
 }
-.titleText{
-    font-size: 32px;
-    font-weight: 600;
+.titleText {
+  font-size: 32px;
+  font-weight: 600;
 }
-.subcontainer{
-    display: flex;
-    justify-content: space-between;
+.subcontainer {
+  display: flex;
+  justify-content: space-between;
 }
 
-.search{
-    display: flex;
-   gap: 10px;
+.search {
+  display: flex;
+  gap: 10px;
 }
 
 .body {
-    margin: 30px 0 0 0;
-    border-radius: 10px;
-    height: 65%;
+  margin: 30px 0 0 0;
+  border-radius: 10px;
+  height: 65%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .search {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 20px 16px 16px 16px;
+  }
+  .label {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .subcontainer {
+    flex-direction: column;
+  }
 }

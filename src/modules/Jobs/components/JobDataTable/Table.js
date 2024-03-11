@@ -31,15 +31,18 @@ const Table = () => {
             <div style={{ height: 430, width: '100%' }}>
                 <DataGrid
                     sx={{
-                        padding: '10px',
+                        padding: '10px 0',
                         margin: '10px',
                         border: '2px solid gray',
                         borderRadius: '10px',
-                        '& .css-gl260s-MuiDataGrid-columnHeadersInner':{
-                                backgroundColor:'rgb(233 235 236 / 65%)'
+                        '& .css-gl260s-MuiDataGrid-columnHeadersInner': {
+                            backgroundColor: 'rgb(233 235 236 / 65%)'
+                        },
+                        '@media (max-width: 600px)': {
+                            margin:'10px 0'
                         }
                     }}
-                  
+
                     autoPageSize
                     // pageSizeOptions={[5, 10, 25]}
                     rows={Data}

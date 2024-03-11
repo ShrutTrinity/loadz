@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles/job.module.scss';
 import Navigationbar from '@components/navbar/NavigationBar';
-import Navigationbar from '@components/navbar/NavigationBar';
 import Index from './components/switchForJob/index';
 import {
   Button,
@@ -63,7 +62,14 @@ const Job = () => {
                 variant="outlined"
                 value={searchValue}
                 onChange={handleChange}
-                sx={{ height: '28px', flexGrow: 1 }}
+                sx={{
+                  height: '28px',
+                  flexGrow: 1,
+                  '@media (max-width: 1200px)' : {
+                    marginBottom:'16px',
+                    width:'100%'
+                  }
+                }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -84,7 +90,6 @@ const Job = () => {
               />
             </FormControl>
             <Button variant="contained" sx={{
-              // width:'40%',
               backgroundColor: 'rgb(237, 202, 51)',
               color: 'black',
               fontWeight: '600',
@@ -96,9 +101,9 @@ const Job = () => {
             </Button>
           </div>
         </div>
-            <div className={styles.body}>
-              <Table/>
-            </div>
+        <div className={styles.body}>
+          <Table />
+        </div>
       </div>
     </div>
   )
