@@ -51,7 +51,6 @@ const [checked, setChecked] = useState(props.check);
           '& .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track': {
             backgroundColor: 'rgb(237, 202,51)',
             opacity:0.5
-
           },
         }} />}
         label={props.label}

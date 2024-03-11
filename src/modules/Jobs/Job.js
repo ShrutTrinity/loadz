@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles/job.module.scss';
-import Navigationbar from '@components/navbar/NavigationBar';
+import PersistentDrawerLeft from '@components/navbar/header'
 import Index from './components/switchForJob/index';
 
 import {
@@ -29,6 +29,37 @@ const Job = () => {
   const [searchValue, setSearchValue] = useState("");
 
 
+  const [open, setOpen] = useState(false);
+  const [setting, setSetting] = useState(false);
+  const [textSelectorOpen, setTextSelectorOpen] = useState(false)
+
+  const toggleTextSelector = () => {
+    setTextSelectorOpen(!textSelectorOpen);
+  };
+
+  const handleOpen = () => {
+      setSetting(true)
+    }
+    const handleClosse = () => {
+      console.log("abc")
+      setSetting(false)
+    }
+
+  const handleDrawerOpen = () => {
+      setOpen(true);
+  };
+  const handleDrawerClose = () => {
+      setOpen(false);
+  };
+  const bodyStyles = {   
+      width: `calc(100% - ${open ? 290 : 0}px)`,
+      zIndex: 10,
+  };
+
+  if (window.innerWidth <= 1300) {
+      bodyStyles.width = '100%';
+      var bodyclick = handleDrawerClose;
+  }
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchValue(value);
@@ -41,10 +72,10 @@ const Job = () => {
   };
   return (
     <div>
-      <div className={styles.navigationbar}>
-        <Navigationbar />
-      </div>
-      <div className={styles.container}>
+    
+    <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
+      
+      <div className={styles.container} onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
           <div className={styles.label}>
