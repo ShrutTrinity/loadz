@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => {
     search: {
       margin: "3px"
     }, clearIcon: {
-      cursor: 'pointer',
+      cursor: 'pointer'
     }
   });
 });
