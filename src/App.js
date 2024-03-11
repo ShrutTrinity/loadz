@@ -32,7 +32,7 @@ const App = () => {
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/dashboard' element={<Body />} />
           <Route exact path='/404' element={<Error />} />
-          <Route exact path='/4' element={<Job />} />
+          <Route exact path='/4'   element={<Job />} />
         </Routes>
       </Router>
     </>
