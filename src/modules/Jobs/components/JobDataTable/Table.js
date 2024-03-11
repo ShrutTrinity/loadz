@@ -21,31 +21,36 @@ const Table = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 10;
-  
+
     const handlePageChange = (params) => {
-      setCurrentPage(params.page);
+        setCurrentPage(params.page);
     };
 
     return (
         <>
-            <div style={{ height: 400, width: '100%' }}>
+            <div style={{ height: 430, width: '100%' }}>
                 <DataGrid
-                sx={{
-                    padding:'10px',
-                    margin: '10px',
-                    border:'2px solid gray',
-                    borderRadius:'10px'
-                }}
+                    sx={{
+                        padding: '10px',
+                        margin: '10px',
+                        border: '2px solid gray',
+                        borderRadius: '10px',
+                        '& .css-gl260s-MuiDataGrid-columnHeadersInner':{
+                                backgroundColor:'rgb(233 235 236 / 65%)'
+                        }
+                    }}
+                  
+                    autoPageSize
+                    // pageSizeOptions={[5, 10, 25]}
                     rows={Data}
                     columns={columns}
                     pageSize={rowsPerPage}
                     checkboxSelection
                     disableSelectionOnClick
-                    pagination = {10}
+                    pagination={10}
                     page={currentPage}
                     onPageChange={handlePageChange}
-                    rowCount={Data.length}
-                    hideFooter
+                    rowCount={Data.length} rowsPerPageOptions={[5]}
                 />
             </div>
 

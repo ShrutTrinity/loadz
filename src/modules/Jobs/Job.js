@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles/job.module.scss';
-import Navigationbar from '../../components/navbar/NavigationBar';
+import Navigationbar from '@components/navbar/NavigationBar';
 import Index from './components/switchForJob/index';
 
 import {
@@ -12,7 +12,7 @@ import {
 import { createStyles, makeStyles } from '@mui/styles';
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
-import Table from './components/Table/table';
+import Table from './components/JobDataTable/Table';
 
 const useStyles = makeStyles(() => {
   return createStyles({
