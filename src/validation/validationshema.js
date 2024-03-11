@@ -29,7 +29,7 @@ const getValidationSchemaforsecond = () => {
     zip: Yup.string().required('Zip is required'),
     phone: Yup.string().required('Telephone is required'),
     cemail: Yup.string().email('Invalid email address').required('Company Email is required'),
-    condition: Yup.boolean().oneOf([false], 'Please accept the conditions'),
+    condition: Yup.boolean().oneOf([true], 'Please accept the conditions'),
   });
 };
 
