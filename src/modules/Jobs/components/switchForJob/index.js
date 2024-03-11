@@ -11,7 +11,6 @@ const Android12Switch = styled(Switch)(({ checked }) => ({
       content: '""',
       position: 'absolute',
       top: '50%',
-
       transform: 'translateY(-50%)',
       width: 16,
       height: 16,
