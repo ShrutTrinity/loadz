@@ -10,7 +10,8 @@
 }
 .container{
     margin: 63px 0 0 0;
-    padding: 32px;
+    padding: 32px 32px 0 32px;
+    // height:100vh;
     flex-direction: column;
 }
 .titleText{
@@ -19,4 +20,16 @@
 }
 .subcontainer{
     display: flex;
+    justify-content: space-between;
+}
+
+.search{
+    display: flex;
+   gap: 10px;
+}
+
+.body {
+    margin: 30px 0 0 0;
+    border-radius: 10px;
+    height: 65%;
 }

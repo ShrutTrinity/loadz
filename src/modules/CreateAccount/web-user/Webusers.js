@@ -13,7 +13,7 @@ import IncludeTruck from '../addTruck/IncludeTruck'
 import { useNavigate } from 'react-router-dom';
 
 const Webuser = () => {
-  const [webcount, setWebcount] = useState(1);
+  const [webcount, setWebcount] = useState(1);  
   const [isBack, setIsBack] = useState(false);
   // const [isNext, setIsNext] = useState(false);
   const navigate = useNavigate(); 
