@@ -47,12 +47,12 @@ const Job = () => {
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
           <div className={styles.label}>
-            <Index label='All' />
-            <Index label='Owner' />
-            <Index label='SubContractor' />
-            <Index label='Commission' />
-            <Index label='Drafts' />
-            <Index label='Archive' />
+            <Index label='All' check={true} />
+            <Index label='Owner' check={false} />
+            <Index label='SubContractor' check={false} />
+            <Index label='Commission' check={false} />
+            <Index label='Drafts' check={false}/>
+            <Index label='Archive'check={false} />
           </div>
           <div className={styles.search}>
 
