@@ -1,4 +1,4 @@
-@import "../../../styleVariables.scss";
+@import "@styles";
 .container {
 	@include center();
 	position: fixed;

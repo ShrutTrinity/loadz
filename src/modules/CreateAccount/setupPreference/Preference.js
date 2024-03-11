@@ -3,15 +3,15 @@ import CustomStepper from '../Components/stepper/CustomStepper'
 import styles from './styles/setupPreference.module.scss'
 import BoxComponent from '../Components/formBox/Box'
 import Video from '../Components/videotag'
-import useVideoPopup from '../../../hooks/useVideoPopupSecond'
+import useVideoPopup from '@hooks/useVideoPopupSecond'
 import SwitchMUI from '../Components/switch/SwitchMUI'
 import Tags from '../Components/priceTags/index'
-import SolidButton from '../../../components/button/SolidButton'
+import SolidButton from '@components/button/SolidButton'
 import SetupOfCompany from '../companySetup/SetupOfCompany'
 import AddDriver from '../createDriver/AddDriver'
 import { useFormik } from 'formik';
-import { priceTagsSchema } from '../../../validation/validationshema'
-import { priceTagsSchemaSales } from '../../../validation/validationshema'
+import { priceTagsSchema } from '@validation/validationshema'
+import { priceTagsSchemaSales } from '@validation/validationshema'
 
 const Preference = () => {
 

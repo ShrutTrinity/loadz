@@ -22,7 +22,7 @@ const Error = () => {
           </div>
         </div>
         <div className={styles.linkToRoute}>
-          <Link to='/body' className={styles.route}>
+          <Link to='/dashboard' className={styles.route}>
             Go back to dashboard
           </Link>
         </div>

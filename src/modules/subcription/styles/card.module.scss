@@ -1,4 +1,4 @@
-@import "../../styleVariables.scss";
+@import "@styles";
 
 .cardcontainer {
 	padding: 12px;
@@ -71,7 +71,7 @@ ul {
 .btntext {
 	font-size: 13px;
 	font-weight: 300;
-	color: black;
+	color: $color_1;
 	border-bottom: 0;
 	text-decoration: none;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles/body.module.scss'
-import PersistentDrawerLeft from '../../components/navbar/header'
+import PersistentDrawerLeft from '@components/navbar/header'
 import Chart from 'react-apexcharts'
 import { Link } from 'react-router-dom';
 

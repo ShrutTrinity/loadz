@@ -1,19 +1,19 @@
+@import '@styles';
+
 .full{
 
 background-color: rgba(0,0,0,0.5);
 }
 
 .profile{
-    display: flex;
+    @include center();
     padding:0 0 30px 0px;
-    justify-content: center;
-    align-items: center;
 
  box-shadow: 0 4px 9px -6px #222;
  
 }
 .img2{
-    cursor: 'pointer';
+  cursor: 'pointer';
   max-height: 100%;
   max-width: 100%;
 }
@@ -22,8 +22,8 @@ background-color: rgba(0,0,0,0.5);
  margin-right: auto;
  padding-bottom: 20px;
  padding-top: 20px;
-  height: 70px;
-  width: 150px;
+ height: 70px;
+ width: 150px;
 }
 .banner{
   display: flex;

@@ -1,4 +1,4 @@
-import CustomTextField from '../../../../components/textfield/CustomeTextfield';
+import CustomTextField from '@components/textfield/CustomeTextfield';
 import styles from './styles/commonTrailers.module.scss';
 
 const trolyType = ['Belly Dump', 'End Dump', 'Cement', 'Box']

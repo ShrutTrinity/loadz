@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles/webuserform.module.scss'
-import CustomTextField from '../../../../components/textfield/CustomeTextfield'
+import CustomTextField from '@components/textfield/CustomeTextfield'
 
 const comtypes = ['email']
 const usertypes = ['Power Dispatcher', 'Dispatcher']

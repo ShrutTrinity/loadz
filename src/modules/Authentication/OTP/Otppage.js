@@ -4,8 +4,8 @@ import EmailIcon from '@mui/icons-material/Email';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link as RouterLink } from 'react-router-dom';
-import Reversebtn from '../../../components/button/Reversebtn';
-import Card from '../../../components/card/Card';
+import Reversebtn from '@components/button/Reversebtn';
+import Card from '@components/card/Card';
 
 const Otppage = ({ childrenForCloseOtp }) => {
   const email = ' fenikothadiya@gmail.com'

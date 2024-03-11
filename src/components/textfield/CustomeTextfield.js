@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../modules/CreateAccount/newAccount/styles/new.module.scss';
+import styles from '@modules/CreateAccount/newAccount/styles/new.module.scss';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 

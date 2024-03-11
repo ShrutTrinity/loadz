@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './styles/company.module.scss'
-import Logo from '../../images/loadzlogo.png'
-import phone from '../../images/phone.png'
+import Logo from '@images/loadzlogo.png'
+import phone from '@images/phone.png'
 import { Link } from 'react-router-dom'
-import triangle from '../../images/tringle2.svg'
+import triangle from '@images/tringle2.svg'
 const Welcome = () => {
     return (
         <>

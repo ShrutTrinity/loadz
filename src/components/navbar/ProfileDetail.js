@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '@mui/material/List';
 import styles from './styles/profile.module.scss';
-import UserIcon from '../../images/userIcon.svg';
+import UserIcon from '@images/userIcon.svg';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const ProfileDetail = () => {

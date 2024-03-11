@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import US from '../../images/us.png';
-import TR from '../../images/tr.png';
-import SA from '../../images/sa.png';
+import US from '@images/us.png';
+import TR from '@images/tr.png';
+import SA from '@images/sa.png';
 import { Link } from 'react-router-dom';
 
 

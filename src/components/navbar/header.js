@@ -3,11 +3,11 @@ import styles from './styles/header.module.scss'
 import { styled } from '@mui/material/styles';
 
 import Drawer from '@mui/material/Drawer';
-import iconButton from '../../images/menu_ico.png';
-import Profile from '../../images/profile.jpg'
+import iconButton from '@images/menu_ico.png';
+import Profile from '@images/profile.jpg'
 import According from '../According';
-import logo from '../../images/loadzlogo.png'
-import banner from '../../images/banner.png'
+import logo from '@images/loadzlogo.png'
+import banner from '@images/banner.png'
 import NavigationBar from './NavigationBar';
 import { AppBar } from '@mui/material';
 

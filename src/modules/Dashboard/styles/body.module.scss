@@ -1,201 +1,179 @@
-@import "../../../modules/styleVariables.scss";
-
+@import "@styles";
 
 .body {
-    background-color: black;
-    margin-top: 63px;
-    width: 100%;
-    position: absolute;
-    right: 0;
+  background-color: $color_1;
+  margin-top: 63px;
+  width: 100%;
+  position: absolute;
+  right: 0;
 
-    .company {
-        color: white;
-        font-size: 25px;
-        margin: 0px 0 0 30px;
-        padding: 20px 0 0 20px;
+  .company {
+    color: $color_4;
+    font-size: 25px;
+    margin: 0px 0 0 30px;
+    padding: 20px 0 0 20px;
+  }
+
+  .contain {
+    margin: 30px;
+    margin-top: 40px;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .flex {
+    @include center();
+    gap: 20px;
+
+    .chart {
+      border: 2px solid $color_3;
+      width: 50%;
+      height: 100%;
+
+      .border {
+        background-color: $color_4;
+        width: 100%;
+        padding: 10px;
+        margin: 20px;
+        width: auto;
+      }
     }
 
-    .contain {
-        margin: 30px;
-        margin-top: 40px;
-        overflow-y: auto;
-        padding: 20px;
+    .boxes {
+      @include center();
+      width: 50%;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .box {
+        border: 2px solid $color_3;
+        @include center();
+        text-align: center;
+        width: 45%;
+        // height: 90%;
+        text-decoration: none;
+
+        .context {
+          color: $color_4;
+          padding: 30px;
+
+          .zero {
+            font-size: 60px;
+            font-weight: 700;
+          }
+
+          .job {
+            color: rgba(249, 168, 37, 1);
+          }
+        }
+      }
+    }
+  }
+
+  .contain2 {
+    margin-top: 20px;
+    .title {
+      font-size: 22px;
+      color: white;
+      font-weight: 400;
+      padding: 20px;
     }
 
-    .flex {
+    .flex2 {
+      padding: 40px;
+      @include center();
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
+      .detail {
+        font-weight: 300;
+        line-height: 1.5;
+        color: rgb(107, 114, 128);
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
 
+  .toolbar {
+    position: fixed;
+    height: 5vh;
+    padding-top: 10px;
+    bottom: 0px;
+    width: 100vw;
+    background-color: $color_1;
+    @include flex-column();
+    flex-direction: row;
 
-        .chart {
-            border: 2px solid yellow;
-            width: 50%;
-            height: 100%;
-
-            .border {
-                background-color: white;
-                width: 100%;
-                padding: 10px;
-                margin: 20px;
-                width: auto;
-            }
-        }
-
-        .boxes {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50%;
-            flex-wrap: wrap;
-            gap: 20px;
-
-            .box {
-                border: 2px solid yellow;
-                width: 45%;
-                // height: 90%;
-                text-decoration: none;
-                display: flex;
-                justify-content: center;
-                text-align: center;
-
-                .context {
-                    color: white;
-                    padding: 30px;
-
-                    .zero {
-                        font-size: 60px;
-                        font-weight: 700;
-                    }
-
-                    .job {
-                        color: rgba(249, 168, 37, 1);
-                    }
-                }
-            }
-        }
+    .toolbarDetail {
+      margin-right: 20px;
+      bottom: 10px;
+      width: 100%;
+      height: 100%;
     }
 
-    
-    .contain2 {
-        margin-top: 20px;
-        .title {
-            font-size: 22px;
-            color: white;
-            font-weight: 400;
-            padding: 20px;
-        }
-
-        .flex2 {
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .detail {
-                font-weight: 300;
-                line-height: 1.5;
-                color: rgb(107, 114, 128);
-                font-size: 20px;
-                margin-bottom: 20px;
-            }
-        }
+    .bottomLink {
+      text-decoration: none;
+      color: $color_3;
+      float: right;
+      margin-left: 1rem;
+      font-size: 15px;
     }
-
-    .toolbar {
-        position: fixed;
-        height: 5vh;
-        padding-top: 10px;
-        bottom: 0px;
-        width: 100vw;
-        background-color: $color_1;
-        @include flex-column();
-        flex-direction: row;
-
-        .toolbarDetail {
-
-            margin-right: 20px;
-            bottom: 10px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .bottomLink {
-            text-decoration: none;
-            color: $color_3;
-            float: right;
-            margin-left: 1rem;
-            font-size: 15px;
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 1300px) {
+  .body {
+    .flex {
+      flex-direction: column;
 
-    .body{
-        .flex{
-            flex-direction: column;
-
-            .chart{
-                width: 100%;
-            }
-            .boxes{
-                width: 100%;
-            }
-        }
+      .chart {
+        width: 100%;
+      }
+      .boxes {
+        width: 100%;
+      }
     }
-
+  }
 }
 
-@media screen and (max-width: 800px){
-    .body{
-        
-        .contain{
-            margin: 0;
-            margin-top: 10px;
-        }
-        .flex{
-            .chart{
-                border-radius: 15px;
-                .border{
-                    border-radius: 15px;
-                }
-            }
-            .boxes{
-                flex-direction: column;
-                .box{
-                    width: 100%;
-                }
-            }
-        }
+@media screen and (max-width: 800px) {
+  .body {
+    .contain {
+      margin: 0;
+      margin-top: 10px;
     }
+    .flex {
+      .chart {
+        border-radius: 15px;
+        .border {
+          border-radius: 15px;
+        }
+      }
+      .boxes {
+        flex-direction: column;
+        .box {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
-@media screen and (max-width: 300px){
-    .body{
-    
+@media screen and (max-width: 300px) {
+  .body {
     .toolbar {
-       
+      padding-top: 0px;
 
-        padding-top: 0px;
-        
+      .toolbarDetail {
+        margin-right: 10px;
+      }
 
-        .toolbarDetail {
-
-            margin-right: 10px;
-          
-        }
-
-        .bottomLink {
-            text-decoration: none;
-            color: $color_3;
-            float: right;
-            margin-left: 1rem;
-            font-size: 12px;
-        }
+      .bottomLink {
+        text-decoration: none;
+        color: $color_3;
+        float: right;
+        margin-left: 1rem;
+        font-size: 12px;
+      }
     }
-}
-
+  }
 }

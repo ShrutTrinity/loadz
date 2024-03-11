@@ -1,5 +1,7 @@
+@import '@styles';
+
 .container {
-    color: black;
+    color: $color_1;
     position: fixed;
     display: flex;
     justify-content:right;
@@ -12,7 +14,7 @@
         height: 100%;       
         padding: 1rem;
         align-items: center;
-        background-color: white;
+        background-color:$color_4;
         // width: 255px;
         .title{
             line-height: 1;

@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import FullScreenIcon from './FullScreenIcon';
-import Gear from '../../images/GearIcon.svg';
+import Gear from '@images/GearIcon.svg';
 import { Link as RouterLink } from 'react-router-dom';
 import Language from './Language';
 import TextFieldsIcon from '@mui/icons-material/TextFields';

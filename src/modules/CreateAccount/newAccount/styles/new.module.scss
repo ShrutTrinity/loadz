@@ -1,4 +1,4 @@
-@import '../../../styleVariables.scss';
+@import '@styles';
 
 .mainContainer{
     width: 100vw;
@@ -46,14 +46,12 @@
 }
 .bottomContainer{
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     width: 100%;
 }
 .content1{
-    display: flex;
+    @include flex-column();
     flex-direction: row;
-    align-items: center;
 
     span{
         padding-right: 2px;

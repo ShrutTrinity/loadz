@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './styles/commonDriverForm.module.scss'
-import DisableTextField from '../../../../components/textfield/DisableTextfield'
+import DisableTextField from '@components/textfield/DisableTextfield'
 
-const Disabledriverform = ({formik}) => {
+const Disabledriverform = () => {
   return (
     <>
     <div className={styles.formOuter}>

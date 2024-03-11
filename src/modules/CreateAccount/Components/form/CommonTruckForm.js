@@ -1,6 +1,6 @@
 import { Checkbox } from "@mui/material"
 import styles from './styles/commonTruck.module.scss';
-import CustomTextField from "../../../../components/textfield/CustomeTextfield";
+import CustomTextField from "@components/textfield/CustomeTextfield";
 
 const CommonTruckForm = ({ formik }) => {
   return (

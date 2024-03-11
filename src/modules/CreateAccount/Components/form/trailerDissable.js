@@ -1,5 +1,5 @@
 
-import DisableTextField from "../../../../components/textfield/DisableTextfield";
+import DisableTextField from "@components/textfield/DisableTextfield";
 import styles from './styles/commonTrailers.module.scss';
 
 const trolyType = ['Belly Dump', 'End Dump', 'Cement', 'Box']

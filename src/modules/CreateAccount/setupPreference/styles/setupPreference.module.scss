@@ -1,4 +1,4 @@
-@import "../../../styleVariables.scss";
+@import "@styles";
 
 * {
   margin: 0;
@@ -47,16 +47,14 @@
       margin-left: 15px;
       height: 54px;
       padding: 10px;
-      border: 1px solid #000;
+      border: 1px solid $color_1;
     }
     .symbolOfPercent {
       width: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include center();
       height: 54px;
       background: #8e8e8e;
-      border: 1px solid #000;
+      border: 1px solid $color_1;
       border-left: none;
       color: #fff;
       font-size: 18px;
@@ -76,8 +74,7 @@
     padding: 0 15px;
   }
   .smallContainer {
-    display: flex;
-    align-items: center;
+    @include flex-column();
     justify-content: space-between;
     min-width: 100px;
     max-width: 100%;

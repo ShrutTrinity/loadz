@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles/commonDriverForm.module.scss'
-import CustomTextField from '../../../../components/textfield/CustomeTextfield'
-import NorequiredTextField from '../../../../components/textfield/NorequiredTextfield'
+import CustomTextField from '@components/textfield/CustomeTextfield'
+import NorequiredTextField from '@components/textfield/NorequiredTextfield'
 const CommonDriverForm = ({formik}) => {
   return (
     <>

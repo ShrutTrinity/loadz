@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './styles/subscription.module.scss'
 import Card from './Card'
 
-
 const Subscription = () => {
   return (
     <>

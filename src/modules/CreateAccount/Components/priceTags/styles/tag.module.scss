@@ -1,4 +1,4 @@
-@import "../../../../styleVariables.scss";
+@import "@styles";
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -26,14 +26,12 @@ input[type="number"] {
 
     .labTitle {
       width: 100%;
-      display: flex;
-      align-items: center;
+      @include flex-column();
       justify-content: space-between;
     }
 
     .error{
-      display: flex;
-      align-items: flex-end;
+      @include flex-column();
       flex-direction: column;
     }
 
@@ -47,18 +45,16 @@ input[type="number"] {
         margin-left: 15px;
         height: 54px;
         padding: 10px;
-        border: 1px solid #000;
+        border: 1px solid $color_1;
       }
       .symbolOfPercent {
         width: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include center();
         height: 54px;
         background: #8e8e8e;
-        border: 1px solid #000;
-        border-left: 0.3px solid balck;
-        color: #fff;
+        border: 1px solid $color_1;
+        border-left: 0.3px solid $color_1;
+        color: $color_4;
         font-size: 18px;
       }
     }
@@ -82,8 +78,7 @@ input[type="number"] {
       
           .labTitle {
             width: 100%;
-            display: flex;
-            align-items: center;
+            @include flex-column();
           }
       
           .labField {

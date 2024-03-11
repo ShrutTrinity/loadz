@@ -1,7 +1,7 @@
 
 import { Checkbox } from "@mui/material"
 import styles from './styles/commonTruck.module.scss';
-import DisableTextField from "../../../../components/textfield/DisableTextfield";
+import DisableTextField from "@components/textfield/DisableTextfield";
 
 const Disabletruck = () => {
   return (
