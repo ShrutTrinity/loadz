@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import styles from './styles/job.module.scss';
-import Navigationbar from '../../components/navbar/NavigationBar';
+import Navigationbar from '@components/navbar/NavigationBar';
 import Index from './components/switchForJob/index';
-
 import {
   Button,
   FormControl,
@@ -12,7 +11,7 @@ import {
 import { createStyles, makeStyles } from '@mui/styles';
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
-import Table from './components/Table/table';
+import Table from './components/table/Table';
 
 const useStyles = makeStyles(() => {
   return createStyles({
@@ -96,7 +95,6 @@ const Job = () => {
             </Button>
           </div>
         </div>
-
             <div className={styles.body}>
               <Table/>
             </div>

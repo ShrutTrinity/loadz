@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
-const Android12Switch = styled(Switch)(({ theme,checked }) => ({
+const Android12Switch = styled(Switch)(({ checked }) => ({
   padding: 8,
   '& .MuiSwitch-track': {
     borderRadius: 22 / 2,
@@ -11,7 +11,6 @@ const Android12Switch = styled(Switch)(({ theme,checked }) => ({
       content: '""',
       position: 'absolute',
       top: '50%',
-
       transform: 'translateY(-50%)',
       width: 16,
       height: 16,
@@ -39,7 +38,6 @@ const Android12Switch = styled(Switch)(({ theme,checked }) => ({
 const Index = (props) => {
 
   const [checked, setChecked] = useState(false);
-  
 
   const handleChange = () => {
     setChecked((prev) => !prev);
@@ -51,7 +49,6 @@ const Index = (props) => {
           '& .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track': {
             backgroundColor: 'rgb(237, 202, 51)',
             opacity:0.5
-
           },
         }} />}
         label={props.label}
