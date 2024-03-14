@@ -1,14 +1,15 @@
 @import '@styles';
 
 .full{
-
 background-color: rgba(0,0,0,0.5);
 }
+.container{
+  box-shadow: 0 4px 9px -6px #222;
 
+}
 .profile{
     @include center();
     padding:0 0 30px 0px;
-
  box-shadow: 0 4px 9px -6px #222;
  
 }

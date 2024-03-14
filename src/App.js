@@ -13,6 +13,7 @@ import SetupOfCompany from '@modules/CreateAccount/companySetup/SetupOfCompany';
 import Error from '@modules/ErrorPage/Error';
 import Body from '@modules/Dashboard/body';
 import Job from '@modules/Jobs/Job';
+import Customer from '@modules/Jobs/components/CreateCustomer/Customer';
 
 const App = () => {
  
@@ -33,6 +34,8 @@ const App = () => {
           <Route exact path='/dashboard' element={<Body />} />
           <Route exact path='/404' element={<Error />} />
           <Route exact path='/4'   element={<Job />} />
+          <Route exact path='/cus'   element={<Customer />} />
+          
         </Routes>
       </Router>
     </>

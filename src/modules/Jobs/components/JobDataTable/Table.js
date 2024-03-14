@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
-import Data from '../../job.json'
+import Data from '../../job.json';
 
+  
 const columns = [
     { field: 'JobNo', headerName: 'Job No', width: 120 },
     { field: 'Customer', headerName: 'Customer', width: 150 },
@@ -14,13 +15,15 @@ const columns = [
     { field: 'Status', headerName: 'Status', width: 120 },
     { field: 'InProgress', headerName: 'In Progress', width: 120 },
     { field: 'Edit', headerName: 'Edit', width: 100 },
+    
+
 ];
 
 const Table = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 10;
-
+    
     const handlePageChange = (params) => {
         setCurrentPage(params.page);
     };
@@ -44,16 +47,16 @@ const Table = () => {
                     }}
                   
                     autoPageSize
-                    // pageSizeOptions={[5, 10, 25]}
                     rows={Data}
                     columns={columns}
                     pageSize={rowsPerPage}
                     checkboxSelection
-                    disableSelectionOnClick
+                    // disableSelectionOnClick
                     pagination={10}
                     page={currentPage}
                     onPageChange={handlePageChange}
-                    rowCount={Data.length} rowsPerPageOptions={[5]}
+                    rowCount={Data.length}
+                     rowsPerPageOptions={[5]}
                 />
             </div>
 

@@ -12,7 +12,7 @@ import NavigationBar from './NavigationBar';
 import { AppBar } from '@mui/material';
 
 const DrawerContent = styled('div')(({ theme }) => ({
- 
+
     overflowY: 'hidden',
     paddingTop: '70px !important',
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
@@ -46,42 +46,44 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft({setting,handleOpen,handleClose, open , handleDrawerOpen, handleDrawerClose,toggleTextSelector,textSelectorOpen }) {   
+export default function PersistentDrawerLeft({ setting, handleOpen, handleClose, open, handleDrawerOpen, handleDrawerClose, toggleTextSelector, textSelectorOpen }) {
     const data = [
         { header: 'DASHBOARD', detail: { 'REQUEST BOARD': '/request-board' } },
         { header: 'Jobs', detail: {} },
         { header: 'CUSTOMERS', detail: { 'UNINVOICED TICKETS': '/uninvoiced-tickets' } },
         { header: 'TRUCK', detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
         { header: 'DRIVER LIST', detail: { 'TIME SHEETS': '/time-sheets' } },
-        { header: 'USER LIST', detail:{}},
-        { header: 'SUBCONTRACTORS', detail:{}},
+        { header: 'USER LIST', detail: {} },
+        { header: 'SUBCONTRACTORS', detail: {} },
         { header: 'OWNER OPERATORS', detail: {} },
     ];
 
 
     return (
-       
-     
-      <AppBar position="static" sx={{backgroundColor:'black'}}>
-            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen}  textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector}/>
-                <Drawer
-                    variant="persistent"
-                    anchor="left"
-                    open={open}>
-                    <DrawerHeader>
-                        <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{cursor:'pointer', height: '20px', width: '20px', borderRadius: '50%' }} />
-                    </DrawerHeader>
-                    <div className={styles.profile}>
-                        <img src={Profile} alt='profile'  className={styles.img2} />
-                    </div>
-                    <DrawerContent>
-                        {data.map((item, index) => (
-                            <According key={index} header={item.header} detail={item.detail} />
-                        ))}
-                        <img src={banner} className={styles.banner} alt='logo' />
-                    </DrawerContent>
-                    <img src={logo} className={styles.img} alt='logo' />
-                </Drawer>
-                </AppBar>
-            );
+
+
+        <AppBar position="static">
+            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
+            
+            <Drawer
+                variant="persistent"
+                anchor="left"
+                open={open}>
+                <DrawerHeader>
+                    <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{ cursor: 'pointer', height: '20px', width: '20px', borderRadius: '50%' }} />
+                </DrawerHeader>
+                <div className={styles.profile}>
+                    <img src={Profile} alt='profile' className={styles.img2} />
+                </div>
+                <DrawerContent>
+                    {data.map((item, index) => (
+                        <According key={index} header={item.header} detail={item.detail} />
+                    ))}
+                    <img src={banner} className={styles.banner} alt='logo' />
+                </DrawerContent>
+                <img src={logo} className={styles.img} alt='logo' />
+            </Drawer>
+           
+        </AppBar>
+    );
 }
