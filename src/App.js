@@ -15,7 +15,6 @@ import Customer from '@modules/Jobs/components/CreateCustomer/Customer';
 import FunctionList from './modules/Jobs/components/RowEdit/FunctionList';
 import Panel from '@modules/DashboardPanel';
 
-
 const App = () => {
  
   return (
