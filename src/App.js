@@ -11,14 +11,16 @@ import Welcome from '@modules/Company/Welcome';
 import CreateAccount from '@modules/CreateAccount/newAccount/CreateAccount';
 import SetupOfCompany from '@modules/CreateAccount/companySetup/SetupOfCompany';
 import Error from '@modules/ErrorPage/Error';
-import Body from '@modules/Dashboard/body';
-import Job from '@modules/Jobs/Job';
 import Customer from '@modules/Jobs/components/CreateCustomer/Customer';
+import Panel from '@modules/DashboardPanel';
+
 
 const App = () => {
  
   return (
    <>
+                                           
+
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage />} />
@@ -31,9 +33,8 @@ const App = () => {
           <Route exact path='/subscription/company/0' element={<Welcome />} />
           <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
-          <Route exact path='/dashboard' element={<Body />} />
           <Route exact path='/404' element={<Error />} />
-          <Route exact path='/4'   element={<Job />} />
+          <Route exact path='/dashboard/*' element={<Panel />} />
           <Route exact path='/cus'   element={<Customer />} />
           
         </Routes>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './styles/body.module.scss'
-import PersistentDrawerLeft from '@components/navbar/header'
+
 import Chart from 'react-apexcharts'
 import { Link } from 'react-router-dom';
 
@@ -73,50 +73,29 @@ var options = {
 };
 
 
-const Body = () => {
+const Body = (props) => {
 
-    const [open, setOpen] = useState(false);
-    const [setting, setSetting] = useState(false);
-    const [textSelectorOpen, setTextSelectorOpen] = useState(false)
-
-    const toggleTextSelector = () => {
-      setTextSelectorOpen(!textSelectorOpen);
-    };
-  
-    const handleOpen = () => {
-        setSetting(true)
-      }
-      const handleClosse = () => {
-        console.log("abc")
-        setSetting(false)
-      }
-
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
+    
     const bodyStyles = {   
-        width: `calc(100% - ${open ? 290 : 0}px)`,
+        width: `calc(100% - ${props.open ? 290 : 0}px)`,
         zIndex: 10,
     };
 
     if (window.innerWidth <= 1300) {
         bodyStyles.width = '100%';
-        var bodyclick = handleDrawerClose;
+        var bodyclick = props.handleDrawerClose;
     }
    
     return (
         <>
-            <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
-            <div className={styles.body} style={bodyStyles} onClick={textSelectorOpen ? toggleTextSelector : bodyclick}   >
+            
+            <div className={styles.body} style={bodyStyles} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}   >
                 <h2 className={styles.company}>Company Name</h2>
                 <div className={styles.contain} >
                     <div className={styles.flex}>
                         <div className={styles.chart}>
                             <div className={styles.border}>
-                                <Chart options={options} series={options.series} width={`${open ? '99%' : '100%'}`} height={`${open ? '260%' : '260%'}`} />
+                                <Chart options={options} series={options.series} width={`${props.open ? '99%' : '100%'}`} height={`${props.open ? '260%' : '260%'}`} />
                             </div>
                         </div>
                         <div className={styles.boxes}>

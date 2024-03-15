@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styles from './styles/job.module.scss';
-import PersistentDrawerLeft from '@components/navbar/header'
 import Index from './components/switchForJob/index';
 import {
   Button,
@@ -22,42 +21,20 @@ const useStyles = makeStyles(() => {
     }
   });
 });
-const Job = () => {
+const Job = (props) => {
   const { search, clearIcon } = useStyles();
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [searchValue, setSearchValue] = useState("");
 
 
-  const [open, setOpen] = useState(false);
-  const [setting, setSetting] = useState(false);
-  const [textSelectorOpen, setTextSelectorOpen] = useState(false)
-
-  const toggleTextSelector = () => {
-    setTextSelectorOpen(!textSelectorOpen);
-  };
-
-  const handleOpen = () => {
-      setSetting(true)
-    }
-    const handleClosse = () => {
-      console.log("abc")
-      setSetting(false)
-    }
-
-  const handleDrawerOpen = () => {
-      setOpen(true);
-  };
-  const handleDrawerClose = () => {
-      setOpen(false);
-  };
   const bodyStyles = {   
-      width: `calc(100% - ${open ? 290 : 0}px)`,
+      width: `calc(100% - ${props.open ? 290 : 0}px)`,
       zIndex: 10,
   };
 
   if (window.innerWidth <= 1300) {
       bodyStyles.width = '100%';
-      var bodyclick = handleDrawerClose;
+      var bodyclick = props.handleDrawerClose;
   }
   const handleChange = (event) => {
     const value = event.target.value;
@@ -72,9 +49,8 @@ const Job = () => {
   return (
     <div>
     
-    <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
-      
-      <div className={styles.container} style={bodyStyles} onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
+    
+      <div className={styles.container} style={bodyStyles} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
           <div className={styles.label}>

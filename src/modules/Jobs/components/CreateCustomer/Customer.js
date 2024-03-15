@@ -4,6 +4,32 @@ import Box from '@mui/material/Box';
 import styles from './styles/customer.module.scss';
 import { TextField } from '@mui/material';
 import ContactFrom from './ContactFrom';
+import styled from 'styled-components';
+
+const StyledSelect = styled.select`
+    border-color: #c4c4c4;
+    padding: 13px 14px 13px 10px;
+    font-size: 13px;
+    width: 49%;
+    margin: 15px 0;
+
+    @media (max-width: 700px) {
+        width: 97%;
+        margin: 5px 0;
+    }
+`;
+const StyledSelectstate = styled.select`
+    border-color: #c4c4c4;
+    padding: 13px 14px 13px 10px;
+    font-size: 13px;
+    width: 24%;
+    margin: 15px 0;
+
+    @media (max-width: 700px) {
+        width: 97%;
+        margin: 5px 0;
+    }
+`;
 
 const statesArray = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',
@@ -15,14 +41,14 @@ const statesArray = [
 ];
 
 const netarray = [
-    'Net 7','Net 15','Net 30', 'Net 45','Net 60'
+    'Net 7', 'Net 15', 'Net 30', 'Net 45', 'Net 60'
 ]
 
 const Customer = () => {
 
     const [count, setCount] = useState(1);
     const [contactForms, setContactForms] = useState([{ index: 1 }]);
-    console.log(contactForms)
+
     const handleChange = () => {
         setCount(prevCount => prevCount + 1);
         setContactForms(prevForms => [...prevForms, { index: count + 1 }]);
@@ -31,7 +57,7 @@ const Customer = () => {
     const handleChangedecrese = (indexToRemove) => {
         if (count > 1) {
             setContactForms(prevForms => {
-                setCount(count-1)
+                setCount(count - 1)
                 const updatedForms = prevForms.filter(form => form.index !== indexToRemove);
                 return updatedForms.map((form, index) => ({
                     ...form,
@@ -58,7 +84,7 @@ const Customer = () => {
                         zIndex: 10,
 
                         '@media (max-width: 1000px)': {
-                            height: 'auto',
+                            height: '90%',
                             padding: '10px'
                         },
                     }}
@@ -78,6 +104,10 @@ const Customer = () => {
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
                                         },
+
+                                        '@media (max-width: 700px)': {
+                                            width: '97%'
+                                        },
                                     }}
                                     id='name'
                                     name='name'
@@ -95,6 +125,10 @@ const Customer = () => {
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
                                         },
+
+                                        '@media (max-width: 700px)': {
+                                            width: '97%'
+                                        },
                                     }}
                                     id='email'
                                     name='email'
@@ -111,6 +145,10 @@ const Customer = () => {
                                         },
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
+                                        },
+
+                                        '@media (max-width: 700px)': {
+                                            width: '97%'
                                         },
                                     }}
                                     id='phone'
@@ -132,6 +170,10 @@ const Customer = () => {
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
                                         },
+
+                                        '@media (max-width: 700px)': {
+                                            width: '97%'
+                                        },
                                     }}
                                     id='address'
                                     name='address'
@@ -140,7 +182,6 @@ const Customer = () => {
                                     variant='outlined'
 
                                 />
-
                                 <TextField
                                     sx={{
                                         width: '24%',
@@ -150,18 +191,20 @@ const Customer = () => {
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
                                         },
+
+                                        '@media (max-width: 700px)': {
+                                            width: '97%'
+                                        },
                                     }}
                                     id='city'
                                     name='city'
                                     type='city'
                                     label='City'
                                     variant='outlined'
-
                                 />
-                                <select
-
+                                <StyledSelectstate
                                     className="form-select"
-                                    style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '24%' }}
+                                    
                                     aria-label="Default select example"
                                     name="state"
                                 >
@@ -171,7 +214,7 @@ const Customer = () => {
                                             {state}
                                         </option>
                                     ))}
-                                </select>
+                                </StyledSelectstate>
                                 <TextField
                                     sx={{
                                         width: '24%',
@@ -180,6 +223,10 @@ const Customer = () => {
                                         },
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
+                                        },
+
+                                        '@media (max-width: 700px)': {
+                                            width: '97%'
                                         },
                                     }}
                                     id='zip'
@@ -194,7 +241,7 @@ const Customer = () => {
                                 </div>
                                 <div className={styles.line} >
                                     {contactForms.map((form, index) => (
-                                        <ContactFrom  index={index} handleChange={handleChange} handleChangedecrese={handleChangedecrese} />
+                                        <ContactFrom index={index} handleChange={handleChange} handleChangedecrese={handleChangedecrese} />
                                     ))}
                                 </div>
                                 <TextField
@@ -207,28 +254,29 @@ const Customer = () => {
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
                                         },
+
+                                        '@media (max-width: 700px)': {
+                                            width: '97%'
+                                        },
                                     }}
                                     id='website'
                                     name='website'
                                     type='website'
                                     label='Website'
                                     variant='outlined'
-
                                 />
-                                <select
-
-                                    className="form-select"
-                                    style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '49%', margin: '15px 0'}}
+                                <StyledSelect
                                     aria-label="Default select example"
                                     name="state"
+                                    className="form-select"
                                 >
-                                    <option value="" selected  >Net 3</option>
+                                    <option value="" selected>Net 3</option>
                                     {netarray.map((state, index) => (
                                         <option key={index} value={state}>
                                             {state}
                                         </option>
                                     ))}
-                                </select>
+                                </StyledSelect>
                                 <TextField
                                     sx={{
                                         margin: '15px 0',
@@ -238,6 +286,10 @@ const Customer = () => {
                                         },
                                         '& .MuiInputLabel-outlined.Mui-focused': {
                                             color: 'rgb(237, 202, 51)',
+                                        },
+                                        '@media (max-width: 700px)': {
+                                            width: '97%',
+                                            margin: '5px 0'
                                         },
                                     }}
                                     id='creditLimit'
@@ -263,10 +315,12 @@ const Customer = () => {
                                     type='customerNotes'
                                     label='Customer Notes'
                                     variant='outlined'
-
                                 />
                             </div>
-
+                            <div className={styles.last}>
+                                <button className={styles.btn}>close</button>
+                                <button className={styles.btn2}>create</button>
+                            </div>
                         </form>
                     </div>
                 </Box>

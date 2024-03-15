@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styles from './styles/header.module.scss'
 import { styled } from '@mui/material/styles';
-
 import Drawer from '@mui/material/Drawer';
 import iconButton from '@images/menu_ico.png';
 import Profile from '@images/profile.jpg'
@@ -10,6 +9,7 @@ import logo from '@images/loadzlogo.png'
 import banner from '@images/banner.png'
 import NavigationBar from './NavigationBar';
 import { AppBar } from '@mui/material';
+
 
 const DrawerContent = styled('div')(({ theme }) => ({
 
@@ -45,17 +45,17 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
 }));
-
 export default function PersistentDrawerLeft({ setting, handleOpen, handleClose, open, handleDrawerOpen, handleDrawerClose, toggleTextSelector, textSelectorOpen }) {
+   
     const data = [
-        { header: 'DASHBOARD', detail: { 'REQUEST BOARD': '/request-board' } },
-        { header: 'Jobs', detail: {} },
-        { header: 'CUSTOMERS', detail: { 'UNINVOICED TICKETS': '/uninvoiced-tickets' } },
-        { header: 'TRUCK', detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
-        { header: 'DRIVER LIST', detail: { 'TIME SHEETS': '/time-sheets' } },
-        { header: 'USER LIST', detail: {} },
-        { header: 'SUBCONTRACTORS', detail: {} },
-        { header: 'OWNER OPERATORS', detail: {} },
+        { header: {'DASHBOARD':'/dashboard'}, detail: { 'REQUEST BOARD': '/dashboard/jobs' } },
+        { header: {'Jobs':'/dashboard/jobs'}, detail: {} },
+        { header: {'CUSTOMERS':'/dashboard/jobs'}, detail: { 'UNINVOICED TICKETS': '/dashboard' } },
+        { header:{ 'TRUCK':''}, detail: { FUELLOG:   '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
+        { header: {'DRIVER LIST':''}, detail: { 'TIME SHEETS': '/time-sheets' } },
+        { header:{ 'USER LIST':''}, detail: {} },
+        { header:{ 'SUBCONTRACTORS':''}, detail: {} },
+        { header: {'OWNER OPERATORS':''}, detail: {} },
     ];
 
 
@@ -63,14 +63,13 @@ export default function PersistentDrawerLeft({ setting, handleOpen, handleClose,
 
 
         <AppBar position="static">
-            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
-            
+            <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} /> 
             <Drawer
                 variant="persistent"
                 anchor="left"
                 open={open}>
                 <DrawerHeader>
-                    <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{ cursor: 'pointer', height: '20px', width: '20px', borderRadius: '50%' }} />
+                    <img src={iconButton} alt='close' onClick={handleDrawerClose} style={{ cursor: 'pointer', height: '20px', width: '20px', borderRadius:'50%' }} />
                 </DrawerHeader>
                 <div className={styles.profile}>
                     <img src={Profile} alt='profile' className={styles.img2} />
