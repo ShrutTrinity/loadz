@@ -18,7 +18,7 @@ const netarray = [
     'Net 7','Net 15','Net 30', 'Net 45','Net 60'
 ]
 
-const Customer = () => {
+const Customer = (props) => {
 
     const [count, setCount] = useState(1);
     const [contactForms, setContactForms] = useState([{ index: 1 }]);
@@ -266,7 +266,7 @@ const Customer = () => {
                                 />
                             </div>
                             <div className={styles.last}>
-                                <button className={styles.btn}>close</button>
+                                <button className={styles.btn} onClick={props.openCreateUser}>close</button>
                                 <button className={styles.btn2}>create</button>
                             </div>
 

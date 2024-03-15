@@ -46,7 +46,7 @@ const AddNew = (props) => {
   return (
     <>
     {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
-      <div className={styles.body}>
+      <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}   >
         <div className={styles.container}>
           <div className={styles.header}>
             <div className={styles.heading}>
