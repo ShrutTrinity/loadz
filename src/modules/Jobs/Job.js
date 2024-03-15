@@ -97,7 +97,7 @@ const Job = (props) => {
                 }}
               />
             </FormControl>
-            <Link to='/jobs/new'>
+            <Link to='/dashboard/jobs/new'>
               <Button variant="contained" sx={{
                 backgroundColor: 'rgb(237, 202, 51)',
                 color: 'black',

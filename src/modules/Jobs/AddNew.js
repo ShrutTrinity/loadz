@@ -13,7 +13,7 @@ const AddNew = () => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
 
     const openCreateUser = () => {
-        setClickOnCreateCustomer(!clickOnCreateCustomer);
+        setClickOnCreateCustomer(true);
     }
 
   const formik = useFormik({
