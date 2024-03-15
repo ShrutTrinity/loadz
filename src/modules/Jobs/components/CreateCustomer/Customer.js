@@ -46,7 +46,7 @@ const Customer = () => {
         <>
 
             <Grid container justifyContent="center" alignItems="center"
-                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', zIndex: 10 }}>
+                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', zIndex: 1000000 }}>
 
                 <Box
                     sx={{
