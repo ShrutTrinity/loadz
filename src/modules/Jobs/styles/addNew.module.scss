@@ -4,16 +4,17 @@
   margin: 0;
   padding: 0;
   font-family: $font-family_1;
-  color: $color_1;
 }
 
 .body {
   margin-top: 63px;
+  position: absolute;
+  right: 0;
   padding: 50px 32px;
   margin-bottom: 50px;
 
   .header {
-    padding-bottom: 44px;
+    padding-bottom: 10px;
     justify-content: space-between;
 
     .heading {
@@ -123,49 +124,7 @@
     }
   }
 
-  .notificationContent {
-    .heading {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 32px 0 0 0;
-
-      .object {
-        display: flex;
-        margin-right: 16px;
-
-        span {
-          font-size: 18.5714px;
-          font-weight: 700;
-        }
-      }
-      .s1 {
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        font-size: 14px;
-        margin-left: -11px;
-        margin-right: 16px;
-        cursor: pointer;
-      }
-    }
-
-    .notificationContent {
-      display: flex;
-      margin-top: 24px;
-      flex-wrap: wrap;
-
-      .nt1 {
-        width: 29%;
-        padding-right: 10px;
-      }
-      .buttons {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-    }
-  }
+  
 }
 
 @media only screen and (max-width: 1300px) {
