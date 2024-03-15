@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './styles/addNew.module.scss';
 import Index from '@components/Footer/Index';
-import NavigationBar from '@components/navbar/NavigationBar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CustomTextField from '@components/textfield/CustomeTextfield';
 import { useFormik } from 'formik';
 import Checkbox from '@mui/material/Checkbox';
 import SelectUser from './components/SelectCustomer/Select';
+import Customer from './components/CreateCustomer/Customer';
 
 const AddNew = () => {
+  const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
+
+    const openCreateUser = () => {
+        setClickOnCreateCustomer(!clickOnCreateCustomer);
+    }
 
   const formik = useFormik({
     initialValues: {
@@ -20,7 +25,7 @@ const AddNew = () => {
 
   return (
     <>
-      <NavigationBar />
+    {clickOnCreateCustomer && <Customer />}
       <div className={styles.body}>
         <div className={styles.container}>
           <div className={styles.header}>
@@ -50,7 +55,7 @@ const AddNew = () => {
                 <div className={styles.upperForm}>
                   <div className={styles.t1}>
                     <label>Select Customer</label>
-                    <SelectUser />
+                    <SelectUser openCreateUser={openCreateUser}/>
                   </div>
                   <div className={styles.t1}>
                     <CustomTextField

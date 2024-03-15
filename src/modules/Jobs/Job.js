@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => {
     }
   });
 });
+
 const Job = () => {
   const { search, clearIcon } = useStyles();
   const [showClearIcon, setShowClearIcon] = useState("none");
@@ -72,10 +73,10 @@ const Job = () => {
   };
   return (
     <div>
-
-      <PersistentDrawerLeft setting={setting} handleClose={handleClosse} handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
-
-      <div className={styles.container} onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
+    
+    <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
+      
+      <div className={styles.container} style={bodyStyles} onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
           <div className={styles.label}>

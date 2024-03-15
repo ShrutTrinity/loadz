@@ -18,29 +18,35 @@ const MenuProps = {
         },
     },
 };
-const button = <Button sx={{
-    color: 'black',
-    padding: '0',
-    fontSize:'13px'
-}}>Create customer</Button>
 
-const names = [
-    button,
-];
 
-function getStyles(name, personName, theme) {
-    return {
-        fontWeight:
-            personName.indexOf(name) === -1
-                ? theme.typography.fontWeightLight
-                : theme.typography.fontWeightMedium,
-        fontSize: '13px',
-    };
-}
+const SelectUser = ({openCreateUser}) => {
 
-const SelectUser = () => {
-    const theme = useTheme();
     const [personName, setPersonName] = useState([]);
+
+    const button = <Button
+        onClick={openCreateUser}
+        sx={{
+            color: 'black',
+            padding: '0',
+            fontSize: '13px'
+        }}>Create customer</Button>
+
+    const names = [
+        button,
+    ];
+
+    function getStyles(name, personName, theme) {
+        return {
+            fontWeight:
+                personName.indexOf(name) === -1
+                    ? theme.typography.fontWeightLight
+                    : theme.typography.fontWeightMedium,
+            fontSize: '13px',
+        };
+    }
+
+    const theme = useTheme();
 
     const handleChange = (event) => {
         const {
@@ -52,6 +58,7 @@ const SelectUser = () => {
     };
 
     return (
+        <>
         <div>
             <FormControl sx={{ marginBottom: '10px', width: '100%' }}>
                 <Select
@@ -85,6 +92,7 @@ const SelectUser = () => {
                 </Select>
             </FormControl>
         </div>
+        </>
     );
 };
 
