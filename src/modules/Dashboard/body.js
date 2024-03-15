@@ -126,10 +126,10 @@ const Body = (props) => {
                 </div>
               </a>
               <div className={styles.box} style={{ backgroundColor: ' rgb(237, 202, 51)' }}>
-                <div className={styles.context} style={{ color: 'black' }}>
+                <div className={styles.context}  style={{ color: 'black' }}>
                   <div className={styles.ticket}> {curMonth}</div>
-                  <div className={styles.zero}> {dd} </div>
-                  <div className={styles.ticket}> {curYear}</div>
+                  <div className={styles.zero} > {dd} </div>
+                  <div className={styles.ticket} > {curYear}</div>
                 </div>
               </div>
             </div>

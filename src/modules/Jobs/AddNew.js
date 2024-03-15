@@ -13,7 +13,7 @@ const AddNew = () => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
 
     const openCreateUser = () => {
-        setClickOnCreateCustomer(true);
+        setClickOnCreateCustomer(!clickOnCreateCustomer);
     }
 
   const formik = useFormik({
@@ -25,7 +25,7 @@ const AddNew = () => {
 
   return (
     <>
-    {clickOnCreateCustomer && <Customer />}
+    {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
       <div className={styles.body}>
         <div className={styles.container}>
           <div className={styles.header}>

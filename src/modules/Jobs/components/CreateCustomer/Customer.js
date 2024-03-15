@@ -27,7 +27,6 @@ const Customer = () => {
         setCount(prevCount => prevCount + 1);
         setContactForms(prevForms => [...prevForms, { index: count + 1 }]);
     };
-
     const handleChangedecrese = (indexToRemove) => {
         if (count > 1) {
             setContactForms(prevForms => {
@@ -46,7 +45,7 @@ const Customer = () => {
         <>
 
             <Grid container justifyContent="center" alignItems="center"
-                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', zIndex: 1000000 }}>
+                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', zIndex: 100000 }}>
 
                 <Box
                     sx={{
