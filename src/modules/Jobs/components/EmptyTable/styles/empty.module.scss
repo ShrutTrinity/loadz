@@ -1,0 +1,38 @@
+// @import '../../../../styleVariables.scss';
+@import "@styles";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family_1;
+}
+
+.container {
+  width: calc(100% + 24px);
+  padding-right: 24px;
+
+  .subcontainer {
+    border: 1px solid $color_1;
+    background-color: $color_4;
+    color: $color_1;
+    border-radius: 16px;
+
+    .box {
+      padding: 16px;
+      padding-bottom: 24px;
+
+      .object {
+        @include center();
+        height: 100%;
+
+        .textContain {
+          margin: 0px;
+          font-weight: 300;
+          font-size: 22.2857px;
+          line-height: 1.334;
+          color: rgb(107, 114, 128);
+        }
+      }
+    }
+  }
+}

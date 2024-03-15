@@ -13,6 +13,8 @@ import SetupOfCompany from '@modules/CreateAccount/companySetup/SetupOfCompany';
 import Error from '@modules/ErrorPage/Error';
 import Body from '@modules/Dashboard/body';
 import Job from '@modules/Jobs/Job';
+import FunctionList from './modules/Jobs/components/RowEdit/FunctionList';
+import AddNew from './modules/Jobs/AddNew';
 
 const App = () => {
  
@@ -32,7 +34,9 @@ const App = () => {
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/dashboard' element={<Body />} />
           <Route exact path='/404' element={<Error />} />
-          <Route exact path='/4'   element={<Job />} />
+          <Route exact path='/jobs' element={<Job />} />
+          <Route exact path='/5' element={<FunctionList />} />
+          <Route exact path='/jobs/new' element={<AddNew />} />
         </Routes>
       </Router>
     </>

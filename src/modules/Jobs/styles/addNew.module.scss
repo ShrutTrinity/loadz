@@ -1,0 +1,257 @@
+@import "../../styleVariables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family_1;
+  color: $color_1;
+}
+
+.body {
+  margin-top: 63px;
+  padding: 50px 32px;
+  margin-bottom: 50px;
+
+  .header {
+    padding-bottom: 44px;
+    justify-content: space-between;
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 100%;
+
+      .part1 {
+        display: flex;
+        margin: 0px;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.5;
+        cursor: pointer;
+        align-items: center;
+        margin-bottom: 12px;
+        gap: 6px;
+      }
+      .part2 {
+        align-items: center;
+        max-width: 100%;
+        display: flex;
+
+        .headerText {
+          margin: 0 8px;
+
+          h4 {
+            font-weight: 700;
+            font-size: 31.5714px;
+            line-height: 1.235;
+          }
+        }
+      }
+    }
+    .continueButton {
+      justify-content: flex-end;
+      display: flex;
+    }
+    .nextButton {
+      background: none;
+      border: none;
+      @include center();
+      cursor: pointer;
+      vertical-align: middle;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.75;
+      min-width: 64px;
+      padding: 0 16px;
+
+      .iconForwardButton {
+        margin-left: 3px;
+      }
+    }
+  }
+
+  .mainContainer {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+
+    .partLeft {
+      width: 50%;
+
+      .upperForm {
+        width: 100%;
+
+        .t1 {
+          width: 70%;
+        }
+        .t1:nth-child(2) {
+          width: 50%;
+        }
+      }
+
+      .middelForm1 {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        .m1 {
+          width: 50%;
+          justify-content: center;
+          display: flex;
+          padding: 0 7px;
+          margin: 8px 0 8px 0;
+        }
+      }
+
+      .checkMarks {
+        display: flex;
+        margin: 0 6px;
+
+        .l1 {
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          font-size: 14px;
+          margin: 0 16px 0 -11px;
+          cursor: pointer;
+        }
+        .l1:nth-child(2) {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  .notificationContent {
+    .heading {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 32px 0 0 0;
+
+      .object {
+        display: flex;
+        margin-right: 16px;
+
+        span {
+          font-size: 18.5714px;
+          font-weight: 700;
+        }
+      }
+      .s1 {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        font-size: 14px;
+        margin-left: -11px;
+        margin-right: 16px;
+        cursor: pointer;
+      }
+    }
+
+    .notificationContent {
+      display: flex;
+      margin-top: 24px;
+      flex-wrap: wrap;
+
+      .nt1 {
+        width: 29%;
+        padding-right: 10px;
+      }
+      .buttons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .body {
+    .mainContainer {
+      .partLeft {
+        .middelForm1 {
+          flex-direction: column;
+
+          .m1 {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .body {
+    .mainContainer {
+      flex-direction: column;
+
+      .partLeft {
+        width: 100%;
+
+        .middelForm1 {
+          flex-direction: column;
+
+          .m1 {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .notificationContent {
+      .heading {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .object {
+          flex-direction: column;
+        }
+        .s1 {
+          display: flex;
+        }
+      }
+
+      .notificationContent {
+        display: flex;
+        flex-direction: column;
+        .nt1 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 566px) {
+  .body {
+    .mainContainer {
+      flex-direction: column;
+
+      .partLeft {
+        width: 100%;
+
+        .upperForm{
+          .t1{
+            width: 100%;
+          }
+          .t1:nth-child(2){
+            width: 100%;
+          }
+        }
+
+        .checkMarks{
+          flex-direction: column;
+          margin: 0 6px;
+
+          .l1:nth-child(2){
+            margin-left: -11px;
+          }
+        }
+      }
+    }
+  }
+}

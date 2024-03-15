@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './styles/body.module.scss'
 import PersistentDrawerLeft from '@components/navbar/header'
 import Chart from 'react-apexcharts'
-import { Link } from 'react-router-dom';
+import Index from '../../components/Footer/Index';
 
 var today = new Date();
 var dd = String(today.getDate());
@@ -186,18 +186,7 @@ const Body = () => {
           </div>
 
         </div>
-        <div className={styles.toolbar}>
-          <div className={styles.toolbarDetail}>
-            <div className={styles.toolbarDetail}>
-              <Link to='/terms' className={styles.bottomLink}>
-                Terms and conditions
-              </Link>
-              <Link className={styles.bottomLink} to='/privacy'>
-                Privacy Policy
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Index />
       </div>
     </>
   )

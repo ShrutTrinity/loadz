@@ -12,6 +12,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import Table from './components/JobDataTable/Table';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => {
   return createStyles({
@@ -37,27 +38,27 @@ const Job = () => {
   };
 
   const handleOpen = () => {
-      setSetting(true)
-    }
-    const handleClosse = () => {
-      console.log("abc")
-      setSetting(false)
-    }
+    setSetting(true)
+  }
+  const handleClosse = () => {
+    console.log("abc")
+    setSetting(false)
+  }
 
   const handleDrawerOpen = () => {
-      setOpen(true);
+    setOpen(true);
   };
   const handleDrawerClose = () => {
-      setOpen(false);
+    setOpen(false);
   };
-  const bodyStyles = {   
-      width: `calc(100% - ${open ? 290 : 0}px)`,
-      zIndex: 10,
+  const bodyStyles = {
+    width: `calc(100% - ${open ? 290 : 0}px)`,
+    zIndex: 10,
   };
 
   if (window.innerWidth <= 1300) {
-      bodyStyles.width = '100%';
-      var bodyclick = handleDrawerClose;
+    bodyStyles.width = '100%';
+    var bodyclick = handleDrawerClose;
   }
   const handleChange = (event) => {
     const value = event.target.value;
@@ -71,9 +72,9 @@ const Job = () => {
   };
   return (
     <div>
-    
-    <PersistentDrawerLeft setting={setting} handleClose={handleClosse}  handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
-      
+
+      <PersistentDrawerLeft setting={setting} handleClose={handleClosse} handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
+
       <div className={styles.container} onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
@@ -82,8 +83,8 @@ const Job = () => {
             <Index label='Owner' check={false} />
             <Index label='SubContractor' check={false} />
             <Index label='Commission' check={false} />
-            <Index label='Drafts' check={false}/>
-            <Index label='Archive'check={false} />
+            <Index label='Drafts' check={false} />
+            <Index label='Archive' check={false} />
           </div>
           <div className={styles.search}>
 
@@ -96,9 +97,9 @@ const Job = () => {
                 sx={{
                   height: '28px',
                   flexGrow: 1,
-                  '@media (max-width: 1200px)' : {
-                    marginBottom:'16px',
-                    width:'100%'
+                  '@media (max-width: 1200px)': {
+                    marginBottom: '16px',
+                    width: '100%'
                   }
                 }}
                 InputProps={{
@@ -120,16 +121,18 @@ const Job = () => {
                 }}
               />
             </FormControl>
-            <Button variant="contained" sx={{
-              backgroundColor: 'rgb(237, 202, 51)',
-              color: 'black',
-              fontWeight: '600',
-              '&:hover': {
+            <Link to='/jobs/new'>
+              <Button variant="contained" sx={{
                 backgroundColor: 'rgb(237, 202, 51)',
-              },
-            }}>
-              Add New Job
-            </Button>
+                color: 'black',
+                fontWeight: '600',
+                '&:hover': {
+                  backgroundColor: 'rgb(237, 202, 51)',
+                },
+              }}>
+                Add New Job
+              </Button>
+            </Link>
           </div>
         </div>
         <div className={styles.body}>

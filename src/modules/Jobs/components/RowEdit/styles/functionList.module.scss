@@ -1,0 +1,26 @@
+@import "../../../../styleVariables.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background-color: $color_4;
+    max-width: max-content;
+    padding: 16px 8px;
+    border: $color_4 1px solid;
+    border-radius:10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.archive{
+    @include flex-column ();
+    margin-bottom: 8px;
+}
+.heading{
+    font-size: 13px;
+    color: $color_1;
+    margin-left: 10px;
+}
+.delete{
+    @include flex-column();
+}
