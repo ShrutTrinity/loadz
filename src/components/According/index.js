@@ -6,7 +6,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 
 
+
 const According = (props) => {
+    
     
     return (
         <>
@@ -32,10 +34,15 @@ const According = (props) => {
                     }}
 
                 >
-                    {props.header}
+                  {Object.entries(props.header).map(([itemName, link]) =>  (
+                    <Link key={itemName} to={link} style={{color:'black',textDecoration:'none'}}>
+                                    <div>{itemName}</div>
+                                </Link> 
+                    ))}
+
                     {props.detail &&  Object.keys(props.detail).length  > 0 && <ExpandMoreIcon />}
                 </AccordionSummary>
-                { Object.keys(props.detail).length > 0> 0 && (
+                { Object.keys(props.detail).length > 0 && (
                     <>
                     {Object.entries(props.detail).map(([itemName, link]) =>  (
                         <AccordionDetails
