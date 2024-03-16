@@ -9,7 +9,6 @@ import Checkbox from '@mui/material/Checkbox';
 import SelectUser from './components/SelectCustomer/Select';
 import Customer from './components/CreateCustomer/Customer';
 import Notifications from './components/Notification/Notifications';
-import GoogleMaps from './components/Map/GoogleMaps';
 
 const AddNew = (props) => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
@@ -36,17 +35,17 @@ const AddNew = (props) => {
 
   const addNotificationList = () => {
     setAddNotification(addNotification + 1)
-  }
+  } 
 
   const removeNotificationList = () => {
-    if (addNotification > 1) {
+    if(addNotification > 1){
       setAddNotification(addNotification - 1)
     }
-  }
+  } 
 
   return (
     <>
-    {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser}/> }
+    {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
       <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}   >
         <div className={styles.container}>
           <div className={styles.header}>
@@ -166,15 +165,12 @@ const AddNew = (props) => {
                   </label>
                 </div>
               </div>
-              <div className={styles.partRight}>
-                <GoogleMaps />
-              </div>
             </div>
             <hr></hr>
 
             {/* notifications */}
             {[...Array(addNotification)].map((index) => (
-              <Notifications key={index} removeNotificationList={removeNotificationList} addNotificationList={addNotificationList} />
+              <Notifications key={index} removeNotificationList={removeNotificationList} addNotificationList={addNotificationList}/>
             ))}
           </div>
         </div>

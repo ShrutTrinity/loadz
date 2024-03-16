@@ -32,7 +32,7 @@ const App = () => {
           <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/404' element={<Error />} />
-          <Route exact path='/dashboard/*' element={<Panel />} />
+          <Route exact path='/*' element={<Panel />} />
           <Route exact path='/cus'   element={<Customer />} />
           <Route exact path='/5' element={<FunctionList />} />
         </Routes>

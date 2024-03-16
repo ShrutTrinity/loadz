@@ -27,7 +27,6 @@ const Job = (props) => {
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [searchValue, setSearchValue] = useState("");
 
-
   const bodyStyles = {   
       width: `calc(100% - ${props.open ? 290 : 0}px)`,
       zIndex: 10,
@@ -37,11 +36,12 @@ const Job = (props) => {
       bodyStyles.width = '100%';
       var bodyclick = props.handleDrawerClose;
   }
+
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchValue(value);
     setShowClearIcon(event.target.value === "" ? "none" : "flex");
-  };
+  };      
 
   const handleClick = () => {
     setSearchValue("");
@@ -63,8 +63,7 @@ const Job = (props) => {
             <Index label='Archive' check={false} />
           </div>
           <div className={styles.search}>
-
-            <FormControl className={search} sx={{ width: 'auto', position: 'relative' }}>
+          <FormControl className={search} sx={{ width: 'auto', position: 'relative' }}>
               <TextField
                 size="small"
                 variant="outlined"
@@ -97,15 +96,15 @@ const Job = (props) => {
                 }}
               />
             </FormControl>
-            <Link to='/dashboard/jobs/new'>
+            <Link to='/jobs/new'>
               <Button variant="contained" sx={{
                 backgroundColor: 'rgb(237, 202, 51)',
                 color: 'black',
-                fontWeight: '600',
+                fontWeight: '600',                                                                                            
                 '&:hover': {
                   backgroundColor: 'rgb(237, 202, 51)',
                 },
-              }}>
+              }}> 
                 Add New Job
               </Button>
             </Link>

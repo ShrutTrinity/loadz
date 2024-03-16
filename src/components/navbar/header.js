@@ -48,9 +48,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function PersistentDrawerLeft({ setting, handleOpen, handleClose, open, handleDrawerOpen, handleDrawerClose, toggleTextSelector, textSelectorOpen }) {
    
     const data = [
-        { header: {'DASHBOARD':'/dashboard'}, detail: { 'REQUEST BOARD': '/dashboard/jobs' } },
-        { header: {'Jobs':'/dashboard/jobs'}, detail: {} },
-        { header: {'CUSTOMERS':'/dashboard/jobs'}, detail: { 'UNINVOICED TICKETS': '/dashboard' } },
+        { header: {'DASHBOARD':'/dashboard'}, detail: { 'REQUEST BOARD': '/jobs' } },
+        { header: {'Jobs':'/jobs'}, detail: {} },
+        { header: {'CUSTOMERS':'/jobs'}, detail: { 'UNINVOICED TICKETS': '/dashboard' } },
         { header:{ 'TRUCK':''}, detail: { FUELLOG:   '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
         { header: {'DRIVER LIST':''}, detail: { 'TIME SHEETS': '/time-sheets' } },
         { header:{ 'USER LIST':''}, detail: {} },
