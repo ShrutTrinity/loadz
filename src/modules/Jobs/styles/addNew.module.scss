@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: $font-family_1;
+  font-size: 13px;
 }
 
 .body {
@@ -23,16 +24,21 @@
       align-items: flex-start;
       max-width: 100%;
 
-      .part1 {
-        display: flex;
-        margin: 0px;
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 1.5;
+      .backLink {
+        text-decoration: none;
         cursor: pointer;
-        align-items: center;
-        margin-bottom: 12px;
-        gap: 6px;
+        
+        .part1 {
+          color: $color_1;
+          display: flex;
+          margin: 0px;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 1.5;
+          align-items: center;
+          margin-bottom: 12px;
+          gap: 6px;
+        }
       }
       .part2 {
         align-items: center;
@@ -123,13 +129,12 @@
       }
     }
 
-    .partRight{
-      width:50%;
+    .partRight {
+      width: 50%;
+      padding-left: 32px;
       @include center();
     }
   }
-
-  
 }
 
 @media only screen and (max-width: 1300px) {
@@ -164,8 +169,9 @@
           }
         }
       }
-      .partRight{
+      .partRight {
         width: 100%;
+        padding-left: 0px;
       }
     }
   }
@@ -179,24 +185,24 @@
       .partLeft {
         width: 100%;
 
-        .upperForm{
-          .t1{
+        .upperForm {
+          .t1 {
             width: 100%;
           }
-          .t1:nth-child(2){
+          .t1:nth-child(2) {
             width: 100%;
           }
         }
 
-      .partRight{
-        width: 100%;
-      }
+        .partRight {
+          width: 100%;
+        }
 
-        .checkMarks{
+        .checkMarks {
           flex-direction: column;
           margin: 0 6px;
 
-          .l1:nth-child(2){
+          .l1:nth-child(2) {
             margin-left: -11px;
           }
         }
