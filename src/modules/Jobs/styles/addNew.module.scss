@@ -122,6 +122,11 @@
         }
       }
     }
+
+    .partRight{
+      width:50%;
+      @include center();
+    }
   }
 
   
@@ -159,27 +164,8 @@
           }
         }
       }
-    }
-    .notificationContent {
-      .heading {
-        flex-wrap: nowrap;
-        flex-direction: column;
-        align-items: flex-start;
-
-        .object {
-          flex-direction: column;
-        }
-        .s1 {
-          display: flex;
-        }
-      }
-
-      .notificationContent {
-        display: flex;
-        flex-direction: column;
-        .nt1 {
-          width: 100%;
-        }
+      .partRight{
+        width: 100%;
       }
     }
   }
@@ -201,6 +187,10 @@
             width: 100%;
           }
         }
+
+      .partRight{
+        width: 100%;
+      }
 
         .checkMarks{
           flex-direction: column;
