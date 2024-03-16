@@ -15,7 +15,7 @@ const statesArray = [
 ];
 
 const netarray = [
-    'Net 7','Net 15','Net 30', 'Net 45','Net 60'
+    'Net 7', 'Net 15', 'Net 30', 'Net 45', 'Net 60'
 ]
 
 const Customer = (props) => {
@@ -30,7 +30,7 @@ const Customer = (props) => {
     const handleChangedecrese = (indexToRemove) => {
         if (count > 1) {
             setContactForms(prevForms => {
-                setCount(count-1)
+                setCount(count - 1)
                 const updatedForms = prevForms.filter(form => form.index !== indexToRemove);
                 return updatedForms.map((form, index) => ({
                     ...form,
@@ -39,31 +39,28 @@ const Customer = (props) => {
             });
         }
     };
+    const handleClickInside = (event) => {
+        event.stopPropagation();
+      };
 
 
     return (
         <>
 
-            <Grid container justifyContent="center" alignItems="center"
-                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', zIndex: 10000 }}>
-
+            <Grid container justifyContent="center" alignItems="center" onClick={props.openCreateUser}
+                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)' , position: 'fixed' , zIndex:9000  }}>
                 <Box
+                onClick={handleClickInside}
                     sx={{
                         width: '77vw',
                         backgroundColor: 'white',
                         borderRadius: '15px',
                         height: '90%',
                         padding: '20px 3px 20px 20px',
-                        zIndex: 10,
-
-                        '@media (max-width: 1000px)': {
-                            height: 'auto',
-                            padding: '10px'
-                        },
                     }}
                 >
                     <h5 className={styles.addCustomer}>Add new customer</h5>
-                    <div className={styles.box}>
+                    <div className={styles.box}>    
                         <h6 className={styles.enterdetail}>Enter the details below to create a new customer.</h6>
                         <br />
                         <form className={styles.form}>
@@ -193,7 +190,7 @@ const Customer = (props) => {
                                 </div>
                                 <div className={styles.line} >
                                     {contactForms.map((form, index) => (
-                                        <ContactFrom  index={index} handleChange={handleChange} handleChangedecrese={handleChangedecrese} />
+                                        <ContactFrom index={index} handleChange={handleChange} handleChangedecrese={handleChangedecrese} />
                                     ))}
                                 </div>
                                 <TextField
@@ -217,7 +214,7 @@ const Customer = (props) => {
                                 <select
 
                                     className="form-select"
-                                    style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '49%', margin: '15px 0'}}
+                                    style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '49%', margin: '15px 0' }}
                                     aria-label="Default select example"
                                     name="state"
                                 >

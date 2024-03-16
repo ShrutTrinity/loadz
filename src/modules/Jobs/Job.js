@@ -69,7 +69,7 @@ const Job = (props) => {
                 size="small"
                 variant="outlined"
                 value={searchValue}
-                onChange={handleChange}
+                onChange={handleChange} 
                 sx={{
                   height: '28px',
                   flexGrow: 1,

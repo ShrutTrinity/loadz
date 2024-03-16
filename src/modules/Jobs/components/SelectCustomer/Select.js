@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const MenuProps = {
+const MenuProps = { 
     PaperProps: {
         style: {
             maxHeight: ITEM_HEIGHT + ITEM_PADDING_TOP,
@@ -27,7 +27,7 @@ const SelectUser = ({openCreateUser}) => {
     const button = <Button
         onClick={openCreateUser}
         sx={{
-            color: 'black',
+            color: 'black', 
             padding: '0',
             fontSize: '13px'
         }}>Create customer</Button>

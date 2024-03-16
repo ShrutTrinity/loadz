@@ -59,7 +59,7 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
       {searchField === true ?
         <SearchField handleSearchClose={handleSearchClose} Open={Open}  widthOfSearchField='100vw' />
         :
-        <Toolbar sx={{ zIndex: '-1', paddingRight: '8px !important' }}>
+        <Toolbar sx={{ zIndex: '1', paddingRight: '8px !important' }}>
           <IconButton
             size="large"
             edge="start"

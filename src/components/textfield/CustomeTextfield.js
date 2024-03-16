@@ -14,12 +14,10 @@ const CustomTextField = ({ label, placeholder, type, children4, name, id, formik
       variant="standard">
       <label className={styles.formLabel1}>{label}<span className={styles.requiredAll}>*</span></label>
       <TextField
-
         sx={{
           width: '100%',
           marginBottom: '16px'
         }}
-
         id={id}
         name={name}
         type={type}
