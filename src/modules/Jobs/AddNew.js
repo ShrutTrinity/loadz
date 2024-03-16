@@ -52,7 +52,7 @@ const AddNew = (props) => {
         <div className={styles.container}>
           <div className={styles.header}>
             <div className={styles.heading}>
-              <Link to="/dashboard/jobs/" className={styles.backLink}>
+              <Link to="/jobs" className={styles.backLink}>
                 <div className={styles.part1}>
                   <ArrowBackIcon fontSize="small" />
                   <span>Back to Jobs Overview</span>
