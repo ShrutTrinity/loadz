@@ -48,7 +48,7 @@ const Customer = (props) => {
         <>
 
             <Grid container justifyContent="center" alignItems="center" onClick={props.openCreateUser}
-                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)' , position: 'fixed' , zIndex:9000  }}>
+                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)' , position: 'fixed' , zIndex:9 }}>
                 <Box
                 onClick={handleClickInside}
                     sx={{
@@ -99,6 +99,7 @@ const Customer = (props) => {
                                     variant='outlined'
                                     required
                                 />
+                                
                                 <TextField
                                     sx={{
                                         width: '32.2%',

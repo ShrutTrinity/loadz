@@ -43,6 +43,7 @@ const SelectUser = ({openCreateUser}) => {
                     ? theme.typography.fontWeightLight
                     : theme.typography.fontWeightMedium,
             fontSize: '13px',
+          
         };
     }
 
@@ -62,6 +63,7 @@ const SelectUser = ({openCreateUser}) => {
         <div>
             <FormControl sx={{ marginBottom: '10px', width: '100%' }}>
                 <Select
+             
                     id="demo-multiple-chip"
                     multiple
                     value={personName}

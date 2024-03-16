@@ -55,7 +55,7 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
     <div>  
       {setting && <Setting handleClose={handleClose}/>}
         {verticalNav && <VerticalComponent closeVerticalNav={openVerticalNav} />}
-      <AppBar  sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)` }}>
+      <AppBar  sx={{ backgroundColor: 'rgb(237, 202, 51)', color: "black", position: 'fixed',width: `calc(100% - ${Open ? 290 : 0}px)`, zIndex:1 }}>
       {searchField === true ?
         <SearchField handleSearchClose={handleSearchClose} Open={Open}  widthOfSearchField='100vw' />
         :
