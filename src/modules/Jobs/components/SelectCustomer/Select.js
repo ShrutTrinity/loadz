@@ -63,7 +63,6 @@ const SelectUser = ({openCreateUser}) => {
         <div>
             <FormControl sx={{ marginBottom: '10px', width: '100%' }}>
                 <Select
-             
                     id="demo-multiple-chip"
                     multiple
                     value={personName}
