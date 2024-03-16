@@ -10,6 +10,7 @@ import SelectUser from './components/SelectCustomer/Select';
 import Customer from './components/CreateCustomer/Customer';
 import Notifications from './components/Notification/Notifications';
 import GoogleMaps from './components/Map/GoogleMaps';
+import { Link } from 'react-router-dom';
 
 const AddNew = (props) => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
@@ -51,10 +52,12 @@ const AddNew = (props) => {
         <div className={styles.container}>
           <div className={styles.header}>
             <div className={styles.heading}>
-              <div className={styles.part1}>
-                <ArrowBackIcon fontSize="small" />
-                <span>Back to Jobs Overview</span>
-              </div>
+              <Link to="/dashboard/jobs/" className={styles.backLink}>
+                <div className={styles.part1}>
+                  <ArrowBackIcon fontSize="small" />
+                  <span>Back to Jobs Overview</span>
+                </div>
+              </Link>
               <div className={styles.part2}>
                 <div className={styles.headerText}>
                   <h4>Add Job</h4>
