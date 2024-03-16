@@ -169,6 +169,9 @@ const AddNew = (props) => {
                   </label>
                 </div>
               </div>
+              <div className={styles.partRight}>
+                  <GoogleMaps />
+              </div>
             </div>
             <hr></hr>
 
