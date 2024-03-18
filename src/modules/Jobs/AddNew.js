@@ -63,7 +63,7 @@ const AddNew = (props) => {
                   <h4>Add Job</h4>
                 </div>
               </div>
-            </div>
+            </div> 
             <div className={styles.continueButton}>
               <button className={styles.nextButton}>
                 Save & Continue
