@@ -48,9 +48,7 @@ const Job = (props) => {
     setShowClearIcon("none");
   };
   return (
-    <div>
-    
-    
+    <div>    
       <div className={styles.container} style={bodyStyles} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
