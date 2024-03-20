@@ -98,7 +98,8 @@ const Job = (props) => {
               <Button variant="contained" sx={{
                 backgroundColor: 'rgb(237, 202, 51)',
                 color: 'black',
-                fontWeight: '600',                                                                                            
+                fontWeight: '600',    
+                padding:'6px 12px',                                                                                        
                 '&:hover': {
                   backgroundColor: 'rgb(237, 202, 51)',
                 },

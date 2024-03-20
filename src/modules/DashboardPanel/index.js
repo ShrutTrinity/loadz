@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Body from '../Dashboard/body';
 import Job from '../Jobs/Job';
 import AddNew from '../Jobs/AddNew';
+import JobBill from '../Jobs/JobBill';
 const Panel = () => {
 
   const [open, setOpen] = useState(false);
@@ -38,6 +39,7 @@ const Panel = () => {
         <Route exact path='/dashboard' element={<Body handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/jobs' element={<Job handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/jobs/new' element={<AddNew handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
+        <Route exact path='/jobs/billing/new' element={<JobBill />} />
       </Routes>
     </>
   );

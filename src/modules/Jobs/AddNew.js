@@ -11,6 +11,7 @@ import Customer from './components/CreateCustomer/Customer';
 import Notifications from './components/Notification/Notifications';
 import GoogleMaps from './components/Map/GoogleMaps';
 import { Link } from 'react-router-dom';
+import CustomTextFiled from './components/TextField/CustomTextFiled';
 
 const AddNew = (props) => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
@@ -37,17 +38,17 @@ const AddNew = (props) => {
 
   const addNotificationList = () => {
     setAddNotification(addNotification + 1)
-  } 
+  }
 
   const removeNotificationList = () => {
-    if(addNotification > 1){
+    if (addNotification > 1) {
       setAddNotification(addNotification - 1)
     }
-  } 
+  }
 
   return (
     <>
-    {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
+      {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
       <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}   >
         <div className={styles.container}>
           <div className={styles.header}>
@@ -65,12 +66,14 @@ const AddNew = (props) => {
               </div>
             </div>
             <div className={styles.continueButton}>
-              <button className={styles.nextButton}>
-                Save & Continue
-                <span className={styles.iconForwardButton}>
-                  <ArrowForwardIcon />
-                </span>
-              </button>
+              <Link to='jobs/billing/new' className={styles.link}>
+                <button className={styles.nextButton}>
+                  Save & Continue
+                  <span className={styles.iconForwardButton}>
+                    <ArrowForwardIcon />
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
           <div>
@@ -93,13 +96,7 @@ const AddNew = (props) => {
                 </div>
                 <div className={styles.middelForm1}>
                   <div className={styles.m1}>
-                    <CustomTextField
-                      name='Origin'
-                      label="Select Quarry Pit or Create an Origin"
-                      placeholder="Select Quarry Pit or Create an Origin"
-                      type="text"
-                      formik={formik}
-                    />
+                    <CustomTextFiled name='Origin' placeholder='origin' label='Origin'/>
                   </div>
                   <div className={styles.m1}>
                     <CustomTextField
@@ -170,14 +167,14 @@ const AddNew = (props) => {
                 </div>
               </div>
               <div className={styles.partRight}>
-                  <GoogleMaps />
+                <GoogleMaps />
               </div>
             </div>
             <hr></hr>
 
             {/* notifications */}
             {[...Array(addNotification)].map((index) => (
-              <Notifications key={index} removeNotificationList={removeNotificationList} addNotificationList={addNotificationList}/>
+              <Notifications key={index} removeNotificationList={removeNotificationList} addNotificationList={addNotificationList} />
             ))}
           </div>
         </div>

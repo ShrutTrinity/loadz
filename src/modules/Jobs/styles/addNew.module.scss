@@ -60,6 +60,9 @@
       justify-content: flex-end;
       display: flex;
     }
+    .link{
+      text-decoration: none;
+    }
     .nextButton {
       background: none;
       border: none;
@@ -104,6 +107,7 @@
 
         .m1 {
           width: 50%;
+          flex-direction: column;
           justify-content: center;
           display: flex;
           padding: 0 7px;
