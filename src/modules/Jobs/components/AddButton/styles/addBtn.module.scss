@@ -1,0 +1,16 @@
+@import "@styles";
+
+.bg {
+  background-color: $color_3;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  border-radius: 50%;
+  color: $color_1;
+  display: flex;
+  cursor: pointer;
+  padding-top: 2px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 18px;
+}

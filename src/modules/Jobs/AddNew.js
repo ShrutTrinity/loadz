@@ -10,6 +10,7 @@ import Customer from './components/CreateCustomer/Customer';
 import Notifications from './components/Notification/Notifications';
 import GoogleMaps from './components/Map/GoogleMaps';
 import { Link } from 'react-router-dom';
+import CustomTextFiled from './components/TextField/CustomTextFiled';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import NewLocation from './components/AddNewLocation/NewLocation';
 import CommonTextfield from './Textfield/CommonTextfield';
@@ -53,13 +54,13 @@ const AddNew = (props) => {
 
   const addNotificationList = () => {
     setAddNotification(addNotification + 1)
-  } 
+  }
 
   const removeNotificationList = () => {
-    if(addNotification > 1){
+    if (addNotification > 1) {
       setAddNotification(addNotification - 1)
     }
-  } 
+  }
 
   return (
     <>
@@ -83,12 +84,14 @@ const AddNew = (props) => {
               </div>
             </div> 
             <div className={styles.continueButton}>
-              <button className={styles.nextButton}>
-                Save & Continue
-                <span className={styles.iconForwardButton}>
-                  <ArrowForwardIcon />
-                </span>
-              </button>
+              <Link to='jobs/billing/new' className={styles.link}>
+                <button className={styles.nextButton}>
+                  Save & Continue
+                  <span className={styles.iconForwardButton}>
+                    <ArrowForwardIcon />
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
           <div>
@@ -191,14 +194,14 @@ const AddNew = (props) => {
                 </div>
               </div>
               <div className={styles.partRight}>
-                  <GoogleMaps />
+                <GoogleMaps />
               </div>
             </div>
             <hr></hr>
 
             {/* notifications */}
             {[...Array(addNotification)].map((index) => (
-              <Notifications key={index} removeNotificationList={removeNotificationList} addNotificationList={addNotificationList}/>
+              <Notifications key={index} removeNotificationList={removeNotificationList} addNotificationList={addNotificationList} />
             ))}
           </div>
         </div>

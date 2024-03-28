@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Body from '../Dashboard/body';
 import Job from '../Jobs/Job';
 import AddNew from '../Jobs/AddNew';
+import JobBill from '../Jobs/JobBill';
 import Index from '@components/Footer/Index';
 import NewLocation from '../Jobs/components/AddNewLocation/NewLocation';
 import Mobiletable from '../Jobs/components/JobDataTable/mobiletable';
@@ -50,6 +51,7 @@ const Panel = () => {
         <Route exact path='/jobs/new' element={<AddNew handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/customers' element={<Customer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route ezxact path='/k' element={<Mobiletable handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
+        <Route exact path='/jobs/billing/new' element={<JobBill />} />
       </Routes>
       <Index/>  
       </>

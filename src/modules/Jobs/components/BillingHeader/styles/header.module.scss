@@ -1,0 +1,57 @@
+@import "@styles";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 100vw;
+  background-color: inherit;
+  padding-bottom: 10px;
+  justify-content: space-between;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+
+    .backLink {
+      text-decoration: none;
+      cursor: pointer;
+
+      .part1 {
+        color: $color_1;
+        display: flex;
+        margin: 0px;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.5;
+        align-items: center;
+        margin-bottom: 12px;
+        gap: 6px;
+      }
+    }
+    .part2 {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .headerText1 {
+        margin: 0 0px;
+
+        h4 {
+          font-weight: 700;
+          font-size: 46px;
+          margin: 0;
+          line-height: 1.235;
+        }
+      }
+      span{
+        font-size: 22px;
+        font-weight: 500;
+      }
+    }
+  }
+}
