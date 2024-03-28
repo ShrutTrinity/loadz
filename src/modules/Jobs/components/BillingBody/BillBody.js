@@ -6,7 +6,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Add from '../AddButton/Add';
 import Button from '@mui/material/Button';
 
-const BillBody = () => {
+const BillBody = (props) => {
 
   const [value, setValue] = useState(true)
   const [valueOfCommission, setValueOfCommission] = useState(false)
@@ -149,7 +149,7 @@ const BillBody = () => {
         <div className={styles.bottomFunctions}>
           
           <div className={styles.addRates}>
-            <Add />Add
+            <Add buttonBehaviour={props.handleBehaviour}/>Add
           </div>
 
           <div className={styles.functionBtns}>
@@ -159,7 +159,8 @@ const BillBody = () => {
               padding: '11px 50px',
               fontSize: '16px',
               color: 'black'
-            }}>Close</Button>
+            }}
+            >Close</Button>
             <Button variant="contained" sx={{
               backgroundColor: 'rgb(237, 202, 51)',
               '&:hover': { backgroundColor: 'rgb(237, 202, 51)' },
