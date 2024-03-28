@@ -64,7 +64,7 @@ const AddNew = (props) => {
                   <h4>Add Job</h4>
                 </div>
               </div>
-            </div>
+            </div> 
             <div className={styles.continueButton}>
               <Link to='jobs/billing/new' className={styles.link}>
                 <button className={styles.nextButton}>

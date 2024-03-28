@@ -61,7 +61,7 @@ const SelectUser = ({openCreateUser}) => {
     return (
         <>
         <div>
-            <FormControl sx={{ marginBottom: '10px', width: '100%' }}>
+            <FormControl sx={{ marginBottom: '10px', width: '100%' ,'& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':{padding:'10px 14px'}}}>
                 <Select
                     id="demo-multiple-chip"
                     multiple
