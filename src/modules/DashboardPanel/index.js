@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PersistentDrawerLeft from '@components/navbar/header';
 import { Route, Routes } from 'react-router-dom';
 import Body from '../Dashboard/body';
 import Job from '../Jobs/Job';
 import AddNew from '../Jobs/AddNew';
+import Index from '@components/Footer/Index';
+import NewLocation from '../Jobs/components/AddNewLocation/NewLocation';
+import Mobiletable from '../Jobs/components/JobDataTable/mobiletable';
+import Customer from '../Customer/Customer';
+
 const Panel = () => {
 
   const [open, setOpen] = useState(false);
@@ -29,7 +34,12 @@ const Panel = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  
+  useEffect(() => {
+    if (window.innerWidth >= 1300) {
+      setOpen(true)
+    }
+  }, []);
 
   return (
     <>
@@ -38,8 +48,11 @@ const Panel = () => {
         <Route exact path='/dashboard' element={<Body handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/jobs' element={<Job handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/jobs/new' element={<AddNew handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
+        <Route exact path='/customers' element={<Customer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
+        <Route ezxact path='/k' element={<Mobiletable handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
       </Routes>
-    </>
+      <Index/>  
+      </>
   );
 };
 

@@ -1,0 +1,52 @@
+@import "@styles";
+
+.container{
+    margin-top: 63px;
+    .backrow{
+        position: absolute;
+        background-color: $color_3 ;
+        height: 200px;
+        width: auto;
+        z-index: -1;
+        width: 100%;
+    }
+    .CardWrapper{
+        z-index: 2;
+        padding: 24px;
+        max-height: 100%;
+        width: 100%;
+        .contentCard{
+            display: flex;
+
+            .drawer{
+                width: 26%;
+                background-color: white;
+                .searchbar{
+                    background-color: aliceblue;
+                    // min-height: 64px;
+                    padding: 10px 10px;
+                }
+                .customer{
+                    padding:24px ;
+                    font-size:20px ;
+                    width: 100%;
+                    font-weight: 500;
+                }
+                .listoficon{
+                    padding: 0 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    .credit {
+                        height: 25px;
+                        width: 25px;
+                    }
+                }
+            }
+            .contentWrapper{
+                width: 75%;
+               
+            }
+        }
+    }   
+}

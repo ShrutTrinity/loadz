@@ -13,24 +13,24 @@ import IncludeTruck from '../addTruck/IncludeTruck'
 import { useNavigate } from 'react-router-dom';
 
 const Webuser = () => {
-  const [webcount, setWebcount] = useState(1);  
+  const [webcount, setWebcount] = useState(1);
   const [isBack, setIsBack] = useState(false);
   // const [isNext, setIsNext] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { isPopupOpen, handleToggle } = useVideoPopupSecond();
   const formik = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
       phone: '',
-      email:'',
+      email: '',
       usertype: '',
     },
 
     validationSchema: getValidationSchemaforsix,
     onSubmit: async (values) => {
       console.log(values);
- 
+
       await navigate('/dashboard');
     },
   });
@@ -45,8 +45,8 @@ const Webuser = () => {
     setIsBack(!isBack);
   };
 
- 
-  
+
+
 
   return (
     <>
@@ -86,11 +86,7 @@ const Webuser = () => {
                       <div style={{ marginRight: '10px' }}>
                         <SolidButton buttonValue='Back' onClick={BackTO_prev_Page} />
                       </div>
-                     
-                       
-                          <SolidButton buttonValue='Next' type='submit' onClick={formik.handleSubmit} />
-                     
-                    
+                      <SolidButton buttonValue='Next' type='submit' onClick={formik.handleSubmit} />
                     </div>
                   </div>
                 </div>

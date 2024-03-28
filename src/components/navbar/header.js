@@ -50,7 +50,7 @@ export default function PersistentDrawerLeft({ setting, handleOpen, handleClose,
     const data = [
         { header: {'DASHBOARD':'/dashboard'}, detail: { 'REQUEST BOARD': '/jobs' } },
         { header: {'Jobs':'/jobs'}, detail: {} },
-        { header: {'CUSTOMERS':'/jobs'}, detail: { 'UNINVOICED TICKETS': '/dashboard' } },
+        { header: {'CUSTOMERS':'/customers'}, detail: { 'UNINVOICED TICKETS': '/dashboard' } },
         { header:{ 'TRUCK':''}, detail: { FUELLOG:   '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
         { header: {'DRIVER LIST':''}, detail: { 'TIME SHEETS': '/time-sheets' } },
         { header:{ 'USER LIST':''}, detail: {} },

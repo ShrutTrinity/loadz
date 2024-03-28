@@ -1,0 +1,50 @@
+.addnew {
+    margin: 0px;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 16px 24px 16px 10px;
+    border-radius: 20px;    
+    z-index: 10;
+  
+}
+
+.div {
+    max-height: 520px;   
+    width: 100%;
+    overflow:auto;
+    padding:0 24px 20px 24px ;
+
+    .instruction {
+        margin: 0px;
+        font-size: 13px;
+        font-family: poppins;
+        font-weight: 300;
+        line-height: 1.5;
+        color: rgb(107, 114, 128);
+    }
+}
+.a{
+    width: 100%;
+}
+
+.btns{
+    width:100% ;
+    display: flex;
+  gap: 10px;
+  border-radius:15px ;
+    justify-content: flex-end;
+    bottom: 0;
+align-items: center ;
+    background-color: white;
+
+    .btn{
+        border: none;
+        background-color:rgb(237, 202, 51) ;
+        border-radius: 20px;
+        padding: 5px 10px ;
+        margin: 5px;
+        font-size: 13px;
+    }
+}

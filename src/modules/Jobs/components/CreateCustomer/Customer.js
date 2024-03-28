@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import styles from './styles/customer.module.scss';
-import { TextField } from '@mui/material';
 import ContactFrom from './ContactFrom';
+import CommonTextfield from '../../Textfield/CommonTextfield';
 
 const statesArray = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',
@@ -41,16 +41,16 @@ const Customer = (props) => {
     };
     const handleClickInside = (event) => {
         event.stopPropagation();
-      };
+    };
 
 
     return (
         <>
 
             <Grid container justifyContent="center" alignItems="center" onClick={props.openCreateUser}
-                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)' , position: 'fixed' , zIndex:21 }}>
+                style={{ height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'fixed', zIndex: 21 }}>
                 <Box
-                onClick={handleClickInside}
+                    onClick={handleClickInside}
                     sx={{
                         width: '77vw',
                         backgroundColor: 'white',
@@ -60,56 +60,30 @@ const Customer = (props) => {
                     }}
                 >
                     <h5 className={styles.addCustomer}>Add new customer</h5>
-                    <div className={styles.box}>    
+                    <div className={styles.box}>
                         <h6 className={styles.enterdetail}>Enter the details below to create a new customer.</h6>
                         <br />
                         <form className={styles.form}>
                             <div className={styles.textfields}>
-                                <TextField
-                                    sx={{
-                                        width: '32.2%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
                                     id='name'
                                     name='name'
                                     type='name'
                                     label='Customer Name'
-                                    variant='outlined'
+                                    width='32.2'
                                     required
                                 />
-                                <TextField
-                                    sx={{
-                                        width: '32.2%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
+                                    width='32.2'
                                     id='email'
                                     name='email'
                                     type='email'
                                     label='Customer Email'
-                                    variant='outlined'
                                     required
                                 />
-                                
-                                <TextField
-                                    sx={{
-                                        width: '32.2%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+
+                                <CommonTextfield
+                                    width='32.2'
                                     id='phone'
                                     name='phone'
                                     type='phone'
@@ -120,34 +94,17 @@ const Customer = (props) => {
                                 <div style={{ width: '100%', margin: '30px 0 5px 0' }}>
                                     <h5 className={styles.addCustomer}>Address</h5>
                                 </div>
-                                <TextField
-                                    sx={{
-                                        width: '24%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
+                                    width='24'
                                     id='address'
                                     name='address'
                                     type='address'
                                     label='Address'
-                                    variant='outlined'
 
                                 />
 
-                                <TextField
-                                    sx={{
-                                        width: '24%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
+                                    width='24'
                                     id='city'
                                     name='city'
                                     type='city'
@@ -156,9 +113,8 @@ const Customer = (props) => {
 
                                 />
                                 <select
-
-                                    className="form-select"
-                                    style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '24%' }}
+                                className='form-select'
+                                    style={{ borderColor: '#c4c4c4', margin: '15px 0', padding: '13px 14px 13px 10px', fontSize: '13px', width: '24%' }}
                                     aria-label="Default select example"
                                     name="state"
                                 >
@@ -169,16 +125,8 @@ const Customer = (props) => {
                                         </option>
                                     ))}
                                 </select>
-                                <TextField
-                                    sx={{
-                                        width: '24%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
+                                    width='24'
                                     id='zip'
                                     name='zip'
                                     type='zip'
@@ -194,17 +142,8 @@ const Customer = (props) => {
                                         <ContactFrom index={index} handleChange={handleChange} handleChangedecrese={handleChangedecrese} />
                                     ))}
                                 </div>
-                                <TextField
-                                    sx={{
-                                        width: '98%',
-                                        margin: '30px 0 15px 0',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
+                                    width='98'
                                     id='website'
                                     name='website'
                                     type='website'
@@ -215,7 +154,8 @@ const Customer = (props) => {
                                 <select
 
                                     className="form-select"
-                                    style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '49%', margin: '15px 0' }}
+                                    style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '49%', margin: '15px 0'
+                                     }}
                                     aria-label="Default select example"
                                     name="state"
                                 >
@@ -226,17 +166,8 @@ const Customer = (props) => {
                                         </option>
                                     ))}
                                 </select>
-                                <TextField
-                                    sx={{
-                                        margin: '15px 0',
-                                        width: '48%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
+                                    width='48'
                                     id='creditLimit'
                                     name='creditLimit'
                                     type='creditLimit'
@@ -244,17 +175,8 @@ const Customer = (props) => {
                                     variant='outlined'
 
                                 />
-                                <TextField
-                                    sx={{
-                                        margin: '15px 0',
-                                        width: '97%',
-                                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                                        },
-                                        '& .MuiInputLabel-outlined.Mui-focused': {
-                                            color: 'rgb(237, 202, 51)',
-                                        },
-                                    }}
+                                <CommonTextfield
+                                    width='97'
                                     id='customerNotes'
                                     name='customerNotes'
                                     type='customerNotes'

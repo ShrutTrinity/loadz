@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import Data from '../../job.json'
 import Empty from '../EmptyTable/Empty';
@@ -19,44 +19,35 @@ const columns = [
 
 const Table = () => {
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 10;
-
-  const handlePageChange = (params) => {
-    setCurrentPage(params.page);
-  };
 
   return (
     <>
       {
         Data.length === 0 ?
           <Empty /> :
-          <div style={{ height: 420, width: '100%' }}>
+          <div style={{ minHeight: '420px',width: '100%', marginBottom:'60px'}}>
             <DataGrid
+            
               sx={{
                 padding: '10px 10px 0 10px',
                 margin: '10px 10px 0 10px',
                 border: '2px solid gray',
+                minHeight:'420px',
                 borderRadius: '10px',
                 '& .css-gl260s-MuiDataGrid-columnHeadersInner': {
                   backgroundColor: 'rgb(233 235 236 / 65%)'
                 },
                 '& .css-levciy-MuiTablePagination-displayedRows': {
                   margin: 0
+                },
+                '& ..css-204u17-MuiDataGrid-main':{
+                  height:'420px'
                 }
               }}
-
-              autoPageSize
               rows={Data}
               columns={columns}
-              pageSize={rowsPerPage}
+              hideFooter='true'
               checkboxSelection
-              disableSelectionOnClick
-              pagination={10}
-              page={currentPage}
-              onPageChange={handlePageChange}
-              rowCount={Data.length}
-              rowsPerPageOptions={[5]}
             />
           </div>
       }

@@ -109,6 +109,15 @@
           padding: 0 7px;
           margin: 8px 0 8px 0;
         }
+        .btn {
+          height: 30px;
+          width: 37px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background-color: $color_3;
+        }
       }
 
       .checkMarks {

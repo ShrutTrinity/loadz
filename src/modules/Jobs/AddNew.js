@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './styles/addNew.module.scss';
-import Index from '@components/Footer/Index';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CustomTextField from '@components/textfield/CustomeTextfield';
@@ -11,10 +10,27 @@ import Customer from './components/CreateCustomer/Customer';
 import Notifications from './components/Notification/Notifications';
 import GoogleMaps from './components/Map/GoogleMaps';
 import { Link } from 'react-router-dom';
+import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
+import NewLocation from './components/AddNewLocation/NewLocation';
+import CommonTextfield from './Textfield/CommonTextfield';
 
 const AddNew = (props) => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
   const [addNotification, setAddNotification] = useState(1);
+  const [openPopupOrigin, setOpenPopupOrigin] = useState(false)
+  const [openPopupDest, setOpenPopupDest] = useState(false)
+
+  const PopupOpen = () =>{
+    setOpenPopupOrigin(!openPopupOrigin)
+  }
+  const PopupOpenDest = () =>{
+    setOpenPopupDest(!openPopupDest)
+  }
+
+ const ClosePopup = () =>{
+  setOpenPopupOrigin(false)
+  setOpenPopupDest(false)
+ }
 
   const openCreateUser = () => {
     setClickOnCreateCustomer(!clickOnCreateCustomer);
@@ -47,6 +63,8 @@ const AddNew = (props) => {
 
   return (
     <>
+    {openPopupDest && <NewLocation ClosePopup = {ClosePopup} />}
+    {openPopupOrigin && <NewLocation ClosePopup={ClosePopup} children= <CommonTextfield width='100' id='id' type='text' label='Name' required />/>}
     {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
       <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}   >
         <div className={styles.container}>
@@ -99,6 +117,7 @@ const AddNew = (props) => {
                       placeholder="Select Quarry Pit or Create an Origin"
                       type="text"
                       formik={formik}
+                      children4=<div className={styles.btn}><EditLocationAltIcon onClick={PopupOpen} sx={{cursor:'pointer',fontSize:'18px'}}/></div>
                     />
                   </div>
                   <div className={styles.m1}>
@@ -107,6 +126,8 @@ const AddNew = (props) => {
                       label="Destination"
                       placeholder="Destination"
                       type="text"
+                      children4=<div className={styles.btn}><EditLocationAltIcon onClick={PopupOpenDest} sx={{cursor:'pointer',fontSize:'18px'}}/></div>
+  
                       formik={formik}
                     />
                   </div>
@@ -182,7 +203,6 @@ const AddNew = (props) => {
           </div>
         </div>
       </div>
-      <Index />
     </>
   )
 }

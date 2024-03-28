@@ -1,22 +1,12 @@
-import { TextField } from '@mui/material'
 import React from 'react'
+import CommonTextfield from '../../Textfield/CommonTextfield'
 
 const ContactFrom = ({ handleChange, handleChangedecrese, index }) => {
     return (
         <>
             <div style={{ display: 'flex', gap: '10px', marginTop: '10px',flexWrap:'wrap' }}>
-                <TextField
-                    sx={{
-                        width: '20%',
-                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                        },
-                        '& .MuiInputLabel-outlined.Mui-focused': {
-                            color: 'rgb(237, 202, 51)',
-                        },
-                        '@media (max-width: 700px)':{
-                                            width:'97%'
-                                        }}}
+                <CommonTextfield
+                  width='20'
                     id='title'
                     name='title'
                     type='title'
@@ -25,19 +15,8 @@ const ContactFrom = ({ handleChange, handleChangedecrese, index }) => {
 
                 />
 
-                <TextField
-                    sx={{
-                        width: '20%',
-                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                        },
-                        '& .MuiInputLabel-outlined.Mui-focused': {
-                            color: 'rgb(237, 202, 51)',
-                        },
-                        '@media (max-width: 700px)': {
-                                            width: '97%'
-                                        },
-                    }}
+                <CommonTextfield
+                    width='20'
                     id='name'
                     name='name'
                     type='name'
@@ -46,19 +25,8 @@ const ContactFrom = ({ handleChange, handleChangedecrese, index }) => {
 
                 />
 
-                <TextField
-                    sx={{
-                        width: '20%',
-                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                        },
-                        '& .MuiInputLabel-outlined.Mui-focused': {
-                            color: 'rgb(237, 202, 51)',
-                        },
-                        '@media (max-width: 700px)': {
-                                            width: '97%'
-                                        },
-                    }}
+                <CommonTextfield
+                    width='20'
                     id='email'
                     name='email'
                     type='email'
@@ -66,19 +34,8 @@ const ContactFrom = ({ handleChange, handleChangedecrese, index }) => {
                     variant='outlined'
 
                 />
-                <TextField
-                    sx={{
-                        width: '20%',
-                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: 'rgba(0, 0, 0, 0.23)',
-                        },
-                        '& .MuiInputLabel-outlined.Mui-focused': {
-                            color: 'rgb(237, 202, 51)',
-                        },
-                        '@media (max-width: 700px)': {
-                                            width: '97%'
-                                        },
-                    }}
+                <CommonTextfield
+                    width='20'
                     id='phone'
                     name='phone'
                     type='phone'

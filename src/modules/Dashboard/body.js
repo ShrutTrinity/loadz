@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './styles/body.module.scss'
-
 import Chart from 'react-apexcharts'
-import Index from '../../components/Footer/Index';
 
 var today = new Date();
 var dd = String(today.getDate());
@@ -165,7 +163,7 @@ const Body = (props) => {
           </div>
 
         </div>
-        <Index />
+        
       </div>
     </>
   )
