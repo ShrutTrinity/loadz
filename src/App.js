@@ -14,7 +14,7 @@ import Error from '@modules/ErrorPage/Error';
 import Customer from '@modules/Jobs/components/CreateCustomer/Customer';
 import FunctionList from './modules/Jobs/components/RowEdit/FunctionList';
 import Panel from '@modules/DashboardPanel';
-import AddPopup from './modules/Jobs/components/BillingBody/AddPopup';
+import DataTable from './modules/Jobs/components/BillingBody/DataTable';
 
 const App = () => {
  
@@ -36,7 +36,7 @@ const App = () => {
           <Route exact path='/*' element={<Panel />} />
           <Route exact path='/cus'   element={<Customer />} />
           <Route exact path='/5' element={<FunctionList />} />
-          <Route exact path='/6' element={<AddPopup />} />          
+          <Route exact path='/6' element={<DataTable />} />          
         </Routes>
       </Router>
     </>

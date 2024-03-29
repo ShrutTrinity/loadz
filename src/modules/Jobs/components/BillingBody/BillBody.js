@@ -5,6 +5,7 @@ import SwitchMUI from '../CustomSwitch/Switch'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Add from '../AddButton/Add';
 import Button from '@mui/material/Button';
+import DataTable from './DataTable';
 
 const BillBody = (props) => {
 
@@ -35,6 +36,7 @@ const BillBody = (props) => {
     setValueOfCharging(!valueOfCharging)
   }
 
+  
   return (
     <>
       <div className={styles.body}>
@@ -146,8 +148,15 @@ const BillBody = (props) => {
           <p className={styles.operatoroutterSubtitle}>Please enter your special rates for owner-operators, and subcontractors here. Doing so will update the job rates of each individual.</p>
         </div>
 
+        {
+          props.formData !== null &&
+          <div className={styles.table}>
+            <DataTable formData={props.formData} />
+          </div>
+        }
+
         <div className={styles.bottomFunctions}>
-          
+      
           <div className={styles.addRates}>
             <Add buttonBehaviour={props.handleBehaviour}/>Add
           </div>

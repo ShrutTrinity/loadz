@@ -10,7 +10,6 @@ import Customer from './components/CreateCustomer/Customer';
 import Notifications from './components/Notification/Notifications';
 import GoogleMaps from './components/Map/GoogleMaps';
 import { Link } from 'react-router-dom';
-import CustomTextFiled from './components/TextField/CustomTextFiled';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import NewLocation from './components/AddNewLocation/NewLocation';
 import CommonTextfield from './Textfield/CommonTextfield';

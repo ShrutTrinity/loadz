@@ -7,18 +7,23 @@ import AddPopup from './components/BillingBody/AddPopup';
 const JobBill = () => {
 
   const [addPersionTypePopUp, setAddPersionTypePopUp] = useState(false)
+  const [formData, setFormData] = useState([]);
 
   const handlePopUp = () => {
     setAddPersionTypePopUp(!addPersionTypePopUp)
   }
 
+  const handleFormSubmit = (data) => {
+    setFormData([ ...formData, data]);
+  }; 
+
   return (
     <>
-     {addPersionTypePopUp && <AddPopup closePopUp={handlePopUp}/>}
+     {addPersionTypePopUp && <AddPopup closePopUp={handlePopUp} onSubmit={handleFormSubmit}/>}
       <div className={styles.mainBody}>
         <Heading />
         <div className={styles.bodyWrapper}>
-          <BillBody handleBehaviour={handlePopUp}/>
+          <BillBody handleBehaviour={handlePopUp} formData={formData}/>
         </div>
       </div>
     </>

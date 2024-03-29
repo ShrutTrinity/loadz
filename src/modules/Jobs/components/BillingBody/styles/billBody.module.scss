@@ -1,5 +1,3 @@
-
-
 .body {
   .cardContainer {
     margin: 32px 0 0;
@@ -149,11 +147,16 @@
     }
   }
 
+  .table{
+    padding: 0 0 25px 0;
+  }
+
   .bottomFunctions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 16px;
 
     .addRates {
       width: min-content;
