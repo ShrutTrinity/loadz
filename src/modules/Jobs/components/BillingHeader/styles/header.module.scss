@@ -10,6 +10,7 @@
   background-color: inherit;
   padding-bottom: 10px;
   justify-content: space-between;
+  margin-top: 63px;
 
   .heading {
     display: flex;
@@ -29,7 +30,7 @@
         font-weight: 600;
         line-height: 1.5;
         align-items: center;
-        margin-bottom: 12px;
+        margin-bottom: 2px;
         gap: 6px;
       }
     }
@@ -49,7 +50,7 @@
         }
       }
       span{
-        font-size: 22px;
+        font-size: 15px;
         font-weight: 500;
       }
     }

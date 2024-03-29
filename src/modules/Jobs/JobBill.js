@@ -15,7 +15,11 @@ const JobBill = () => {
 
   const handleFormSubmit = (data) => {
     setFormData([ ...formData, data]);
-  }; 
+  };
+
+  const handleDelete = (index) => {
+    setFormData(formData.filter((item, i) => i !== index))
+  }
 
   return (
     <>
@@ -23,7 +27,7 @@ const JobBill = () => {
       <div className={styles.mainBody}>
         <Heading />
         <div className={styles.bodyWrapper}>
-          <BillBody handleBehaviour={handlePopUp} formData={formData}/>
+          <BillBody handleBehaviour={handlePopUp} formData={formData} handleDelete={handleDelete}/>
         </div>
       </div>
     </>

@@ -1,4 +1,8 @@
 .body {
+
+  overflow-y: auto;
+  max-height: 95%;
+
   .cardContainer {
     margin: 32px 0 0;
     display: flex;

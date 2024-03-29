@@ -151,7 +151,7 @@ const BillBody = (props) => {
         {
           props.formData !== null &&
           <div className={styles.table}>
-            <DataTable formData={props.formData} />
+            <DataTable formData={props.formData} handleDelete={props.handleDelete}/>
           </div>
         }
 

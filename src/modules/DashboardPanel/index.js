@@ -6,7 +6,6 @@ import Job from '../Jobs/Job';
 import AddNew from '../Jobs/AddNew';
 import JobBill from '../Jobs/JobBill';
 import Index from '@components/Footer/Index';
-import NewLocation from '../Jobs/components/AddNewLocation/NewLocation';
 import Mobiletable from '../Jobs/components/JobDataTable/mobiletable';
 import Customer from '../Customer/Customer';
 
