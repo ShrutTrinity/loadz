@@ -1,10 +1,10 @@
 import React from 'react';
-import LoginPage from '@modules/Authentication/Login/LoginPage'
-import { Route,BrowserRouter as Router, Routes, } from 'react-router-dom'
-import Portal from '@modules/CustomerPortal/Portal'
-import ForgetPass from '@modules/Authentication/forgetpassword/ForgetPass'
-import Subscription from '@modules/subcription/Subscription'
-import Termsconditions from '@components/Conditions/Termsconditions'
+import LoginPage from '@modules/Authentication/Login/LoginPage';
+import { Route,BrowserRouter as Router, Routes, } from 'react-router-dom';
+import Portal from '@modules/CustomerPortal/Portal';
+import ForgetPass from '@modules/Authentication/forgetpassword/ForgetPass';
+import Subscription from '@modules/subcription/Subscription';
+import Termsconditions from '@components/Conditions/Termsconditions';
 import Privacy from '@components/Conditions/Privacy';
 import Create from '@modules/CustomerPortal/Create';
 import Welcome from '@modules/Company/Welcome';

@@ -24,7 +24,6 @@ const Customer = (props) => {
     
     function stringAvatar(name) {
         return {
-
             children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
         };
     }
@@ -96,7 +95,7 @@ const Customer = (props) => {
                             </div>
                             <div className={styles.box}>
                                 <div className={styles.circle}>
-                                    <img src={inspection} className={styles.image} />
+                                    <img src={inspection} alt='pictureOfInspection' className={styles.image} />
                                 </div>
                                 <div className={styles.heading2}>
                                     Customer Info
