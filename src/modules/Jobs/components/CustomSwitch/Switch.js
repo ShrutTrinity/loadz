@@ -29,7 +29,6 @@ const IOSSwitch = styled((props) => (
     height: 15,
     marginTop: '3px',
     marginLeft: '3px',
-
   },
   '& .MuiSwitch-track': {
     borderRadius: 48 / 2,

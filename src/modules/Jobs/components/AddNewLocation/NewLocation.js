@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import CommonTextfield from '../../Textfield/CommonTextfield';
 
-
 const NewLocation = (props) => {
     const handleClickInside = (event) => {
         event.stopPropagation();
@@ -33,7 +32,9 @@ const NewLocation = (props) => {
                         <CommonTextfield width='100' id='id' type='text' label='Name' required />
                         {props.children}
                         <CommonTextfield width='100' id='location' type='text' label='Search Address or Coordinates (latitude , longitude)' required />
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1930384.565609928!2d-116.57080702821465!3d46.92693759240249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1710756796680!5m2!1sen!2sin" width="100%" height="550" style={{ "border": 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1930384.565609928!2d-116.57080702821465!3d46.92693759240249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1710756796680!5m2!1sen!2sin" width="100%" height="550" style={{ "border": 0 }} allowfullscreen="" loading="lazy" 
+                        title='source'
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
                     <div className={styles.btns}>
