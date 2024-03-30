@@ -27,7 +27,7 @@ const BalanceTable = () => {
           <TableCell sx={{fontWeight:800,fontSize:'16px'}} >1-30</TableCell>
           <TableCell sx={{fontWeight:800,fontSize:'16px'}} >31-60</TableCell>
           <TableCell sx={{fontWeight:800,fontSize:'16px'}}>61-90</TableCell>
-          <TableCell sx={{fontWeight:800,fontSize:'16px'}}> > 90</TableCell>
+          <TableCell sx={{fontWeight:800,fontSize:'16px'}}> 90</TableCell>
           <TableCell sx={{fontWeight:800,fontSize:'16px'}}>TOTAL</TableCell>
         </TableRow>
       </TableHead>

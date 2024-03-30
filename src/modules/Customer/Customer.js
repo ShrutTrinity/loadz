@@ -95,11 +95,9 @@ const Customer = (props) => {
                             </div>
                             <div className={styles.box}>
                                 <div className={styles.circle}>
-<<<<<<< Updated upstream
+
                                     <img src={inspection} alt='pictureOfInspection' className={styles.image} />
-=======
-                                    <img src={inspection} className={styles.image} alt='inspection'/>
->>>>>>> Stashed changes
+
                                 </div>
                                 <div className={styles.heading2}>
                                     Customer Info
