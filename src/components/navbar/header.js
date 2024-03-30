@@ -64,7 +64,7 @@ export default function PersistentDrawerLeft({ setting, handleOpen, handleClose,
 
         <AppBar position="static"
                 sx={{'& .css-12i7wg6-MuiPaper-root-MuiDrawer-paper': { 
-                    zIndex : 20
+                    zIndex : 3
                 }}}
                 >
             <NavigationBar toggleDrawer={handleDrawerOpen} Open={open} setting={setting} handleClose={handleClose} handleOpen={handleOpen} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} /> 

@@ -179,7 +179,6 @@ const BillBody = (props) => {
             }}>Create</Button>
           </div>
         </div>
-
       </div>
     </>
   )
