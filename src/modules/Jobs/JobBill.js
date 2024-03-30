@@ -41,9 +41,18 @@ const JobBill = (props) => {
 
   return (
     <>
-      {addPersionTypePopUp && <AddPopup closePopUp={handlePopUp} onSubmit={handleFormSubmit} />}
-      {deleteAlert && <DeleteAlert handleDeleteData={handleDelete} index={deleteIndex} closePopUp={() => setDeleteAlert(false)} />}
-      <div className={styles.mainBody} style={bodyStyles} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
+      {addPersionTypePopUp && <AddPopup
+        closePopUp={handlePopUp}
+        onSubmit={handleFormSubmit}
+      />}
+      {deleteAlert &&
+        <DeleteAlert handleDeleteData={handleDelete}
+          index={deleteIndex} closePopUp={() => setDeleteAlert(false)}
+        />}
+      <div className={styles.mainBody}
+        style={bodyStyles}
+        onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
+      >
         <Heading />
         <div className={styles.bodyWrapper}>
           <BillBody handleBehaviour={handlePopUp} formData={formData} handleDelete={handleDeleteAlert} />
