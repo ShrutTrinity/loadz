@@ -26,14 +26,24 @@ const DataTable = ({ formData, handleDelete, handleRowClick }) => {
             {
               formData.map((item, index) => (
                 <TableRow key={index}>
-                  <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">{item.name === '' ? 'abc' : item.name}</TableCell>
-                  <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">{item.persionTypeValue}</TableCell>
+                  <TableCell sx={{
+                    fontSize: '19px',
+                    borderBottom: '1px solid #000',
+                    borderRight: '1px solid #000'
+                  }}
+                    align="center">{item.name === '' ? 'abc' : item.name}</TableCell>
+                  <TableCell sx={{
+                    fontSize: '19px',
+                    borderBottom: '1px solid #000',
+                    borderRight: '1px solid #000'
+                  }}
+                    align="center">{item.persionTypeValue}</TableCell>
                   <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">${item.rate}</TableCell>
                   <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">
-                    <DeleteIcon sx={{":hover":{cursor : 'pointer'}}}  onClick={() => handleDelete(index)} />
-                    </TableCell>
+                    <DeleteIcon sx={{ ":hover": { cursor: 'pointer' } }} onClick={() => handleDelete(index)} />
+                  </TableCell>
                   <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000' }} align="center" onClick={() => handleRowClick(index)}>
-                    <EditIcon sx={{":hover":{cursor : 'pointer'}}} />
+                    <EditIcon sx={{ ":hover": { cursor: 'pointer' } }} />
                   </TableCell>
                 </TableRow>
               ))

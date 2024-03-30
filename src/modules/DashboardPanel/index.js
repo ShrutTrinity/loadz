@@ -50,8 +50,7 @@ const Panel = () => {
         <Route exact path='/jobs' element={<Job handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/jobs/new' element={<AddNew handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/customers' element={<Customer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/k' element={<Mobiletable handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/billing/new' element={<JobBill handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
+        <Route exact path='/jobs/billing/new' element={<JobBill handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/bbb' element={<CustomerBalance />} />
       </Routes>
       <Index/>  

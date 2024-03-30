@@ -3,7 +3,7 @@
 .mainBody {
   width: 100vw;
   height: 100vh;
-  z-index: 4;
+  z-index: 3;
   background-color: rgba(0, 0, 0, 0.5);
   @include center();
   position: fixed;

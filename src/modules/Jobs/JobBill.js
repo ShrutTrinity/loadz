@@ -31,7 +31,7 @@ const JobBill = (props) => {
 
   const bodyStyles = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
-    zIndex: 10,
+    zIndex: 1,
   };
   if (window.innerWidth <= 1300) {
     bodyStyles.width = '100%';

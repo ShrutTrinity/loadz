@@ -83,7 +83,7 @@ const AddNew = (props) => {
               </div>
             </div> 
             <div className={styles.continueButton}>
-              <Link to='jobs/billing/new' className={styles.link}>
+              <Link to='/jobs/billing/new' className={styles.link}>
                 <button className={styles.nextButton}>
                   Save & Continue
                   <span className={styles.iconForwardButton}>
