@@ -26,3 +26,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 516px){
+  .content{
+    .part1{
+      .labelOfpart1{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 316px){
+  .content{
+    flex-direction: column;
+  }
+}

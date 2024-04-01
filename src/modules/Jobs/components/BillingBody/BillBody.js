@@ -160,7 +160,7 @@ const BillBody = (props) => {
         <div className={styles.bottomFunctions}>
 
           <div className={styles.addRates}>
-            <Add buttonBehaviour={props.handleBehaviour} />Add
+            <Add buttonBehaviour={props.openSpecialRateForm} />Add
           </div>
 
           <div className={styles.functionBtns}>
@@ -171,8 +171,8 @@ const BillBody = (props) => {
               fontSize: '16px',
               color: 'black',
               '@media (max-width: 766px)': {
-                fontSize:'14px',
-                padding:'8px 30px'
+                fontSize:'4px',
+                padding:'11px 30px'
               }
             }}
             >Close</Button>
@@ -183,8 +183,8 @@ const BillBody = (props) => {
               fontSize: '16px',
               color: 'black',
               '@media (max-width: 766px)': {
-                fontSize:'14px',
-                padding:'8px 30px'
+                fontSize:'4px',
+                padding:'11px 30px'
               }
             }}>Create</Button>
           </div>

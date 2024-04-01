@@ -8,11 +8,11 @@ import DeleteAlert from './components/BillingBody/DeleteAlert';
 const JobBill = (props) => {
   const [addPersionTypePopUp, setAddPersionTypePopUp] = useState(false);
   const [formData, setFormData] = useState([]);
-  const [deleteAlert, setDeleteAlert] = useState(false);
+  const [deleteConfirmationDialog, setDeleteConfirmationDialog] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
   const [editData, setEditData] = useState(null);
 
-  const handlePopUp = () => {
+  const handleSpecialRateFormOpening = () => {
     setAddPersionTypePopUp(!addPersionTypePopUp);
   };
 
@@ -28,12 +28,12 @@ const JobBill = (props) => {
 
   const handleDelete = (index) => {
     setFormData(prevFormData => prevFormData.filter((_, i) => i !== index));
-    setDeleteAlert(!deleteAlert);
+    setDeleteConfirmationDialog(!deleteConfirmationDialog);
   };
 
-  const handleDeleteAlert = (index) => {
+  const handleDeleteConfirmationDialog = (index) => {
     setDeleteIndex(index);
-    setDeleteAlert(!deleteAlert);
+    setDeleteConfirmationDialog(!deleteConfirmationDialog);
   };
 
   const handleEdit = (data) => {
@@ -54,16 +54,16 @@ const JobBill = (props) => {
     <>
       {addPersionTypePopUp && (
         <AddPopup
-          closePopUp={handlePopUp}
+          closeSpecialRateForm={handleSpecialRateFormOpening}
           onSubmit={handleFormSubmit}
           editData={editData}
         />
       )}
-      {deleteAlert && (
+      {deleteConfirmationDialog && (
         <DeleteAlert
           handleDeleteData={handleDelete}
           index={deleteIndex}
-          closePopUp={() => setDeleteAlert(false)}
+          closeDeleteConfirmationDialog={() => setDeleteConfirmationDialog(false)}
         />
       )}
       <div className={styles.mainBody}
@@ -72,7 +72,7 @@ const JobBill = (props) => {
       >
         <Heading />
         <div className={styles.bodyWrapper}>
-          <BillBody handleBehaviour={handlePopUp} formData={formData} handleDelete={handleDeleteAlert} handleEdit={handleEdit} />
+          <BillBody openSpecialRateForm={handleSpecialRateFormOpening} formData={formData} handleDelete={handleDeleteConfirmationDialog} handleEdit={handleEdit} />
         </div>
       </div>
     </>

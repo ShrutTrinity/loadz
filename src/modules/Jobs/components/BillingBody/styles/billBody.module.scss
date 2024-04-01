@@ -202,8 +202,12 @@
       align-items: flex-start;
       .functionBtns {
         margin-top: 6px;
-        // flex-direction: column;
+        flex-direction: column;
       }
+    }
+    button{
+      font-size: 14px;
+      padding: 8px 30px;
     }
   }
 }

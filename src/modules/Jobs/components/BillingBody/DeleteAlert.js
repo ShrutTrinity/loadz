@@ -1,4 +1,3 @@
-
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -11,15 +10,10 @@ const globalStyles = {
     marginLeft: '8px',
     borderRadius: '18px',
     fontSize: '13px',
-    backgroundColor: 'rgb(237, 202, 51)',
-    color: 'black',
-    ":hover": {
-      backgroundColor: 'rgb(237,202,51)'
-    }
   }
 }
 
-const DeleteAlert = ({ handleDeleteData, index, closePopUp }) => {
+const DeleteAlert = ({ handleDeleteData, index, closeDeleteConfirmationDialog }) => {
 
   return (
     <Dialog
@@ -35,6 +29,13 @@ const DeleteAlert = ({ handleDeleteData, index, closePopUp }) => {
       </DialogContent>
       <DialogActions>
         <Button
+          sx={{
+            backgroundColor: 'rgb(237, 202, 51)',
+            color: 'black',
+            ":hover": {
+              backgroundColor: 'rgb(237,202,51)'
+            }
+          }}
           style={globalStyles.button}
           onClick={() => handleDeleteData(index)}>Confirm</Button>
         <Button sx={{
@@ -45,7 +46,7 @@ const DeleteAlert = ({ handleDeleteData, index, closePopUp }) => {
           }
         }} 
         style={globalStyles.button}
-        onClick={closePopUp} autoFocus>
+        onClick={closeDeleteConfirmationDialog} autoFocus>
           Cancel
         </Button>
       </DialogActions>
