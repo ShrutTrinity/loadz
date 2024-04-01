@@ -194,8 +194,11 @@
       }
 
     .bottomFunctions {  
+      flex-direction: column;
+      align-items: flex-start;
       .functionBtns {
-        flex-direction: column;
+        margin-top: 6px;
+        // flex-direction: column;
       }
     }
   }
