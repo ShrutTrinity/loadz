@@ -10,7 +10,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const AddPopup = ({ onSubmit, closePopUp }) => {
+const globalStyles = {
+  button: {
+    color: 'rgb(237, 202, 51)',
+    fontSize: '13px'
+  }
+}
+
+const AddPopup = ({ onSubmit, closeSpecialRateForm }) => {
 
   const [formData, setFormData] = useState({
     persionTypeValue: '',
@@ -28,7 +35,7 @@ const AddPopup = ({ onSubmit, closePopUp }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
-    closePopUp()
+    closeSpecialRateForm()
   };
 
 
@@ -37,7 +44,7 @@ const AddPopup = ({ onSubmit, closePopUp }) => {
       open={true}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
-      sx={{'& .css-1t1j96h-MuiPaper-root-MuiDialog-paper' : {borderRadius:'16px'}}}
+      sx={{ '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '16px' } }}
     >
       <DialogTitle id="alert-dialog-title">
         {"Add New Special Rates"}
@@ -76,13 +83,13 @@ const AddPopup = ({ onSubmit, closePopUp }) => {
         <DialogActions>
           <Button
             variant="text"
-            sx={{ color: 'rgb(237, 202, 51)', fontSize: '13px' }}
-            onClick={closePopUp}
+            style={globalStyles.button}
+            onClick={closeSpecialRateForm}
           >Cancel</Button>
           <Button
             type="submit"
             variant="text"
-            sx={{ color: 'rgb(237, 202, 51)', fontSize: '13px' }}
+            style={globalStyles.button}
           >Create</Button>
         </DialogActions>
       </form>
