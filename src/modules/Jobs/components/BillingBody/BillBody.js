@@ -169,7 +169,11 @@ const BillBody = (props) => {
               '&:hover': { backgroundColor: 'rgb(237, 202, 51)' },
               padding: '11px 50px',
               fontSize: '16px',
-              color: 'black'
+              color: 'black',
+              '@media (max-width: 766px)': {
+                fontSize:'14px',
+                padding:'8px 30px'
+              }
             }}
             >Close</Button>
             <Button variant="contained" sx={{
@@ -177,7 +181,11 @@ const BillBody = (props) => {
               '&:hover': { backgroundColor: 'rgb(237, 202, 51)' },
               padding: '11px 50px',
               fontSize: '16px',
-              color: 'black'
+              color: 'black',
+              '@media (max-width: 766px)': {
+                fontSize:'14px',
+                padding:'8px 30px'
+              }
             }}>Create</Button>
           </div>
         </div>

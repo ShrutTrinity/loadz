@@ -7,8 +7,8 @@
   font-family: 'Poppins';
 
   ::-webkit-scrollbar {
-    width: 6px;
-    max-height: 112px;
+    max-width: 8px;
+    max-height: 5px;
   }
   
   /* Track */

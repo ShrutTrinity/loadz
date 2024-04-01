@@ -1,6 +1,8 @@
 .body {
 
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   max-height: 95%;
 
   .cardContainer {
@@ -135,7 +137,7 @@
   }
 
   .operatoroutter {
-    padding: 80px 0 40px;
+    padding: 60px 0 20px;
 
     .operatoroutterHeading {
       font-size: 28px;
@@ -153,6 +155,8 @@
 
   .table{
     padding: 0 0 25px 0;
+    width: 100%;
+    overflow-x: scroll;
   }
 
   .bottomFunctions {

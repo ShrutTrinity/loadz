@@ -1,5 +1,3 @@
-// DataTable.js
-
 import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,6 +7,22 @@ import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
+const globalStyles = {
+  tableCell: {
+    fontSize: '19px',
+    fontWeight: 400,
+    borderBottom: '1px solid #000',
+  },
+  tableRow: {
+    '&:hover': {
+      backgroundColor: '#f5f5f5',
+    },
+  },
+  iconButton: {
+    cursor: 'pointer',
+  },
+};
+
 const DataTable = ({ formData, handleDelete, handleEdit }) => {
   return (
     <>
@@ -16,34 +30,24 @@ const DataTable = ({ formData, handleDelete, handleEdit }) => {
         <Table sx={{ maxWidth: 850, borderCollapse: 'collapse' }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontSize: '19px', fontWeight: 400, borderBottom: '1px solid #000' }}>Name</TableCell>
-              <TableCell sx={{ fontSize: '19px', fontWeight: 400, borderBottom: '1px solid #000' }} align="center">Type</TableCell>
-              <TableCell sx={{ fontSize: '19px', fontWeight: 400, borderBottom: '1px solid #000' }} align="center">Special Rate</TableCell>
-              <TableCell sx={{ fontSize: '19px', fontWeight: 400, borderBottom: '1px solid #000' }} align="center"></TableCell>
-              <TableCell sx={{ fontSize: '19px', fontWeight: 400, borderBottom: '1px solid #000' }} align="center"></TableCell>
+              <TableCell style={globalStyles.tableCell} align="center">Name</TableCell>
+              <TableCell style={globalStyles.tableCell} align="center">Type</TableCell>
+              <TableCell style={globalStyles.tableCell} align="center">Special Rate</TableCell>
+              <TableCell style={globalStyles.tableCell} align="center"></TableCell>
+              <TableCell style={globalStyles.tableCell} align="center"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {formData.map((item, index) => (
-              <TableRow key={index}>
-                <TableCell sx={{
-                  fontSize: '19px',
-                  borderBottom: '1px solid #000',
-                  borderRight: '1px solid #000'
-                }}
-                  align="center">{item.name === '' ? 'abc' : item.name}</TableCell>
-                <TableCell sx={{
-                  fontSize: '19px',
-                  borderBottom: '1px solid #000',
-                  borderRight: '1px solid #000'
-                }}
-                  align="center">{item.persionTypeValue}</TableCell>
-                <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">${item.rate}</TableCell>
-                <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">
-                  <DeleteIcon sx={{ ":hover": { cursor: 'pointer' } }} onClick={() => handleDelete(index)} />
+              <TableRow key={index} style={globalStyles.tableRow}>
+                <TableCell style={globalStyles.tableCell} align="center">{item.name === '' ? 'abc' : item.name}</TableCell>
+                <TableCell style={globalStyles.tableCell} align="center">{item.persionTypeValue}</TableCell>
+                <TableCell style={globalStyles.tableCell} align="center">${item.rate}</TableCell>
+                <TableCell style={globalStyles.tableCell} align="center">
+                  <DeleteIcon style={globalStyles.iconButton} onClick={() => handleDelete(index)} />
                 </TableCell>
-                <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000' }} align="center">
-                  <EditIcon sx={{ ":hover": { cursor: 'pointer' } }} onClick={() => handleEdit(item)} />
+                <TableCell style={globalStyles.tableCell} align="center">
+                  <EditIcon style={globalStyles.iconButton} onClick={() => handleEdit(item)} />
                 </TableCell>
               </TableRow>
             ))}
@@ -51,7 +55,7 @@ const DataTable = ({ formData, handleDelete, handleEdit }) => {
         </Table>
       )}
     </>
-  )
-}
+  );
+};
 
 export default DataTable;
