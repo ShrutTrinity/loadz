@@ -1,3 +1,5 @@
+// DataTable.js
+
 import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,8 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-const DataTable = ({ formData, handleDelete, handleRowClick }) => {
-
+const DataTable = ({ formData, handleDelete, handleEdit }) => {
   return (
     <>
       {formData && formData.length > 0 && (
@@ -23,31 +24,29 @@ const DataTable = ({ formData, handleDelete, handleRowClick }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {
-              formData.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell sx={{
-                    fontSize: '19px',
-                    borderBottom: '1px solid #000',
-                    borderRight: '1px solid #000'
-                  }}
-                    align="center">{item.name === '' ? 'abc' : item.name}</TableCell>
-                  <TableCell sx={{
-                    fontSize: '19px',
-                    borderBottom: '1px solid #000',
-                    borderRight: '1px solid #000'
-                  }}
-                    align="center">{item.persionTypeValue}</TableCell>
-                  <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">${item.rate}</TableCell>
-                  <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">
-                    <DeleteIcon sx={{ ":hover": { cursor: 'pointer' } }} onClick={() => handleDelete(index)} />
-                  </TableCell>
-                  <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000' }} align="center" onClick={() => handleRowClick(index)}>
-                    <EditIcon sx={{ ":hover": { cursor: 'pointer' } }} />
-                  </TableCell>
-                </TableRow>
-              ))
-            }
+            {formData.map((item, index) => (
+              <TableRow key={index}>
+                <TableCell sx={{
+                  fontSize: '19px',
+                  borderBottom: '1px solid #000',
+                  borderRight: '1px solid #000'
+                }}
+                  align="center">{item.name === '' ? 'abc' : item.name}</TableCell>
+                <TableCell sx={{
+                  fontSize: '19px',
+                  borderBottom: '1px solid #000',
+                  borderRight: '1px solid #000'
+                }}
+                  align="center">{item.persionTypeValue}</TableCell>
+                <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">${item.rate}</TableCell>
+                <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000', borderRight: '1px solid #000' }} align="center">
+                  <DeleteIcon sx={{ ":hover": { cursor: 'pointer' } }} onClick={() => handleDelete(index)} />
+                </TableCell>
+                <TableCell sx={{ fontSize: '19px', borderBottom: '1px solid #000' }} align="center">
+                  <EditIcon sx={{ ":hover": { cursor: 'pointer' } }} onClick={() => handleEdit(item)} />
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       )}
