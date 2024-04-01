@@ -18,11 +18,13 @@ const CommonTextfield = (props) => {
                                             width:'97%'
                                         }
                 }}
+                placeholder={props.placeholder}
                 id={props.id}
                 name={props.name}
                 type={props.type}
                 label={props.label}
                 variant='outlined'
+               
                 required={props.required}
                 
             />

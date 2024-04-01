@@ -9,8 +9,19 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import CommonTextfield from '@Jobs/components/TextField/CommonTextfield'
 import styles from './Styles/applyPayment.module.scss'
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { TextField } from '@mui/material';
+
+const Paymentmethods = ['Web Payment', 'Online Credit Card', 'Online ACH', 'Terminal', 'In Store Credit Card', 'Other', 'Offline Credit Card', 'Offline ACH', 'Cash', 'Check', 'Wire Transfer']
 
 const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
+
     const BootstrapDialog = styled(Dialog)(({ theme }) => ({
         '& .MuiDialogContent-root': {
             padding: theme.spacing(2),
@@ -49,28 +60,104 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
                 </IconButton>
                 <DialogContent dividers>
                     <div className={styles.flex}>
-                    <CommonTextfield
-                                    id='name'
-                                    name='name'
-                                    type='name'
-                                    label='Customer Name'
-                                    width='100'
-                                    required
-                                />
+                        <CommonTextfield
+                            id='name'
+                            name='name'
+                            type='name'
+                            label='Customer Name'
+                            width='100'
 
-                    <div className={styles.dollar}>
-                        ${30.00}
-                    </div>
+                        />
+
+                        <div className={styles.dollar}>
+                            ${30.00}
+                        </div>
                     </div>
                     <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
-                    <CommonTextfield
-                                    id='name'
-                                    name='name'
-                                    type='date'
-                                    label='Customer Name'
-                                    width='100'
-                                    required
-                                />
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+
+                        <DemoContainer components={['DatePicker']}>
+                            <DatePicker sx={{
+                                '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root': {
+                                    color: 'rgb(237, 202, 51)'
+                                },
+                                '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
+                                    color: 'rgb(237, 202, 51)'
+                                },
+                                '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
+                                    borderColor: '#98999a'
+                                }
+                            }} label="Payment Date" />
+
+
+                        </DemoContainer>
+                    </LocalizationProvider>
+                    <div className={styles.flex2}>
+                        <FormControl sx={{ width: '50%', }}>
+
+                            <Select
+                                sx={{
+                                    '& .css-1nfzlfx-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
+                                        borderColor: 'gray'
+                                    }
+                                }}
+                                defaultValue={6}
+                                labelId="demo-simple-select-autowidth-label"
+                                id="demo-simple-select-autowidth"
+                            >
+                                <MenuItem value="">
+                                    <em>None</em>
+                                </MenuItem>
+                                {
+                                    Paymentmethods.map((method, index) => (
+                                        <MenuItem value={index}>{method}</MenuItem>
+                                    ))
+                                }
+
+                            </Select>
+                        </FormControl>
+                        <CommonTextfield
+                            id='number'
+                            name='number'
+                            type='number'
+                            label='Reference No.'
+                            width='50%'
+
+                        />
+                        <TextField
+                            sx={{
+                                width: `${50}%`,
+                                margin: '15px 0 15px 0',
+                                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '& .MuiInputLabel-outlined.Mui-focused': {
+                                    color: 'rgb(237, 202, 51)',
+                                },
+                                '@media (max-width: 700px)': {
+                                    width: '97%'
+                                }
+                            }}
+
+                            type='number'
+                            label='Amount Recived'
+                            variant='outlined'
+                            defaultValue='$0.00'
+
+                        />
+                    </div>
+                    <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
+                    <div className={styles.card}>
+                        <CommonTextfield
+                            id='invioceNo'
+                            name='invioceNo'
+                            type='invioceNo'
+                            label='Find Invioce No'
+                            width='50%'
+
+                        />
+
+                    </div>
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose}>
@@ -83,3 +170,4 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
 }
 
 export default ApplyPayment
+
