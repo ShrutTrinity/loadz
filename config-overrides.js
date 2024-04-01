@@ -7,7 +7,8 @@ module.exports = function override(config){
         '@images':'./src/images',
         '@hooks':'./src/hooks',
         '@validation':'./src/validation',
-        '@styles':'./src/modules/styleVariables.scss'
+        '@styles':'./src/modules/styleVariables.scss',
+        '@Jobs':'./src/modules/Jobs'
     })(config)
 
     return config

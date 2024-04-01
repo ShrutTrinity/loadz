@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import styles from './styles/customer.module.scss';
 import ContactFrom from './ContactFrom';
-import CommonTextfield from '../../Textfield/CommonTextfield';
+import CommonTextfield from '../TextField/CommonTextfield';
 
 const statesArray = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',

@@ -40,12 +40,14 @@ const According = (props) => {
                                 </Link> 
                     ))}
 
-                    {props.detail &&  Object.keys(props.detail).length  > 0 && <ExpandMoreIcon />}
+                    {props.detail && Object.keys(props.detail).length > 0 && <ExpandMoreIcon  />}
+
                 </AccordionSummary>
                 { Object.keys(props.detail).length > 0 && (
                     <>
                     {Object.entries(props.detail).map(([itemName, link]) =>  (
                         <AccordionDetails
+                         key={itemName} 
                             sx={{
                                 borderTop: '1px solid black',
                                 fontSize: '13px',

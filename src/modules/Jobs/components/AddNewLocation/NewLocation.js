@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Styles/NewLocation.module.scss'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import CommonTextfield from '../../Textfield/CommonTextfield';
+import CommonTextfield from '../TextField/CommonTextfield'
 
 const NewLocation = (props) => {
     const handleClickInside = (event) => {

@@ -12,7 +12,7 @@ import GoogleMaps from './components/Map/GoogleMaps';
 import { Link } from 'react-router-dom';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import NewLocation from './components/AddNewLocation/NewLocation';
-import CommonTextfield from './Textfield/CommonTextfield';
+import CommonTextfield from './components/TextField/CommonTextfield';
 
 const AddNew = (props) => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);

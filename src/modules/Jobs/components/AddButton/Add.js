@@ -8,6 +8,7 @@ const Add = (props) => {
       </div>
     </>
   )
+
 }
 
 export default Add

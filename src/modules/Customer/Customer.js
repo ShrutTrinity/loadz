@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles/customer.module.scss'
-import { TextField, InputAdornment, Avatar } from '@mui/material'
+import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -12,16 +12,33 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import inspection from '@images/inspection.png'
+import CustomerBalance from './Components/CustomerBalance/CustomerBalance';
+import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
 const Customer = (props) => {
+    const [BalancePopupOpen, setBalancePopupOpen] = useState(false)
+    const [openPaymentDailog, setOpenPaymentDailog] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpenPaymentDailog(true);
+        console.log("heloo")
+    };
+    const handleClose = () => {
+        setOpenPaymentDailog(false);
+    };
+  
+
+    const BalancePopupRendered = () => {
+        setBalancePopupOpen(!BalancePopupOpen)
+    }
 
     const bodyStyles = {
         width: `calc(100% - ${props.open ? 290 : 0}px)`,
         zIndex: 1,
-      }; if (window.innerWidth <= 1300) {
+    }; if (window.innerWidth <= 1300) {
         bodyStyles.width = '100%';
         var bodyclick = props.handleDrawerClose;
-      }
-    
+    }
+
     function stringAvatar(name) {
         return {
             children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
@@ -29,6 +46,8 @@ const Customer = (props) => {
     }
     return (
         <>
+            {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
+            {openPaymentDailog && <ApplyPayment handleClose={handleClose} openPaymentDailog={openPaymentDailog}/>}
             <div className={styles.container} style={bodyStyles} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
                 <div className={styles.backrow}></div>
                 <div className={styles.CardWrapper}>
@@ -42,7 +61,6 @@ const Customer = (props) => {
                                     sx={{
                                         '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
                                             borderRadius: '20px',
-
                                         },
                                         '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
                                             padding: '05px'
@@ -53,10 +71,9 @@ const Customer = (props) => {
                                         width: '100%',
                                         borderRadius: '20px',
                                         '@media (max-width: 1200px)': {
-                                            width: '100%',
+                                             width: '100%',
                                             backgroundColor: 'white'
-                                        }
-                                    }}
+                                        }}}
                                     InputProps={{
 
                                         startAdornment: (
@@ -68,18 +85,37 @@ const Customer = (props) => {
                                 />
                             </div>
                             <div className={styles.listoficon}>
-                                <FactCheckIcon />
-                                <MonetizationOnIcon />
-                                <PaymentsIcon />
-                                <FileDownloadIcon />
-                                <AddCircleIcon />
-                                <img src={credit} alt='credit' className={styles.credit} />
-                                <ArchiveIcon />
-                                <TravelExploreIcon />
-                                <ManageSearchIcon />
+                                <Tooltip title="Reconcile Invoices" placement="top">
+                                    <FactCheckIcon sx={{ cursor: 'pointer' }} />
+                                </Tooltip>
+                                <Tooltip title="Customer Balance & Aging Summary" placement="top">
+                                    <MonetizationOnIcon sx={{ cursor: 'pointer' }} onClick={BalancePopupRendered} />
+                                </Tooltip>
+                                <Tooltip title="Apply Payments" placement="top">
+                                    <PaymentsIcon sx={{ cursor: 'pointer' }} onClick={handleClickOpen} />
+                                </Tooltip>
+                                <Tooltip title="Download Pending Reconcile Report" placement="top">
+                                    <FileDownloadIcon sx={{ cursor: 'pointer' }} />
+                                </Tooltip>
+                                <Tooltip title="Create Customer" placement="top">
+                                    <AddCircleIcon sx={{ cursor: 'pointer' }} />
+                                </Tooltip>
+                                <Tooltip title="Credit & Bank Transfer Settlement Report" placement="top">
+                                    <img src={credit} alt='credit' className={styles.credit} sx={{ cursor: 'pointer' }} />
+                                </Tooltip>
+                                <Tooltip title="Archived Customers" placement="top">
+                                    <ArchiveIcon sx={{ cursor: 'pointer' }} />
+                                </Tooltip>
+                                <Tooltip title="Global Invoice Search" placement="top">
+                                    <TravelExploreIcon sx={{ cursor: 'pointer' }} />
+                                </Tooltip>
+                                <Tooltip title="Global Invoiced Ticket Search" placement="top">
+                                    <ManageSearchIcon sx={{ cursor: 'pointer' }} />
+                                </Tooltip>
                             </div>
                             <div className={styles.profile}>
                                 <Avatar sx={{ height: '40px', width: '40px', fontWeight: 800, fontSize: '16px', color: 'black' }} {...stringAvatar('Kent Dodds')} />
+
                                 <div className={styles.name}>
                                     kent dodds
                                     <div className={styles.balance}>
@@ -103,7 +139,7 @@ const Customer = (props) => {
                                     Customer Info
                                 </div>
                                 <div className={styles.detail}>
-                                Choose a customer to view their invoice details.
+                                    Choose a customer to view their invoice details.
                                 </div>
                             </div>
                         </div>
