@@ -36,7 +36,7 @@ const BillBody = (props) => {
     setValueOfCharging(!valueOfCharging)
   }
 
-  
+
   return (
     <>
       <div className={styles.body}>
@@ -107,7 +107,9 @@ const BillBody = (props) => {
                   <CustomTextFiled name='DriverRate' label='Driver Hourly Rate' placeholder='$0.00' type='number' />
                 </div>
               }
-              <p className={styles.condition}>If you are paying hourly wages on this job, select “No”. (This Only Applies To In-house Drivers)</p>
+              <div>
+                <p className={styles.condition}>If you are paying hourly wages on this job, select “No”. (This Only Applies To In-house Drivers)</p>
+              </div>
               {!value &&
                 <div className={styles.cardDetail}>
                   <div className={styles.switch1}>
@@ -151,14 +153,14 @@ const BillBody = (props) => {
         {
           props.formData !== null &&
           <div className={styles.table}>
-            <DataTable formData={props.formData} handleDelete={props.handleDelete}/>
+            <DataTable formData={props.formData} handleDelete={props.handleDelete} handleEdit={props.handleEdit} />
           </div>
         }
 
         <div className={styles.bottomFunctions}>
-      
+
           <div className={styles.addRates}>
-            <Add buttonBehaviour={props.handleBehaviour}/>Add
+            <Add buttonBehaviour={props.handleBehaviour} />Add
           </div>
 
           <div className={styles.functionBtns}>
