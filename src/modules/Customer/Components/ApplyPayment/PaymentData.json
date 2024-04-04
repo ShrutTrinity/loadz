@@ -1,0 +1,32 @@
+[
+  {
+    "id":1,
+    "description": "description1",
+    "firstName": "12345",
+    "destination": "New York",
+    "due_date": "2024-04-10",
+    "original_amount": 500.00,
+    "open_balance": 250.00,
+    "payments": 250.00
+  },
+  {
+    "id":2,
+    "description": "description2",
+    "firstName": "67890",
+    "destination": "Los Angeles",
+    "due_date": "2024-04-15",
+    "original_amount": 750.00,
+    "open_balance": 500.00,
+    "payments": 250.00
+  },
+  {
+    "id":3,
+    "description": "description3",
+    "firstName": "24680",
+    "destination": "Chicago",
+    "due_date": "2024-04-20",
+    "original_amount": 1000.00,
+    "open_balance": 750.00,
+    "payments": 250.00
+  }
+]

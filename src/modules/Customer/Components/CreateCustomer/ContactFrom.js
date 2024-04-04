@@ -1,5 +1,5 @@
 import React from 'react'
-import CommonTextfield from '../TextField/CommonTextfield'
+import CommonTextfield from '@Jobs/components/TextField/CommonTextfield'
 
 const ContactFrom = ({ handleChange, handleChangedecrese, index }) => {
   return (
