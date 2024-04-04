@@ -32,7 +32,7 @@ const CustomerBalance = ({ BalancePopupRendered }) => {
             <div className={styles.container} onClick={BalancePopupRendered}>
                 <div className={styles.box} onClick={handleClickInside}>
                     <div className={styles.flex}>
-                        <div className={styles.customerDetails} id='print'>
+                        <div className={styles.customerDetails} >
                             <div className={styles.iconbg} onClick={handlePrint}>
                                 <img src={PrintIcon} alt='print' className={styles.printicon} />
                             </div>
@@ -47,7 +47,7 @@ const CustomerBalance = ({ BalancePopupRendered }) => {
                         </div>
                         {!switchOn && <CloseIcon sx={{ margin: '10px', cursor: 'pointer' }} onClick={BalancePopupRendered} />}
                     </div>
-                    <div className={styles.detail}>
+                    <div className={styles.detail} id='print'>
                         <h2 className={styles.heading}>  {switchOn ? 'CUSTOMER BALANCE & AGING SUMMARY ' : 'CUSTOMER BALANCE & AGING SUMMARY 2'}</h2>
                         <div className={styles.date}>
                             As of : {Fulldate}

@@ -23,6 +23,9 @@ const According = (props) => {
                         fontWeight: '700',
                         color:'black',
                         minHeight: '43px !important',
+                        '& .css-eqpfi5-MuiAccordionSummary-content.Mui-expanded ':{
+                            margin:'12px 0'
+                        },
                         '.css-o4b71y-MuiAccordionSummary-content.Mui-expanded': {
                             margin: '0px',
                             justifyContent:'space-between'
@@ -32,16 +35,13 @@ const According = (props) => {
                             justifyContent:'space-between'
                         }
                     }}
-
                 >
                   {Object.entries(props.header).map(([itemName, link]) =>  (
                     <Link key={itemName} to={link} style={{color:'black',textDecoration:'none'}}>
                                     <div>{itemName}</div>
                                 </Link> 
                     ))}
-
                     {props.detail && Object.keys(props.detail).length > 0 && <ExpandMoreIcon  />}
-
                 </AccordionSummary>
                 { Object.keys(props.detail).length > 0 && (
                     <>
@@ -55,11 +55,9 @@ const According = (props) => {
                                 paddingLeft: '40px'
                             }}
                         >
-                           
                                 <Link key={itemName} to={link} style={{color:'black',textDecoration:'none'}}>
                                     <div>{itemName}</div>
                                 </Link>
-                            
                         </AccordionDetails>
                         ))}
                     </>
