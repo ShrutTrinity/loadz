@@ -37,7 +37,7 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
                 sx={{
                     '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
                         borderRadius: '10px'
-                    }
+                    }   
                 }}
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"

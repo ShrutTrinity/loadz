@@ -7,7 +7,7 @@ import Add from '../AddButton/Add';
 import Button from '@mui/material/Button';
 import DataTable from './DataTable';
 
-const BillBody = (props) => {
+const BillBody = ({ formData, handleDelete, handleEdit, openSpecialRateForm, handleDeleteDialog }) => {
 
   const [value, setValue] = useState(true)
   const [valueOfCommission, setValueOfCommission] = useState(false)
@@ -35,7 +35,6 @@ const BillBody = (props) => {
   const handleCharging = () => {
     setValueOfCharging(!valueOfCharging)
   }
-
 
   return (
     <>
@@ -151,16 +150,21 @@ const BillBody = (props) => {
         </div>
 
         {
-          props.formData !== null &&
+          formData !== null &&
           <div className={styles.table}>
-            <DataTable formData={props.formData} handleDelete={props.handleDelete} handleEdit={props.handleEdit} />
+            <DataTable
+              formData={formData}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+              handleDeleteDialog={handleDeleteDialog}
+            />
           </div>
         }
 
         <div className={styles.bottomFunctions}>
 
           <div className={styles.addRates}>
-            <Add buttonBehaviour={props.openSpecialRateForm} />Add
+            <Add buttonBehaviour={openSpecialRateForm} />Add
           </div>
 
           <div className={styles.functionBtns}>
@@ -171,8 +175,8 @@ const BillBody = (props) => {
               fontSize: '16px',
               color: 'black',
               '@media (max-width: 766px)': {
-                fontSize:'4px',
-                padding:'11px 30px'
+                fontSize: '4px',
+                padding: '11px 30px'
               }
             }}
             >Close</Button>
@@ -183,8 +187,8 @@ const BillBody = (props) => {
               fontSize: '16px',
               color: 'black',
               '@media (max-width: 766px)': {
-                fontSize:'4px',
-                padding:'11px 30px'
+                fontSize: '4px',
+                padding: '11px 30px'
               }
             }}>Create</Button>
           </div>
