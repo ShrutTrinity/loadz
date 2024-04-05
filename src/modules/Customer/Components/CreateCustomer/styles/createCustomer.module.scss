@@ -1,0 +1,111 @@
+.addCustomer {
+    font-weight: 700;
+    font-size: 22px;
+    padding: 10px;
+    color: black;
+}
+
+.savebtn {
+    line-height: 1.5px;
+    height: 35px;
+    font-size: 14px;
+    padding: 0 10px;
+    border-radius: 20px;
+    font-weight: 300;
+    color: white;
+    background-color: black;
+}
+
+.box {
+    height: 90%;
+    overflow-y: auto;
+    margin-top: 5px;
+    padding: 10px;
+
+    .header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .newCustomer {
+        font-weight: 700;
+        font-size: 20px;
+        color: black;
+    }
+
+    .enterdetail {
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 1.5;
+        color: rgb(107, 114, 128)
+    }
+
+    .textfields {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .heading {
+            font-weight: 300;
+        }
+    }
+
+    .plus {
+        margin-top: auto;
+        margin-bottom: auto;
+        height: 40px;
+        width: 4%;
+        border-radius: 50%;
+    }
+
+    .line {
+        width: 100%;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgb(228, 223, 223);
+    }
+
+    .last {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+
+        .btn {
+            border: none;
+            font-size: 14px;
+            color: rgb(237, 202, 51);
+            background-color: white;
+        }
+
+        .btn2 {
+            border: none;
+            font-size: 14px;
+            color: #b0aeae;
+            background-color: white;
+        }
+    }
+}
+
+.box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.box::-webkit-scrollbar-thumb {
+    background: #b0aeae;
+    border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .box {
+        height: 90%;
+
+        .textfields {
+            flex-direction: column;
+        }
+    }
+}

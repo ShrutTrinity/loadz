@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles/textField.module.scss';
 import TextField from '@mui/material/TextField';
 
-const CustomTextFiled = ({label, placeholder, type, children4, name, id}) => {
+const CustomTextFiled = ({ label, placeholder, type, children4, name, id }) => {
   return (
     <>
       <label className={styles.formLabel1}>{label}</label>
@@ -20,7 +20,7 @@ const CustomTextFiled = ({label, placeholder, type, children4, name, id}) => {
           inputProps: {
             sx: {
               padding: '12px 14px',
-              backgroundColor:'white',
+              backgroundColor: 'white',
               '@media (max-width: 600px)': {
                 padding: '8px 14px',
               },

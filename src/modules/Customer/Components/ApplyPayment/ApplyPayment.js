@@ -17,7 +17,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
-
+import Table from './PaymentDetailTable';
+  
 const Paymentmethods = [
   'Web Payment',
   'Online Credit Card',
@@ -36,7 +37,6 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
       padding: theme.spacing(2),
-
     },
     '& .MuiDialogActions-root': {
       padding: theme.spacing(1),
@@ -47,7 +47,9 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
       <BootstrapDialog
         sx={{
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
-            borderRadius: '10px'
+            borderRadius: '10px',
+            width: '95%',
+            maxWidth: 'unset'
           }
         }}
         onClose={handleClose}
@@ -76,7 +78,7 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
               name='name'
               type='name'
               label='Customer Name'
-              width='100'
+              width='30'
 
             />
 
@@ -85,10 +87,11 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
             </div>
           </div>
           <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <LocalizationProvider dateAdapter={AdapterDayjs }>
 
             <DemoContainer components={['DatePicker']}>
               <DatePicker sx={{
+                width:'200px',
                 '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root': {
                   color: 'rgb(237, 202, 51)'
                 },
@@ -98,14 +101,12 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
                 '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
                   borderColor: '#98999a'
                 }
-              }} label="Payment Date" />
-
-
+              }} label="Payment Date" 
+              />
             </DemoContainer>
           </LocalizationProvider>
           <div className={styles.flex2}>
-            <FormControl sx={{ width: '50%', }}>
-
+            <FormControl sx={{ width: '20%', }}>
               <Select
                 sx={{
                   '& .css-1nfzlfx-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
@@ -121,7 +122,7 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
                 </MenuItem>
                 {
                   Paymentmethods.map((method, index) => (
-                    <MenuItem value={index}>{method}</MenuItem>
+                    <MenuItem key={index} value={index}>{method}</MenuItem>
                   ))
                 }
 
@@ -132,9 +133,9 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
               name='number'
               type='number'
               label='Reference No.'
-              width='50%'
-
+              width='20%'
             />
+            <FormControl sx={{ width: '50%', display: 'flex',alignItems:'flex-end' }}>
             <TextField
               sx={{
                 width: `${50}%`,
@@ -149,13 +150,12 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
                   width: '97%'
                 }
               }}
-
               type='number'
               label='Amount Recived'
               variant='outlined'
               defaultValue='$0.00'
-
             />
+            </FormControl>
           </div>
           <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
           <div className={styles.card}>
@@ -165,9 +165,8 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
               type='invioceNo'
               label='Find Invioce No'
               width='50%'
-
             />
-
+            <Table />
           </div>
         </DialogContent>
         <DialogActions>
@@ -181,4 +180,3 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
 }
 
 export default ApplyPayment
-
