@@ -9,13 +9,19 @@ import DataTable from './DataTable';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
-const BillBody = ({ formData, handleDelete, handleEdit, openSpecialRateForm, handleDeleteDialog }) => {
+const BillBody = ({ formData, handleDelete, setEditData, openSpecialRateForm, handleDeleteDialog }) => {
 
   const [value, setValue] = useState(true)
   const [valueOfCommission, setValueOfCommission] = useState(false)
   const [valueOfTax, setValueOfTax] = useState(true)
   const [valueOfCharging, setValueOfCharging] = useState(false)
   const [unit, setUnit] = useState('');
+
+  // Function to handle editing of existing data
+  const handleEditData = (rowData) => {
+    setEditData(rowData);
+    openSpecialRateForm();
+  };
 
   const handleChange = (event) => {
     setUnit(event.target.value);
@@ -185,7 +191,7 @@ const BillBody = ({ formData, handleDelete, handleEdit, openSpecialRateForm, han
             <DataTable
               formData={formData}
               handleDelete={handleDelete}
-              handleEdit={handleEdit}
+              handleEdit={handleEditData}
               handleDeleteDialog={handleDeleteDialog}
             />
           </div>

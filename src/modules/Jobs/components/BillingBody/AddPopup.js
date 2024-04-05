@@ -17,15 +17,16 @@ const globalStyles = {
   }
 }
 
-const AddPopup = ({ isOpen, handleSpecialRateDialog, handleFormSubmit }) => {
- 
+const AddPopup = ({ isOpen, handleSpecialRateDialog, handleFormSubmit, editData }) => {
+
   const [formData, setFormData] = useState({
-    persionTypeValue: '',
+    persionTypeValue:' ',
     name: '',
     rate: ''
   })
 
   const handleChange = (e) => {
+    e.preventDefault();
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -49,7 +50,7 @@ const AddPopup = ({ isOpen, handleSpecialRateDialog, handleFormSubmit }) => {
       sx={{ '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '16px' } }}
     >
       <DialogTitle id="alert-dialog-title">
-        {"Add New Special Rates"}
+        {editData ? "Change Special Rate" :"Add New Special Rates"}
       </DialogTitle>
       <form onSubmit={handleSubmit}>
         <DialogContent>
@@ -98,7 +99,7 @@ const AddPopup = ({ isOpen, handleSpecialRateDialog, handleFormSubmit }) => {
             type="submit"
             variant="text"
             style={globalStyles.button}
-          >Create</Button>
+          >{editData ? 'Update' : 'Create'}</Button>
         </DialogActions>
       </form>
     </Dialog >

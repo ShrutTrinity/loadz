@@ -1,0 +1,45 @@
+@import "@styles";
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px !important;
+
+  .part1 {
+    flex-direction: column;
+    display: inline-flex;
+    width: 100%;
+
+    .labelOfpart1 {
+      color: rgb(107, 114, 128);
+      font-size: 13px;
+      font-weight: 300;
+      width: 100%;
+      text-align: end;
+    }
+
+    .datePicker{
+      padding-right: 10px;
+    }
+
+    .datePicker2{
+      padding-left: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 516px){
+  .content{
+    flex-direction: column;
+    .part1{
+      .labelOfpart1{
+        min-width: 100%;
+      }
+
+      .datePicker,.datePicker2 {
+        padding: 0px;
+      }
+    }
+  }
+}

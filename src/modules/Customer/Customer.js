@@ -15,11 +15,13 @@ import inspection from '@images/inspection.png'
 import CustomerBalance from './Components/CustomerBalance/CustomerBalance';
 import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
 import CreateCustomer from './Components/CreateCustomer/CreateCustomerModel';
+import SettlementReportDialog from './Components/SettelemntReport/SettlementReportDialog';
 
 const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
   const [BalancePopupOpen, setBalancePopupOpen] = useState(false)
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
+  const [settlementReportDialog, setSettlementReportDialog] = useState(false)
 
   const handleClickOpen = () => {
     setOpenPaymentDailog(true);
@@ -35,6 +37,10 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
 
   const clickFroCreateCustomerModel = () => {
     setOpenCreateCustomerModel(!openCreateCustomerModel)
+  }
+
+  const handleSettlementReportDialog = () => {
+    setSettlementReportDialog(!settlementReportDialog)
   }
 
   const bodyStyles = {
@@ -55,6 +61,8 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
       {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
       {openPaymentDailog && <ApplyPayment handleClose={handleClose} openPaymentDailog={openPaymentDailog} />}
       <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
+      <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
+
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
@@ -111,7 +119,13 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
                   <AddCircleIcon sx={{ cursor: 'pointer' }} onClick={clickFroCreateCustomerModel} />
                 </Tooltip>
                 <Tooltip title="Credit & Bank Transfer Settlement Report" placement="top">
-                  <img src={credit} alt='credit' className={styles.credit} sx={{ cursor: 'pointer' }} />
+                  <img
+                    src={credit}
+                    alt='credit'
+                    className={styles.credit}
+                    sx={{ cursor: 'pointer' }}
+                    onClick={handleSettlementReportDialog}
+                  />
                 </Tooltip>
                 <Tooltip title="Archived Customers" placement="top">
                   <ArchiveIcon sx={{ cursor: 'pointer' }} />

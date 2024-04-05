@@ -52,7 +52,7 @@ const DataTable = ({ formData, handleEdit, handleDeleteDialog }) => {
                   <DeleteIcon style={globalStyles.iconButton} onClick={() => handleDeleteDialog(index)} />
                 </TableCell>
                 <TableCell style={globalStyles.tableCell} align="center">
-                  <EditIcon style={globalStyles.iconButton} onClick={() => handleEdit(item)} />
+                <EditIcon style={globalStyles.iconButton} onClick={() => handleEdit(item)} />
                 </TableCell>
               </TableRow>
             ))}

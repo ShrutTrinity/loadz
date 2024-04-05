@@ -9,6 +9,7 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
   const [isOpenSpecialRateDialog, setIsOpenSpecialRateDialog] = useState(false);
   const [openDeleteConfirmationDialog, setOpenDeleteConfirmationDialog] = useState(false);
   const [formData, setFormData] = useState([]);
+  const [editData, setEditData] = useState(null);
 
   const handleSpecialRateDialog = () => {
     setIsOpenSpecialRateDialog(!isOpenSpecialRateDialog);
@@ -19,7 +20,15 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
   }
 
   const handleFormSubmit = (data) => {
-    setFormData([...formData, data]);
+    if (editData) {
+      // If editData is present, update the existing data
+      const updatedFormData = formData.map(item => item === editData ? data : item);
+      setFormData(updatedFormData);
+      setEditData(null); // Reset editData after update
+    } else {
+      // Otherwise, add new data
+      setFormData([...formData, data]);
+    }
   };
 
   const handleDelete = (index) => {
@@ -45,6 +54,7 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
         isOpen={isOpenSpecialRateDialog}
         handleSpecialRateDialog={handleSpecialRateDialog}
         handleFormSubmit={handleFormSubmit}
+        editData={editData}
       />
       <DeleteAlert
         isOpen={openDeleteConfirmationDialog}
@@ -61,7 +71,9 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
             formData={formData}
             handleDelete={handleDelete}
             openSpecialRateForm={handleSpecialRateDialog}
-            handleDeleteDialog={handleDeleteDialog} />
+            handleDeleteDialog={handleDeleteDialog}
+            setEditData={setEditData}
+            />
         </div>
       </div>
     </>
