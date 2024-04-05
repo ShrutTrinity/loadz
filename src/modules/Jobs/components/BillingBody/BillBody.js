@@ -6,6 +6,8 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Add from '../AddButton/Add';
 import Button from '@mui/material/Button';
 import DataTable from './DataTable';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
 const BillBody = ({ formData, handleDelete, handleEdit, openSpecialRateForm, handleDeleteDialog }) => {
 
@@ -13,6 +15,12 @@ const BillBody = ({ formData, handleDelete, handleEdit, openSpecialRateForm, han
   const [valueOfCommission, setValueOfCommission] = useState(false)
   const [valueOfTax, setValueOfTax] = useState(true)
   const [valueOfCharging, setValueOfCharging] = useState(false)
+  const [unit, setUnit] = useState('');
+
+  const handleChange = (event) => {
+    setUnit(event.target.value);
+  };
+
 
   const handleSwitchVlue = () => {
     setValue(!value)
@@ -89,7 +97,29 @@ const BillBody = ({ formData, handleDelete, handleEdit, openSpecialRateForm, han
             <h2 className={styles.cardinerHeading}>Hauling Rates</h2>
             <h3 className={styles.h3}>Select the Unit of Measure that will appear on your invoice.</h3>
             <div className={styles.textContainer}>
-              <CustomTextFiled name='materials' label='Units' placeholder='Select a materials' />
+              Unit
+              {/* <CustomTextFiled name='materials' required label='Units' placeholder='Select a materials' /> */}
+              <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={unit}
+                  name="persionTypeValue"
+                  onChange={handleChange}
+                  required
+                  sx={{
+                    width:'100%',
+                    background:'white'
+                  }}
+                >
+                  <MenuItem sx={{
+                    background: 'white !important',
+                    fontSize: '13px'
+                  }} value="Subcontractor">Subcontractor</MenuItem>
+                  <MenuItem sx={{
+                    background: 'rgb(237, 202, 51) !important',
+                    fontSize: '13px'
+                  }} value="Owner Operator">Owner Operator</MenuItem>
+                </Select>
             </div>
             <div className={styles.textContainer}>
               <CustomTextFiled name='materials' label='Unit Invoice Rate' placeholder='$0.00' type='number' />
