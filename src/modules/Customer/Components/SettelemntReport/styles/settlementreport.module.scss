@@ -1,9 +1,8 @@
 @import "@styles";
 
 .content {
-  display: flex;
+  @include flex-column();
   justify-content: space-between;
-  align-items: center;
   padding: 0px !important;
 
   .part1 {

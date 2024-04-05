@@ -12,8 +12,7 @@
     justify-content: space-between;
 
     .switch1 {
-      align-items: center;
-      display: flex;
+      @include flex-column();
       height: 100%;
 
       .switchLabel {
@@ -26,9 +25,8 @@
     }
 
     .switch2 {
+      @include flex-column();
       margin-top: 16px;
-      align-items: center;
-      display: flex;
       flex-wrap: wrap;
       height: 100%;
 
@@ -123,9 +121,8 @@
 
       .note {
         margin-top: 16px;
-        display: flex;
+        @include flex-row();
         gap: 10px;
-        justify-content: center;
 
         .noteText {
           font-style: italic;
@@ -160,16 +157,14 @@
   }
 
   .bottomFunctions {
-    display: flex;
+    @include flex-column();
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
     padding-bottom: 16px;
 
     .addRates {
       width: min-content;
-      display: flex;
-      align-items: center;
+      @include flex-column();
       gap: 10px;
     }
 
