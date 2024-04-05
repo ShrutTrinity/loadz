@@ -16,44 +16,40 @@ const statesArray = [
 const netarray = [
   'Net 7', 'Net 15', 'Net 30', 'Net 45', 'Net 60'
 ]
-const CreateCustomer = (props) => {
-  const [count, setCount] = useState(1);
-  const [contactForms, setContactForms] = useState([{ index: 1 }]);
-  console.log(contactForms)
-  const handleChange = () => {
-    setCount(prevCount => prevCount + 1);
-    setContactForms(prevForms => [...prevForms, { index: count + 1 }]);
+const CreateCustomer = ({ isOpen, handleClose }) => {
+  const [contactForms, setContactForms] = useState([{ index: 0 }]);
+
+  const handleAddForm = () => {
+    const newIndex =
+      contactForms.length > 0 ?
+        contactForms[contactForms.length - 1].index + 1 : 1;
+    setContactForms(prevForms => [...prevForms, { index: newIndex }]);
   };
-  const handleChangedecrese = (indexToRemove) => {
-    if (count > 1) {
-      setContactForms(prevForms => {
-        setCount(count - 1)
-        const updatedForms = prevForms.filter(form => form.index !== indexToRemove);
-        return updatedForms.map((form, index) => ({
-          ...form,
-          index: index + 1
-        }));
-      });
-    }
+
+  const handleRemove = (indexToRemove) => {
+    setContactForms(prevForms => prevForms.filter(form => form.index !== indexToRemove));
   };
+
   return (
     <>
       <Dialog
         sx={{
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
-            maxWidth: 'unset'
+            maxWidth: 'unset',
+            borderRadius: '16px'
           }
         }}
-        open={props.isOpen}
-        onClose={props.handleClose}
+        open={isOpen}
+        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle sx={{ m: 0, p: 2, fontWeight: 400 }} id="customized-dialog-title">
-          <h4 className={styles.addCustomer}>Create Customer</h4>
+          <div className={styles.addCustomer}>
+            <h4>Create Customer</h4>
+          </div>
         </DialogTitle>
         <DialogContent >
-
           <div className={styles.box}>
             <div className={styles.header}>
               <div>
@@ -61,7 +57,6 @@ const CreateCustomer = (props) => {
                 <h6 className={styles.enterdetail}>Customer Details</h6>
               </div>
               <button className={styles.savebtn}>Save</button>
-
             </div>
             <br />
             <form className={styles.form}>
@@ -100,7 +95,6 @@ const CreateCustomer = (props) => {
                   type='address'
                   label='Address'
                 />
-
                 <CommonTextfield
                   width='24'
                   id='city'
@@ -111,7 +105,14 @@ const CreateCustomer = (props) => {
                 />
                 <select
                   className='form-select'
-                  style={{ borderColor: '#c4c4c4', margin: '15px 0', padding: '13px 14px 13px 10px', fontSize: '13px', width: '24%' }}
+                  style={{
+                    borderColor: '#c4c4c4',
+                    margin: '15px 0',
+                    padding: '13px 14px 13px 10px',
+                    fontSize: '13px',
+                    width: '24%'
+                  }}
+                  defaultValue={''}
                   aria-label="Default select example"
                   name="state"
                 >
@@ -135,7 +136,12 @@ const CreateCustomer = (props) => {
                 </div>
                 <div className={styles.line} >
                   {contactForms.map((form, index) => (
-                    <ContactFrom index={index} handleChange={handleChange} handleChangedecrese={handleChangedecrese} />
+                    <ContactFrom
+                      key={form.index}
+                      index={form.index}
+                      handleAddForm={handleAddForm}
+                      handleRemove={handleRemove}
+                    />
                   ))}
                 </div>
                 <CommonTextfield
@@ -149,7 +155,11 @@ const CreateCustomer = (props) => {
                 <select
                   className="form-select"
                   style={{
-                    borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', width: '49%', margin: '15px 0'
+                    borderColor: '#c4c4c4',
+                    padding: '13px 14px 13px 10px',
+                    fontSize: '13px',
+                    width: '49%',
+                    margin: '15px 0'
                   }}
                   defaultValue={2}
                   aria-label="Default select example"
@@ -180,15 +190,11 @@ const CreateCustomer = (props) => {
               </div>
               <button className={styles.savebtn}>Save</button>
               <div className={styles.last}>
-                <button className={styles.btn} onClick={props.handleClose}>close</button>
-
+                <button className={styles.btn} onClick={handleClose}>Close</button>
               </div>
-
             </form>
           </div>
         </DialogContent>
-
-
       </Dialog >
     </>
   );
