@@ -111,7 +111,7 @@ const Customer = (props) => {
                   <AddCircleIcon sx={{ cursor: 'pointer' }} onClick={clickFroCreateCustomerModel} />
                 </Tooltip>
                 <Tooltip title="Credit & Bank Transfer Settlement Report" placement="top">
-                  <img src={credit} alt='credit' className={styles.credit} sx={{ cursor: 'pointer' }} />
+                  <img src={credit} alt='credit' className={styles.credit} style={{ cursor: 'pointer' }} />
                 </Tooltip>
                 <Tooltip title="Archived Customers" placement="top">
                   <ArchiveIcon sx={{ cursor: 'pointer' }} />
