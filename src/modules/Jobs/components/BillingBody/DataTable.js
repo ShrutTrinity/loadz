@@ -6,7 +6,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-
 const globalStyles = {
   tableCell: {
     fontSize: '19px',
@@ -23,7 +22,7 @@ const globalStyles = {
   },
 };
 
-const DataTable = ({ formData, handleDelete, handleEdit }) => {
+const DataTable = ({ formData, handleEdit, handleDeleteDialog }) => {
   return (
     <>
       {formData && formData.length > 0 && (
@@ -40,14 +39,20 @@ const DataTable = ({ formData, handleDelete, handleEdit }) => {
           <TableBody>
             {formData.map((item, index) => (
               <TableRow key={index} style={globalStyles.tableRow}>
-                <TableCell style={globalStyles.tableCell} align="center">{item.name === '' ? 'abc' : item.name}</TableCell>
-                <TableCell style={globalStyles.tableCell} align="center">{item.persionTypeValue}</TableCell>
-                <TableCell style={globalStyles.tableCell} align="center">${item.rate}</TableCell>
                 <TableCell style={globalStyles.tableCell} align="center">
-                  <DeleteIcon style={globalStyles.iconButton} onClick={() => handleDelete(index)} />
+                  {item.name === '' ? 'abc' : item.name}
                 </TableCell>
                 <TableCell style={globalStyles.tableCell} align="center">
-                  <EditIcon style={globalStyles.iconButton} onClick={() => handleEdit(item)} />
+                  {item.persionTypeValue}
+                </TableCell>
+                <TableCell style={globalStyles.tableCell} align="center">
+                  ${item.rate}
+                </TableCell>
+                <TableCell style={globalStyles.tableCell} align="center">
+                  <DeleteIcon style={globalStyles.iconButton} onClick={() => handleDeleteDialog(index)} />
+                </TableCell>
+                <TableCell style={globalStyles.tableCell} align="center">
+                <EditIcon style={globalStyles.iconButton} onClick={() => handleEdit(item)} />
                 </TableCell>
               </TableRow>
             ))}

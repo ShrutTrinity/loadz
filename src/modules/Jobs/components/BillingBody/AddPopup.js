@@ -1,7 +1,7 @@
-import styles from "./styles/addPopup.module.scss"
+import { useState } from 'react';
+import styles from "./styles/addPopup.module.scss";
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { useState } from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -17,15 +17,16 @@ const globalStyles = {
   }
 }
 
-const AddPopup = ({ onSubmit, closeSpecialRateForm }) => {
+const AddPopup = ({ isOpen, handleSpecialRateDialog, handleFormSubmit, editData }) => {
 
   const [formData, setFormData] = useState({
-    persionTypeValue: '',
+    persionTypeValue:' ',
     name: '',
     rate: ''
   })
 
   const handleChange = (e) => {
+    e.preventDefault();
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -34,20 +35,22 @@ const AddPopup = ({ onSubmit, closeSpecialRateForm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    closeSpecialRateForm()
+    handleFormSubmit(formData);
+    handleSpecialRateDialog();
   };
+
 
 
   return (
     <Dialog
-      open={true}
+      open={isOpen}
+      onClose={handleSpecialRateDialog}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       sx={{ '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '16px' } }}
     >
       <DialogTitle id="alert-dialog-title">
-        {"Add New Special Rates"}
+        {editData ? "Change Special Rate" :"Add New Special Rates"}
       </DialogTitle>
       <form onSubmit={handleSubmit}>
         <DialogContent>
@@ -65,8 +68,14 @@ const AddPopup = ({ onSubmit, closeSpecialRateForm }) => {
                   onChange={handleChange}
                   required
                 >
-                  <MenuItem sx={{ background: 'rgb(237, 202, 51) !important', fontSize: '13px' }} value="Subcontractor">Subcontractor</MenuItem>
-                  <MenuItem sx={{ background: 'rgb(237, 202, 51) !important', fontSize: '13px' }} value="Owner Operator">Owner Operator</MenuItem>
+                  <MenuItem sx={{
+                    background: 'rgb(237, 202, 51) !important',
+                    fontSize: '13px'
+                  }} value="Subcontractor">Subcontractor</MenuItem>
+                  <MenuItem sx={{
+                    background: 'rgb(237, 202, 51) !important',
+                    fontSize: '13px'
+                  }} value="Owner Operator">Owner Operator</MenuItem>
                 </Select>
               </div>
 
@@ -75,7 +84,7 @@ const AddPopup = ({ onSubmit, closeSpecialRateForm }) => {
                   Rate
                 </label>
                 <br />
-                <TextField id="outlined-basic" name="rate" required onChange={handleChange} placeholder="0" />
+                <TextField id="outlined-basic" name="rate" onChange={handleChange} required placeholder="0" />
               </div>
             </div>
           </DialogContentText>
@@ -84,17 +93,17 @@ const AddPopup = ({ onSubmit, closeSpecialRateForm }) => {
           <Button
             variant="text"
             style={globalStyles.button}
-            onClick={closeSpecialRateForm}
+            onClick={handleSpecialRateDialog}
           >Cancel</Button>
           <Button
             type="submit"
             variant="text"
             style={globalStyles.button}
-          >Create</Button>
+          >{editData ? 'Update' : 'Create'}</Button>
         </DialogActions>
       </form>
     </Dialog >
   )
-}
+};
 
 export default AddPopup

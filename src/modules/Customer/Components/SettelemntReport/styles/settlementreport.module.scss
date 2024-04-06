@@ -3,10 +3,10 @@
 .content {
   @include flex-column();
   justify-content: space-between;
+  padding: 0px !important;
 
   .part1 {
     flex-direction: column;
-    margin-right: 10px;
     display: inline-flex;
     width: 100%;
 
@@ -14,30 +14,33 @@
       color: rgb(107, 114, 128);
       font-size: 13px;
       font-weight: 300;
-      width: 55%;
+      width: 100%;
+      padding-right: 10px;
+      text-align: end;
     }
-    .labelOfpart2 {
-      color: rgb(107, 114, 128);
-      font-size: 13px;
-      font-weight: 300;
-      width: 55%;
-      line-height: 15px;
+
+    .datePicker{
+      padding-right: 10px;
+    }
+
+    .datePicker2{
+      padding-left: 10px;
     }
   }
 }
 
 @media only screen and (max-width: 516px){
   .content{
+    flex-direction: column;
     .part1{
       .labelOfpart1{
-        width: 100%;
+        min-width: 100%;
+        padding-right: 0px;
+      }
+
+      .datePicker,.datePicker2 {
+        padding: 0px;
       }
     }
-  }
-}
-
-@media only screen and (max-width: 316px){
-  .content{
-    flex-direction: column;
   }
 }

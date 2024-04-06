@@ -15,34 +15,40 @@ import inspection from '@images/inspection.png'
 import CustomerBalance from './Components/CustomerBalance/CustomerBalance';
 import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
 import CreateCustomer from './Components/CreateCustomer/CreateCustomerModel';
+import SettlementReportDialog from './Components/SettelemntReport/SettlementReportDialog';
 
-const Customer = (props) => {
+const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
   const [BalancePopupOpen, setBalancePopupOpen] = useState(false)
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
-  const [openCreateCustomerModel , setOpenCreateCustomerModel] = useState(false)
+  const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
+  const [settlementReportDialog, setSettlementReportDialog] = useState(false)
 
   const handleClickOpen = () => {
     setOpenPaymentDailog(true);
   };
+
   const handleClose = () => {
     setOpenPaymentDailog(false);
   };
 
-
   const BalancePopupRendered = () => {
     setBalancePopupOpen(!BalancePopupOpen)
-  } 
+  }
 
-  const clickFroCreateCustomerModel = ()=>{
-      setOpenCreateCustomerModel(!openCreateCustomerModel)
+  const clickFroCreateCustomerModel = () => {
+    setOpenCreateCustomerModel(!openCreateCustomerModel)
+  }
+
+  const handleSettlementReportDialog = () => {
+    setSettlementReportDialog(!settlementReportDialog)
   }
 
   const bodyStyles = {
-    width: `calc(100% - ${props.open ? 290 : 0}px)`,
+    width: `calc(100% - ${open ? 290 : 0}px)`,
     zIndex: 1,
   }; if (window.innerWidth <= 1300) {
     bodyStyles.width = '100%';
-    var bodyclick = props.handleDrawerClose;
+    var bodyclick = handleDrawerClose;
   }
 
   function stringAvatar(name) {
@@ -55,9 +61,11 @@ const Customer = (props) => {
       {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
       {openPaymentDailog && <ApplyPayment handleClose={handleClose} openPaymentDailog={openPaymentDailog} />}
       <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
+      <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
+
       <div className={styles.container}
         style={bodyStyles}
-        onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
+        onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
           <div className={styles.contentCard}>
@@ -105,13 +113,19 @@ const Customer = (props) => {
                   <PaymentsIcon sx={{ cursor: 'pointer' }} onClick={handleClickOpen} />
                 </Tooltip>
                 <Tooltip title="Download Pending Reconcile Report" placement="top">
-                  <FileDownloadIcon sx={{ cursor: 'pointer' }}  />
+                  <FileDownloadIcon sx={{ cursor: 'pointer' }} />
                 </Tooltip>
                 <Tooltip title="Create Customer" placement="top">
                   <AddCircleIcon sx={{ cursor: 'pointer' }} onClick={clickFroCreateCustomerModel} />
                 </Tooltip>
                 <Tooltip title="Credit & Bank Transfer Settlement Report" placement="top">
-                  <img src={credit} alt='credit' className={styles.credit} style={{ cursor: 'pointer' }} />
+                  <img
+                    src={credit}
+                    alt='credit'
+                    className={styles.credit}
+                    sx={{ cursor: 'pointer' }}
+                    onClick={handleSettlementReportDialog}
+                  />
                 </Tooltip>
                 <Tooltip title="Archived Customers" placement="top">
                   <ArchiveIcon sx={{ cursor: 'pointer' }} />
@@ -124,15 +138,15 @@ const Customer = (props) => {
                 </Tooltip>
               </div>
               <div className={styles.profile}>
-                <Avatar 
+                <Avatar
                   sx={{
-                    height: '40px', 
-                    width: '40px', 
-                    fontWeight: 800, 
-                    fontSize: '16px', 
-                    color: 'black' 
+                    height: '40px',
+                    width: '40px',
+                    fontWeight: 800,
+                    fontSize: '16px',
+                    color: 'black'
                   }}
-                  {...stringAvatar('Kent Dodds')} 
+                  {...stringAvatar('Kent Dodds')}
                 />
                 <div className={styles.name}>
                   kent dodds

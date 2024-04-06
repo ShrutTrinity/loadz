@@ -13,11 +13,16 @@ const globalStyles = {
   }
 }
 
-const DeleteAlert = ({ handleDeleteData, index, closeDeleteConfirmationDialog }) => {
+const DeleteAlert = ({ isOpen, closeDeleteConfirmationDialog, handleDelete }) => {
+  const handleConfirmDelete = (index) => {
+    handleDelete(index);
+    closeDeleteConfirmationDialog();
+  };
 
   return (
     <Dialog
-      open={true}
+      open={isOpen}
+      onClose={closeDeleteConfirmationDialog}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       sx={{ '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': { borderRadius: '16px' } }}
@@ -37,16 +42,20 @@ const DeleteAlert = ({ handleDeleteData, index, closeDeleteConfirmationDialog })
             }
           }}
           style={globalStyles.button}
-          onClick={() => handleDeleteData(index)}>Confirm</Button>
+          onClick={handleConfirmDelete}
+        >
+          Confirm
+        </Button>
         <Button sx={{
           backgroundColor: 'rgb(255, 0, 0)',
           color: 'white',
           ":hover": {
             backgroundColor: 'rgb(255, 0, 0)'
           }
-        }} 
-        style={globalStyles.button}
-        onClick={closeDeleteConfirmationDialog} autoFocus>
+        }}
+          style={globalStyles.button}
+          onClick={closeDeleteConfirmationDialog} autoFocus
+        >
           Cancel
         </Button>
       </DialogActions>

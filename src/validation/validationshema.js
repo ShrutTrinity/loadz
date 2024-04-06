@@ -2,7 +2,6 @@ import * as Yup from 'yup';
 
 const getValidationSchema = () => {
   return Yup.object().shape({
-
     email: Yup.string().email('Invalid email address',).required('Email is required'),
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
@@ -13,13 +12,11 @@ const getValidationSchema = () => {
       ),
     termsAndConditions: Yup.boolean().oneOf([true], 'You must accept the terms and conditions'),
     privacyPolicy: Yup.boolean().oneOf([true], 'You must accept the privacy policy'),
-
   });
 };
 
 const getValidationSchemaforsecond = () => {
   return Yup.object().shape({
-
     position: Yup.string().required('Position is required'),
     companyName: Yup.string().required('Company Name is required'),
     businessName: Yup.string(),
@@ -39,19 +36,18 @@ const getValidationSchemaforforth = () => {
     phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Phone Number is required'),
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
-    Hourlywage:Yup.string().required('Hourly Wage required'),
-    CommissionRate:Yup.string().required('Commission Rate required')
-  }); 
+    Hourlywage: Yup.string().required('Hourly Wage required'),
+    CommissionRate: Yup.string().required('Commission Rate required')
+  });
 };
 
 const getValidationSchemaforsix = () => {
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
   return Yup.object().shape({
     phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Phone Number is required'),
-    // email: Yup.string().email('Invalid email address').required('Company Email is required'),
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
-    usertype:Yup.string().required('Usertype is required'),
+    usertype: Yup.string().required('Usertype is required'),
   });
 };
 
@@ -62,9 +58,10 @@ const priceTagsSchema = () => {
     waitRate: Yup.string().required('Company Wait Rate is required'),
   })
 }
+
 const priceTagsSchemaSales = () => {
   return Yup.object().shape({
-    salesTax:Yup.string().required('Sales Tax Rate Amount is required'),
+    salesTax: Yup.string().required('Sales Tax Rate Amount is required'),
     commission: Yup.string().required('Default Commission Rate is required'),
     wage: Yup.string().required('Default Hourly Wage is required'),
     waitRate: Yup.string().required('Company Wait Rate is required'),
@@ -84,4 +81,12 @@ const addTruckSchema = () => {
   })
 }
 
-export { getValidationSchema,getValidationSchemaforsecond,priceTagsSchema,priceTagsSchemaSales,addTruckSchema, getValidationSchemaforforth,getValidationSchemaforsix};
+export {
+  getValidationSchema,
+  getValidationSchemaforsecond,
+  priceTagsSchema,
+  priceTagsSchemaSales,
+  addTruckSchema,
+  getValidationSchemaforforth,
+  getValidationSchemaforsix
+};

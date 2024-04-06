@@ -19,7 +19,18 @@ import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
 import Table from './PaymentDetailTable';
   
-const Paymentmethods = ['Web Payment', 'Online Credit Card', 'Online ACH', 'Terminal', 'In Store Credit Card', 'Other', 'Offline Credit Card', 'Offline ACH', 'Cash', 'Check', 'Wire Transfer']
+const Paymentmethods = [
+  'Web Payment',
+  'Online Credit Card',
+  'Online ACH',
+  'In Store Credit Card',
+  'Other',
+  'Offline Credit Card',
+  'Offline ACH',
+  'Cash',
+  'Check',
+  'Wire Transfer'
+]
 
 const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
 
