@@ -2,22 +2,19 @@ import { useState } from 'react';
 import styles from './styles/billing.module.scss';
 import Heading from './components/BillingHeader/Heading';
 import BillBody from './components/BillingBody/BillBody';
-import AddPopup from './components/BillingBody/AddPopup';
 import DeleteAlert from './components/BillingBody/DeleteAlert';
+import AddSpecialRate from './components/BillingBody/AddSpecialRate';
 
 const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose }) => {
   const [isOpenSpecialRateDialog, setIsOpenSpecialRateDialog] = useState(false);
   const [openDeleteConfirmationDialog, setOpenDeleteConfirmationDialog] = useState(false);
+  const [deleteIndex, setDeleteIndex] = useState(null);
   const [formData, setFormData] = useState([]);
   const [editData, setEditData] = useState(null);
 
   const handleSpecialRateDialog = () => {
     setIsOpenSpecialRateDialog(!isOpenSpecialRateDialog);
   };
-
-  const handleDeleteDialog = () => {
-    setOpenDeleteConfirmationDialog(!openDeleteConfirmationDialog)
-  }
 
   const handleFormSubmit = (data) => {
     if (editData) {
@@ -31,9 +28,13 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
     }
   };
 
-  const handleDelete = (index) => {
-    const updatedFormData = [...formData];
-    updatedFormData.splice(index, 1);
+  const handleDeleteDialog = (index) => {
+    setOpenDeleteConfirmationDialog(true);
+    setDeleteIndex(index);
+  };
+
+  const deleteRow = () => {
+    const updatedFormData = formData.filter((item, index) => index !== deleteIndex);
     setFormData(updatedFormData);
     setOpenDeleteConfirmationDialog(false);
   };
@@ -50,7 +51,7 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
 
   return (
     <>
-      <AddPopup
+      <AddSpecialRate
         isOpen={isOpenSpecialRateDialog}
         handleSpecialRateDialog={handleSpecialRateDialog}
         handleFormSubmit={handleFormSubmit}
@@ -59,7 +60,7 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
       <DeleteAlert
         isOpen={openDeleteConfirmationDialog}
         closeDeleteConfirmationDialog={() => setOpenDeleteConfirmationDialog(false)}
-        handleDelete={(index) => handleDelete(index)}
+        handleConfirmDelete={deleteRow}
       />
       <div className={styles.mainBody}
         style={bodyStyles}
@@ -69,7 +70,6 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
         <div className={styles.bodyWrapper}>
           <BillBody
             formData={formData}
-            handleDelete={handleDelete}
             openSpecialRateForm={handleSpecialRateDialog}
             handleDeleteDialog={handleDeleteDialog}
             setEditData={setEditData}

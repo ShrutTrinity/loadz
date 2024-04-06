@@ -20,17 +20,17 @@ const AddNew = (props) => {
   const [openPopupOrigin, setOpenPopupOrigin] = useState(false)
   const [openPopupDest, setOpenPopupDest] = useState(false)
 
-  const PopupOpen = () =>{
+  const PopupOpen = () => {
     setOpenPopupOrigin(!openPopupOrigin)
   }
-  const PopupOpenDest = () =>{
+  const PopupOpenDest = () => {
     setOpenPopupDest(!openPopupDest)
   }
 
- const ClosePopup = () =>{
-  setOpenPopupOrigin(false)
-  setOpenPopupDest(false)
- }
+  const ClosePopup = () => {
+    setOpenPopupOrigin(false)
+    setOpenPopupDest(false)
+  }
 
   const openCreateUser = () => {
     setClickOnCreateCustomer(!clickOnCreateCustomer);
@@ -63,9 +63,18 @@ const AddNew = (props) => {
 
   return (
     <>
-    {openPopupDest && <NewLocation ClosePopup = {ClosePopup} />}
-    {openPopupOrigin && <NewLocation ClosePopup={ClosePopup} children= <CommonTextfield width='100' id='id' type='text' label='Name' required />/>}
-    {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
+      {openPopupDest && <NewLocation ClosePopup={ClosePopup} />}
+      {openPopupOrigin &&
+        <NewLocation ClosePopup={ClosePopup}
+          children={<CommonTextfield
+            width='100'
+            id='id'
+            type='text'
+            label='Name' required
+          />}
+        />
+      }
+      {clickOnCreateCustomer && <Customer openCreateUser={openCreateUser} />}
       <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}   >
         <div className={styles.container}>
           <div className={styles.header}>
@@ -81,7 +90,7 @@ const AddNew = (props) => {
                   <h4>Add Job</h4>
                 </div>
               </div>
-            </div> 
+            </div>
             <div className={styles.continueButton}>
               <Link to='/jobs/billing/new' className={styles.link}>
                 <button className={styles.nextButton}>
@@ -119,7 +128,7 @@ const AddNew = (props) => {
                       placeholder="Select Quarry Pit or Create an Origin"
                       type="text"
                       formik={formik}
-                      children4=<div className={styles.btn}><EditLocationAltIcon onClick={PopupOpen} sx={{cursor:'pointer',fontSize:'18px'}}/></div>
+                      children4=<div className={styles.btn}><EditLocationAltIcon onClick={PopupOpen} sx={{ cursor: 'pointer', fontSize: '18px' }} /></div>
                     />
                   </div>
                   <div className={styles.m1}>
@@ -128,8 +137,8 @@ const AddNew = (props) => {
                       label="Destination"
                       placeholder="Destination"
                       type="text"
-                      children4=<div className={styles.btn}><EditLocationAltIcon onClick={PopupOpenDest} sx={{cursor:'pointer',fontSize:'18px'}}/></div>
-  
+                      children4=<div className={styles.btn}><EditLocationAltIcon onClick={PopupOpenDest} sx={{ cursor: 'pointer', fontSize: '18px' }} /></div>
+
                       formik={formik}
                     />
                   </div>
