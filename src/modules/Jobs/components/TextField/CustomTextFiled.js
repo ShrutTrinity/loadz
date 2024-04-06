@@ -1,11 +1,10 @@
 import React from 'react';
-import styles from './styles/textField.module.scss';
 import TextField from '@mui/material/TextField';
 
 const CustomTextFiled = ({ label, placeholder, type, children4, name, id }) => {
   return (
     <>
-      <label className={styles.formLabel1}>{label}</label>
+      <label>{label}</label>
       <TextField
         sx={{
           width: '100%',

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import styles from './styles/billing.module.scss';
 import Heading from './components/BillingHeader/Heading';
 import BillBody from './components/BillingBody/BillBody';
-import AddPopup from './components/BillingBody/AddPopup';
 import DeleteAlert from './components/BillingBody/DeleteAlert';
+import AddSpecialRate from './components/BillingBody/AddSpecialRate';
 
 const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose }) => {
   const [isOpenSpecialRateDialog, setIsOpenSpecialRateDialog] = useState(false);
@@ -50,7 +50,7 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
 
   return (
     <>
-      <AddPopup
+      <AddSpecialRate
         isOpen={isOpenSpecialRateDialog}
         handleSpecialRateDialog={handleSpecialRateDialog}
         handleFormSubmit={handleFormSubmit}

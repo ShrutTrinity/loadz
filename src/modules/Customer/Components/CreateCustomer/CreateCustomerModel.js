@@ -16,6 +16,17 @@ const statesArray = [
 const netarray = [
   'Net 7', 'Net 15', 'Net 30', 'Net 45', 'Net 60'
 ]
+
+const createCustomerStyles = {
+  selectFiled: {
+    borderColor: '#c4c4c4',
+    margin: '15px 0',
+    padding: '17px 14px 17.5px 10px',
+    fontSize: '13px',
+    width: '100%',
+  }
+}
+
 const CreateCustomer = ({ isOpen, handleClose }) => {
   const [contactForms, setContactForms] = useState([{ index: 0 }]);
 
@@ -103,26 +114,22 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   label='City'
                   variant='outlined'
                 />
-                <select
-                  className='form-select'
-                  style={{
-                    borderColor: '#c4c4c4',
-                    margin: '15px 0',
-                    padding: '13px 14px 13px 10px',
-                    fontSize: '13px',
-                    width: '24%'
-                  }}
-                  defaultValue={''}
-                  aria-label="Default select example"
-                  name="state"
-                >
-                  <option value="" selected disabled >Select a State</option>
-                  {statesArray.map((state, index) => (
-                    <option key={index} value={state}>
-                      {state}
-                    </option>
-                  ))}
-                </select>
+                <div className={styles.selectFields}>
+                  <select
+                    className='form-select'
+                    style={createCustomerStyles.selectFiled}
+                    defaultValue={''}
+                    aria-label="Default select example"
+                    name="state"
+                  >
+                    <option value="" selected disabled >Select a State</option>
+                    {statesArray.map((state, index) => (
+                      <option key={index} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 <CommonTextfield
                   width='24'
                   id='zip'
