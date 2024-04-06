@@ -7,18 +7,17 @@ import AddNew from '../Jobs/AddNew';
 import JobBill from '../Jobs/JobBill';
 import Index from '@components/Footer/Index';
 import Customer from '../Customer/Customer';
-import CustomerBalance from '../Customer/Components/CustomerBalance/CustomerBalance';
+import UninvoicedBody from '../Uninvoiced/UninvoicedBody';
 
 const Panel = () => {
 
   const [open, setOpen] = useState(false);
   const [setting, setSetting] = useState(false);
   const [textSelectorOpen, setTextSelectorOpen] = useState(false)
-  
-  
-    const toggleTextSelector = () => {
-      setTextSelectorOpen(!textSelectorOpen);
-    };
+
+  const toggleTextSelector = () => {
+    setTextSelectorOpen(!textSelectorOpen);
+  };
 
   const handleOpen = () => {
     setSetting(true)
@@ -34,7 +33,7 @@ const Panel = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  
+
   useEffect(() => {
     if (window.innerWidth >= 1300) {
       setOpen(true)
@@ -50,10 +49,10 @@ const Panel = () => {
         <Route exact path='/jobs/new' element={<AddNew handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/customers' element={<Customer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/jobs/billing/new' element={<JobBill handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/bbb' element={<CustomerBalance />} />
+        <Route exact path='/uninvoiced' element={<UninvoicedBody handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open}/>} />
       </Routes>
-      <Index/>  
-      </>
+      <Index />
+    </>
   );
 };
 

@@ -1,0 +1,16 @@
+@import "@styles";
+
+.uninvoicedBody {
+  @include center();
+  height: 100vh;
+  width: 100vw;
+  color: $color_1;
+  position: absolute;
+  right: 0;
+
+  .note {
+    font-weight: 300;
+    font-size: 22.2857px;
+    color: rgb(107, 114, 128);
+  }
+}

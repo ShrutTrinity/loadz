@@ -159,25 +159,27 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   label='Website'
                   variant='outlined'
                 />
-                <select
-                  className="form-select"
-                  style={{
-                    borderColor: '#c4c4c4',
-                    padding: '13px 14px 13px 10px',
-                    fontSize: '13px',
-                    width: '49%',
-                    margin: '15px 0'
-                  }}
-                  defaultValue={2}
-                  aria-label="Default select example"
-                  name="state"
-                >
-                  {netarray.map((state, index) => (
-                    <option key={index} value={state}>
-                      {state}
-                    </option>
-                  ))}
-                </select>
+                <div className={styles.selectFiledsforNet}>
+                  <select
+                    className="form-select"
+                    style={{
+                      borderColor: '#c4c4c4',
+                      padding: '17px 14px 18px 10px',
+                      fontSize: '13px',
+                      width: '100%',
+                      margin: '15px 0'
+                    }}
+                    defaultValue={2}
+                    aria-label="Default select example"
+                    name="state"
+                  >
+                    {netarray.map((state, index) => (
+                      <option key={index} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 <CommonTextfield
                   width='48'
                   id='creditLimit'

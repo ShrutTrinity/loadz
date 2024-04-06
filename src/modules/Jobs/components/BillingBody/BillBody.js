@@ -9,7 +9,7 @@ import DataTable from './DataTable';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
-const BillBody = ({ formData, handleDelete, setEditData, openSpecialRateForm, handleDeleteDialog }) => {
+const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDialog }) => {
 
   const [value, setValue] = useState(true)
   const [valueOfCommission, setValueOfCommission] = useState(false)
@@ -26,7 +26,6 @@ const BillBody = ({ formData, handleDelete, setEditData, openSpecialRateForm, ha
   const handleChange = (event) => {
     setUnit(event.target.value);
   };
-
 
   const handleSwitchVlue = () => {
     setValue(!value)
@@ -106,26 +105,26 @@ const BillBody = ({ formData, handleDelete, setEditData, openSpecialRateForm, ha
               Unit
               {/* <CustomTextFiled name='materials' required label='Units' placeholder='Select a materials' /> */}
               <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                  value={unit}
-                  name="persionTypeValue"
-                  onChange={handleChange}
-                  required
-                  sx={{
-                    width:'100%',
-                    background:'white'
-                  }}
-                >
-                  <MenuItem sx={{
-                    background: 'white !important',
-                    fontSize: '13px'
-                  }} value="Subcontractor">Subcontractor</MenuItem>
-                  <MenuItem sx={{
-                    background: 'rgb(237, 202, 51) !important',
-                    fontSize: '13px'
-                  }} value="Owner Operator">Owner Operator</MenuItem>
-                </Select>
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                value={unit}
+                name="persionTypeValue"
+                onChange={handleChange}
+                required
+                sx={{
+                  width: '100%',
+                  background: 'white'
+                }}
+              >
+                <MenuItem sx={{
+                  background: 'white !important',
+                  fontSize: '13px'
+                }} value="Subcontractor">Subcontractor</MenuItem>
+                <MenuItem sx={{
+                  background: 'rgb(237, 202, 51) !important',
+                  fontSize: '13px'
+                }} value="Owner Operator">Owner Operator</MenuItem>
+              </Select>
             </div>
             <div className={styles.textContainer}>
               <CustomTextFiled name='materials' label='Unit Invoice Rate' placeholder='$0.00' type='number' />
@@ -190,7 +189,6 @@ const BillBody = ({ formData, handleDelete, setEditData, openSpecialRateForm, ha
           <div className={styles.table}>
             <DataTable
               formData={formData}
-              handleDelete={handleDelete}
               handleEdit={handleEditData}
               handleDeleteDialog={handleDeleteDialog}
             />

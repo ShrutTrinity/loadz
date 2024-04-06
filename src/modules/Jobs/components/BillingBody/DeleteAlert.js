@@ -13,11 +13,7 @@ const globalStyles = {
   }
 }
 
-const DeleteAlert = ({ isOpen, closeDeleteConfirmationDialog, handleDelete }) => {
-  const handleConfirmDelete = (index) => {
-    handleDelete(index);
-    closeDeleteConfirmationDialog();
-  };
+const DeleteAlert = ({ isOpen, closeDeleteConfirmationDialog, handleConfirmDelete }) => {
 
   return (
     <Dialog
