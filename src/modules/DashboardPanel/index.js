@@ -7,7 +7,7 @@ import AddNew from '../Jobs/AddNew';
 import JobBill from '../Jobs/JobBill';
 import Index from '@components/Footer/Index';
 import Customer from '../Customer/Customer';
-import CustomerBalance from '../Customer/Components/CustomerBalance/CustomerBalance';
+import AddTruckAndTrailer from '../Truck/AddTruckAndTrailer';
 
 const Panel = () => {
 
@@ -50,7 +50,8 @@ const Panel = () => {
         <Route exact path='/jobs/new' element={<AddNew handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/customers' element={<Customer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
         <Route exact path='/jobs/billing/new' element={<JobBill handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/bbb' element={<CustomerBalance />} />
+        <Route exact path='/truck' element={<AddTruckAndTrailer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
+        
       </Routes>
       <Index/>  
       </>

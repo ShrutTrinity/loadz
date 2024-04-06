@@ -32,7 +32,7 @@ const Paymentmethods = [
   'Wire Transfer'
 ]
 
-const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
+const ApplyPayment = ({ handleApplyPaymentDailogClose, isOpen}) => {
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -52,16 +52,16 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
             maxWidth: 'unset'
           }
         }}
-        onClose={handleClose}
+        onClose={handleApplyPaymentDailogClose}
         aria-labelledby="customized-dialog-title"
-        open={openPaymentDailog}
+        open={isOpen}
       >
         <DialogTitle sx={{ m: 0, p: 2, fontWeight: 400 }} id="customized-dialog-title">
           Apply Payments
         </DialogTitle>
         <IconButton
           aria-label="close"
-          onClick={handleClose}
+          onClick={handleApplyPaymentDailogClose}
           sx={{
             position: 'absolute',
             right: 8,
@@ -126,7 +126,7 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
                   ))
                 }
 
-              </Select>
+            </Select>
             </FormControl>
             <CommonTextfield
               id='number'
@@ -170,7 +170,7 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
           </div>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleApplyPaymentDailogClose}>
             Save changes
           </Button>
         </DialogActions>
@@ -179,4 +179,4 @@ const ApplyPayment = ({ handleClose, openPaymentDailog }) => {
   )
 }
 
-export default ApplyPayment
+export default ApplyPayment 
