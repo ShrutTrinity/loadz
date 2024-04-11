@@ -67,7 +67,7 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
     };
   }
-  return (
+   return (
     <>
       {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
       <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
