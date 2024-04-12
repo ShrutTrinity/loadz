@@ -1,0 +1,32 @@
+[
+  {
+    "id":1,
+    "VIN":123,
+    "Status":"active",
+    "Year":2021,
+    "Make":2,
+    "Model":"ssc",
+    "Color":"red",
+    "InsuranceEnd":"2/8/2024"
+  },
+  {
+    "id":2,
+    "VIN":456,
+    "Status":"active",
+    "Year":2022,
+    "Make":2,
+    "Model":"ssc",
+    "Color":"red",
+    "InsuranceEnd":"2/8/2024"
+  },
+  {
+    "id":2,
+    "VIN":456,
+    "Status":"active",
+    "Year":2022,
+    "Make":2,
+    "Model":"ssc",
+    "Color":"red",
+    "InsuranceEnd":"2/8/2024"
+  }
+]
