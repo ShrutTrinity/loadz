@@ -30,6 +30,7 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,onOpen }) => {
   };
 
   return (
+    
     <div className={styles.root}>
       <div className={styles.container}>
         <label ref={popUpRef}>
