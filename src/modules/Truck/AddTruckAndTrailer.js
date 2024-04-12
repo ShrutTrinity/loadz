@@ -33,11 +33,6 @@ const allRouteStyle = {
 
 const AddTruckAndTrailer = () => {
   return (
-<<<<<<< HEAD
-    <div>
-        
-    </div>
-=======
     <>
       <div className={styles.container}>
         <div className={styles.header}>
@@ -136,7 +131,6 @@ const AddTruckAndTrailer = () => {
         </div>
       </div>
     </>
->>>>>>> 296d2bc71c2581258c4831d84af7a73e9ae0f3ab
   )
 }
 
