@@ -114,7 +114,7 @@ const Panel = () => {
         />
         <Route
           exact
-          path='/truck'
+          path='/Truck/all'
           element={
             <AddTruckAndTrailer
               handleDrawerClose={handleDrawerClose}

@@ -1,0 +1,79 @@
+@import "@styles";
+
+.container {
+  padding: 32px;
+  margin-top: 63px;
+  background-color: rgb(245, 245, 245);
+
+  .header {
+    .heading {
+      padding-bottom: 10px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .bottomHeader {
+      display: flex;
+      justify-content: space-between;
+      .headerButton {
+        display: flex;
+        gap: 6px;
+      }
+    }
+  }
+
+  .bodyContainer {
+    padding-top: 25px;
+
+    .content {
+      height: 50%;
+      overflow-y: scroll;
+      margin: 12px;
+
+      .cards {
+        margin-top: 30px;
+        display: flex;
+        gap: 16px;
+
+        .card {
+          background-color: $color_4;
+          padding: 15px 20px;
+          border-radius: 10px;
+          width: max-content;
+
+          .cardHeading {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+          }
+
+          .cardContent {
+            display: flex;
+            padding-top: 24px;
+
+            .cardImage {
+              max-width: 33.33%;
+            }
+            .cardValue {
+              display: flex;
+              padding-left: 24px;
+            }
+
+            .cardFunctionality {
+              padding-left: 24px;
+              max-width: 100%;
+              
+              .functionButton {
+                border-radius: 10px;
+                width: 100%;
+                &:hover {
+                  background-color: $color_3;
+                  transition-duration: 0.5s;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

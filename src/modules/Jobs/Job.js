@@ -82,7 +82,6 @@ const Job = (props) => {
         <div className={styles.subcontainer}>
           <div className={styles.label}>
             {switches.map((switchItem, index) => (
-              
               <Index
                 key={index}
                 label={switchItem.label}
@@ -92,7 +91,10 @@ const Job = (props) => {
             ))}
           </div>
           <div className={styles.search}>
-            <FormControl className={search} sx={{ width: 'auto', position: 'relative' }}>
+            <FormControl
+              className={search}
+              sx={{ width: 'auto', position: 'relative' }}
+            >
               <TextField
                 size="small"
                 variant="outlined"
@@ -129,8 +131,8 @@ const Job = (props) => {
               <Button variant="contained" sx={{
                 backgroundColor: 'rgb(237, 202, 51)',
                 color: 'black',
-                fontWeight: '600',    
-                padding:'6px 12px',                                                                                        
+                fontWeight: '600',
+                padding: '6px 12px',
                 '&:hover': {
                   backgroundColor: 'rgb(237, 202, 51)',
                 },
