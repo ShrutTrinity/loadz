@@ -68,8 +68,6 @@ const PersistentDrawerLeft = ({
 
 
   return (
-
-
     <AppBar position="static"
       sx={{
         '& .css-12i7wg6-MuiPaper-root-MuiDrawer-paper':

@@ -53,10 +53,11 @@
 
     .flexform{
       display: flex;
+      justify-content: space-between;
       margin-top: 20px;
 
       .formpart1 {
-        width: 50%;
+        width: 55%;
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -65,5 +66,6 @@
           width: 48%;
         }
       }
+    
     }
   }

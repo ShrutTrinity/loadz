@@ -4,6 +4,7 @@ import styles from './styles/datatable.module.scss'
 
 const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
+ 
 
   // Function to handle checkbox change
   const handleCheckboxChange = (id) => {

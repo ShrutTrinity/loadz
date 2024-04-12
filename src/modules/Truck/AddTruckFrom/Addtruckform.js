@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './addtruckform.module.scss'
 import { Link } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -9,12 +9,42 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import FilePopUp from '../../CreateAccount/Components/uploadPopUp';
+import persionImage from '@images/uploadpicture.svg'
+import Send from '../../CreateAccount/Components/uploadFile/Send';
 
 
-const Addtruckform = () => {
+const Addtruckform = (props) => {
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const handleClosePop = () => {
+    setShowPopUp(false);
+  }
+
+  const handleImageSelect = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setShowPopUp(false)
+  };
+  const handleClickOpen = (event) => {
+    event.stopPropagation();
+    setShowPopUp(true)
+  };
+  const bodyStyle = {
+    width: `calc(100% - ${props.open ? 290 : 0}px)`,
+  }
+  if (window.innerWidth <= 1300) {
+    bodyStyle.width = '100%';
+    var bodyclick = props.handleDrawerClose;
+  }
+
   return (
     <>
-      <div className={styles.body}>
+      {showPopUp && <FilePopUp
+        imageUrlforPopUp={selectedImage || persionImage}
+        onSelect={handleImageSelect}
+        onClose={handleClosePop}
+      />}
+      <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.container}>
           <div className={styles.header}>
             <div className={styles.heading}>
@@ -54,7 +84,7 @@ const Addtruckform = () => {
                   />
                 </div>
                 <div className={styles.width}>
-                    <InputLabel id="demo-simple-select-label">Status</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Status</InputLabel>
                   <FormControl fullWidth>
                     <Select
                       labelId="demo-simple-select-label"
@@ -67,9 +97,9 @@ const Addtruckform = () => {
                   </FormControl>
                 </div>
                 <div className={styles.width}>
-                <InputLabel id="demo-simple-select-label">Driver</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Driver</InputLabel>
                   <FormControl fullWidth>
-                    <Select 
+                    <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                     >
@@ -106,7 +136,10 @@ const Addtruckform = () => {
                   />
                 </div>
                 <div className={styles.width}>
-                <InputLabel id="demo-simple-select-label">Driver</InputLabel>
+                  <InputLabel
+                    id="demo-simple-select-label">
+                    Assign Trailer
+                  </InputLabel>
                   <FormControl fullWidth>
                     <Select
                       labelId="demo-simple-select-label"
@@ -119,27 +152,47 @@ const Addtruckform = () => {
                 </div>
                 <div className={styles.width}>
                   <CustomTextFiled
-                    id='cost-rate'
-                    name='cost-rate'
+                    id='Year'
+                    name='Year'
                     type='number'
-                    label='Material Cost Rate'
-                    placeholder='$0.00'
+                    label='Year'
+                    placeholder='Year'
                   />
                 </div>
                 <div className={styles.width}>
                   <CustomTextFiled
-                    id='cost-rate'
-                    name='cost-rate'
+                    id='date'
+                    name='date'
                     type='date'
-                    label='Material Cost Rate'
-                    placeholder=''
+                    label='Insurance expiry'
+                    placeholder='date'
                   />
-                  </div>
-                  <FormControlLabel control={<Checkbox defaultChecked />} label="Is Dump Truck" />
-              </div>
-              <div className={styles.formpart2}>
+                </div>
+                <FormControlLabel sx={{
+                  '& .css-ahj2mt-MuiTypography-root': {
+                    fontSize: '14px'
+                  },
+                  '& .css-sb4zwo-MuiButtonBase-root-MuiCheckbox-root.Mui-checked':{
+                    color:'rgb(237, 202, 51);'
+                  }
 
+                }} control={<Checkbox sx={{
+                  '& .css-1r4i9sy-MuiButtonBase-root-MuiCheckbox-root.Mui-checked': {
+                    color: 'yellow'
+                  }
+                }} defaultChecked />} label="Is Dump Truck" />
               </div>
+
+              <Send
+                className={styles.uploadimg}
+                children={selectedImage ?
+                  <img src={selectedImage}
+                    alt='Selecte persion'
+                    onClick={handleClickOpen} /> :
+                  <img src={persionImage}
+                    alt='Default Person logo'
+                    onClick={handleClickOpen} />} />
+
             </div>
           </form>
           <div></div>
