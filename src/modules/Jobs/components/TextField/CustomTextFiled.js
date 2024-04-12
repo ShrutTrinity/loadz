@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-const CustomTextFiled = ({ label, placeholder, type, children4, name, id }) => {
+const CustomTextFiled = ({ label, placeholder, type, children4, name, id,required}) => {
   return (
     <>
       <label>{label}</label>
@@ -11,6 +11,7 @@ const CustomTextFiled = ({ label, placeholder, type, children4, name, id }) => {
           marginBottom: '16px'
         }}
         id={id}
+        required={required}
         name={name}
         type={type}
         placeholder={placeholder}

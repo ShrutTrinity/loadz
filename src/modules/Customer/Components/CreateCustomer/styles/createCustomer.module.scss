@@ -1,7 +1,10 @@
 .addCustomer {
   font-weight: 700;
   font-size: 22px;
+  width: 100%;
+  justify-content: space-between;
   padding: 10px;
+  display: flex;
   color: black;
 }
 
@@ -75,7 +78,7 @@
   }
 
   .selectFiledsforNet{
-    width: 49%;
+    width: 31.5%;
   }
 }
 

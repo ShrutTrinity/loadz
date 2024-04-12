@@ -45,7 +45,7 @@ const Index = (props) => {
     <>
       <FormControlLabel
         control={<Android12Switch checked={props.checked} onChange={props.onChange}   sx={{
-          '& .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track': {
+          '& .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track': {
             backgroundColor: 'rgb(237, 202,51)',
             opacity:0.5
           },

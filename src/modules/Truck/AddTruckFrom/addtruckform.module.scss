@@ -1,0 +1,69 @@
+@import "@styles";
+
+.body {
+  width: 100%;
+  margin-top: 63px;
+  position: absolute;
+  right: 0;
+  padding: 50px 32px;
+  font-size: 13px;
+
+  .header {
+    padding-bottom: 10px;
+    justify-content: space-between;
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 100%;
+
+      .backLink {
+        text-decoration: none;
+        font-size: 18px;
+        cursor: pointer;
+        
+        .part1 {
+          color: $color_1;
+          display: flex;
+          margin: 0px;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 1.5;
+          align-items: center;
+          margin-bottom: 12px;
+          gap: 6px;
+
+          .backbtn {
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+      }
+        .part2{
+          .title{
+            font-weight: 700;
+            font-size: 31px;
+            color: black;
+          }
+        }
+      }
+    }
+
+
+    .flexform{
+      display: flex;
+      margin-top: 20px;
+
+      .formpart1 {
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .width{
+          width: 48%;
+        }
+      }
+    }
+  }

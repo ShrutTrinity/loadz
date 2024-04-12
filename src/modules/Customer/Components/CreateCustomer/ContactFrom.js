@@ -9,7 +9,7 @@ const ContactFrom = ({ index, handleAddForm, handleRemove }) => {
     <>
       <div style={{ display: 'flex', gap: '10px', marginTop: '10px', flexWrap: 'wrap' }}>
         <CommonTextfield
-          width='20'
+          width='22.5'
           id='title'
           name='title'
           type='title'
@@ -17,7 +17,7 @@ const ContactFrom = ({ index, handleAddForm, handleRemove }) => {
           variant='outlined'
         />
         <CommonTextfield
-          width='20'
+          width='22.5'
           id='name'
           name='name'
           type='name'
@@ -25,7 +25,7 @@ const ContactFrom = ({ index, handleAddForm, handleRemove }) => {
           variant='outlined'
         />
         <CommonTextfield
-          width='20'
+          width='22.5'
           id='email'
           name='email'
           type='email'
@@ -33,7 +33,7 @@ const ContactFrom = ({ index, handleAddForm, handleRemove }) => {
           variant='outlined'
         />
         <CommonTextfield
-          width='20'
+          width='22.5'
           id='phone'
           name='phone'
           type='phone'

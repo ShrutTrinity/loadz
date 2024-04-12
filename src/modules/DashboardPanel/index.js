@@ -9,6 +9,7 @@ import Index from '@components/Footer/Index';
 import Customer from '../Customer/Customer';
 import UninvoicedBody from '../Uninvoiced/UninvoicedBody';
 import AddTruckAndTrailer from '../Truck/AddTruckAndTrailer';
+import Addtruckform from '../Truck/AddTruckFrom/Addtruckform';
 
 const Panel = () => {
 
@@ -45,13 +46,94 @@ const Panel = () => {
     <>
       <PersistentDrawerLeft setting={setting} handleClose={handleClosse} handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
       <Routes>
-        <Route exact path='/dashboard' element={<Body handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/jobs' element={<Job handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/jobs/new' element={<AddNew handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/customers' element={<Customer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/jobs/billing/new' element={<JobBill handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
-        <Route exact path='/uninvoiced' element={<UninvoicedBody handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open}/>} />
-        <Route exact path='/truck/all' element={<AddTruckAndTrailer handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} open={open} />} />
+        <Route
+          exact
+          path='/dashboard'
+          element={
+            <Body
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/jobs'
+          element={
+            <Job
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/jobs/new'
+          element={
+            <AddNew
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/customers'
+          element={
+            <Customer
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/jobs/billing/new'
+          element={
+            <JobBill
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/uninvoiced'
+          element={
+            <UninvoicedBody
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/truck'
+          element={
+            <AddTruckAndTrailer
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/truckform'
+          element={
+            <Addtruckform
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
       </Routes>
       <Index />
     </>

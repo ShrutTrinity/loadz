@@ -58,6 +58,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
         <DialogTitle sx={{ m: 0, p: 2, fontWeight: 400 }} id="customized-dialog-title">
           <div className={styles.addCustomer}>
             <h4>Create Customer</h4>
+            <button className={styles.savebtn}>Save</button>
           </div>
         </DialogTitle>
         <DialogContent >
@@ -67,7 +68,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                 <h4 className={styles.newCustomer}>New Customer</h4>
                 <h6 className={styles.enterdetail}>Customer Details</h6>
               </div>
-              <button className={styles.savebtn}>Save</button>
+            
             </div>
             <br />
             <form className={styles.form}>
@@ -152,7 +153,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   ))}
                 </div>
                 <CommonTextfield
-                  width='98'
+                  width='32'
                   id='website'
                   name='website'
                   type='website'
@@ -181,7 +182,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   </select>
                 </div>
                 <CommonTextfield
-                  width='48'
+                  width='32'
                   id='creditLimit'
                   name='creditLimit'
                   type='creditLimit'
@@ -192,12 +193,12 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   width='97'
                   id='customerNotes'
                   name='customerNotes'
-                  type='customerNotes'
+                  type='textarea'
                   label='Customer Notes'
                   variant='outlined'
                 />
               </div>
-              <button className={styles.savebtn}>Save</button>
+              
               <div className={styles.last}>
                 <button className={styles.btn} onClick={handleClose}>Close</button>
               </div>
