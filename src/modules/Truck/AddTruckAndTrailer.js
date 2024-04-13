@@ -42,15 +42,13 @@ const AddTruckAndTrailer = () => {
           <div className={styles.bottomHeader}>
             <div className={styles.headerButton}>
               <Button
-                style={allRouteStyle.headerButton}
+                style={allRouteStyle.headerButton} 
                 variant="contained"
               >
                 Add Trucks
               </Button>
               <Button
-                style={allRouteStyle.headerButton}
-                variant="contained"
-              >
+                style={allRouteStyle.headerButton} variant="contained">
                 Add Trailer
               </Button>
             </div>
@@ -60,13 +58,10 @@ const AddTruckAndTrailer = () => {
                 border: '1px solid black',
                 borderRadius: '10px',
                 position: 'relative',
-              }}
-            >
+              }}>
               <TextField
                 size="large"
                 placeholder='Search Truck'
-                // value={searchValue}
-                // onChange={handleChange}
                 sx={{
                   flexGrow: 1,
                   borderRadius: '10px',

@@ -12,6 +12,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FilePopUp from '../../CreateAccount/Components/uploadPopUp';
 import persionImage from '@images/uploadpicture.svg'
 import Send from '../../CreateAccount/Components/uploadFile/Send';
+import { Button } from '@mui/material';
 
 
 const Addtruckform = (props) => {
@@ -168,12 +169,13 @@ const Addtruckform = (props) => {
                     placeholder='date'
                   />
                 </div>
+                <div className={styles.width2}>
                 <FormControlLabel sx={{
                   '& .css-ahj2mt-MuiTypography-root': {
                     fontSize: '14px'
                   },
-                  '& .css-sb4zwo-MuiButtonBase-root-MuiCheckbox-root.Mui-checked':{
-                    color:'rgb(237, 202, 51);'
+                  '& .css-sb4zwo-MuiButtonBase-root-MuiCheckbox-root.Mui-checked': {
+                    color: 'rgb(237, 202, 51);'
                   }
 
                 }} control={<Checkbox sx={{
@@ -181,6 +183,22 @@ const Addtruckform = (props) => {
                     color: 'yellow'
                   }
                 }} defaultChecked />} label="Is Dump Truck" />
+                </div>
+
+                <div className={styles.width3}>
+
+                <Button variant="contained" sx={{
+                  backgroundColor: 'rgb(237, 202, 51)',
+                  color: 'black',
+                  fontWeight: '600',
+                  padding: '6px 12px',
+                  '&:hover': {
+                    backgroundColor: 'rgb(237, 202, 51)',
+                  },
+                }}>
+                  Add Truck
+                </Button>
+                </div>
               </div>
 
               <Send
