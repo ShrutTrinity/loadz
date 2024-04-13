@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './styles/truck.module.scss';
 import {
   Button,
-  FormControl,
   InputAdornment,
   TextField,
 } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import Index from '../Jobs/components/switchForJob';
+import Data from './truckDetail.json';
 
 const allRouteStyle = {
   headerButton: {
@@ -21,12 +21,13 @@ const allRouteStyle = {
   },
 
   cardFunctionButton: {
-    color:'black',
-    padding:'10px',
-    width:'100%',
-    borderRadius:'10px',
-    textTransform:'uppercase',
-    border:'0.5px solid black',
+    color: 'black',
+    padding: '10px',
+    width: '100%',
+    fontWeight: '600',
+    borderRadius: '10px',
+    textTransform: 'uppercase',
+    border: '0.5px solid black',
   }
 }
 
@@ -52,34 +53,29 @@ const AddTruckAndTrailer = () => {
                 Add Trailer
               </Button>
             </div>
-            <FormControl
+            <TextField
+              size="large"
+              placeholder='Search Truck'
+              // value={searchValue}
+              // onChange={handleChange}
               sx={{
-                width: '33.33%',
-                border: '1px solid black',
+                flexGrow: 1,
                 borderRadius: '10px',
-                position: 'relative',
-              }}>
-              <TextField
-                size="large"
-                placeholder='Search Truck'
-                sx={{
-                  flexGrow: 1,
-                  borderRadius: '10px',
-                  background: 'white',
-                  '@media (max-width: 1200px)': {
-                    marginBottom: '16px',
-                    width: '100%'
-                  }
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  )
-                }}
-              />
-            </FormControl>
+                maxWidth:'40%',
+                border:'1px solid black',
+                background: 'white',
+                '@media (max-width: 652px)': {
+                  maxWidth: '100%'
+                }
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                )
+              }}
+            />
           </div>
         </div>
 
@@ -89,38 +85,55 @@ const AddTruckAndTrailer = () => {
               label="Archive"
             />
             <div className={styles.cards}>
-              <div className={styles.card}>
-                <h3 className={styles.cardHeading}>Truck No: 1</h3>
-                <div className={styles.cardContent}>
-                  <div className={styles.cardImage}>
-                    hii
-                  </div>
-                  <div className={styles.cardValue}>
-                    name : shrut
-                  </div>
-                  <div className={styles.cardFunctionality}>
-                  <div className={styles.functionButton}>
-                    <Button style={allRouteStyle.cardFunctionButton} variant="outlined">Outlined</Button>
-                  </div>
+              {Data.map((item, index) => (
+                <div className={styles.card} key={index}>
+                  <h3 className={styles.cardHeading}>Truck No: 1</h3>
+                  <div className={styles.cardContent}>
+                    <div className={styles.cardImage}>
+                      hii
+                    </div>
+                    <div className={styles.cardData}>
+                      <div className={styles.cardValue}>
+                        VIN : {item.VIN}
+                      </div>
+                      <div className={styles.cardValue}>
+                        Status:{item.Status}
+                      </div>
+                      <div className={styles.cardValue}>
+                        Year : {item.Year}
+                      </div>
+                      <div className={styles.cardValue}>
+                        Make : {item.Make}
+                      </div>
+                      <div className={styles.cardValue}>
+                        Model : {item.Model}
+                      </div>
+                      <div className={styles.cardValue}>
+                        Color:{item.Color}
+                      </div>
+                      <div className={styles.cardValue}>
+                        Insurance Expiry on:{item.InsuranceEnd}
+                      </div>
+                    </div>
+
+                    <div className={styles.cardFunctionality}>
+                      <div className={styles.functionButton}>
+                        <Button style={allRouteStyle.cardFunctionButton} variant="outlined">Fuel Logs</Button>
+                      </div>
+                      <div className={styles.functionButton}>
+                        <Button style={allRouteStyle.cardFunctionButton} variant="outlined">Inspection</Button>
+                      </div>
+                      <div className={styles.functionButton}>
+                        <Button style={allRouteStyle.cardFunctionButton} variant="outlined">Infractions</Button>
+                      </div>
+                      <div className={styles.functionButton}>
+                        <Button style={allRouteStyle.cardFunctionButton} variant="outlined">Edit Truck</Button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className={styles.card}>
-                <h3 className={styles.cardHeading}>Truck No: 1</h3>
-                <div className={styles.cardContent}>
-                  <div className={styles.cardImage}>
-                    hii
-                  </div>
-                  <div className={styles.cardValue}>
-                    name : shrut
-                  </div>
-                  <div className={styles.cardFunctionality}>
-                  <div className={styles.functionButton}>
-                    <Button style={allRouteStyle.cardFunctionButton} variant="outlined">Outlined</Button>
-                  </div>
-                  </div>
-                </div>
-              </div>
+              ))
+              }
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 @import "@styles";
 
 .container {
-  padding: 32px;
+  padding: 32px 32px 50px;
   margin-top: 63px;
   background-color: rgb(245, 245, 245);
 
@@ -26,19 +26,21 @@
 
     .content {
       height: 50%;
-      overflow-y: scroll;
       margin: 12px;
+      overflow-y: scroll;
 
       .cards {
         margin-top: 30px;
         display: flex;
-        gap: 16px;
+        flex-wrap: wrap;
+        gap: 1%;
 
         .card {
           background-color: $color_4;
           padding: 15px 20px;
           border-radius: 10px;
-          width: max-content;
+          width: 49%;
+          margin-bottom: 1%;
 
           .cardHeading {
             font-size: 22px;
@@ -51,17 +53,37 @@
             padding-top: 24px;
 
             .cardImage {
+              min-width: 33.33%;
               max-width: 33.33%;
             }
-            .cardValue {
-              display: flex;
+            .cardData {
               padding-left: 24px;
+              display: flex;
+              width: 100%;
+              flex-direction: column;
+              justify-content: flex-start;
+              width: max-content;
+              gap: 8px;
+
+              .cardValue {
+                font-size: 16px;
+                display: flex;
+                width: 100%;
+              }
+
+              .cardValue:nth-child(7) {
+                color: red;
+              }
             }
 
             .cardFunctionality {
               padding-left: 24px;
-              max-width: 100%;
-              
+              width: 25%;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              justify-content: flex-end;
+
               .functionButton {
                 border-radius: 10px;
                 width: 100%;
@@ -69,6 +91,46 @@
                   background-color: $color_3;
                   transition-duration: 0.5s;
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1022px) {
+  .container {
+    .bodyContainer {
+      .cards {
+        flex-direction: column;
+        .card {
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 652px) {
+  .container {
+    .header {
+      .bottomHeader {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+    .bodyContainer {
+      .content {
+        .cards {
+          .card {
+            .cardContent {
+              flex-direction: column;
+
+              .cardFunctionality {
+                margin-top: 10px;
+                width: 100%;
               }
             }
           }
