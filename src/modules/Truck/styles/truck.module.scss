@@ -28,12 +28,10 @@
 
     .content {
       
-        .cards {
-        margin-top: 15px;
+      .cards {
+        margin-top: 30px;
         display: flex;
         height: 50vh;
-  
-        
         padding-bottom: 20px;
         overflow-y:auto ;
         flex-wrap: wrap;
@@ -137,8 +135,8 @@
     .bodyContainer {
       .content {
         .cards {
-          max-height: unset;
-          overflow-y: unset;
+          max-height: 50vh;
+          overflow-y: auto;
           .card {
             .cardContent {
               flex-direction: column;
