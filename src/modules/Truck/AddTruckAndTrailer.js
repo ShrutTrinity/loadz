@@ -8,11 +8,13 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import Index from '../Jobs/components/switchForJob';
 import Data from './truckDetail.json';
+import { Link } from 'react-router-dom';
 
 const allRouteStyle = {
   headerButton: {
     background: 'rgb(237, 202, 51)',
     color: 'rgb(0,0,0)',
+    height:'100%',
     borderRadius: '10px',
     fontWeight: '700',
     padding: '10px 40px',
@@ -31,23 +33,31 @@ const allRouteStyle = {
   }
 }
 
-
-const AddTruckAndTrailer = () => {
+const AddTruckAndTrailer = (props) => {
+  const bodyStyle = {
+    width: `calc(100% - ${props.open ? 290 : 0}px)`,
+  }
+  if (window.innerWidth <= 1300) {
+    bodyStyle.width = '100%';
+    var bodyclick = props.handleDrawerClose;
+  }
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.header}>
           <div className={styles.heading}>
             Truck
           </div>
           <div className={styles.bottomHeader}>
             <div className={styles.headerButton}>
+            <Link to='/truckform' >
               <Button
-                style={allRouteStyle.headerButton} 
+                 style={allRouteStyle.headerButton}
                 variant="contained"
               >
                 Add Trucks
               </Button>
+              </Link>
               <Button
                 style={allRouteStyle.headerButton} variant="contained">
                 Add Trailer
