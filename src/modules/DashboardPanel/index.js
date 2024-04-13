@@ -10,6 +10,7 @@ import Customer from '../Customer/Customer';
 import UninvoicedBody from '../Uninvoiced/UninvoicedBody';
 import AddTruckAndTrailer from '../Truck/AddTruckAndTrailer';
 import Addtruckform from '../Truck/AddTruckFrom/Addtruckform';
+import TrailerScreen from '../Truck/AddTrailerScreen/TrailerScreen';
 
 const Panel = () => {
 
@@ -125,9 +126,20 @@ const Panel = () => {
         />
         <Route
           exact
-          path='/truckform'
+          path='/truck/modal'
           element={
             <Addtruckform
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/Typehaul/all'
+          element={
+            <TrailerScreen
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

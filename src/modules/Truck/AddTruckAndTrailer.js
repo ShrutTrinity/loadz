@@ -17,7 +17,7 @@ const allRouteStyle = {
     height:'100%',
     borderRadius: '10px',
     fontWeight: '700',
-    padding: '10px 40px',
+    padding: '10px 35px',
     fontSize: '15px',
     textTransform: 'capitalize'
   },
@@ -50,7 +50,7 @@ const AddTruckAndTrailer = (props) => {
           </div>
           <div className={styles.bottomHeader}>
             <div className={styles.headerButton}>
-            <Link to='/truckform' >
+            <Link to='/truck/modal' >
               <Button
                  style={allRouteStyle.headerButton}
                 variant="contained"

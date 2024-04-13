@@ -59,7 +59,7 @@ const PersistentDrawerLeft = ({
     { header: { 'DASHBOARD': '/dashboard' }, detail: { 'REQUEST BOARD': '/jobs' } },
     { header: { 'Jobs': '/jobs' }, detail: {} },
     { header: { 'CUSTOMERS': '/customers' }, detail: { 'UNINVOICED TICKETS': '/uninvoiced' } },
-    { header: { 'TRUCK': '' }, detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
+    { header: { 'TRUCK': '/truck/all' }, detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
     { header: { 'DRIVER LIST': '' }, detail: { 'TIME SHEETS': '/time-sheets' } },
     { header: { 'USER LIST': '' }, detail: {} },
     { header: { 'SUBCONTRACTORS': '' }, detail: {} },
@@ -100,7 +100,7 @@ const PersistentDrawerLeft = ({
               borderRadius: '50%'
             }} />
         </DrawerHeader>
-        <div className={styles.profile}>
+         <div className={styles.profile}>
           <img src={Profile} alt='profile' className={styles.img2} />
         </div>
         <DrawerContent>
