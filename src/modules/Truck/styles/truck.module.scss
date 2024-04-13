@@ -25,14 +25,17 @@
     padding-top: 25px;
 
     .content {
-      height: 50%;
+      padding-bottom: 250px;
       margin: 12px;
-      overflow-y: scroll;
 
       .cards {
-        margin-top: 30px;
+        margin-top: 15px;
         display: flex;
         flex-wrap: wrap;
+        scroll-behavior: smooth;
+        height: 5%;
+        overflow-y: scroll;
+        overflow-x: scroll;
         gap: 1%;
 
         .card {
@@ -105,6 +108,7 @@
     .bodyContainer {
       .cards {
         flex-direction: column;
+        height: 100%;
         .card {
           min-width: 100%;
         }
