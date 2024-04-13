@@ -7,11 +7,9 @@
   right: 0;
   padding: 50px 32px;
   font-size: 13px;
-
   .header {
     padding-bottom: 10px;
     justify-content: space-between;
-
     .heading {
       display: flex;
       flex-direction: column;
@@ -49,8 +47,6 @@
         }
       }
     }
-
-
     .flexform{
       display: flex;
       justify-content: space-between;
@@ -61,11 +57,18 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-
         .width{
           width: 48%;
         }
-      }
-    
+        .width2{
+          width: 100%;
+        }
+        .width3{
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          margin: 10px;
+        }
+      } 
     }
   }
