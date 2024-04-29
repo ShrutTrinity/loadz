@@ -100,7 +100,7 @@ const AddTruckAndTrailer = (props) => {
                   <h3 className={styles.cardHeading}>Truck No: {index +1}</h3>
                   <div className={styles.cardContent}>
                     <div className={styles.cardImage}>
-                      Image
+                      <img src={item.url} alt='tractor Fram'/>
                     </div>
                     <div className={styles.cardData}>
                       <div className={styles.cardValue}>
