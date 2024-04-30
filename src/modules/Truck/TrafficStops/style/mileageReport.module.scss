@@ -1,0 +1,82 @@
+@import "@styles";
+
+.container {
+  background-color: $color_3;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    color: $color_1;
+    padding: 16px 24px;
+
+    .headerText {
+      padding: 10px 16px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  .content {
+    background-color: $color_4;
+    color: $color_1;
+    padding: 20px 24px;
+
+    .rules {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-weight: 300;
+      font-size: 13px;
+    }
+
+    .dateContainer {
+      display: flex;
+      width: 100%;
+
+      .dateContent {
+        margin: 8px 4px 16px;
+
+        .labelOfpart {
+          font-size: 13px;
+          font-weight: 300;
+          text-align: start;
+        }
+      }
+    }
+
+    .trucksContainer {
+      width: 100%;
+
+      .labelOfpart {
+        font-size: 13px;
+        font-weight: 300;
+        text-align: start;
+      }
+    }
+
+    .driverContainer {
+      width: 100%;
+
+      .labelOfpart {
+        font-size: 13px;
+        font-weight: 300;
+        text-align: start;
+      }
+    }
+  }
+
+  .bottomFunction {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  .container{
+   width: 100%;
+   
+   .dateContainer{
+    flex-direction: column;
+   }
+  }
+}

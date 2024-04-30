@@ -10,6 +10,8 @@ import Customer from '../Customer/Customer';
 import UninvoicedBody from '../Uninvoiced/UninvoicedBody';
 import AddTruckAndTrailer from '../Truck/AddTruckAndTrailer';
 import Addtruckform from '../Truck/AddTruckFrom/Addtruckform';
+import DpsLogs from '../Truck/TrafficStops/DpsLogs';
+import TrafficShop from '../Truck/TrafficStops/TrafficShop';
 
 const Panel = () => {
 
@@ -133,6 +135,20 @@ const Panel = () => {
               toggleTextSelector={toggleTextSelector}
               open={open}
             />}
+        />
+        <Route
+          exact
+          path='/dps/logs'
+          element={
+            <DpsLogs />  
+          }
+        />
+        <Route
+          exact
+          path='/dps/logs/new'
+          element={
+            <TrafficShop />  
+          }
         />
       </Routes>
       <Index />
