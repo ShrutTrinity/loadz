@@ -59,9 +59,9 @@ const PersistentDrawerLeft = ({
     { header: { 'DASHBOARD': '/dashboard' }, detail: { 'REQUEST BOARD': '/jobs' } },
     { header: { 'Jobs': '/jobs' }, detail: {} },
     { header: { 'CUSTOMERS': '/customers' }, detail: { 'UNINVOICED TICKETS': '/uninvoiced' } },
-    { header: { 'TRUCK': '/truck/all' }, detail: { FUELLOG: '/fuellog', 'TRAFFIC STOPS': '/traffic-stops', INSPECTIONS: '/inspections' } },
+    { header: { 'TRUCK': '/truck/all' }, detail: { FUELLOG: '/Typehaul/all', 'TRAFFIC STOPS': '/dps/logs', INSPECTIONS: '/inspections' } },
     { header: { 'DRIVER LIST': '' }, detail: { 'TIME SHEETS': '/time-sheets' } },
-    { header: { 'USER LIST': '' }, detail: {} },
+    { header: { 'USER LIST': '/users' }, detail: {} },
     { header: { 'SUBCONTRACTORS': '' }, detail: {} },
     { header: { 'OWNER OPERATORS': '' }, detail: {} },
   ];

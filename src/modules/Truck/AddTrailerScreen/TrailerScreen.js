@@ -2,10 +2,17 @@ import React from 'react'
 import styles from './styles/trailerscreen.module.scss'
 import dump from '@images/dump.png'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-const TrailerScreen = () => {
+const TrailerScreen = (props) => {
+  const bodyStyle = {
+    width: `calc(100% - ${props.open ? 290 : 0}px)`,
+  }
+  if (window.innerWidth <= 1300) {
+    bodyStyle.width = '100%';
+    var bodyclick = props.handleDrawerClose;
+  }
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container}  style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.flexContainer}>
           <div className={styles.drawer}>
             <div className={styles.logo}>
@@ -24,6 +31,9 @@ const TrailerScreen = () => {
             </div>
           </div>
         </div>
+        <div className={styles.flexContainer2}>
+
+      </div>
       </div>
     </>
   )

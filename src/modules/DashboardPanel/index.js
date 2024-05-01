@@ -140,9 +140,15 @@ const Panel = () => {
         />
         <Route
           exact
+
           path='/dps/logs'
           element={
-            <DpsLogs />
+            <DpsLogs
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
           }
         />
         <Route
