@@ -5,6 +5,8 @@
   padding: 50px 32px 0 32px;
   background-color: rgb(245, 245, 245);
   height: 90vh;
+  position: absolute;
+  right: 0;
 
   .header {
     @include flex-column();
@@ -33,6 +35,10 @@
       margin: 0 25px 0 25px;
       width: 100%;
     }
+
+    .headerButton{
+      width: 20%
+    }
   }
 
   .emptyCondition {
@@ -54,7 +60,11 @@
       justify-content: flex-start;
 
       .searchCover{
-        margin: 0px;
+        margin: 16px 0 16px;
+      }
+
+      .headerButton{
+        width: 100%;
       }
     }
   }

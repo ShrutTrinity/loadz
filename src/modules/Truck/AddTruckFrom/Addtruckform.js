@@ -45,7 +45,10 @@ const Addtruckform = (props) => {
         onSelect={handleImageSelect}
         onClose={handleClosePop}
       />}
-      <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
+      <div
+        className={styles.body}
+        style={bodyStyle}
+        onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.container}>
           <div className={styles.header}>
             <div className={styles.heading}>
@@ -233,16 +236,16 @@ const Addtruckform = (props) => {
                     <img src={selectedImage}
                       alt='Selecte Logo'
                       onClick={handleClickOpen} /> :
-                  <div
-                    className={styles.imageContainer}
-                    >  
-                    <img
-                      src={ImageUploadLogo}
-                      alt='Default Upload logo'
-                      onClick={handleClickOpen}
-                    />
-                    <span className={styles.imageDiscription}>Upload Your Image</span>
-                  </div>                  
+                    <div
+                      className={styles.imageContainer}
+                    >
+                      <img
+                        src={ImageUploadLogo}
+                        alt='Default Upload logo'
+                        onClick={handleClickOpen}
+                      />
+                      <span className={styles.imageDiscription}>Upload Your Image</span>
+                    </div>
                 }
               />
             </div>
