@@ -87,18 +87,28 @@ const Body = (props) => {
     return (
         <>
             
-            <div className={styles.body} style={bodyStyles} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}   >
+            <div className={styles.body} 
+            style={bodyStyles} 
+            onClick={
+              props.textSelectorOpen ?
+               props.toggleTextSelector : 
+               bodyclick}   >
                 <h2 className={styles.company}>Company Name</h2>
                 <div className={styles.contain} >
                     <div className={styles.flex}>
                         <div className={styles.chart}>
                             <div className={styles.border}>
-                                <Chart options={options} series={options.series} width={`${props.open ? '99%' : '100%'}`} height={`${props.open ? '260%' : '260%'}`} />
+                                <Chart options={options} 
+                                series={options.series} 
+                                width={`${props.open ? '99%' : '100%'}`} 
+                                height={`${props.open ? '260%' : '260%'}`} />
                             </div>
                         </div>
                         <div className={styles.boxes}>
-                           
-                                <a className={styles.box} style={{ cursor: 'pointer' }} href='#Progress'>
+                          
+                                <a className={styles.box} 
+                                style={{ cursor: 'pointer' }} 
+                                href='#Progress'>
                                
                                     <div className={styles.context} >
                                         <div className={styles.zero}> 0 </div>
