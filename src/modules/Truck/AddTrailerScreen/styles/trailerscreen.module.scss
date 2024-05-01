@@ -1,0 +1,63 @@
+.container{
+      margin: 63px 0 0  0;
+      padding: 20px 15px;
+  .flexContainer{
+    margin: 10px 0;
+    display: flex;
+
+    .drawer{
+      padding: 20px 0;
+      width: 25%;
+
+      .logo{
+          display: flex;
+          padding: 24px;
+
+        .dumplogo{
+          height: 50px;
+          width: 50px;
+        }
+        .label{
+          font-size: 24px;
+          display: flex;
+          font-weight: 700;
+          justify-content: center;
+          align-items: center;
+        } 
+      }
+      .innerDrawer{
+        padding: 24px;
+      .addtrailerbtn{
+        width: 100%;
+        background-color: rgb(237, 202, 51);
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 300;
+        padding: 5px;
+        border: none;
+      }
+      .Title{
+        padding: 30px 10px 10px 0px;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .indexLabel{
+          display: flex;
+          gap: 10px;
+          padding: 10px 0;
+          margin: 5px 0;
+          align-items: center;
+          font-size: 14px;
+
+        .circleicon {
+          font-size: 16px;
+        }
+      }
+      .indexLabel:hover{
+        background-color: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+      }
+    }
+    }
+  }
+}

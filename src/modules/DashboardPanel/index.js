@@ -12,6 +12,7 @@ import AddTruckAndTrailer from '../Truck/AddTruckAndTrailer';
 import Addtruckform from '../Truck/AddTruckFrom/Addtruckform';
 import DpsLogs from '../Truck/TrafficStops/DpsLogs';
 import TrafficShop from '../Truck/TrafficStops/TrafficShop';
+import TrailerScreen from '../Truck/AddTrailerScreen/TrailerScreen';
 import UserList from '../Users/UserList';
 
 const Panel = () => {
@@ -128,7 +129,7 @@ const Panel = () => {
         />
         <Route
           exact
-          path='/truckform'
+          path='/truck/modal'
           element={
             <Addtruckform
               handleDrawerClose={handleDrawerClose}
@@ -150,6 +151,17 @@ const Panel = () => {
           element={
             <TrafficShop />
           }
+        />
+        <Route
+          exact
+          path='/Typehaul/all'
+          element={
+            <TrailerScreen
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
         />
         <Route
           exact
