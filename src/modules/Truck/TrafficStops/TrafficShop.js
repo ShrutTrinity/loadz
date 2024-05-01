@@ -44,7 +44,7 @@ const driverArray = [
 ];
 
 
-const TrafficShop = () => {
+const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelector }) => {
 
   const [value, setValue] = useState('1');
 
@@ -52,9 +52,21 @@ const TrafficShop = () => {
     setValue(newValue);
   };
 
+  const bodyStyle = {
+    width: `calc(100% - ${open ? 290 : 0}px)`,
+  }
+  if (window.innerWidth <= 1300) {
+    bodyStyle.width = '100%';
+    var bodyclick = handleDrawerClose;
+  }
+
   return (
     <>
-      <div className={styles.body}>
+      <div
+        className={styles.body}
+        style={bodyStyle}
+        onClick={textSelectorOpen ? toggleTextSelector : bodyclick}
+      >
         <div className={styles.header}>
           <div className={styles.heading}>
             <Link to="/dps/logs" className={styles.backLink}>

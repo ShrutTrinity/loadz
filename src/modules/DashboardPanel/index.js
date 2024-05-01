@@ -149,7 +149,12 @@ const Panel = () => {
           exact
           path='/dps/logs/new'
           element={
-            <TrafficShop />
+            <TrafficShop
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
           }
         />
         <Route
@@ -167,7 +172,12 @@ const Panel = () => {
           exact
           path='/users'
           element={
-            <UserList />
+            <UserList
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
           }
         />
       </Routes>

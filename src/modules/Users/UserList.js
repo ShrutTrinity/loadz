@@ -23,19 +23,19 @@ const TrafficShopStyle = {
     color: 'rgb(237,202,51)',
     fontSize: '16px',
     fontWeight: '300',
-    width: '15%',
+    width: '100%',
     margin: '3px 6px',
     padding: '8px 16px',
     borderRadius: '50px',
     textTransform: 'capitalize',
-    lineHeight: '0px'
+    lineHeight: '15px'
   },
   selectedTab: {
     color: 'rgb(237, 202, 51)',
     textTransform: 'capitalize',
   },
-  unSelected:{
-    textTransform:'capitalize'
+  unSelected: {
+    textTransform: 'capitalize'
   },
   selectFiled: {
     borderColor: '#c4c4c4',
@@ -55,7 +55,7 @@ const useStyles = makeStyles(() => {
   });
 });
 
-const UserList = () => {
+const UserList = ({open,handleDrawerClose,textSelectorOpen,toggleTextSelector}) => {
 
   const { search, clearIcon } = useStyles();
   const [searchValue, setSearchValue] = useState("");
@@ -77,8 +77,20 @@ const UserList = () => {
     setShowClearIcon(event.target.value === "" ? "none" : "flex");
   };
 
+  const bodyStyle = {
+    width: `calc(100% - ${open ? 290 : 0}px)`,
+  }
+  if (window.innerWidth <= 1300) {
+    bodyStyle.width = '100%';
+    var bodyclick = handleDrawerClose;
+  }
+
   return (
-    <div className={styles.body}>
+    <div
+      className={styles.body}
+      style={bodyStyle}
+      onClick={textSelectorOpen ? toggleTextSelector : bodyclick}
+    >
       <div className={styles.header}>
         <div className={styles.part2}>
           <div className={styles.headerText}>
@@ -93,7 +105,7 @@ const UserList = () => {
             sx={{
               width: '100%',
               position: 'relative',
-              background: 'white'
+              backgroundColor: 'white'
             }}
           >
             <TextField
@@ -105,8 +117,8 @@ const UserList = () => {
               sx={{
                 flexGrow: 1,
                 '@media (max-width: 1200px)': {
-                  marginBottom: '16px',
-                  width: '100%'
+                  width: '100%',
+                  height: '100%',
                 }
               }}
               InputProps={{
@@ -136,13 +148,15 @@ const UserList = () => {
           </FormControl>
         </div>
 
-        <Button
-          variant="contained"
-          style={TrafficShopStyle.button}
-          startIcon={<ControlPointIcon />}
-        >
-          Create Invite
-        </Button>
+        <div className={styles.headerButton}>
+          <Button
+            variant="contained"
+            style={TrafficShopStyle.button}
+            startIcon={<ControlPointIcon />}
+          >
+            Create Invite
+          </Button>
+        </div>
       </div>
 
       <Box sx={{ width: '100%', typography: 'body1', pt: '25px' }}>
@@ -155,21 +169,19 @@ const UserList = () => {
               <Tab
                 label="User"
                 value="1"
-                style={value === '1' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected}}
+                style={value === '1' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected }}
               />
               <Tab
                 label="Invites"
                 value="2"
-                style={value === '2' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected}}
+                style={value === '2' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected }}
               />
             </TabList>
           </Box>
           <TabPanel value="1" sx={{ padding: '24px' }}>
-
-          <div className={styles.emptyCondition}>
-            <span className={styles.emptyText}>There is no Staff!</span>
-          </div>
-
+            <div className={styles.emptyCondition}>
+              <span className={styles.emptyText}>There is no Staff!</span>
+            </div>
           </TabPanel>
         </TabContext>
       </Box>
