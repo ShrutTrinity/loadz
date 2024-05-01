@@ -10,7 +10,7 @@ import Select from '@mui/material/Select';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import FilePopUp from '../../CreateAccount/Components/uploadPopUp';
-import persionImage from '@images/uploadpicture.svg'
+import ImageUploadLogo from '@images/upload-image.svg';
 import Send from '../../CreateAccount/Components/uploadFile/Send';
 import { Button } from '@mui/material';
 
@@ -41,7 +41,7 @@ const Addtruckform = (props) => {
   return (
     <>
       {showPopUp && <FilePopUp
-        imageUrlforPopUp={selectedImage || persionImage}
+        imageUrlforPopUp={selectedImage || ImageUploadLogo}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
       />}
@@ -67,7 +67,6 @@ const Addtruckform = (props) => {
               <div className={styles.formpart1}>
                 <div className={styles.width}>
                   <CustomTextFiled
-                    required={"required"}
                     id='Truck Number'
                     name='Truck Number'
                     type='trucknumber'
@@ -77,6 +76,7 @@ const Addtruckform = (props) => {
                 </div>
                 <div className={styles.width}>
                   <CustomTextFiled
+                    required
                     id=' vinNumber'
                     name='VIN Number'
                     type='VIN Number'
@@ -85,12 +85,22 @@ const Addtruckform = (props) => {
                   />
                 </div>
                 <div className={styles.width}>
-                  <InputLabel id="demo-simple-select-label">Status</InputLabel>
+                  <InputLabel
+                    sx={{
+                      fontSize: '13px',
+                      color: 'black'
+                    }}
+                    id="demo-simple-select-label"
+                  >Status</InputLabel>
                   <FormControl fullWidth>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       defaultValue={10}
+                      sx={{
+                        maxHeight: 39 + 8,
+                        marginBottom: '8px'
+                      }}
                     >
                       <MenuItem value={10} >Active</MenuItem>
                       <MenuItem value={20}>Unactive</MenuItem>
@@ -98,11 +108,20 @@ const Addtruckform = (props) => {
                   </FormControl>
                 </div>
                 <div className={styles.width}>
-                  <InputLabel id="demo-simple-select-label">Driver</InputLabel>
+                  <InputLabel
+                    id="demo-simple-select-label"
+                    sx={{
+                      fontSize: '13px',
+                      color: 'black'
+                    }}
+                  >Driver</InputLabel>
                   <FormControl fullWidth>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
+                      sx={{
+                        maxHeight: 39 + 8
+                      }}
                     >
                       <MenuItem value={10} >No Driver </MenuItem>
                       <MenuItem value={20}> ABC</MenuItem>
@@ -138,6 +157,10 @@ const Addtruckform = (props) => {
                 </div>
                 <div className={styles.width}>
                   <InputLabel
+                    sx={{
+                      fontSize: '13px',
+                      color: 'black'
+                    }}
                     id="demo-simple-select-label">
                     Assign Trailer
                   </InputLabel>
@@ -145,6 +168,9 @@ const Addtruckform = (props) => {
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
+                      sx={{
+                        maxHeight: 39 + 8
+                      }}
                     >
                       <MenuItem value={10} >xyz </MenuItem>
                       <MenuItem value={20}> ABC</MenuItem>
@@ -170,47 +196,55 @@ const Addtruckform = (props) => {
                   />
                 </div>
                 <div className={styles.width2}>
-                <FormControlLabel sx={{
-                  '& .css-ahj2mt-MuiTypography-root': {
-                    fontSize: '14px'
-                  },
-                  '& .css-sb4zwo-MuiButtonBase-root-MuiCheckbox-root.Mui-checked': {
-                    color: 'rgb(237, 202, 51);'
-                  }
+                  <FormControlLabel sx={{
+                    '& .css-ahj2mt-MuiTypography-root': {
+                      fontSize: '14px'
+                    },
+                    '& .css-sb4zwo-MuiButtonBase-root-MuiCheckbox-root.Mui-checked': {
+                      color: 'rgb(237, 202, 51);'
+                    }
 
-                }} control={<Checkbox sx={{
-                  '& .css-1r4i9sy-MuiButtonBase-root-MuiCheckbox-root.Mui-checked': {
-                    color: 'yellow'
-                  }
-                }} defaultChecked />} label="Is Dump Truck" />
+                  }} control={<Checkbox sx={{
+                    '& .css-1r4i9sy-MuiButtonBase-root-MuiCheckbox-root.Mui-checked': {
+                      color: 'yellow'
+                    }
+                  }} defaultChecked />} label="Is Dump Truck" />
                 </div>
 
                 <div className={styles.width3}>
 
-                <Button variant="contained" sx={{
-                  backgroundColor: 'rgb(237, 202, 51)',
-                  color: 'black',
-                  fontWeight: '600',
-                  padding: '6px 12px',
-                  '&:hover': {
+                  <Button variant="contained" sx={{
                     backgroundColor: 'rgb(237, 202, 51)',
-                  },
-                }}>
-                  Add Truck
-                </Button>
+                    color: 'black',
+                    fontWeight: '600',
+                    padding: '6px 12px',
+                    '&:hover': {
+                      backgroundColor: 'rgb(237, 202, 51)',
+                    },
+                  }}>
+                    Add Truck
+                  </Button>
                 </div>
               </div>
 
               <Send
-                className={styles.uploadimg}
-                children={selectedImage ?
-                  <img src={selectedImage}
-                    alt='Selecte persion'
-                    onClick={handleClickOpen} /> :
-                  <img src={persionImage}
-                    alt='Default Person logo'
-                    onClick={handleClickOpen} />} />
-
+                children={
+                  selectedImage ?
+                    <img src={selectedImage}
+                      alt='Selecte Logo'
+                      onClick={handleClickOpen} /> :
+                  <div
+                    className={styles.imageContainer}
+                    >  
+                    <img
+                      src={ImageUploadLogo}
+                      alt='Default Upload logo'
+                      onClick={handleClickOpen}
+                    />
+                    <span className={styles.imageDiscription}>Upload Your Image</span>
+                  </div>                  
+                }
+              />
             </div>
           </form>
           <div></div>
@@ -221,6 +255,3 @@ const Addtruckform = (props) => {
 }
 
 export default Addtruckform
-
-
-

@@ -1,0 +1,61 @@
+@import "@styles";
+
+.body {
+  margin-top: 63px;
+  padding: 50px 32px;
+}
+
+.headerPart {
+  @include flex-column();
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  .headerName {
+    align-items: center;
+    display: flex;
+    .blockIcon {
+      font-size: 32px;
+    }
+    .headerText {
+      font-weight: 700;
+      margin-left: 12px;
+      font-size: 24px;
+    }
+  }
+
+  .functionButtons {
+    display: flex;
+
+    .buttonsContainer{
+      display: flex;
+    }
+
+    .search{
+      margin: 0 6px;
+    }
+  }
+}
+
+.emptyCondition {
+  @include center();
+  height: 65vh;
+
+  .emptyText{
+    font-size: 22.2857px;
+    color: rgb(107,114,128);
+    font-weight: 300;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .headerPart{
+    flex-wrap: wrap;
+    .functionButtons{
+      flex-direction: column;
+
+      .functionButtons{
+        width: 100%;
+      }
+    }
+  }
+}

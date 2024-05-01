@@ -35,6 +35,10 @@
         padding-bottom: 20px;
         overflow-y:auto ;
         flex-wrap: wrap;
+        scroll-behavior: smooth;
+        height: 5%;
+        overflow-y: scroll;
+        overflow-x: scroll;
         gap: 1%;
 
         .card {
@@ -56,8 +60,12 @@
             padding-top: 24px;
 
             .cardImage {
-              min-width: 33.33%;
               max-width: 33.33%;
+              min-width: 33.32%;
+
+              img{
+                width: 100%;
+              }
             }
             .cardData {
               padding-left: 24px;
@@ -65,7 +73,7 @@
               width: 100%;
               flex-direction: column;
               justify-content: flex-start;
-              width: max-content;
+              width: max-content; 
               gap: 8px;
 
               .cardValue {
@@ -136,9 +144,15 @@
           .card {
             .cardContent {
               flex-direction: column;
-              
-    
+              align-items: center;
 
+              .cardImage{
+                width: 100%;
+                margin-bottom: 10px;
+              }
+              .cardData{
+                align-items: flex-start;
+              }
               .cardFunctionality {
                 margin-top: 10px;
                 width: 100%;

@@ -138,7 +138,6 @@ const AddNew = (props) => {
                       placeholder="Destination"
                       type="text"
                       children4=<div className={styles.btn}><EditLocationAltIcon onClick={PopupOpenDest} sx={{ cursor: 'pointer', fontSize: '18px' }} /></div>
-
                       formik={formik}
                     />
                   </div>

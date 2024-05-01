@@ -97,10 +97,10 @@ const AddTruckAndTrailer = (props) => {
             <div className={styles.cards}>
               {Data.map((item, index) => (
                 <div className={styles.card} key={index}>
-                  <h3 className={styles.cardHeading}>Truck No: 1</h3>
+                  <h3 className={styles.cardHeading}>Truck No: {index +1}</h3>
                   <div className={styles.cardContent}>
                     <div className={styles.cardImage}>
-                      hii
+                      <img src={item.url} alt='tractor Fram'/>
                     </div>
                     <div className={styles.cardData}>
                       <div className={styles.cardValue}>
