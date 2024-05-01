@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './styles/trailerscreen.module.scss'
 import dump from '@images/dump.png'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 const TrailerScreen = () => {
   return (
@@ -13,12 +15,15 @@ const TrailerScreen = () => {
               <div className={styles.label}>Trailer</div>
             </div>
             <div className={styles.innerDrawer}>
-              <button className={styles.addtrailer}>Add Trailers</button>
-              <div className={styles.indexLabel}>Dashboard</div>
-              <div className={styles.indexLabel}>Dashboard </div>
-              <div className={styles.indexLabel}>Cement</div>
-              <div className={styles.indexLabel}>Cement</div>
-              <div className={styles.indexLabel}> Box</div>
+              <button className={styles.addtrailerbtn}>Add Trailers</button>
+              <div className={styles.Title}>Type</div>
+              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Flatbed </div>
+              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Belly Dump </div>
+              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>End Dump </div>
+              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Cement </div>
+              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Box </div>
+              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Tanker </div>
+          
             </div>
           </div>
         </div>
