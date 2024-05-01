@@ -2,8 +2,6 @@ import React from 'react'
 import styles from './styles/trailerscreen.module.scss'
 import dump from '@images/dump.png'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
-
 const TrailerScreen = () => {
   return (
     <>
@@ -23,7 +21,6 @@ const TrailerScreen = () => {
               <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Cement </div>
               <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Box </div>
               <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon}/>Tanker </div>
-          
             </div>
           </div>
         </div>
