@@ -34,7 +34,14 @@ const useStyles = makeStyles(() => {
   });
 });
 
-const DpsLogs = () => {
+const DpsLogs = (props) => {
+  const bodyStyle = {
+    width: `calc(100% - ${props.open ? 290 : 0}px)`,
+  }
+  if (window.innerWidth <= 1300) {
+    bodyStyle.width = '100%';
+    var bodyclick = props.handleDrawerClose;
+  }
   const { search, clearIcon } = useStyles();
   const [searchValue, setSearchValue] = useState("");
   const [showClearIcon, setShowClearIcon] = useState("none");
@@ -61,7 +68,7 @@ const DpsLogs = () => {
         mileageDialogOpen={mileageReportModel}
         mileageDialogClose={handleMileageReportModel}
       />}
-      <div className={styles.body}>
+      <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.headerPart}>
           <div className={styles.headerName}>
             <BlockIcon className={styles.blockIcon} />
