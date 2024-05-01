@@ -12,6 +12,7 @@ import AddTruckAndTrailer from '../Truck/AddTruckAndTrailer';
 import Addtruckform from '../Truck/AddTruckFrom/Addtruckform';
 import DpsLogs from '../Truck/TrafficStops/DpsLogs';
 import TrafficShop from '../Truck/TrafficStops/TrafficShop';
+import UserList from '../Users/UserList';
 
 const Panel = () => {
 
@@ -140,14 +141,21 @@ const Panel = () => {
           exact
           path='/dps/logs'
           element={
-            <DpsLogs />  
+            <DpsLogs />
           }
         />
         <Route
           exact
           path='/dps/logs/new'
           element={
-            <TrafficShop />  
+            <TrafficShop />
+          }
+        />
+        <Route
+          exact
+          path='/users'
+          element={
+            <UserList />
           }
         />
       </Routes>

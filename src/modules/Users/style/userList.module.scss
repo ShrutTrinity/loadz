@@ -1,0 +1,61 @@
+@import "@styles";
+
+.body {
+  margin-top: 63px;
+  padding: 50px 32px 0 32px;
+  background-color: rgb(245, 245, 245);
+  height: 90vh;
+
+  .header {
+    @include flex-column();
+    justify-content: space-between;
+
+    .part2 {
+      max-width: 100%;
+
+      .headerText {
+        @include flex-column();
+        margin: 0 0px;
+
+        .headerHeading {
+          font-weight: 700;
+          font-size: 25px;
+          margin-left: 16px;
+        }
+      }
+      span {
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
+    .searchCover {
+      margin: 0 25px 0 25px;
+      width: 100%;
+    }
+  }
+
+  .emptyCondition {
+    @include center();
+
+    .emptyText {
+      font-size: 22.2857px;
+      color: rgb(107, 114, 128);
+      font-weight: 300;
+    }
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .body {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .searchCover{
+        margin: 0px;
+      }
+    }
+  }
+}
