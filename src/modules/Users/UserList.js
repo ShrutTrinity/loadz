@@ -16,6 +16,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import InviteUserDialog from './Components/InviteUserDialog';
 
 const TrafficShopStyle = {
   button: {
@@ -55,12 +56,13 @@ const useStyles = makeStyles(() => {
   });
 });
 
-const UserList = ({open,handleDrawerClose,textSelectorOpen,toggleTextSelector}) => {
+const UserList = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
   const { search, clearIcon } = useStyles();
   const [searchValue, setSearchValue] = useState("");
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [value, setValue] = useState('1');
+  const [inviteUserDialog, setInviteUserDialog] = useState(false);
 
   const handleChangeTab = (event, newValue) => {
     setValue(newValue);
@@ -77,6 +79,10 @@ const UserList = ({open,handleDrawerClose,textSelectorOpen,toggleTextSelector}) 
     setShowClearIcon(event.target.value === "" ? "none" : "flex");
   };
 
+  const handleInviteUserDialog = () => {
+    setInviteUserDialog(!inviteUserDialog)
+  }
+
   const bodyStyle = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
   }
@@ -86,106 +92,115 @@ const UserList = ({open,handleDrawerClose,textSelectorOpen,toggleTextSelector}) 
   }
 
   return (
-    <div
-      className={styles.body}
-      style={bodyStyle}
-      onClick={textSelectorOpen ? toggleTextSelector : bodyclick}
-    >
-      <div className={styles.header}>
-        <div className={styles.part2}>
-          <div className={styles.headerText}>
-            <AccountBoxIcon fontSize='large' />
-            <span className={styles.headerHeading}>Users</span>
+    <>
+      {
+        <InviteUserDialog 
+        inviteUserDialogOpen={inviteUserDialog} 
+        inviteUserDialogClose={handleInviteUserDialog}
+        />
+      }
+      <div
+        className={styles.body}
+        style={bodyStyle}
+        onClick={textSelectorOpen ? toggleTextSelector : bodyclick}
+      >
+        <div className={styles.header}>
+          <div className={styles.part2}>
+            <div className={styles.headerText}>
+              <AccountBoxIcon fontSize='large' />
+              <span className={styles.headerHeading}>Users</span>
+            </div>
+          </div>
+
+          <div className={styles.searchCover}>
+            <FormControl
+              className={search}
+              sx={{
+                width: '100%',
+                position: 'relative',
+                backgroundColor: 'white'
+              }}
+            >
+              <TextField
+                size="small"
+                placeholder='Search ..'
+                variant="outlined"
+                value={searchValue}
+                onChange={handleChange}
+                sx={{
+                  flexGrow: 1,
+                  '@media (max-width: 1200px)': {
+                    width: '100%',
+                    height: '100%',
+                  }
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment
+                      position="end"
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: 2,
+                        height: '100%',
+                        display: showClearIcon
+                      }}
+                      onClick={handleClick}
+                      className={clearIcon}
+                    >
+                      <ClearIcon />
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </FormControl>
+          </div>
+
+          <div className={styles.headerButton}>
+            <Button
+              variant="contained"
+              style={TrafficShopStyle.button}
+              startIcon={<ControlPointIcon />}
+              onClick={handleInviteUserDialog}
+            >
+              Create Invite
+            </Button>
           </div>
         </div>
 
-        <div className={styles.searchCover}>
-          <FormControl
-            className={search}
-            sx={{
-              width: '100%',
-              position: 'relative',
-              backgroundColor: 'white'
-            }}
-          >
-            <TextField
-              size="small"
-              placeholder='Search ..'
-              variant="outlined"
-              value={searchValue}
-              onChange={handleChange}
-              sx={{
-                flexGrow: 1,
-                '@media (max-width: 1200px)': {
-                  width: '100%',
-                  height: '100%',
-                }
-              }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment
-                    position="end"
-                    style={{
-                      position: 'absolute',
-                      right: 0,
-                      top: 2,
-                      height: '100%',
-                      display: showClearIcon
-                    }}
-                    onClick={handleClick}
-                    className={clearIcon}
-                  >
-                    <ClearIcon />
-                  </InputAdornment>
-                )
-              }}
-            />
-          </FormControl>
-        </div>
-
-        <div className={styles.headerButton}>
-          <Button
-            variant="contained"
-            style={TrafficShopStyle.button}
-            startIcon={<ControlPointIcon />}
-          >
-            Create Invite
-          </Button>
-        </div>
+        <Box sx={{ width: '100%', typography: 'body1', pt: '25px' }}>
+          <TabContext value={value}>
+            <Box sx={{
+              borderBottom: 1,
+              borderColor: 'divider',
+            }}>
+              <TabList onChange={handleChangeTab}>
+                <Tab
+                  label="User"
+                  value="1"
+                  style={value === '1' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected }}
+                />
+                <Tab
+                  label="Invites"
+                  value="2"
+                  style={value === '2' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected }}
+                />
+              </TabList>
+            </Box>
+            <TabPanel value="1" sx={{ padding: '24px' }}>
+              <div className={styles.emptyCondition}>
+                <span className={styles.emptyText}>There is no Staff!</span>
+              </div>
+            </TabPanel>
+          </TabContext>
+        </Box>
       </div>
-
-      <Box sx={{ width: '100%', typography: 'body1', pt: '25px' }}>
-        <TabContext value={value}>
-          <Box sx={{
-            borderBottom: 1,
-            borderColor: 'divider',
-          }}>
-            <TabList onChange={handleChangeTab}>
-              <Tab
-                label="User"
-                value="1"
-                style={value === '1' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected }}
-              />
-              <Tab
-                label="Invites"
-                value="2"
-                style={value === '2' ? { ...TrafficShopStyle.selectedTab } : { ...TrafficShopStyle.unSelected }}
-              />
-            </TabList>
-          </Box>
-          <TabPanel value="1" sx={{ padding: '24px' }}>
-            <div className={styles.emptyCondition}>
-              <span className={styles.emptyText}>There is no Staff!</span>
-            </div>
-          </TabPanel>
-        </TabContext>
-      </Box>
-    </div>
+    </>
   )
 }
 

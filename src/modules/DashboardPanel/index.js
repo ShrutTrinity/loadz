@@ -19,7 +19,7 @@ const Panel = () => {
 
   const [open, setOpen] = useState(false);
   const [setting, setSetting] = useState(false);
-  const [textSelectorOpen, setTextSelectorOpen] = useState(false)
+  const [textSelectorOpen, setTextSelectorOpen] = useState(false);
 
   const toggleTextSelector = () => {
     setTextSelectorOpen(!textSelectorOpen);
