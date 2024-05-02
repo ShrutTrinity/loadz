@@ -1,0 +1,102 @@
+@import '@styles';
+
+.body{
+  margin-top: 63px;
+  padding: 50px 32px 0 32px;
+  background-color: rgb(245, 245, 245);
+  height: 90vh;
+  position: absolute;
+  right: 0;
+
+  .header {
+    @include flex-column();
+    gap: 8px;
+    flex-wrap: wrap;
+    
+    .part2 {
+      max-width: 100%;
+      
+      .headerText {
+        @include flex-column();
+        margin: 0 0px;
+        
+        .headerHeading {
+          font-weight: 700;
+          font-size: 22px;
+          margin-left: 8px;
+        }
+      }
+      span {
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
+    .dieselFluid{
+      @include flex-column();
+      margin-left: 16px;
+
+      .switchlabel{
+        font-size: 12px;
+        opacity: 0.6;
+      }
+    }
+
+    .field1{
+      width: 12%;
+      font-size: 13px;
+    }
+
+    .searchCover {
+      width: 23%;
+    }
+
+    .headerButton{
+      width: 25%;
+      @include flex-column();
+    }
+  }
+
+  .fuelPrice{
+    margin-top: 16px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0.7;
+  }
+
+  .contentBody{
+    margin-top: 6px;
+    background-color: $color_4;
+    border-radius: 18px;
+    padding: 16px;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .body{
+    .header{
+      gap: 4px;
+      width: 100%;
+      .headerButton{
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .body{
+    .header{     
+      .field1{
+        width: 100%;
+      }
+      .searchCover{
+        width: 100%;
+      }
+      .headerButton{
+        width: 100%;
+      }
+    }
+  }
+}
