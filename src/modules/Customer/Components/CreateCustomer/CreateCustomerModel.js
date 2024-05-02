@@ -123,7 +123,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                     aria-label="Default select example"
                     name="state"
                   >
-                    <option value="" selected disabled >Select a State</option>
+                    <option value=""  disabled >Select a State</option>
                     {statesArray.map((state, index) => (
                       <option key={index} value={state}>
                         {state}

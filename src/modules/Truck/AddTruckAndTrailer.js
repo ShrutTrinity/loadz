@@ -58,10 +58,12 @@ const AddTruckAndTrailer = (props) => {
                 Add Trucks
               </Button>
               </Link>
+              <Link to='/Typehaul/all'>
               <Button
                 style={allRouteStyle.headerButton} variant="contained">
                 Add Trailer
               </Button>
+              </Link>
             </div>
             <TextField
               size="large"

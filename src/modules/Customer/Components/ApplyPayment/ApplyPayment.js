@@ -106,7 +106,10 @@ const ApplyPayment = ({ handleApplyPaymentDailogClose, isOpen}) => {
             </DemoContainer>
           </LocalizationProvider>
           <div className={styles.flex2}>
-            <FormControl sx={{ width: '20%', }}>
+            <FormControl sx={{ width: '20%',
+            '@media (max-width: 700px)': {
+                  width: '100%'
+                } }}>
               <Select
                 sx={{
                   '& .css-1nfzlfx-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
@@ -135,7 +138,10 @@ const ApplyPayment = ({ handleApplyPaymentDailogClose, isOpen}) => {
               label='Reference No.'
               width='20%'
             />
-            <FormControl sx={{ width: '50%', display: 'flex',alignItems:'flex-end' }}>
+            <FormControl sx={{ width: '50%', display: 'flex',alignItems:'flex-end',
+            '@media (max-width: 700px)': {
+                  width: '100%'
+                } }}>
             <TextField
               sx={{
                 width: `${50}%`,
@@ -153,7 +159,7 @@ const ApplyPayment = ({ handleApplyPaymentDailogClose, isOpen}) => {
               type='number'
               label='Amount Recived'
               variant='outlined'
-              defaultValue='$0.00'
+          
             />
             </FormControl>
           </div>
