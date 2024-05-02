@@ -92,7 +92,7 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
                       borderRadius: '20px',
                     },
                     '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                      padding: '05px'
+                      padding: '5px'
                     },
                     boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 2px;',
                     border: 'none',

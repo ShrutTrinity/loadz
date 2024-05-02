@@ -37,6 +37,8 @@ const Android12Switch = styled(Switch)(({ checked }) => ({
 
 const Index = (props) => {
 
+  console.log(props.checked)
+
 // const [checked, setChecked] = useState(props.check);
 //   const handleChange = () => {
 //     setChecked((prev) => !prev);
@@ -44,11 +46,15 @@ const Index = (props) => {
   return (
     <>
       <FormControlLabel
+      sx={{margin:0}}
         control={<Android12Switch checked={props.checked} onChange={props.onChange}   sx={{
           '& .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track': {
             backgroundColor: 'rgb(237, 202,51)',
             opacity:0.5
           },
+          '& .MuiSwitch-thumb':{
+            backgroundColor: props.checked ? 'rgb(237, 202, 51)' : ''
+          }
         }} />}
         label={props.label}
         labelPlacement="start"

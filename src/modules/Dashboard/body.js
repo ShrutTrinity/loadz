@@ -16,13 +16,11 @@ var lastYear = lastWeekDate.getFullYear()
 var options = {
     series: [{
         name: "Desktops",
-        // data: [1,1.1,1.2,2.2,5]
+        data: []
     }],
     chart: {
-
         width: "100%",
         height: "100%",
-
         type: 'line',
         zoom: {
             enabled: false

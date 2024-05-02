@@ -99,7 +99,8 @@ const Addtruckform = (props) => {
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      defaultValue={10}
+                      value={10}
+
                       sx={{
                         maxHeight: 39 + 8,
                         marginBottom: '8px'
@@ -122,8 +123,10 @@ const Addtruckform = (props) => {
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
+                      value={10} 
                       sx={{
                         maxHeight: 39 + 8
+
                       }}
                     >
                       <MenuItem value={10} >No Driver </MenuItem>

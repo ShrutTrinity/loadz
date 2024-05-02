@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "type": "Car",
+    "name": "Toyota Camry",
+    "number": "ABC123",
+    "status": "Available",
+    "image": "https://app.loadz.com/assets/images/trailer/trailer.png"
+  },
+  {
+    "id": 2,
+    "type": "Truck",
+    "name": "Ford F-150",
+    "number": "XYZ456",
+    "status": "In Use",
+    "image": "https://app.loadz.com/assets/images/trailer/trailer.png"
+  }
+]
