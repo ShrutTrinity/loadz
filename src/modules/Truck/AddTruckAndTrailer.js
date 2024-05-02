@@ -34,6 +34,7 @@ const allRouteStyle = {
 }
 
 const AddTruckAndTrailer = (props) => {
+  
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
   }
@@ -41,6 +42,7 @@ const AddTruckAndTrailer = (props) => {
     bodyStyle.width = '100%';
     var bodyclick = props.handleDrawerClose;
   }
+
   return (
     <>
       <div className={styles.container} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>

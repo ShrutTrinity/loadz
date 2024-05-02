@@ -14,6 +14,7 @@ import DpsLogs from '../Truck/TrafficStops/DpsLogs';
 import TrafficShop from '../Truck/TrafficStops/TrafficShop';
 import TrailerScreen from '../Truck/AddTrailerScreen/TrailerScreen';
 import UserList from '../Users/UserList';
+import FuelLog from '../Truck/FuelLogList/FuelLog';
 
 const Panel = () => {
 
@@ -179,6 +180,18 @@ const Panel = () => {
           path='/users'
           element={
             <UserList
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/mileages/logs'
+          element={
+            <FuelLog
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

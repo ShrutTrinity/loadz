@@ -1,0 +1,16 @@
+[
+  {
+    "id":1,
+    "TruckNo": "J12345",
+    "Drivers": "A",
+    "Mileage": 16,
+    "FuelGallons": "MaterialX",
+    "FuelRate": 50,
+    "FuelTotal": 200,
+    "DefQty": 20,
+    "DefRate": "56",
+    "DefTotal": 300,
+    "Image": "https://www.golegal.co.za/wp-content/uploads/2018/12/fuel-price.jpg",
+    "Date": "2/04/2024"
+  }
+]
