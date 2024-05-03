@@ -15,6 +15,7 @@ import TrafficShop from '../Truck/TrafficStops/TrafficShop';
 import TrailerScreen from '../Truck/AddTrailerScreen/TrailerScreen';
 import UserList from '../Users/UserList';
 import FuelLog from '../Truck/FuelLogList/FuelLog';
+import NewFuelLog from '../Truck/FuelLogList/Components/FuelNewLog/NewFuelLog';
 
 const Panel = () => {
 
@@ -197,6 +198,13 @@ const Panel = () => {
               toggleTextSelector={toggleTextSelector}
               open={open}
             />
+          }
+        />
+        <Route
+          exact
+          path='/mileages/logs/new'
+          element={
+            <NewFuelLog />
           }
         />
       </Routes>
