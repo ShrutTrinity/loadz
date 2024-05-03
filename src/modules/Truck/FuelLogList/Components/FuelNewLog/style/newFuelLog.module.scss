@@ -1,0 +1,176 @@
+@import "@styles";
+
+.body {
+  margin-top: 63px;
+  padding: 50px 32px 0 32px;
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  position: absolute;
+  right: 0;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+
+      .backLink {
+        text-decoration: none;
+        cursor: pointer;
+        margin-bottom: 13px;
+
+        .part1 {
+          color: $color_1;
+          display: flex;
+          margin: 0px;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 1.5;
+          align-items: center;
+          margin-bottom: 2px;
+          gap: 6px;
+
+          .backText {
+            font-weight: 300;
+          }
+        }
+      }
+      .part2 {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .headerText1 {
+          margin: 0 12px;
+
+          h4 {
+            font-weight: 700;
+            font-size: 24px;
+            margin: 0;
+            line-height: 1.235;
+          }
+        }
+        span {
+          font-size: 12px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .headerButtonCover {
+      @include flex-column();
+      line-height: 5px;
+    }
+  }
+}
+
+.body {
+  .bodyCover {
+    display: flex;
+    width: 100%;
+
+    .firstContainer {
+      width: 50%;
+
+      .selectionField {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 16px;
+
+        .driverSelection {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+        }
+        .labelOfSelection {
+          font-size: 13px;
+        }
+
+        .truckSelection {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          margin-left: 6px;
+        }
+      }
+
+      .mileageField {
+        font-size: 13px;
+      }
+
+      .dateMileageFeild {
+        margin-top: 16px;
+
+        .labelOfSelection {
+          margin-bottom: -8px !important;
+          font-size: 13px;
+        }
+      }
+
+      .term {
+        font-size: 13px;
+        margin-left: 8px;
+        margin-bottom: 24px;
+      }
+    }
+
+    .secondContainer {
+      width: 50%;
+      height: 50vh;
+      @include center();
+    }
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .body {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .body {
+    .bodyCover {
+      flex-direction: column-reverse;
+
+      .firstContainer {
+        width: 100%;
+      }
+
+      .secondContainer {
+        width: 100%;
+        height: 70%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .body {
+    .bodyCover {
+      .firstContainer {
+        .selectionField {
+          flex-direction: column;
+          .driverSelection {
+            width: 100%;
+          }
+          .truckSelection{
+            width: 100%;
+            margin-left: 0px;
+          }
+        }
+      }
+
+      .secondContainer {
+        width: 100%;
+        height: 70%;
+      }
+    }
+  }
+}

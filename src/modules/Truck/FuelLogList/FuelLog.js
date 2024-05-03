@@ -16,6 +16,7 @@ import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Index from '../../Jobs/components/switchForJob';
 import FuelData from './Components/FuelDataTable/FuelData';
+import MileageReportDialog from './Components/MileageReport/MileageReportDialog';
 
 const useStyles = makeStyles(() => {
   return createStyles({
@@ -52,6 +53,7 @@ const FuelLog = (props) => {
   const [searchValue, setSearchValue] = useState("");
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [type, setType] = useState('40');
+  const [mileageDialogOpen, setMileageDialogOpen] = useState(false);
 
   const handleChangeType = (event) => {
     setType(event.target.value);
@@ -68,6 +70,10 @@ const FuelLog = (props) => {
     setShowClearIcon(event.target.value === "" ? "none" : "flex");
   };
 
+  const handleMileageReportDialog = () => {
+    setMileageDialogOpen(!mileageDialogOpen)
+  }
+
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
   }
@@ -77,127 +83,134 @@ const FuelLog = (props) => {
   }
 
   return (
-    <div
-      className={styles.body}
-      style={bodyStyle}
-      onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
-    >
-      <div className={styles.header}>
-        <div className={styles.part2}>
-          <div className={styles.headerText}>
-            <AddRoadIcon fontSize='large' />
-            <span className={styles.headerHeading}>
-              Fuel log List
-            </span>
+    <>
+      {
+        <MileageReportDialog
+          mileageDialogOpen={mileageDialogOpen}
+          mileageDialogClose={handleMileageReportDialog}
+        />}
+      <div
+        className={styles.body}
+        style={bodyStyle}
+        onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
+      >
+        <div className={styles.header}>
+          <div className={styles.part2}>
+            <div className={styles.headerText}>
+              <AddRoadIcon fontSize='large' />
+              <span className={styles.headerHeading}>
+                Fuel log List
+              </span>
+            </div>
+          </div>
+
+          <div className={styles.dieselFluid}>
+            <span className={styles.switchlabel}>Diesel exhaust fluid</span>
+            <Index />
+          </div>
+
+          <div className={styles.field1}>
+            <Box sx={{ minWidth: '100%' }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Type
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={type}
+                  label="Type"
+                  onChange={handleChangeType}
+                  required
+                  sx={{
+                    fontSize: '13px',
+                  }}
+                >
+                  <MenuItem style={FuelLogStyle.menu} value={10}>Today</MenuItem>
+                  <MenuItem style={FuelLogStyle.menu} value={20}>Current Week</MenuItem>
+                  <MenuItem style={FuelLogStyle.menu} value={30}>Past 30 Days</MenuItem>
+                  <MenuItem style={FuelLogStyle.menu} value={40}>All</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </div>
+
+          <div className={styles.searchCover}>
+            <FormControl
+              className={search}
+              sx={{
+                width: '100%',
+                position: 'relative',
+                backgroundColor: 'white'
+              }}
+            >
+              <TextField
+                size="small"
+                placeholder='Search ..'
+                variant="outlined"
+                value={searchValue}
+                onChange={handleChange}
+                sx={{
+                  flexGrow: 1,
+                  '@media (max-width: 1200px)': {
+                    width: '100%',
+                    height: '100%',
+                  }
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment
+                      position="end"
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: 2,
+                        height: '100%',
+                        display: showClearIcon
+                      }}
+                      onClick={handleClick}
+                      className={clearIcon}
+                    >
+                      <ClearIcon />
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </FormControl>
+          </div>
+
+          <div className={styles.headerButton}>
+            <Button
+              variant="contained"
+              style={FuelLogStyle.button}
+            >
+              Add New Fuel Log
+            </Button>
+            <Button
+              variant="contained"
+              style={FuelLogStyle.button}
+              onClick={handleMileageReportDialog}
+            >
+              Report
+            </Button>
           </div>
         </div>
 
-        <div className={styles.dieselFluid}>
-          <span className={styles.switchlabel}>Diesel exhaust fluid</span>
-          <Index />
+        <div className={styles.fuelPrice}>
+          <span className={styles.fuel}>Fuel Expense: $0.00</span>
+          <span className={styles.fuel}>DEF Expense: $0.00</span>
         </div>
 
-        <div className={styles.field1}>
-          <Box sx={{ minWidth: '100%' }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">
-                Type
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={type}
-                label="Type"
-                onChange={handleChangeType}
-                required
-                sx={{
-                  fontSize: '13px',
-                }}
-              >
-                <MenuItem style={FuelLogStyle.menu} value={10}>Today</MenuItem>
-                <MenuItem style={FuelLogStyle.menu} value={20}>Current Week</MenuItem>
-                <MenuItem style={FuelLogStyle.menu} value={30}>Past 30 Days</MenuItem>
-                <MenuItem style={FuelLogStyle.menu} value={40}>All</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </div>
-
-        <div className={styles.searchCover}>
-          <FormControl
-            className={search}
-            sx={{
-              width: '100%',
-              position: 'relative',
-              backgroundColor: 'white'
-            }}
-          >
-            <TextField
-              size="small"
-              placeholder='Search ..'
-              variant="outlined"
-              value={searchValue}
-              onChange={handleChange}
-              sx={{
-                flexGrow: 1,
-                '@media (max-width: 1200px)': {
-                  width: '100%',
-                  height: '100%',
-                }
-              }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment
-                    position="end"
-                    style={{
-                      position: 'absolute',
-                      right: 0,
-                      top: 2,
-                      height: '100%',
-                      display: showClearIcon
-                    }}
-                    onClick={handleClick}
-                    className={clearIcon}
-                  >
-                    <ClearIcon />
-                  </InputAdornment>
-                )
-              }}
-            />
-          </FormControl>
-        </div>
-
-        <div className={styles.headerButton}>
-          <Button
-            variant="contained"
-            style={FuelLogStyle.button}
-          >
-            Add New Fuel Log
-          </Button>
-          <Button
-            variant="contained"
-            style={FuelLogStyle.button}
-          >
-            Report
-          </Button>
+        <div className={styles.contentBody}>
+          <FuelData />
         </div>
       </div>
-
-      <div className={styles.fuelPrice}>
-        <span className={styles.fuel}>Fuel Expense: $0.00</span>
-        <span className={styles.fuel}>DEF Expense: $0.00</span>
-      </div>
-
-      <div className={styles.contentBody}>
-        <FuelData />
-      </div>
-    </div>
+    </>
   )
 }
-
 export default FuelLog;
