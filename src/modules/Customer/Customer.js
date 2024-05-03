@@ -24,8 +24,23 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
   const [settlementReportDialog, setSettlementReportDialog] = useState(false)
   const [openLeftDrawerForMobileView, setOpenLeftDrawerForMobileView] = React.useState(false);
+  const isMobile = (window.innerWidth < 500);
+
+
+  const handleClick = () => {
+    if (!isMobile) {
+      handleCloseForLeftDrawer();
+    }
+  };
+
+  const handleTouchMove = () => {
+    if (isMobile) {
+      handleCloseForLeftDrawer();
+    }
+  };
 
   const handleClickForLeftDrawer = () => {
+    console.log(isMobile)
     setOpenLeftDrawerForMobileView(true);
   };
 
@@ -67,7 +82,7 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
     };
   }
-   return (
+  return (
     <>
       {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
       <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
@@ -174,21 +189,23 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
                 <ChatIcon className={styles.openDailogIcon} onClick={handleClickForLeftDrawer} />
                 <Dialog
                   sx={{
+                    position:'absolute',
+                    left:0,
+                    right:0,
                     zIndex: 1,
                     '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
-                      height: '72%',
+                      height: '79%',
 
                     },
                     '& .css-ypiqx9-MuiDialogContent-root': {
-                      padding: '10px'
+                      padding: '20px'
                     },
                     '& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop': {
-                      backgroundColor: 'unset'
+                      backgroundColor: isMobile ? 'unset' : 'set',
                     },
-
-
                   }}
-                  onTouchMove={handleCloseForLeftDrawer}
+                  onTouchMove={handleTouchMove}
+                  onClick={handleClick}
                   open={openLeftDrawerForMobileView}
                   aria-labelledby="alert-dialog-title"
                   aria-describedby="alert-dialog-description"
@@ -288,6 +305,8 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
                   </DialogContent>
 
                 </Dialog>
+
+
                 Customer Details
               </div>
               <div className={styles.box}>

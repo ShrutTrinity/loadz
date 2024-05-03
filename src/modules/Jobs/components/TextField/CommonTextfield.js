@@ -32,6 +32,8 @@ const CommonTextfield = (props) => {
         name={props.name}
         type={props.type}
         label={props.label}
+        value={props.value}
+        onChange={props.onChange}
         variant='outlined'
         required={props.required}
       />

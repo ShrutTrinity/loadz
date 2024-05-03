@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "type": "Car",
-    "name": "Toyota Camry",
-    "number": "ABC123",
-    "status": "Available",
+    "type": "Cement",
+    "tires": "Toyota Camry",
+    "trailerno": "ABC123",
+    "status": "Active",
     "image": "https://app.loadz.com/assets/images/trailer/trailer.png"
   },
   {
     "id": 2,
     "type": "Truck",
-    "name": "Ford F-150",
-    "number": "XYZ456",
-    "status": "In Use",
+    "tires": "Ford F-150",
+    "trailerno": "XYZ456",
+    "status": "InActive",
     "image": "https://app.loadz.com/assets/images/trailer/trailer.png"
   }
 ]

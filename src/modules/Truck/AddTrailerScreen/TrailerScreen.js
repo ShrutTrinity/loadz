@@ -7,9 +7,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import Switch from '@Jobs/components/switchForJob/index';
 import vehicles from './vehicles.json'
 import AddTrailerForm from './AddTrailerForm';
+import EditTrailerForm from './EditTrailerForm';
 
 const TrailerScreen = (props) => {
   const [openAddTrailerDailog, setOpenAddTrailerDailog] = React.useState(false);
+  const [openEditTrailerDailog, setOpenEditTrailerDailog] = React.useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [cardData, setCardData] = useState([...vehicles]);
 
   const handleClickOpenTrailerDailog = () => {
     setOpenAddTrailerDailog(true);
@@ -30,11 +34,40 @@ const TrailerScreen = (props) => {
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
+  const handleCardClick = (item) => {
+    setSelectedItem(item);
+    setOpenEditTrailerDailog(true); 
+  };
+  const handleCloseEditTrailerDailog = () => {
+    setOpenEditTrailerDailog(false);
+  };
+
+  const updateCardData = (updatedItem) => {
+    
+    const updatedCardData = cardData.map(item => {
+      if (item.id === updatedItem.id) {
+        return updatedItem;
+      }
+      return item;
+    });
+    setCardData(updatedCardData);
+  };
 
   return (
     <>
-     <AddTrailerForm isOpen={openAddTrailerDailog} handleApplyPaymentDailogClose={handleCloseTrailerDailog} />
-      <div className={styles.container} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
+     <AddTrailerForm isOpen={openAddTrailerDailog} 
+     handleAddTrailertDailogClose={handleCloseTrailerDailog}
+     selectedItem={selectedItem} 
+      />
+     <EditTrailerForm isOpen={openEditTrailerDailog} 
+     handleEditTrailertDailogClose={handleCloseEditTrailerDailog}
+     selectedItem={selectedItem} 
+     updateCardData={updateCardData}
+      />
+      <div className={styles.container} 
+      style={bodyStyle} 
+      onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
+      >
         <div className={styles.flexContainer}>
           <div className={styles.drawer} style={{ width: props.open ? '31%' : '25%' }}>
             <div className={styles.logo}>
@@ -57,8 +90,6 @@ const TrailerScreen = (props) => {
             <TextField
               size="large"
               placeholder='Search'
-              // value={searchValue}
-              // onChange={handleChange}
               sx={{
                 '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
                   borderRadius: '15px',
@@ -91,16 +122,16 @@ const TrailerScreen = (props) => {
               <Switch checked={checked}
                 onChange={handleChange} />
             </div>
-            {vehicles.map((item, index) => (
+            {cardData.map((item, index) => (
               <>
-            <div className={styles.card}>
+            <div className={styles.card} onClick={() => handleCardClick(item)}>
               <div className={styles.cardimage}>
                 <img className={styles.img} src={item.image} alt={item.name} />
               </div>
               <div className={styles.carddetails}>
                 <div className={styles.detail}>Trailer Type:{item.type}</div>
-                <div className={styles.detail}>Name: {item.name}</div>
-                <div className={styles.detail}>Number: {item.number}</div>
+                <div className={styles.detail}>Trailer No: {item.trailerno}</div>
+                <div className={styles.detail}>Trailer Tires: {item.tires}</div>
                 <div className={styles.detail}>Status: {item.status}</div>
               </div>
             </div>
