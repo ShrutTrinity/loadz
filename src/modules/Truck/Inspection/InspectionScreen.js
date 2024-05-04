@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './style/inspecion.module.scss';
-import { TextField, InputAdornment, Avatar} from '@mui/material'
+import { TextField, InputAdornment, Avatar, Button } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
+import TruckAvtar from "@images/truckIcon.svg";
+import inspection from "@images/inspection.png";
+import TrailerAvtar from "@images/TrailerIcon.svg";
+import InspectionDrawer from './InspectionDrawer';
 
-import inspection from '@images/inspection.png'
+const inspectionScreenStyle = {
+  drawerButton: {
+    color: 'black',
+    fontWeight: 300,
+  }
+}
 
 const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
+
+  const [responsiveDrawer, setResponsiveDrawer] = useState(false)
+
+  const handleResponsiveDrawer = () => {
+    setResponsiveDrawer(!responsiveDrawer)
+  }
 
   const bodyStyles = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
@@ -15,18 +30,18 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
     var bodyclick = handleDrawerClose;
   }
 
-  function stringAvatar(name) {
-    return {
-      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-    };
-  }
-
   return (
-    <div className={styles.container}
+
+    <>
+      <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
+          <InspectionDrawer
+            openResponsiveDrawer={responsiveDrawer}
+            closeResponsiveDrawer={handleResponsiveDrawer}
+          />
           <div className={styles.contentCard}>
             <div className={styles.drawer}>
 
@@ -47,7 +62,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
                     flexGrow: 1,
                     width: '100%',
                     borderRadius: '20px',
-                    backgroundColor:'white',
+                    backgroundColor: 'white',
                     '@media (max-width: 1200px)': {
                       width: '100%',
                       backgroundColor: 'white'
@@ -64,31 +79,54 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
                 />
               </div>
 
-
-              <div className={styles.profile}>
-                <Avatar
-                  sx={{
-                    height: '40px',
-                    width: '40px',
-                    fontWeight: 800,
-                    fontSize: '16px',
-                    color: 'black'
-                  }}
-                  {...stringAvatar('Kent Dodds')}
-                />
-                <div className={styles.name}>
-                  kent dodds
-                  <div className={styles.balance}>
-                    <b>Balance</b>  $0.00
-                  </div>
+              <div className={styles.profileTrucks}>
+                Trucks
+              </div>
+              <div className={styles.truckList}>
+                <div className={styles.truckAvtar}>
+                  <Avatar
+                    src={TruckAvtar}
+                    alt='Tk'
+                    sx={{
+                      height: '48px',
+                      width: '48px',
+                      fontWeight: 800,
+                      fontSize: '16px',
+                      color: 'black'
+                    }}
+                  />
                 </div>
-
+                <div className={styles.truckDetail}>
+                  <p className={styles.truckNo}>Trucks No.: 1</p>
+                  <p className={styles.truckNo}>Last Active:-</p>
+                  <p className={styles.truckNo}>Last Inspection:-</p>
+                </div>
               </div>
 
+              <div className={styles.profileTrucks}>
+                Trailer
+              </div>
+              <div className={styles.truckList}>
+                <div className={styles.truckAvtar}>
+                  <Avatar
+                    src={TrailerAvtar}
+                    alt='Tk'
+                    sx={{
+                      height: '48px',
+                      width: '48px',
+                      fontWeight: 800,
+                      fontSize: '16px',
+                      color: 'black'
+                    }}
+                  />
+                </div>
+                <div className={styles.truckDetail}>
+                  <p className={styles.truckNo}>Trucks No.: 122</p>
+                </div>
+              </div>
             </div>
 
             <div className={styles.contentWrapper}>
-
               <div className={styles.box}>
                 <div className={styles.circle}>
                   <img src={inspection} alt='pictureOfInspection' className={styles.image} />
@@ -96,14 +134,24 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
                 <div className={styles.heading2}>
                   Inspections
                 </div>
+                <div className={styles.drawerButton}>
+                  <Button
+                    style={inspectionScreenStyle.drawerButton}
+                    onClick={handleResponsiveDrawer}
+                  >
+                    Select Truck to view Inspections Log !..
+                  </Button>
+                </div>
                 <div className={styles.detail}>
                   Select Truck to view Inspections Log !..
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
+    </>
   )
 }
 

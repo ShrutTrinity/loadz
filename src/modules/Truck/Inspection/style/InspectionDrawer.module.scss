@@ -1,0 +1,52 @@
+@import '@styles';
+
+.drawer {
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+  border-top-left-radius: 20px;
+  background-color: $color_4;
+
+  .searchbar {
+    background-color: rgb(245, 245, 245);
+    padding: 16px 16px;
+  }
+
+  .profileTrucks {
+    padding: 24px 16px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .truckList {
+    padding: 0px 6px 6px;
+    margin: 0 8px;
+    @include flex-column();
+    border-bottom: 1px solid $color_1;  
+
+    .truckDetail {
+      padding: 0 8px;
+      flex-direction: column;
+      @include flex-row();
+      width: 70%;
+
+      .truckNo{
+        margin-bottom: 0px;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .profile {
+    margin: 0 10px;
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $color_1;
+
+    .name {
+      font-size: 13px;
+    }
+  }
+}
