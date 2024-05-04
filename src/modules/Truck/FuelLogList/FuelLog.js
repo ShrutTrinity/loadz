@@ -17,6 +17,7 @@ import Box from '@mui/material/Box';
 import Index from '../../Jobs/components/switchForJob';
 import FuelData from './Components/FuelDataTable/FuelData';
 import MileageReportDialog from './Components/MileageReport/MileageReportDialog';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => {
   return createStyles({
@@ -189,7 +190,9 @@ const FuelLog = (props) => {
               variant="contained"
               style={FuelLogStyle.button}
             >
-              Add New Fuel Log
+              <Link to="/mileages/logs/new" className={styles.NewLogbutton}>
+                Add New Fuel Log
+              </Link>
             </Button>
             <Button
               variant="contained"

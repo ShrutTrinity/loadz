@@ -17,7 +17,6 @@ import Send from '../../../../CreateAccount/Components/uploadFile/Send';
 import FilePopUp from '../../../../CreateAccount/Components/uploadPopUp';
 import ImageUploadLogo from '@images/upload-image.svg';
 
-
 const currentDate = dayjs();
 
 const TrafficShopStyle = {
@@ -54,7 +53,7 @@ const driverArray = [
   'jhon', 'micle', 'sweed'
 ];
 
-const NewFuelLog = (props, { open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
+const NewFuelLog = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
   const [value, setValue] = useState('1');
   const [showPopUp, setShowPopUp] = useState(false);
@@ -99,7 +98,7 @@ const NewFuelLog = (props, { open, handleDrawerClose, textSelectorOpen, toggleTe
       >
         <div className={styles.header}>
           <div className={styles.heading}>
-            <Link to="/dps/logs" className={styles.backLink}>
+            <Link to="/mileages/logs" className={styles.backLink}>
               <div className={styles.part1}>
                 <ArrowBackIcon fontSize="small" />
                 <span className={styles.backText}>Fuel Log</span>

@@ -1,0 +1,213 @@
+@import "@styles";
+
+.container {
+  margin-top: 63px;
+  position: absolute;
+  right: 0;
+
+  .backrow {
+    position: absolute;
+    background-color: $color_3;
+    height: 200px;
+    width: auto;
+    z-index: -1;
+    width: 100%;
+  }
+
+  .CardWrapper {
+    z-index: 2;
+    height: 80vh;
+    padding: 30px;
+    max-height: 100%;
+    width: 100%;
+
+    .contentCard {
+      height: 100%;
+      border-radius: 30px;
+      display: flex;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      .drawer {
+        height: 100%;
+        overflow: auto;
+        width: 26%;
+        border-top-left-radius: 20px;
+        background-color: $color_4;
+
+        .searchbar {
+          background-color: rgb(245,245,245);
+          padding: 16px 16px;
+        }
+
+        .customer {
+          padding: 24px;
+          font-size: 20px;
+          width: 100%;
+          font-weight: 500;
+        }
+
+        .listoficon {
+          padding: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 13px;
+
+          .credit {
+            height: 25px;
+            width: 25px;
+          }
+        }
+
+        .profile {
+          margin: 0 10px;
+          margin-top: 10px;
+          display: flex;
+          gap: 10px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid $color_1;
+
+          .name {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .contentWrapper {
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        background-color: $color_4;
+        border-top-right-radius: 20px;
+        width: 75%;
+
+        .heading {
+          padding: 15px;
+          font-size: 30px;
+          width: 100%;
+
+          font-weight: 700;
+          color: $color_1;
+          background-color: $color_3;
+
+          .openDailogIcon {
+            display: none;
+          }
+        }
+
+        .box {
+          padding: 40px 20px;
+          @include center();
+          flex-direction: column;
+
+          .circle {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 20px -20px,
+              rgba(0, 0, 0, 0.3) 0px 20px 40px -30px;
+            padding: 64px;
+            border-radius: 50%;
+
+            @include center();
+
+            .image {
+              height: 150px;
+              width: 150px;
+            }
+          }
+
+          .heading2 {
+            padding: 15px;
+            font-size: 30px;
+            width: 100%;
+
+            font-weight: 700;
+            color: $color_1;
+            text-align: center;
+          }
+
+          .detail {
+            font-size: 16px;
+            font-weight: 300;
+            color: rgb(107, 114, 128);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .drawer {
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+    border-top-left-radius: 20px;
+    background-color: $color_4;
+
+    .searchbar {
+      // background-color: aliceblue;
+      padding: 5px 5px;
+    }
+
+    .customer {
+      padding: 12px;
+      font-size: 20px;
+      width: 100%;
+      font-weight: 500;
+    }
+
+    .listoficon {
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+
+      .credit {
+        height: 25px;
+        width: 25px;
+      }
+    }
+
+    .profile {
+      margin: 0 10px;
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $color_1;
+
+      .name {
+        font-size: 13px;
+      }
+    }
+  }
+  .container {
+    .CardWrapper {
+      .contentCard {
+        .drawer {
+          display: none;
+        }
+
+        .contentWrapper {
+          width: 100%;
+          position: relative;
+
+          .heading {
+            font-size: 20px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            .openDailogIcon {
+              display: block;
+              position: relative;
+            }
+          }
+
+          .box {
+            .heading2 {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

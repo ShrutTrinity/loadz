@@ -54,6 +54,11 @@
     .headerButton{
       width: 25%;
       @include flex-column();
+
+      .NewLogbutton{
+        text-decoration: none;
+        color: $color_4;
+      }
     }
   }
 

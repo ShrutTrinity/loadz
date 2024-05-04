@@ -16,6 +16,7 @@ import TrailerScreen from '../Truck/AddTrailerScreen/TrailerScreen';
 import UserList from '../Users/UserList';
 import FuelLog from '../Truck/FuelLogList/FuelLog';
 import NewFuelLog from '../Truck/FuelLogList/Components/FuelNewLog/NewFuelLog';
+import InspectionScreen from '../Truck/Inspection/InspectionScreen';
 
 const Panel = () => {
 
@@ -204,7 +205,24 @@ const Panel = () => {
           exact
           path='/mileages/logs/new'
           element={
-            <NewFuelLog />
+            <NewFuelLog
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/inspections'
+          element={
+            <InspectionScreen
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
           }
         />
       </Routes>
