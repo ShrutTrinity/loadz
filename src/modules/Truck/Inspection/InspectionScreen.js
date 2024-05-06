@@ -6,6 +6,7 @@ import TruckAvtar from "@images/truckIcon.svg";
 import inspection from "@images/inspection.png";
 import TrailerAvtar from "@images/TrailerIcon.svg";
 import InspectionDrawer from './InspectionDrawer';
+import TruckDetail from './TruckDetail';
 
 const inspectionScreenStyle = {
   drawerButton: {
@@ -16,10 +17,15 @@ const inspectionScreenStyle = {
 
 const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
-  const [responsiveDrawer, setResponsiveDrawer] = useState(false)
+  const [responsiveDrawer, setResponsiveDrawer] = useState(false);
+  const [truckDetailComponent, setTruckDetailComponent] = useState(false);
 
   const handleResponsiveDrawer = () => {
     setResponsiveDrawer(!responsiveDrawer)
+  }
+
+  const handleTruckDeatilScreen = () => {
+    setTruckDetailComponent(!truckDetailComponent)
   }
 
   const bodyStyles = {
@@ -82,7 +88,10 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
               <div className={styles.profileTrucks}>
                 Trucks
               </div>
-              <div className={styles.truckList}>
+              <div
+               className={styles.truckList}
+               onClick={handleTruckDeatilScreen}
+              >
                 <div className={styles.truckAvtar}>
                   <Avatar
                     src={TruckAvtar}
@@ -127,7 +136,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
             </div>
 
             <div className={styles.contentWrapper}>
-              <div className={styles.box}>
+              {truckDetailComponent ? <TruckDetail /> : <div className={styles.box}>
                 <div className={styles.circle}>
                   <img src={inspection} alt='pictureOfInspection' className={styles.image} />
                 </div>
@@ -145,7 +154,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
                 <div className={styles.detail}>
                   Select Truck to view Inspections Log !..
                 </div>
-              </div>
+              </div>}
             </div>
 
           </div>

@@ -17,6 +17,7 @@ import UserList from '../Users/UserList';
 import FuelLog from '../Truck/FuelLogList/FuelLog';
 import NewFuelLog from '../Truck/FuelLogList/Components/FuelNewLog/NewFuelLog';
 import InspectionScreen from '../Truck/Inspection/InspectionScreen';
+import DriversScreen from '../Driver/DriversScreen';
 
 const Panel = () => {
 
@@ -218,6 +219,18 @@ const Panel = () => {
           path='/inspections'
           element={
             <InspectionScreen
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/drivers'
+          element={
+            <DriversScreen
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
