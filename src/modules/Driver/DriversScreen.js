@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './style/driversScreen.module.scss';
 import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,8 +8,15 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import RestoreIcon from '@mui/icons-material/Restore';
 import inspection from '@images/inspection.png'
 import Index from '../Jobs/components/switchForJob';
+import CreateInvite from './CreateInvite';
 
 const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
+
+  const [createInviteModel, setCreateInviteModel] = useState(false);
+
+  const handleCreateModel = () => {
+    setCreateInviteModel(!createInviteModel)
+  }
 
   function stringAvatar(name) {
     return {
@@ -27,6 +34,10 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
   return (
     <>
+      <CreateInvite
+        openCreateModel={createInviteModel}
+        closeCreateModel={handleCreateModel}
+      />
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
@@ -74,10 +85,13 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
                 <div className={styles.listoficon}>
                   <Tooltip title="Create Invite" placement="top">
-                    <AddCircleIcon sx={{ cursor: 'pointer' }} />
+                    <AddCircleIcon
+                      onClick={handleCreateModel}
+                      sx={{ cursor: 'pointer' }}
+                    />
                   </Tooltip>
                   <Tooltip title="Send Email to All" placement="top">
-                    <MailIcon sx={{ cursor: 'pointer' }}/>
+                    <MailIcon sx={{ cursor: 'pointer' }} />
                   </Tooltip>
                   <Tooltip title="Invitations" placement="top">
                     <ApartmentIcon sx={{ cursor: 'pointer' }} />
@@ -89,8 +103,8 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
               </div>
 
               <div className={styles.switchCover}>
-                  <Index label="Active" checked={true}/>
-                  <Index label="Disabled"/>
+                <Index label="Active" checked={true} />
+                <Index label="Disabled" />
               </div>
 
               <div className={styles.profile}>
@@ -119,7 +133,7 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   Driver Info
                 </div>
                 <div className={styles.detail}>
-                Choose a driver to view their profile...
+                  Choose a driver to view their profile...
                 </div>
               </div>
             </div>
