@@ -18,7 +18,7 @@ import FuelLog from '../Truck/FuelLogList/FuelLog';
 import NewFuelLog from '../Truck/FuelLogList/Components/FuelNewLog/NewFuelLog';
 import InspectionScreen from '../Truck/Inspection/InspectionScreen';
 import DriversScreen from '../Driver/DriversScreen';
-import SubContractor from '../SubContractor/SubContactor';
+import SubContractor from '../SubContractor/SubContractor';
 
 const Panel = () => {
 

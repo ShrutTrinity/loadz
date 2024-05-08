@@ -176,6 +176,7 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   sx={{
                     position: 'absolute',
                     left: 0,
+                    
                     right: 0,
                     zIndex: 1,
                     '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
