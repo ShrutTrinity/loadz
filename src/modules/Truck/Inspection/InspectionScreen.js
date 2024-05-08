@@ -44,10 +44,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
-          <InspectionDrawer
-            openResponsiveDrawer={responsiveDrawer}
-            closeResponsiveDrawer={handleResponsiveDrawer}
-          />
+
           <div className={styles.contentCard}>
             <div className={styles.drawer}>
 
@@ -89,8 +86,8 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
                 Trucks
               </div>
               <div
-               className={styles.truckList}
-               onClick={handleTruckDeatilScreen}
+                className={styles.truckList}
+                onClick={handleTruckDeatilScreen}
               >
                 <div className={styles.truckAvtar}>
                   <Avatar
@@ -135,7 +132,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
               </div>
             </div>
 
-            <div className={styles.contentWrapper}>
+            <div className={styles.contentWrapper} >
               {truckDetailComponent ? <TruckDetail /> : <div className={styles.box}>
                 <div className={styles.circle}>
                   <img src={inspection} alt='pictureOfInspection' className={styles.image} />
@@ -155,6 +152,10 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
                   Select Truck to view Inspections Log !..
                 </div>
               </div>}
+              <InspectionDrawer
+                openResponsiveDrawer={responsiveDrawer}
+                closeResponsiveDrawer={handleResponsiveDrawer}
+              />
             </div>
 
           </div>

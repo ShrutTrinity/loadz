@@ -4,7 +4,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import { Button } from '@mui/material';
 import TabletAndroidIcon from '@mui/icons-material/TabletAndroid';
-import styles from '../style/inviteModel.module.scss';
+import styles from '../Styles/inviteModel.module.scss';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
@@ -22,7 +22,7 @@ const allStyle = {
     fontWeight: '300',
     textTransform: 'capitalize',
     borderRadius: '18px'
-  },
+  }, 
   iconStyle:{
     color:'white',
     backgroundColor:'green',
@@ -31,7 +31,7 @@ const allStyle = {
   }
 }
 
-const InviteUserDialog = ({ inviteUserDialogOpen, inviteUserDialogClose }) => {
+const InviteUserDialog = ({ isOpen, CreateCustomerPopupRendered }) => {
 
   const [type, setType] = useState('');
   const [communication, setCommunication] = useState('');
@@ -47,16 +47,22 @@ const InviteUserDialog = ({ inviteUserDialogOpen, inviteUserDialogClose }) => {
   return (
     <>
       <Dialog
-        open={inviteUserDialogOpen}
-        onClose={inviteUserDialogClose}
+        open={isOpen} 
+        onClose={CreateCustomerPopupRendered}
+        sx={{ '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper':{
+              borderRadius:'15px'
+            }}}
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogContent
           sx={{
             padding: '0px',
+           
           }}>
           <div className={styles.header}>
-              <TabletAndroidIcon style={allStyle.iconStyle}/>
+            
+            <TabletAndroidIcon style={allStyle.iconStyle}/>
+           
             <span className={styles.heading}>Invite Mobile Users</span>
           </div>
           <div className={styles.content}>
@@ -65,8 +71,6 @@ const InviteUserDialog = ({ inviteUserDialogOpen, inviteUserDialogClose }) => {
             </span>
 
             <div className={styles.fieldCover}>
-
-              {/* 1st */}
               <div className={styles.field1}>
                 <Box sx={{ minWidth: '100%' }}>
                   <FormControl fullWidth>
@@ -77,12 +81,12 @@ const InviteUserDialog = ({ inviteUserDialogOpen, inviteUserDialogClose }) => {
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       value={type}
+                      defaultValue='10'
                       label="Type"
                       onChange={handleChangeType}
                       required
                     >
-                      <MenuItem value={10}>Dispatcher</MenuItem>
-                      <MenuItem value={20}>Power Dispatcher</MenuItem>
+                      <MenuItem value={10}>SubContactor</MenuItem>
                     </Select>
                   </FormControl>
                 </Box>
@@ -120,14 +124,14 @@ const InviteUserDialog = ({ inviteUserDialogOpen, inviteUserDialogClose }) => {
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={inviteUserDialogClose}
+            onClick={CreateCustomerPopupRendered}
             style={allStyle.button}
             endIcon={<DeleteIcon />}
           >
             Cancel
           </Button>
           <Button
-            onClick={inviteUserDialogClose}
+            onClick={CreateCustomerPopupRendered}
             style={allStyle.button}
             endIcon={<SendIcon />}
           >

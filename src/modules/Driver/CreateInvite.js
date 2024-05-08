@@ -34,7 +34,7 @@ const CreateInvite = ({ openCreateModel, closeCreateModel }) => {
           }}>
           <div className={styles.header}>
             <div className={styles.headerIcon}>
-              <TabletAndroidIcon />
+              <TabletAndroidIcon  sx={{color:'white'}}/>
             </div>
             <span className={styles.heading}>Invite Mobile Users</span>
           </div>
@@ -42,7 +42,6 @@ const CreateInvite = ({ openCreateModel, closeCreateModel }) => {
             <span className={styles.instructions}>
               Add drivers, and subcontractors by inviting them to login to your Company Subscription check
             </span>
-
             <div className={styles.fieldCover}>
             </div>
             <div className={styles.createIcon}>

@@ -1,17 +1,26 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import styles from './style/InspectionDrawer.module.scss';
 import { TextField, InputAdornment, Avatar } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import TruckAvtar from "@images/truckIcon.svg";
 import TrailerAvtar from "@images/TrailerIcon.svg";
+import styles from './style/InspectionDrawer.module.scss';
 
 const InspectionDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => {
-  const DrawerList = (
-    <Box sx={{ width: 300 }} role="presentation">
+  return (
+    <Drawer
+     
+      open={openResponsiveDrawer}
+      onClose={closeResponsiveDrawer}
+      sx={{
+        position:'absolute',
+      
+        '& .MuiDrawer-paper': {
+         
+        },
+      }}
+    >
       <div className={styles.drawer}>
-
         <div className={styles.searchbar}>
           <TextField
             size="small"
@@ -94,16 +103,8 @@ const InspectionDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => {
         </div>
 
       </div>
-    </Box>
+    </Drawer>
   );
-
-  return (
-    <div>
-      <Drawer open={openResponsiveDrawer} onClose={closeResponsiveDrawer}>
-        {DrawerList}
-      </Drawer>
-    </div>
-  )
-}
+};
 
 export default InspectionDrawer;

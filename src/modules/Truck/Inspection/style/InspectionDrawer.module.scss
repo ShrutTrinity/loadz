@@ -6,6 +6,8 @@
   width: 100%;
   border-top-left-radius: 20px;
   background-color: $color_4;
+  position: relative; 
+  z-index: 2;
 
   .searchbar {
     background-color: rgb(245, 245, 245);
