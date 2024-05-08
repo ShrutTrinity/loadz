@@ -37,8 +37,6 @@ const Android12Switch = styled(Switch)(({ checked }) => ({
 
 const Index = (props) => {
 
-  console.log(props.checked)
-
 // const [checked, setChecked] = useState(props.check);
 //   const handleChange = () => {
 //     setChecked((prev) => !prev);

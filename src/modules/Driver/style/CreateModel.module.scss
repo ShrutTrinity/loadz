@@ -36,6 +36,7 @@
     padding: 6px;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.416);
+    font-size: 13px !important;
 
     .field1 , .field2{
       width: 50%;
@@ -52,6 +53,18 @@
       cursor: pointer;
       background-color: $color_3;
       width: min-content;
+    }
+  }
+}
+
+@media screen and (max-width: 812 px) {
+  .content{
+    .fieldCover{
+     flex-direction: column;
+  
+      .field1 , .field2{
+        width: 100%;
+      }
     }
   }
 }

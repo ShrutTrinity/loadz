@@ -9,13 +9,31 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import inspection from '@images/inspection.png'
 import Index from '../Jobs/components/switchForJob';
 import CreateInvite from './CreateInvite';
+import MailDialog from './MailDialog';
+import PriviousDriver from './PriviousDriver';
+import Invitation from './Invitation';
 
 const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
   const [createInviteModel, setCreateInviteModel] = useState(false);
+  const [mailDialog, setMailDialog] = useState(false);
+  const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
+  const [invitationDialog, setInvitationDialog] = useState(false);
 
   const handleCreateModel = () => {
     setCreateInviteModel(!createInviteModel)
+  }
+
+  const handleMailDialog = () => {
+    setMailDialog(!mailDialog)
+  }
+
+  const handleInvitationDialog = () => {
+    setInvitationDialog(!invitationDialog)
+  }
+
+  const handlePreviousDriverDialog = () => {
+    setPreviousDriverDialog(!previousDriverDialog)
   }
 
   function stringAvatar(name) {
@@ -37,6 +55,18 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
       <CreateInvite
         openCreateModel={createInviteModel}
         closeCreateModel={handleCreateModel}
+      />
+      <MailDialog
+        openMailDialog={mailDialog}
+        closeMailDialog={handleMailDialog}
+      />
+      <Invitation
+        openInvitationDialog={invitationDialog}
+        closeInvitationDialog={handleInvitationDialog}
+      />
+      <PriviousDriver
+        openPreviousDriver={previousDriverDialog}
+        closePreviousDriver={handlePreviousDriverDialog}
       />
       <div className={styles.container}
         style={bodyStyles}
@@ -91,13 +121,22 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     />
                   </Tooltip>
                   <Tooltip title="Send Email to All" placement="top">
-                    <MailIcon sx={{ cursor: 'pointer' }} />
+                    <MailIcon
+                      onClick={handleMailDialog}
+                      sx={{ cursor: 'pointer' }}
+                    />
                   </Tooltip>
                   <Tooltip title="Invitations" placement="top">
-                    <ApartmentIcon sx={{ cursor: 'pointer' }} />
+                    <ApartmentIcon
+                     onClick={handleInvitationDialog}
+                     sx={{ cursor: 'pointer' }} 
+                    />
                   </Tooltip>
                   <Tooltip title="Previous Drivers" placement="top">
-                    <RestoreIcon sx={{ cursor: 'pointer' }} />
+                    <RestoreIcon
+                      sx={{ cursor: 'pointer' }}
+                      onClick={handlePreviousDriverDialog}
+                    />
                   </Tooltip>
                 </div>
               </div>
