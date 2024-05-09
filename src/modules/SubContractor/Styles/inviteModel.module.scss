@@ -1,7 +1,7 @@
 @import '@styles';
 
 .header{
-  padding: 13px 24px;
+  padding: 17px 30px;
   background-color: $color_3;
   @include flex-column();
 
@@ -16,6 +16,7 @@
     font-size: 18px;
     font-weight: 600;
     margin-left: 13px;
+  
   }
 }
 
