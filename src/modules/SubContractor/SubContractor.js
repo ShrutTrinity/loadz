@@ -11,43 +11,28 @@ import HistoryIcon from '@mui/icons-material/History';
 import EmailIcon from '@mui/icons-material/Email';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import InviteUserDialog from './Components/InviteUserDialog';
+import SubContractorMail from './SubContractorMail';
+import Archived from './Archived';
 
 const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
-  const [CreateCustomerPopupOpen, setCreateCustomerPopupOpen] = useState(false)
 
-  const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
-  const [openLeftDrawerForMobileView, setOpenLeftDrawerForMobileView] = React.useState(false);
-  const isMobile = (window.innerWidth < 500);
+  const [createInvitationDialog, setCreateInvitationDialog] = useState(false);
+  const [mailDialog, setMailDialog] = useState(false);
+  const [archiveDialog, setArchiveDialog] = useState(false);
 
-
-  const handleClick = () => {
-    if (!isMobile) {
-      handleCloseForLeftDrawer();
-    }
-  };
-
-  const handleTouchMove = () => {
-    if (isMobile) {
-      handleCloseForLeftDrawer();
-    }
-  };
-
-  const handleClickForLeftDrawer = () => {
-    console.log(isMobile)
-    setOpenLeftDrawerForMobileView(true);
-  };
-
-  const handleCloseForLeftDrawer = () => {
-    setOpenLeftDrawerForMobileView(false);
-  };
-  const CreateCustomerPopupRendered = () => {
-    setCreateCustomerPopupOpen(!CreateCustomerPopupOpen)
+  const handleArchiveDialog = () => {
+    setArchiveDialog(!archiveDialog)
   }
 
-  const clickFroCreateCustomerModel = () => {
-    setOpenCreateCustomerModel(!openCreateCustomerModel)
+  const handleCreateInvitationDialog = () => {
+    setCreateInvitationDialog(!createInvitationDialog)
   }
 
+  const handleMailDialog = () => {
+    setMailDialog(!mailDialog)
+  }
+
+  
   const bodyStyles = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
     zIndex: 1,
@@ -63,7 +48,18 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   }
   return (
     <>
-      <InviteUserDialog isOpen={CreateCustomerPopupOpen} CreateCustomerPopupRendered={CreateCustomerPopupRendered} />
+    <Archived 
+      openArchiveDialog = {archiveDialog}
+      closeArchiveDialog = {handleArchiveDialog}
+    />
+      <SubContractorMail
+        mailDialogOpen={mailDialog}
+        closeMailDialog={handleMailDialog}
+      />
+      <InviteUserDialog
+        isOpen={createInvitationDialog}
+        CreateCustomerPopupRendered={handleCreateInvitationDialog}
+      />
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
@@ -88,9 +84,9 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     flexGrow: 1,
                     width: '100%',
                     borderRadius: '20px',
+                    backgroundColor: 'white',
                     '@media (max-width: 1200px)': {
                       width: '100%',
-                      backgroundColor: 'white'
                     }
                   }}
                   InputProps={{
@@ -108,19 +104,28 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
               </div>
               <div className={styles.listoficon}>
                 <Tooltip title="Archive" placement="top">
-                  <HistoryIcon sx={{ cursor: 'pointer' }} />
+                  <HistoryIcon 
+                  onClick={handleArchiveDialog}
+                  sx={{ cursor: 'pointer' }}
+                   />
                 </Tooltip>
                 <Tooltip title="Create Invite" placement="top">
-                  <AddCircleIcon sx={{ cursor: 'pointer' }} onClick={CreateCustomerPopupRendered} />
+                  <AddCircleIcon
+                    sx={{ cursor: 'pointer' }}
+                    onClick={handleCreateInvitationDialog}
+                  />
                 </Tooltip>
                 <Tooltip title="Send Email to All" placement="top">
-                  <EmailIcon sx={{ cursor: 'pointer' }}  />
+                  <EmailIcon
+                    sx={{ cursor: 'pointer' }}
+                    onClick={handleMailDialog}
+                  />
                 </Tooltip>
                 <Tooltip title="Invitations" placement="top">
                   <ApartmentIcon sx={{ cursor: 'pointer' }} />
                 </Tooltip>
                 <Tooltip title="Apply Payments" placement="top">
-                  <PaymentsIcon sx={{ cursor: 'pointer' }}/>
+                  <PaymentsIcon sx={{ cursor: 'pointer' }} />
                 </Tooltip>
 
                 <Tooltip title="Global Invoice Search" placement="top">
@@ -153,29 +158,24 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
             </div>
             <div className={styles.contentWrapper}>
               <div className={styles.heading}>
-                <ChatIcon className={styles.openDailogIcon} onClick={handleClickForLeftDrawer} />
+                <ChatIcon className={styles.openDailogIcon} />
                 <Dialog
                   sx={{
                     position: 'absolute',
                     left: 0,
-                    
                     right: 0,
                     zIndex: 1,
                     '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
                       height: '79%',
-                      width: isMobile ? '100%' : 'auto',
-
+                      width: 'auto',
                     },
                     '& .css-ypiqx9-MuiDialogContent-root': {
                       padding: '20px'
                     },
                     '& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop': {
-                      backgroundColor: isMobile ? 'unset' : 'set',
+                      backgroundColor: 'set',
                     },
                   }}
-                  onTouchMove={handleTouchMove}
-                  onClick={handleClick}
-                  open={openLeftDrawerForMobileView}
                   aria-labelledby="alert-dialog-title"
                   aria-describedby="alert-dialog-description"
                 >
@@ -220,16 +220,16 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                           <HistoryIcon sx={{ cursor: 'pointer' }} />
                         </Tooltip>
                         <Tooltip title="Create Invite" placement="top">
-                          <AddCircleIcon sx={{ cursor: 'pointer' }} onClick={CreateCustomerPopupRendered} />
+                          <AddCircleIcon sx={{ cursor: 'pointer' }} />
                         </Tooltip>
                         <Tooltip title="Send Email to All" placement="top">
                           <EmailIcon sx={{ cursor: 'pointer' }} />
-                        </Tooltip>
+                          55                        </Tooltip>
                         <Tooltip title="Invitations" placement="top">
                           <ApartmentIcon sx={{ cursor: 'pointer' }} />
                         </Tooltip>
                         <Tooltip title="Apply Payments" placement="top">
-                          <PaymentsIcon sx={{ cursor: 'pointer' }} onClick={clickFroCreateCustomerModel} />
+                          <PaymentsIcon sx={{ cursor: 'pointer' }} />
                         </Tooltip>
 
                         <Tooltip title="Global Invoice Search" placement="top">
@@ -267,9 +267,7 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
               </div>
               <div className={styles.box}>
                 <div className={styles.circle}>
-
                   <img src={inspection} alt='pictureOfInspection' className={styles.image} />
-
                 </div>
                 <div className={styles.heading2}>
                   Subcontractors Info

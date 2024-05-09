@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './style/MailDialog.module.scss';
+import styles from './Styles/mailDialog.module.scss';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -27,15 +27,18 @@ const allStyle = {
   }
 }
 
-const MailDialog = ({ openMailDialog, closeMailDialog }) => {
+const SubContractorMail = ({ mailDialogOpen, closeMailDialog }) => {
+
   const [messageType, setMessageType] = useState('');
 
   const handleChange = (event) => {
     setMessageType(event.target.value);
   };
+
   return (
-    <Dialog
-      open={openMailDialog}
+    <>
+      <Dialog
+      open={mailDialogOpen}
       onClose={closeMailDialog}
       aria-describedby="alert-dialog-slide-description"
 
@@ -72,7 +75,7 @@ const MailDialog = ({ openMailDialog, closeMailDialog }) => {
           <TextField
             style={allStyle.textFieldStyle}
             required
-            label="Message"
+            label="Name"
           />
         </div>
       </DialogContent>
@@ -85,7 +88,8 @@ const MailDialog = ({ openMailDialog, closeMailDialog }) => {
         </Button>
       </DialogActions>
     </Dialog >
+    </>
   )
 }
 
-export default MailDialog
+export default SubContractorMail
