@@ -2,15 +2,9 @@ import React, { useState } from 'react'
 import styles from './Styles/subcontactor.module.scss'
 import { TextField, InputAdornment, Avatar, Tooltip, Dialog, DialogContent } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PaymentsIcon from '@mui/icons-material/Payments';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import credit from '@images/credit.png'
-import ArchiveIcon from '@mui/icons-material/Archive';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import inspection from '@images/inspection.png'
 import ChatIcon from '@mui/icons-material/Chat';
 import HistoryIcon from '@mui/icons-material/History';
@@ -20,9 +14,8 @@ import InviteUserDialog from './Components/InviteUserDialog';
 
 const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
   const [CreateCustomerPopupOpen, setCreateCustomerPopupOpen] = useState(false)
-  const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
+
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
-  const [settlementReportDialog, setSettlementReportDialog] = useState(false)
   const [openLeftDrawerForMobileView, setOpenLeftDrawerForMobileView] = React.useState(false);
   const isMobile = (window.innerWidth < 500);
 
@@ -47,23 +40,12 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const handleCloseForLeftDrawer = () => {
     setOpenLeftDrawerForMobileView(false);
   };
-  const handleClickOpen = () => {
-    setOpenPaymentDailog(true);
-  };
-  const handleApplyPaymentDailogClose = () => {
-    setOpenPaymentDailog(false);
-  };
-
   const CreateCustomerPopupRendered = () => {
     setCreateCustomerPopupOpen(!CreateCustomerPopupOpen)
   }
 
   const clickFroCreateCustomerModel = () => {
     setOpenCreateCustomerModel(!openCreateCustomerModel)
-  }
-
-  const handleSettlementReportDialog = () => {
-    setSettlementReportDialog(!settlementReportDialog)
   }
 
   const bodyStyles = {
@@ -132,13 +114,13 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   <AddCircleIcon sx={{ cursor: 'pointer' }} onClick={CreateCustomerPopupRendered} />
                 </Tooltip>
                 <Tooltip title="Send Email to All" placement="top">
-                  <EmailIcon sx={{ cursor: 'pointer' }} onClick={handleClickOpen} />
+                  <EmailIcon sx={{ cursor: 'pointer' }}  />
                 </Tooltip>
                 <Tooltip title="Invitations" placement="top">
                   <ApartmentIcon sx={{ cursor: 'pointer' }} />
                 </Tooltip>
                 <Tooltip title="Apply Payments" placement="top">
-                  <PaymentsIcon sx={{ cursor: 'pointer' }} onClick={clickFroCreateCustomerModel} />
+                  <PaymentsIcon sx={{ cursor: 'pointer' }}/>
                 </Tooltip>
 
                 <Tooltip title="Global Invoice Search" placement="top">
@@ -241,7 +223,7 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                           <AddCircleIcon sx={{ cursor: 'pointer' }} onClick={CreateCustomerPopupRendered} />
                         </Tooltip>
                         <Tooltip title="Send Email to All" placement="top">
-                          <EmailIcon sx={{ cursor: 'pointer' }} onClick={handleClickOpen} />
+                          <EmailIcon sx={{ cursor: 'pointer' }} />
                         </Tooltip>
                         <Tooltip title="Invitations" placement="top">
                           <ApartmentIcon sx={{ cursor: 'pointer' }} />
