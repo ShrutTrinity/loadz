@@ -51,7 +51,7 @@
           padding: 20px 25px;
           justify-content: space-between;
 
-          .componentName{
+          .componentName {
             font-size: 20px;
             font-weight: 500;
           }
@@ -68,7 +68,7 @@
           }
         }
 
-        .switchCover{
+        .switchCover {
           padding: 0 16px 16px;
           font-size: 13px;
           font-weight: 300;
@@ -141,6 +141,14 @@
             text-align: center;
           }
 
+          .drawerButton {
+            line-height: 1.75;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            padding: 5px 16px;
+            border-radius: 18px;
+            display: none;
+          }
+
           .detail {
             font-size: 16px;
             font-weight: 300;
@@ -152,51 +160,7 @@
   }
 }
 
-@media only screen and (max-width: 766px) {
-  .drawer {
-    height: 100%;
-    overflow: auto;
-    width: 100%;
-    border-top-left-radius: 20px;
-    background-color: $color_4;
-
-    .searchbar {
-      // background-color: aliceblue;
-      padding: 5px 5px;
-    }
-
-    .customer {
-      padding: 12px;
-      font-size: 20px;
-      width: 100%;
-      font-weight: 500;
-    }
-
-    .listoficon {
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-
-      .credit {
-        height: 25px;
-        width: 25px;
-      }
-    }
-
-    .profile {
-      margin: 0 10px;
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid $color_1;
-
-      .name {
-        font-size: 13px;
-      }
-    }
-  }
+@media only screen and (max-width:899px) {
   .container {
     .CardWrapper {
       .contentCard {
@@ -208,20 +172,14 @@
           width: 100%;
           position: relative;
 
-          .heading {
-            font-size: 20px;
-            display: flex;
-            gap: 5px;
-            align-items: center;
-            .openDailogIcon {
-              display: block;
-              position: relative;
-            }
-          }
-
           .box {
-            .heading2 {
-              font-size: 25px;
+            height: 100%;
+            
+            .drawerButton{
+              display: block;
+            }
+            .detail{
+              display: none;
             }
           }
         }

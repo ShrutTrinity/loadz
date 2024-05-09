@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './style/driversScreen.module.scss';
-import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
+import { TextField, InputAdornment, Avatar, Tooltip, Button } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -12,6 +12,14 @@ import CreateInvite from './CreateInvite';
 import MailDialog from './MailDialog';
 import PriviousDriver from './PriviousDriver';
 import Invitation from './Invitation';
+import DriverScreenDrawer from './DriverScreenDrawer';
+
+const driverScreenStyle = {
+  drawerButton: {
+    color: 'black',
+    fontWeight: 300,
+  }
+}
 
 const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
@@ -19,6 +27,7 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const [mailDialog, setMailDialog] = useState(false);
   const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
   const [invitationDialog, setInvitationDialog] = useState(false);
+  const [responsiveDrawer, setResponsiveDrawer] = useState(false);
 
   const handleCreateModel = () => {
     setCreateInviteModel(!createInviteModel)
@@ -34,6 +43,10 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
   const handlePreviousDriverDialog = () => {
     setPreviousDriverDialog(!previousDriverDialog)
+  }
+
+  const handleResponsiveDrawer = () => {
+    setResponsiveDrawer(!responsiveDrawer)
   }
 
   function stringAvatar(name) {
@@ -92,9 +105,9 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     flexGrow: 1,
                     width: '100%',
                     borderRadius: '20px',
+                    backgroundColor: 'white',
                     '@media (max-width: 1200px)': {
                       width: '100%',
-                      backgroundColor: 'white'
                     }
                   }}
                   InputProps={{
@@ -128,8 +141,8 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   </Tooltip>
                   <Tooltip title="Invitations" placement="top">
                     <ApartmentIcon
-                     onClick={handleInvitationDialog}
-                     sx={{ cursor: 'pointer' }} 
+                      onClick={handleInvitationDialog}
+                      sx={{ cursor: 'pointer' }}
                     />
                   </Tooltip>
                   <Tooltip title="Previous Drivers" placement="top">
@@ -171,9 +184,21 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                 <div className={styles.heading2}>
                   Driver Info
                 </div>
+                <div className={styles.drawerButton}>
+                  <Button
+                    style={driverScreenStyle.drawerButton}
+                    onClick={handleResponsiveDrawer}
+                  >
+                    View Driver Profile...
+                  </Button>
+                </div>
                 <div className={styles.detail}>
                   Choose a driver to view their profile...
                 </div>
+                <DriverScreenDrawer
+                  openResponsiveDrawer={responsiveDrawer}
+                  closeResponsiveDrawer={handleResponsiveDrawer}
+                />
               </div>
             </div>
 
