@@ -26,10 +26,7 @@ const allStyle = {
     fontSize: '13px',
     width: '100%'
   },
-
-
 }
-
 const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
 
   const [messageType, setMessageType] = useState('');
@@ -67,7 +64,7 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 '&.Mui-focused': {
                   color: 'rgb(237, 202, 51)',
                 },
-                color: 'rgb(237, 202, 51)',
+               
 
               }}>Type</InputLabel>
               <Select
@@ -91,7 +88,7 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 '&.Mui-focused': {
                   color: 'rgb(237, 202, 51)',
                 },
-                color: 'rgb(237, 202, 51)',
+            
 
               }}> Communication Type</InputLabel>
               <Select
