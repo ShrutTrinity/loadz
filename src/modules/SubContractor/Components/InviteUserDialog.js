@@ -91,8 +91,6 @@ const InviteUserDialog = ({ isOpen, CreateCustomerPopupRendered }) => {
                   </FormControl>
                 </Box>
               </div>
-
-              {/* 2nd */}
               <div className={styles.field2}>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
