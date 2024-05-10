@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './style/InvitationModel.module.scss';
-import { Dialog, Checkbox, IconButton, TablePagination, TableFooter, TableRow } from '@mui/material'; // Import necessary components from MUI
+import { Dialog, Checkbox, IconButton, TablePagination, TableFooter, TableRow, Avatar } from '@mui/material'; // Import necessary components from MUI
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -83,8 +83,8 @@ const TablePaginationActions = (props) => {
 const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
   const [selectAll, setSelectAll] = useState(false);
   const [selected, setSelected] = useState(Array(rows.length).fill(false));
-  const [page, setPage] = useState(0); 
-  const [rowsPerPage, setRowsPerPage] = useState(1); 
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(1);
   const [editDialog, setEditDialog] = useState(false);
 
   const handleSelectAll = () => {
@@ -93,10 +93,10 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
     setSelectAll(!selectAll);
   };
 
-  const EditDailogOpen = ()=>{
+  const EditDailogOpen = () => {
     setEditDialog(true)
   }
-  const EditDailogClose = ()=>{
+  const EditDailogClose = () => {
     setEditDialog(false)
   }
   const handleCheckboxChange = (index) => {
@@ -119,9 +119,9 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
 
   return (
     <>
-    <EditDriverInvitation
-        mailDialogOpen={editDialog}
-        closeMailDialog={EditDailogClose}
+      <EditDriverInvitation
+        editDialog={editDialog}
+        EditDailogClose={EditDailogClose}
       />
       <Dialog
         open={openInvitationDialog}
@@ -148,11 +148,11 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                   <TableRow>
                     <TableCell>
                       <Checkbox
-                      sx={{
-                              '&.Mui-checked': {
-                                color: 'rgb(237, 202, 51)',
-                              },
-                            }}
+                        sx={{
+                          '&.Mui-checked': {
+                            color: 'rgb(237, 202, 51)',
+                          },
+                        }}
                         checked={selectAll}
                         onChange={handleSelectAll}
                       />
@@ -188,7 +188,7 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                         </TableCell>
                         <TableCell>
                           <div className={styles.Avatarimage}>
-                            <img src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?size=626&ext=jpg" alt="avatar" />
+                          <Avatar alt="Trevor Henderson" src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?size=626&ext=jpg" />
                           </div>
                         </TableCell>
                         <TableCell component="th" scope="row">
@@ -213,7 +213,7 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                     ))}
                 </TableBody>
               </Table>
-              <TableFooter sx={{ display: 'flex', justifyContent: 'flex-end',alignItems:'center' }}>
+              <TableFooter sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <TableRow>
                   <TablePagination
                     rowsPerPageOptions={[1, 10, 25, { label: 'All', value: -1 }]}

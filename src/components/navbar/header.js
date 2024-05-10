@@ -60,7 +60,7 @@ const PersistentDrawerLeft = ({
     { header: { 'Jobs': '/jobs' }, detail: {} },
     { header: { 'CUSTOMERS': '/customers' }, detail: { 'UNINVOICED TICKETS': '/uninvoiced' } },
     { header: { 'TRUCK': '/truck/all' }, detail: { FUELLOG: '/mileages/logs', 'TRAFFIC STOPS': '/dps/logs', INSPECTIONS: '/inspections' } },
-    { header: { 'DRIVER LIST': '/drivers' }, detail: { 'TIME SHEETS': '/time-sheets' } },
+    { header: { 'DRIVER LIST': '/drivers' }, detail: { 'TIME SHEETS': '/timesheet' } },
     { header: { 'USER LIST': '/users' }, detail: {} },
     { header: { 'SUBCONTRACTORS': '/sub-contractor' }, detail: {} },
     { header: { 'OWNER OPERATORS': '' }, detail: {} },

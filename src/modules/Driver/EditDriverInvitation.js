@@ -27,7 +27,7 @@ const allStyle = {
     width: '100%'
   },
 }
-const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
+const EditDriverInvitation = ({ editDialog, EditDailogClose }) => {
 
   const [messageType, setMessageType] = useState('');
 
@@ -37,8 +37,8 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
   return (
     <>
       <Dialog
-        open={mailDialogOpen}
-        onClose={closeMailDialog}
+        open={editDialog}
+        onClose={EditDailogClose}
         aria-describedby="alert-dialog-slide-description"
 
         sx={{
@@ -117,7 +117,7 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
         </DialogContent>
         <DialogActions sx={{justifyContent:'flex-start'}}>
           <Button
-            onClick={closeMailDialog}
+            onClick={EditDailogClose}
             style={allStyle.button}
           >
            Resend Invite

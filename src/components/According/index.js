@@ -4,17 +4,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
-
-
-
 const According = (props) => {
-    
-    
     return (
         <>
             <Accordion sx={{ boxShadow: 0, margin: '0 !important' }} >
                 <AccordionSummary
-
                     aria-controls="panel1-content"
                     id="panel1-header"
                     sx={{
