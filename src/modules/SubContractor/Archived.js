@@ -5,17 +5,19 @@ import { Button } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
 import { TextField, InputAdornment, Dialog, DialogContent } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
-import inspection from '@images/inspection.png'
+import inspection from '@images/inspection.png';
+import ChatIcon from '@mui/icons-material/Chat';
 
 const allStyle = {
   button: {
-    background: 'rgb(237,202,51)',
-    color: 'rgb(0,0,0)',
+    color: 'rgb(237,202,51)',
     fontSize: '13px',
     fontWeight: '300',
     textTransform: 'capitalize',
-    borderRadius: '18px',
     padding: '6px 16px',
+    background: 'rgb(255,255,255)',
+    width: '100%',
+    justifyContent: 'end'
   },
   textFieldStyle: {
     margin: '6px 0',
@@ -97,22 +99,28 @@ const Archived = ({ openArchiveDialog, closeArchiveDialog }) => {
                         }}
                       />
                     </div>
+                    <div className={styles.title}>
+                      Subcontractors
+                    </div>
                   </div>
 
                   <div className={styles.contentWrapper}>
+                    <div className={styles.heading}>
+                      <ChatIcon className={styles.openDailogIcon} />
+                      Subcontractors Details
+                    </div>
                     <div className={styles.box}>
                       <div className={styles.circle}>
                         <img src={inspection} alt='pictureOfInspection' className={styles.image} />
                       </div>
                       <div className={styles.heading2}>
-                        Driver Info
+                        Subcontractors Info
                       </div>
                       <div className={styles.detail}>
-                        Choose a driver to view their profile...
+                        Select a subcontractor to view invoices info...
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -125,7 +133,7 @@ const Archived = ({ openArchiveDialog, closeArchiveDialog }) => {
             onClick={closeArchiveDialog}
             style={allStyle.button}
           >
-            Send Message
+            Close
           </Button>
         </DialogActions>
       </Dialog >
