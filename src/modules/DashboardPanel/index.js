@@ -19,6 +19,7 @@ import NewFuelLog from '../Truck/FuelLogList/Components/FuelNewLog/NewFuelLog';
 import InspectionScreen from '../Truck/Inspection/InspectionScreen';
 import DriversScreen from '../Driver/DriversScreen';
 import SubContractor from '../SubContractor/SubContractor';
+import TimeSheetScreen from '../Driver/TimeSheet/TimeSheetScreen';
 
 const Panel = () => {
 
@@ -244,6 +245,18 @@ const Panel = () => {
           path='/sub-contractor'
           element={
             <SubContractor
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/timesheet'
+          element={
+            <TimeSheetScreen
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
