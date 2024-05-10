@@ -26,9 +26,7 @@ const rows = [
   createData(23897675, 'employeeC', 'phone', 'valid', 'Pending'),
   createData(23872675, 'employeeD', 'phone', 'valid', 'Pending'),
   createData(23879675, 'employeeE', 'phone', 'valid', 'Pending'),
-
 ];
-
 const TablePaginationActions = (props) => {
   const { count, page, rowsPerPage, onPageChange } = props;
 

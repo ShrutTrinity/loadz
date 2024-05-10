@@ -34,7 +34,6 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
   const handleChange = (event) => {
     setMessageType(event.target.value);
   };
-
   return (
     <>
       <Dialog
@@ -64,8 +63,6 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 '&.Mui-focused': {
                   color: 'rgb(237, 202, 51)',
                 },
-               
-
               }}>Type</InputLabel>
               <Select
               sx={{
@@ -80,7 +77,6 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 onChange={handleChange}
               >
                 <MenuItem value={10}>Employee</MenuItem>
-
               </Select>
             </FormControl>
             <FormControl fullWidth>
@@ -88,8 +84,6 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 '&.Mui-focused': {
                   color: 'rgb(237, 202, 51)',
                 },
-            
-
               }}> Communication Type</InputLabel>
               <Select
                 sx={{
@@ -117,7 +111,6 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 },
               }}
               style={allStyle.textFieldStyle}
-
               label="Send to"
             />
           </div>
@@ -130,7 +123,7 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
            Resend Invite
           </Button>
         </DialogActions>
-      </Dialog >
+      </Dialog>
     </>
   )
 }
