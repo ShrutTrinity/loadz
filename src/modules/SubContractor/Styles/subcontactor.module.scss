@@ -34,10 +34,10 @@
         border-top-left-radius: 20px;
         background-color: $color_4;
 
-        .title{
+        .title {
           font-size: 18px;
           font-weight: 500;
-          padding:  20px 30px 10px 30px;
+          padding: 20px 30px 10px 30px;
         }
 
         .searchbar {
@@ -129,6 +129,14 @@
             text-align: center;
           }
 
+          .detailButton {
+            line-height: 1.75;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            padding: 5px 16px;
+            border-radius: 18px;
+            display: none;
+          }
+
           .detail {
             font-size: 16px;
             font-weight: 300;
@@ -149,7 +157,7 @@
     background-color: $color_4;
 
     .searchbar {
-      background-color: rgb(245, 245, 245);;
+      background-color: rgb(245, 245, 245);
       padding: 5px 5px;
     }
 
@@ -209,6 +217,39 @@
           .box {
             .heading2 {
               font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 899px) {
+  .container {
+    .CardWrapper {
+      .contentCard {
+        .drawer {
+          display: none;
+        }
+
+        .contentWrapper {
+          width: 100%;
+          position: relative;
+
+          .box {
+            height: 100%;
+
+            .detailButton {
+              display: block;
+            }
+
+            .detailButton:hover {
+              cursor: pointer;
+              background-color: rgb(245, 245, 245);
+            }
+            .detail {
+              display: none;
             }
           }
         }

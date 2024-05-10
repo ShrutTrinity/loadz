@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import styles from './Styles/subcontactor.module.scss'
-import { TextField, InputAdornment, Avatar, Tooltip, Dialog, DialogContent } from '@mui/material'
+import React, { useState } from 'react';
+import styles from './Styles/subcontactor.module.scss';
+import { TextField, InputAdornment, Avatar, Tooltip, Dialog, DialogContent, Button } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import PaymentsIcon from '@mui/icons-material/Payments';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -13,12 +13,23 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import InviteUserDialog from './Components/InviteUserDialog';
 import SubContractorMail from './SubContractorMail';
 import Archived from './Archived';
+import Invitation from './Invitation';
+import SubContractorDrawer from './Components/SubContractorDrawer.js';
+
+const allStyle = {
+  drawerButton: {
+    color: 'black',
+    fontWeight: 300,
+  }
+}
 
 const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
   const [createInvitationDialog, setCreateInvitationDialog] = useState(false);
   const [mailDialog, setMailDialog] = useState(false);
   const [archiveDialog, setArchiveDialog] = useState(false);
+  const [invitationDialog, setInvitationDialog] = useState(false);
+  const [subContractorDrawer, setSubContractorDrawer] = useState(false);
 
   const handleArchiveDialog = () => {
     setArchiveDialog(!archiveDialog)
@@ -32,7 +43,15 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
     setMailDialog(!mailDialog)
   }
 
-  
+  const handleInvitationDialog = () => {
+    setInvitationDialog(!invitationDialog)
+  }
+
+  const handleSubContractorDrawer = () => {
+    setSubContractorDrawer(!subContractorDrawer)
+  }
+
+
   const bodyStyles = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
     zIndex: 1,
@@ -48,10 +67,10 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   }
   return (
     <>
-    <Archived 
-      openArchiveDialog = {archiveDialog}
-      closeArchiveDialog = {handleArchiveDialog}
-    />
+      <Archived
+        openArchiveDialog={archiveDialog}
+        closeArchiveDialog={handleArchiveDialog}
+      />
       <SubContractorMail
         mailDialogOpen={mailDialog}
         closeMailDialog={handleMailDialog}
@@ -59,6 +78,14 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
       <InviteUserDialog
         isOpen={createInvitationDialog}
         CreateCustomerPopupRendered={handleCreateInvitationDialog}
+      />
+      <Invitation
+        openInvitationDialog={invitationDialog}
+        closeInvitationDialog={handleInvitationDialog}
+      />
+      <SubContractorDrawer
+        openSubCOntractorDrawer={subContractorDrawer}
+        closeSubCOntractorDrawer={handleSubContractorDrawer}
       />
       <div className={styles.container}
         style={bodyStyles}
@@ -104,10 +131,10 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
               </div>
               <div className={styles.listoficon}>
                 <Tooltip title="Archive" placement="top">
-                  <HistoryIcon 
-                  onClick={handleArchiveDialog}
-                  sx={{ cursor: 'pointer' }}
-                   />
+                  <HistoryIcon
+                    onClick={handleArchiveDialog}
+                    sx={{ cursor: 'pointer' }}
+                  />
                 </Tooltip>
                 <Tooltip title="Create Invite" placement="top">
                   <AddCircleIcon
@@ -122,7 +149,10 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   />
                 </Tooltip>
                 <Tooltip title="Invitations" placement="top">
-                  <ApartmentIcon sx={{ cursor: 'pointer' }} />
+                  <ApartmentIcon
+                    sx={{ cursor: 'pointer' }}
+                    onClick={handleInvitationDialog}
+                  />
                 </Tooltip>
                 <Tooltip title="Apply Payments" placement="top">
                   <PaymentsIcon sx={{ cursor: 'pointer' }} />
@@ -271,6 +301,14 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                 </div>
                 <div className={styles.heading2}>
                   Subcontractors Info
+                </div>
+                <div className={styles.detailButton}>
+                  <Button
+                    style={allStyle.drawerButton}
+                    onClick={handleSubContractorDrawer}
+                  >
+                    Select a subcontractor to view invoices info...
+                  </Button>
                 </div>
                 <div className={styles.detail}>
                   Select a subcontractor to view invoices info...
