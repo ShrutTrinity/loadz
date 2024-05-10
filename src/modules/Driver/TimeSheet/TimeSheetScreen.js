@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './style/timeSheetScreen.module.scss';
 import { TextField, InputAdornment, Avatar, Tooltip, Button } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
@@ -6,6 +6,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import RestoreIcon from '@mui/icons-material/Restore';
 import inspection from '@images/inspection.png'
 import Index from '../../Jobs/components/switchForJob/index';
+import MailSendModel from './MailSendModel';
+import PreviousDriver from './PreviousDriver';
 
 const allStyle = {
   drawerButton: {
@@ -20,7 +22,18 @@ const allStyle = {
 const TimeSheetScreen = ({
   open, handleDrawerClose, textSelectorOpen, toggleTextSelector
 }) => {
-  
+
+  const [mailSendDialog, setMailSendDialog] = useState(false);
+  const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
+
+  const handleMailSendDialog = () => {
+    setMailSendDialog(!mailSendDialog)
+  }
+
+  const handlePreviousDriverDialog = () => {
+    setPreviousDriverDialog(!previousDriverDialog)
+  }
+
   const bodyStyles = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
     zIndex: 1,
@@ -37,6 +50,14 @@ const TimeSheetScreen = ({
 
   return (
     <>
+      <MailSendModel
+        openMailDialog={mailSendDialog}
+        closeMailDialog={handleMailSendDialog}
+      />
+      <PreviousDriver
+        openDialog={previousDriverDialog}
+        closeDialog={handlePreviousDriverDialog}
+      />
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
@@ -84,11 +105,13 @@ const TimeSheetScreen = ({
                 <div className={styles.listoficon}>
                   <Tooltip title="Send Email to All" placement="top">
                     <MailIcon
+                      onClick={handleMailSendDialog}
                       sx={{ cursor: 'pointer' }}
                     />
                   </Tooltip>
-                  <Tooltip title="Previous Drivers" placement="top">
+                  <Tooltip title="View Previous Drivers" placement="top">
                     <RestoreIcon
+                      onClick={handlePreviousDriverDialog}
                       sx={{ cursor: 'pointer' }}
                     />
                   </Tooltip>

@@ -80,7 +80,6 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 onChange={handleChange}
               >
                 <MenuItem value={10}>Employee</MenuItem>
-
               </Select>
             </FormControl>
             <FormControl fullWidth>
@@ -88,8 +87,6 @@ const EditDriverInvitation = ({ mailDialogOpen, closeMailDialog }) => {
                 '&.Mui-focused': {
                   color: 'rgb(237, 202, 51)',
                 },
-            
-
               }}> Communication Type</InputLabel>
               <Select
                 sx={{
