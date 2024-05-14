@@ -13,15 +13,21 @@ import MailDialog from './MailDialog';
 import Invitation from './Invitation';
 import PriviousDriver from './PriviousDriver';
 
+
 const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => {
 
   const [createInviteModel, setCreateInviteModel] = useState(false);
   const [mailDialog, setMailDialog] = useState(false);
   const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
   const [invitationDialog, setInvitationDialog] = useState(false);
+  const[driverDetailscreen ,setDriverDetailScreen] = useState(false)
 
   const handleCreateModel = () => {
     setCreateInviteModel(!createInviteModel)
+  }
+
+  const openDriverDetailScreen = () =>{
+    setDriverDetailScreen(true)
   }
 
   const handleMailDialog = () => {
@@ -44,6 +50,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => 
 
   return (
     <>
+    {/* <DriverDetail open/> */}
       <CreateInvite
         openCreateModel={createInviteModel}
         closeCreateModel={handleCreateModel}
@@ -143,7 +150,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => 
             <Index label="Disabled" />
           </div>
 
-          <div className={styles.profile}>
+          <div className={styles.profile} onClick={openDriverDetailScreen}>
             <Avatar
               sx={{
                 height: '40px',

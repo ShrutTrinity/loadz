@@ -13,6 +13,7 @@ import MailDialog from './MailDialog';
 import PriviousDriver from './PriviousDriver';
 import Invitation from './Invitation';
 import DriverScreenDrawer from './DriverScreenDrawer';
+import DriverDetail from './DriverDetailScreen';
 
 const driverScreenStyle = {
   drawerButton: {
@@ -28,6 +29,11 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
   const [invitationDialog, setInvitationDialog] = useState(false);
   const [responsiveDrawer, setResponsiveDrawer] = useState(false);
+  const [driverDetailscreen, setDriverDetailScreen] = useState(false)
+
+  const openDriverDetailScreen = () => {
+    setDriverDetailScreen(true)
+  }
 
   const handleCreateModel = () => {
     setCreateInviteModel(!createInviteModel)
@@ -159,7 +165,7 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                 <Index label="Disabled" />
               </div>
 
-              <div className={styles.profile}>
+              <div className={styles.profile} onClick={openDriverDetailScreen}>
                 <Avatar
                   sx={{
                     height: '40px',
@@ -177,29 +183,32 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
             </div>
 
             <div className={styles.contentWrapper}>
-              <div className={styles.box}>
-                <div className={styles.circle}>
-                  <img src={inspection} alt='pictureOfInspection' className={styles.image} />
+              {driverDetailscreen ? <DriverDetail /> :
+                <div className={styles.box}>
+                  <div className={styles.circle}>
+                    <img src={inspection} alt='pictureOfInspection' className={styles.image} />
+                  </div>
+                  <div className={styles.heading2}>
+                    Driver Info
+                  </div>
+                  <div className={styles.drawerButton}>
+                    <Button
+                      style={driverScreenStyle.drawerButton}
+                      onClick={handleResponsiveDrawer}
+                    >
+                      View Driver Profile...
+                    </Button>
+                  </div>
+                  <div className={styles.detail}>
+                    Choose a driver to view their profile...
+                  </div>
+                  <DriverScreenDrawer
+                    openResponsiveDrawer={responsiveDrawer}
+                    closeResponsiveDrawer={handleResponsiveDrawer}
+                  />
                 </div>
-                <div className={styles.heading2}>
-                  Driver Info
-                </div>
-                <div className={styles.drawerButton}>
-                  <Button
-                    style={driverScreenStyle.drawerButton}
-                    onClick={handleResponsiveDrawer}
-                  >
-                    View Driver Profile...
-                  </Button>
-                </div>
-                <div className={styles.detail}>
-                  Choose a driver to view their profile...
-                </div>
-                <DriverScreenDrawer
-                  openResponsiveDrawer={responsiveDrawer}
-                  closeResponsiveDrawer={handleResponsiveDrawer}
-                />
-              </div>
+              }
+
             </div>
 
           </div>

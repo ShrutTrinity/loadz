@@ -18,6 +18,7 @@
     z-index: 2;
     height: 80vh;
     padding: 30px;
+    // position: absolute;
     max-height: 100%;
     width: 100%;
 
@@ -76,17 +77,22 @@
 
         .profile {
           margin: 0 10px;
-          margin-top: 10px;
+          padding: 10px 0 0 6px;
           @include flex-column();
           gap: 10px;
           padding-bottom: 15px;
           border-bottom: 1px solid $color_1;
+          cursor: pointer;
 
           .name {
             font-size: 14px;
             margin-left: 8px;
             text-transform: uppercase;
           }
+        }
+
+        .profile:hover{
+          background-color:rgb(245,245,245);
         }
       }
 
