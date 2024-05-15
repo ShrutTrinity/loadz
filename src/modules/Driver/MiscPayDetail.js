@@ -1,10 +1,19 @@
 import React from 'react'
 import MiscpayContainer from './MiscpayContainer'
+import styles from './style/MiscPay.module.scss'
 
-const MiscPayDetail = () => {
+const MiscPayDetail = (props) => {
+
+
   return (
     <>
-      <MiscpayContainer/>
+      <div className={styles.box} style={{height:`${props.height}`}}>
+        <MiscpayContainer />
+        <MiscpayContainer />
+        <MiscpayContainer />
+        <MiscpayContainer />
+        <MiscpayContainer />
+      </div>
     </>
   )
 }

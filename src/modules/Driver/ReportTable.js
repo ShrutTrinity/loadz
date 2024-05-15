@@ -18,7 +18,7 @@ const tableStyles = {
   }
 };
 
-const ReportTable = () => {
+const ReportTable = (props) => {
   const [visibleRows, setVisibleRows] = useState([]);
   const [endIndex, setEndIndex] = useState(1);
   const tableRef = useRef();
@@ -39,7 +39,7 @@ const ReportTable = () => {
 
   return (
     <>
-      <div className={styles.box}>
+      <div className={styles.box} style={{height:`${props.height}`}}>
         <div
           className={styles.tableCover}
           style={{ maxHeight: '400px', overflowY: 'auto' }}

@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import styles from './style/miscpayContainer.module.scss';
 import Table from '@mui/material/Table';
 import TableCell from '@mui/material/TableCell';
@@ -53,91 +53,170 @@ const MiscpayContainer = (props) => {
     },
     button: {
       backgroundColor: 'black',
-      width:'35%',      
-      padding: '4px 0',
-      fontSize:'30px',
-      borderRadius:'20px',
+
+      fontSize: '25px',
+      padding: '0px 20px',
+      borderRadius: '20px',
       color: 'rgb(237, 202, 51)',
-      marginLeft:'10px'
+      marginLeft: '10px'
     }
   };
   return (
     <>
-      <div className={styles.box}>
-        <div
-          className={styles.tableCover}
-          style={{ maxHeight: '400px', overflowY: 'auto' }}
+      <div
+        className={styles.tableCover}
+        style={{ overflowY: 'auto' }}
+      >
+        <TableContainer
+          component={Paper}
+          sx={{ borderRadius: 0 }}
         >
-          <TableContainer
-            component={Paper}
-            sx={{ borderRadius: 0 }}
+          <Table
+            aria-label="simple table"
           >
-            <Table
-              aria-label="simple table"
-            >
-              <TableHead>
-                <TableRow style={tableStyles.th}>
-                  <TableCell s
-                    tyle={tableStyles.cell}
-                    align="left"
-                    sx={{ width: '5%' }}>
-                  </TableCell>
+            <TableHead>
+              <TableRow style={tableStyles.th}>
+                <TableCell s
+                  tyle={tableStyles.cell}
+                  align="left"
+                  sx={{ width: '5%' }}>
+                </TableCell>
 
-                  <TableCell
-                    style={tableStyles.cell}
-                    align="left"
-                    sx={{ width: '17%' }}>
-                    Date
-                  </TableCell>
+                <TableCell
+                  style={tableStyles.cell}
+                  align="left"
+                  sx={{ width: '17%' }}>
+                  Date
+                </TableCell>
 
-                  <TableCell
-                    style={tableStyles.cell}
-                    align="left"
-                    sx={{ width: '50%' }}>
-                    Reason
-                  </TableCell>
+                <TableCell
+                  style={tableStyles.cell}
+                  align="left"
+                  sx={{ width: '50%' }}>
+                  Reason
+                </TableCell>
 
-                  <TableCell
-                    style={tableStyles.cell}
-                    align="left"
-                    sx={{ width: '10%' }}>
-                    Amount
-                  </TableCell>
+                <TableCell
+                  style={tableStyles.cell}
+                  align="left"
+                  sx={{ width: '10%' }}>
+                  Amount
+                </TableCell>
 
-                  <TableCell
-                    style={tableStyles.cell}
-                    align="left"
-                    sx={{ width: '20%' }}>
+                <TableCell
+                  style={tableStyles.cell}
+                  align="left"
+                  sx={{ width: '20%' }}>
 
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
 
-                <TableRow sx={{ backgroundColor: 'rgba(0, 0, 0, 0.04)' }}>
-                  <TableCell align="center">
+              <TableRow sx={{ backgroundColor: 'rgba(0, 0, 0, 0.04)' }}>
+                <TableCell align="center">
+                  <button className={styles.addbtn}>+</button>
+                </TableCell>
+                <TableCell align="left" component="th" scope="row">
+                  <LocalizationProvider dateAdapter={AdapterDayjs} >
+                    <DatePicker format='MM/DD' inputProps={{ id: 'new-row-date' }} defaultValue={props.defaultValue} sx={{
+                      backgroundColor: 'white', '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root': {
+                        fontSize: '14px'
+                      }
+                    }} />
+                  </LocalizationProvider>
+                </TableCell>
+                <TableCell align="left">
+                  <TextField id="new-row-reason" sx={{
+                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                      padding: '3px',
+                    },
+                    '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgba(0, 0, 0, 0.23)'
+                    },
+                  }} style={tableStyles.textfield} />
+                </TableCell>
+                <TableCell align="left">
+                  <FormControl fullWidth sx={{
+                    '& .css-1eed5fa-MuiInputBase-root-MuiInput-root::after ': {
+                      borderBottom: '2px solid rgb(237, 202, 51)'
+                    }
+                  }} variant="standard">
+
+                    <Input
+                      type='number'
+                      id="new-row-amount"
+                      startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    />
+                  </FormControl>
+                </TableCell>
+                <TableCell align="left">
+                  <button className={styles.addbtn2} onClick={handleAddEntryForFirst}>+</button>
+                </TableCell>
+              </TableRow>
+
+              <TableRow >
+                <TableCell align="center">
+                  <button className={styles.minusbtn}>-</button>
+                </TableCell>
+                <TableCell align="left" component="th" scope="row">
+                  <LocalizationProvider dateAdapter={AdapterDayjs} >
+                    <DatePicker format='MM/DD' defaultValue={props.defaultValue} inputProps={{ id: 'new-row-date-second' }} sx={{
+                      backgroundColor: 'white',
+                      '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root': {
+                        fontSize: '14px'
+                      }
+                    }} />
+                  </LocalizationProvider>
+                </TableCell>
+                <TableCell align="left">
+                  <TextField id="new-row-reason-second" sx={{
+                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                      padding: '3px',
+                    },
+                    '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgba(0, 0, 0, 0.23)'
+                    },
+                  }} style={tableStyles.textfield} />
+                </TableCell>
+                <TableCell align="left">
+                  <FormControl fullWidth sx={{
+                    '& .css-1eed5fa-MuiInputBase-root-MuiInput-root::after ': {
+                      borderBottom: '2px solid rgb(237, 202, 51)'
+                    }
+                  }} variant="standard">
+
+                    <Input
+                      type='number'
+                      id="new-row-amount-second"
+                      startAdornment={<InputAdornment position="start"  >$</InputAdornment>}
+                    />
+                  </FormControl>
+                </TableCell>
+                <TableCell align="left">
+                  <button className={styles.addbtn2} onClick={handleAddEntryForSecond}>+</button>
+                </TableCell>
+              </TableRow>
+
+              {/* First entry for update and Delete */}
+              {Firstentries.map((entry, index) => (
+                <TableRow key={index}>
+                  <TableCell align="center" sx={{ padding: '4px 16px' }}>
                     <button className={styles.addbtn}>+</button>
                   </TableCell>
-                  <TableCell align="left" component="th" scope="row">
-                    <LocalizationProvider dateAdapter={AdapterDayjs} >
-                      <DatePicker format='MM/DD' inputProps={{ id: 'new-row-date' }} defaultValue={props.defaultValue} sx={{
-                        backgroundColor: 'white', '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root': {
-                          fontSize: '14px'
-                        }
-                      }} />
-                    </LocalizationProvider>
+                  <TableCell align="left" component="th" scope="row" sx={{ padding: '4px' }}>
+                    {entry.date}
                   </TableCell>
-                  <TableCell align="left">
-                    <TextField id="new-row-reason" sx={{
+                  <TableCell align="left" sx={{ padding: '4px 16px' }}>
+                    <TextField id="new-row-reason" defaultValue={entry.reason} sx={{
                       '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
                         padding: '3px',
                       },
                       '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                         borderColor: 'rgba(0, 0, 0, 0.23)'
                       },
-                    }} style={tableStyles.textfield} />
-                  </TableCell>
-                  <TableCell align="left">
+                    }} style={tableStyles.textfield} /></TableCell>
+                  <TableCell align="left" sx={{ padding: '4px 16px' }}>
                     <FormControl fullWidth sx={{
                       '& .css-1eed5fa-MuiInputBase-root-MuiInput-root::after ': {
                         borderBottom: '2px solid rgb(237, 202, 51)'
@@ -146,32 +225,30 @@ const MiscpayContainer = (props) => {
 
                       <Input
                         type='number'
-                        id="new-row-amount"
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                        defaultValue={entry.amount}
+                        id="new-row-amount-second"
+                        startAdornment={<InputAdornment position="start"  >$</InputAdornment>}
                       />
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <button className={styles.addbtn2} onClick={handleAddEntryForFirst}>+</button>
+                  <TableCell align="left" sx={{ padding: '4px 2px', width: '100%' }}>
+                    <EditIcon style={tableStyles.button} />
+                    <DeleteIcon style={tableStyles.button} />
                   </TableCell>
                 </TableRow>
+              ))}
 
-                <TableRow >
-                  <TableCell align="center">
+              {/* second entry for update and Delete */}
+              {Secondentries.map((entry, index) => (
+                <TableRow key={index}>
+                  <TableCell align="center" sx={{ padding: '0px' }}>
                     <button className={styles.minusbtn}>-</button>
                   </TableCell>
-                  <TableCell align="left" component="th" scope="row">
-                    <LocalizationProvider dateAdapter={AdapterDayjs} >
-                      <DatePicker format='MM/DD' defaultValue={props.defaultValue} inputProps={{ id: 'new-row-date-second' }} sx={{
-                        backgroundColor: 'white',
-                        '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root': {
-                          fontSize: '14px'
-                        }
-                      }} />
-                    </LocalizationProvider>
+                  <TableCell align="left" component="th" scope="row" sx={{ padding: '4px' }}>
+                    {entry.date}
                   </TableCell>
-                  <TableCell align="left">
-                    <TextField id="new-row-reason-second" sx={{
+                  <TableCell align="left" sx={{ padding: '4px 16px' }}>
+                    <TextField id="new-row-reason" defaultValue={entry.reason} sx={{
                       '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
                         padding: '3px',
                       },
@@ -180,111 +257,36 @@ const MiscpayContainer = (props) => {
                       },
                     }} style={tableStyles.textfield} />
                   </TableCell>
-                  <TableCell align="left">
+                  <TableCell align="left" sx={{ padding: '4px 16px' }}>
                     <FormControl fullWidth sx={{
                       '& .css-1eed5fa-MuiInputBase-root-MuiInput-root::after ': {
                         borderBottom: '2px solid rgb(237, 202, 51)'
                       }
                     }} variant="standard">
-
                       <Input
-                       type='number'
+                        type='number'
+                        defaultValue={entry.amount}
                         id="new-row-amount-second"
-                        startAdornment={<InputAdornment position="start"  >$</InputAdornment>}
+                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
                       />
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <button className={styles.addbtn2} onClick={handleAddEntryForSecond}>+</button>
+                  <TableCell align="left" sx={{ padding: '4px 2px' ,display:'flex'}}>
+                    <div style={tableStyles.button}>
+                      <EditIcon />
+                    </div>
+                    <div style={tableStyles.button}>
+                      <DeleteIcon />
+                    </div>
                   </TableCell>
                 </TableRow>
+              ))}
 
-                  {/* First entry for update and Delete */}
-                {Firstentries.map((entry, index) => (
-                  <TableRow key={index}>
-                    <TableCell align="center" sx={{padding:'4px 16px'}}>
-                    <button className={styles.addbtn}>+</button>
-                    </TableCell>
-                    <TableCell align="left" component="th" scope="row" sx={{padding:'4px'}}>
-                      {entry.date}
-                    </TableCell>
-                    <TableCell align="left" sx={{padding:'4px 16px'}}>
-                      <TextField id="new-row-reason" defaultValue={entry.reason} sx={{
-                        '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                          padding: '3px',
-                        },
-                        '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                          borderColor: 'rgba(0, 0, 0, 0.23)'
-                        },
-                      }} style={tableStyles.textfield} /></TableCell>
-                    <TableCell align="left" sx={{padding:'4px 16px'}}>
-                    <FormControl fullWidth sx={{
-                      '& .css-1eed5fa-MuiInputBase-root-MuiInput-root::after ': {
-                        borderBottom: '2px solid rgb(237, 202, 51)'
-                      }
-                    }} variant="standard">
-
-                      <Input
-                       type='number'
-                       defaultValue={entry.amount}
-                        id="new-row-amount-second"
-                        startAdornment={<InputAdornment position="start"  >$</InputAdornment>}
-                      />
-                    </FormControl>
-                    </TableCell>
-                    <TableCell align="left" sx={{padding:'4px 2px',width:'100%'}}>
-                    <EditIcon style={tableStyles.button} />
-                    <DeleteIcon style={tableStyles.button}/>
-                    </TableCell>
-                  </TableRow>
-                ))}
-
-                {/* second entry for update and Delete */}
-                {Secondentries.map((entry, index) => (
-                  <TableRow key={index}>
-                    <TableCell align="center" sx={{padding:'4px 16px'}}>
-                    <button className={styles.minusbtn}>-</button>
-                    </TableCell>
-                    <TableCell align="left" component="th" scope="row" sx={{padding:'4px 16px'}}>
-                      {entry.date}
-                    </TableCell>
-                    <TableCell align="left" sx={{padding:'4px 16px'}}>
-                     <TextField id="new-row-reason-second" defaultValue={entry.reason} sx={{
-                        '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                          padding: '3px',
-                        },
-                        '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                          borderColor: 'rgba(0, 0, 0, 0.23)'
-                        },
-                      }} style={tableStyles.textfield} />
-                      </TableCell>
-                    <TableCell align="left" sx={{padding:'4px 16px'}}>
-                    <FormControl fullWidth sx={{
-                      '& .css-1eed5fa-MuiInputBase-root-MuiInput-root::after ': {
-                        borderBottom: '2px solid rgb(237, 202, 51)'
-                      }
-                    }} variant="standard">
-
-                      <Input
-                       type='number'
-                       defaultValue={entry.amount}
-                        id="new-row-amount-second"
-                        startAdornment={<InputAdornment position="start"  >$</InputAdornment>}
-                      />
-                    </FormControl>
-                    </TableCell>
-                    <TableCell align="left" sx={{padding:'4px 2px',width:'100%'}}>
-                    <EditIcon style={tableStyles.button} />
-                    <DeleteIcon style={tableStyles.button}/>
-                    </TableCell>
-                  </TableRow>
-                ))}
-
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div>
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
+
     </>
   )
 
