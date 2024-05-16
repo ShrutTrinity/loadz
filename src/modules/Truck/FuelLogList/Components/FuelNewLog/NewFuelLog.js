@@ -269,10 +269,12 @@ const NewFuelLog = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelec
                 </div>
                 <div className={styles.secondContainer}>
                   <Send
+                  width="33.33%" 
                     children={
                       selectedImage ?
                         <img src={selectedImage}
                           alt='Selecte Logo'
+                          
                           onClick={handleClickOpen} /> :
                         <div
                           className={styles.imageContainer}

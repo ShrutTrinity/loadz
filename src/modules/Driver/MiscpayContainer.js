@@ -12,7 +12,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import { v4 as uuidv4 } from 'uuid';
 
 const MiscpayContainer = (props) => {
 
@@ -20,26 +20,36 @@ const MiscpayContainer = (props) => {
   const [Secondentries, setSecondEntries] = useState([]);
 
   const handleAddEntryForFirst = () => {
-
+    const id = uuidv4();
     const date = document.getElementById('new-row-date');
     const reason = document.getElementById('new-row-reason').value;
     const amount = document.getElementById('new-row-amount').value;
-    setFirstEntries([...Firstentries, { date, reason, amount }]);
+    setFirstEntries([...Firstentries, {id, date, reason, amount }]);
     console.log("Date:", date);
     console.log("Reason:", reason);
     console.log("Amount:", amount);
   };
   const handleAddEntryForSecond = () => {
+    const id = uuidv4();
 
     const date = document.getElementById('new-row-date-second');
     const reason = document.getElementById('new-row-reason-second').value;
     const amount = document.getElementById('new-row-amount-second').value;
-    setSecondEntries([...Secondentries, { date, reason, amount }]);
+    setSecondEntries([...Secondentries, { id,date, reason, amount }]);
     console.log("Date:", date);
     console.log("Reason:", reason);
     console.log("Amount:", amount);
   };
-
+  
+  const handleDeleteEntry = (id, listType) => {
+    if (listType === 'first') {
+      const newFirstEntries = Firstentries.filter(entry => entry.id !== id);
+      setFirstEntries(newFirstEntries);
+    } else if (listType === 'second') {
+      const newSecondEntries = Secondentries.filter(entry => entry.id !== id);
+      setSecondEntries(newSecondEntries);
+    }
+  };
   const tableStyles = {
     th: {
       background: 'black'
@@ -200,7 +210,7 @@ const MiscpayContainer = (props) => {
 
               {/* First entry for update and Delete */}
               {Firstentries.map((entry, index) => (
-                <TableRow key={index}>
+                <TableRow key={entry.id}>
                   <TableCell align="center" sx={{ padding: '4px 16px' }}>
                     <button className={styles.addbtn}>+</button>
                   </TableCell>
@@ -231,9 +241,13 @@ const MiscpayContainer = (props) => {
                       />
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left" sx={{ padding: '4px 2px', width: '100%' }}>
-                    <EditIcon style={tableStyles.button} />
-                    <DeleteIcon style={tableStyles.button} />
+                  <TableCell align="left" sx={{ padding: '4px 2px',display:'flex' }}>
+                  <div style={tableStyles.button}>
+                      <EditIcon />
+                    </div>
+                    <div style={tableStyles.button}  onClick={() => handleDeleteEntry(entry.id, 'first')}>
+                      <DeleteIcon />
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
@@ -275,7 +289,7 @@ const MiscpayContainer = (props) => {
                     <div style={tableStyles.button}>
                       <EditIcon />
                     </div>
-                    <div style={tableStyles.button}>
+                    <div style={tableStyles.button}  onClick={() => handleDeleteEntry(index, 'second')}>
                       <DeleteIcon />
                     </div>
                   </TableCell>

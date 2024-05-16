@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './styles/popup.module.scss';
+import { Dialog } from '@mui/material';
 
-const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,onOpen }) => {
+const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,open,onOpen}) => {
   const popUpRef = useRef();
 
   useEffect(() => {
@@ -30,14 +31,18 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,onOpen }) => {
   };
 
   return (
-    
-    <div className={styles.root}>
+    <Dialog
+    open={open}
+    onClose={onClose}
+    aria-labelledby="alert-dialog-title"
+    aria-describedby="alert-dialog-description"
+  >
       <div className={styles.container}>
         <label ref={popUpRef}>
           <input type='file' className={styles.input} onChange={handleFileChange} />
           <div className={styles.bordercover}>
             <div className={styles.popImage}>
-              <img src={imageUrlforPopUp} alt="person logo"onClick={(event) => onOpen && onOpen(event)} />
+              <img src={imageUrlforPopUp} alt=""onClick={(event) => onOpen && onOpen(event)} />
               &nbsp;
               <div className={styles.fileFormate}>
                 JPEG, PNG, JPG
@@ -46,7 +51,7 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,onOpen }) => {
           </div>
         </label>
       </div>
-    </div>
+    </Dialog>
   );
 };
 

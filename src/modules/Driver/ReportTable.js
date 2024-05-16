@@ -27,55 +27,51 @@ const ReportTable = (props) => {
     setVisibleRows(rows.slice(0, 2));
   }, []);
 
-  // Load more rows when scrolling to the bottom
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = tableRef.current;
-    if (scrollTop + clientHeight >= scrollHeight && endIndex < rows.length - 1) {
-      const newEndIndex = Math.min(rows.length - 1, endIndex + 2); // Load additional 2 rows
-      setVisibleRows(rows.slice(0, newEndIndex + 1)); // Update visibleRows with new rows
+    if (scrollTop + clientHeight >= scrollHeight - 1 && endIndex < rows.length - 1) {
+      const newEndIndex = Math.min(rows.length - 1, endIndex + 2);
+      setVisibleRows(prevVisibleRows => [...prevVisibleRows, ...rows.slice(endIndex + 1, newEndIndex + 1)]);
       setEndIndex(newEndIndex);
     }
   };
 
   return (
-    <>
-      <div className={styles.box} style={{height:`${props.height}`}}>
-        <div
-          className={styles.tableCover}
-          style={{ maxHeight: '400px', overflowY: 'auto' }}
-          ref={tableRef}
-          onScroll={handleScroll}
+    <div className={styles.box} style={{ height: `${props.height}px` }}>
+      <div
+        className={styles.tableCover}
+        ref={tableRef}
+        onScroll={handleScroll}
+      >
+        <TableContainer
+          component={Paper}
+          sx={{ borderRadius: 0}}
         >
-          <TableContainer
-            component={Paper}
-            sx={{ borderRadius: 0 }}
+          <Table
+            aria-label="simple table"
           >
-            <Table
-              aria-label="simple table" 
-            >
-              <TableHead>
-                <TableRow style={tableStyles.th}>
-                  <TableCell style={tableStyles.cell} align="left">Start</TableCell>
-                  <TableCell style={tableStyles.cell} align="left">End</TableCell>
-                  <TableCell style={tableStyles.cell} align="left">Commission</TableCell>
+            <TableHead>
+              <TableRow style={tableStyles.th}>
+                <TableCell style={tableStyles.cell} align="left">Start</TableCell>
+                <TableCell style={tableStyles.cell} align="left">End</TableCell>
+                <TableCell style={tableStyles.cell} align="left">Commission</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {visibleRows.map((row, index) => (
+                <TableRow key={index}>
+                  <TableCell align="left" component="th" scope="row">
+                    {row.Start}
+                  </TableCell>
+                  <TableCell align="left">{row.End}</TableCell>
+                  <TableCell align="left">{row.Commission}</TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {visibleRows.map((row, index) => (
-                  <TableRow key={index}>
-                    <TableCell align="left" component="th" scope="row">
-                      {row.Start}
-                    </TableCell>
-                    <TableCell align="left">{row.End}</TableCell>
-                    <TableCell align="left">{row.Commission}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
-    </>
+    </div>
   );
 };
 

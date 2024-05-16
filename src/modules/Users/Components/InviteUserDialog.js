@@ -32,7 +32,7 @@ const allStyle = {
 }
 
 const InviteUserDialog = ({ inviteUserDialogOpen, inviteUserDialogClose }) => {
-
+  
   const [type, setType] = useState('');
   const [communication, setCommunication] = useState('');
 

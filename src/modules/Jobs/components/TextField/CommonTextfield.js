@@ -1,5 +1,6 @@
 import React from 'react'
-import { TextField } from '@mui/material';
+import { InputAdornment, TextField } from '@mui/material';
+
 const CommonTextfield = (props) => {
   return (
     <>
@@ -7,7 +8,7 @@ const CommonTextfield = (props) => {
         sx={{
           
           width: `${props.width}%`,
-          margin: '15px 0 15px 0',
+          margin: '13px 0 13px 0',
           '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input ':{
             padding:'12.5px 14px',
             height:`${props.height}`,
@@ -31,6 +32,9 @@ const CommonTextfield = (props) => {
         id={props.id}
         name={props.name}
         type={props.type}
+        InputProps={{
+          endAdornment: <InputAdornment position="start">{props.end}</InputAdornment>,
+          }}
         label={props.label}
         value={props.value}
         onChange={props.onChange}

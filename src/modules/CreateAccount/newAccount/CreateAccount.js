@@ -234,7 +234,7 @@ const CreateAccount = () => {
                   <a href='/'>Login</a>
                 </div>
               </div>
-              <Send className={styles.uploadimg} children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={persionImage} alt='Default Person logo' onClick={handleClickOpen} />} />
+              <Send  width="33.33%"  className={styles.uploadimg} children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={persionImage} alt='Default Person logo' onClick={handleClickOpen} />} />
             </div>
           </form>
         }

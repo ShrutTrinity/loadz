@@ -257,7 +257,7 @@ const SetupOfCompany = () => {
                       <CommonForm key={index} formik={formik} />
                     ))}
                   </div>
-                  <Send className={styles.uploadimg} children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={companyLogoImage} alt='Default Company logo' onClick={handleClickOpen} />} />
+                  <Send width="33.33%" className={styles.uploadimg} children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={companyLogoImage} alt='Default Company logo' onClick={handleClickOpen} />} />
                 </div>
                 <div className={styles.contain1}>
                   <span>

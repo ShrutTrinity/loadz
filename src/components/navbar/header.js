@@ -12,29 +12,12 @@ import { AppBar } from '@mui/material';
 
 
 const DrawerContent = styled('div')(({ theme }) => ({
-
-  overflowY: 'hidden',
+ 
+  overflowY: 'inherit',
   paddingTop: '70px !important',
   height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
   padding: theme.spacing(2),
 
-  ':hover': {
-    overflowY: 'auto',
-    '&::-webkit-scrollbar': {
-      display: 'block',
-      width: '7px',
-      transition: 'width 5s ease',
-    },
-    '&::-webkit-scrollbar-thumb': {
-      backgroundColor: '#D3D3D3',
-      borderRadius: '4px',
-      transition: 'background-color 5s ease',
-    },
-    '&::-webkit-scrollbar-track': {
-      backgroundColor: theme.palette.background.paper,
-      transition: 'background-color 5s ease',
-    },
-  }
 
 }));
 

@@ -7,7 +7,7 @@ const MiscPayDetail = (props) => {
 
   return (
     <>
-      <div className={styles.box} style={{height:`${props.height}`}}>
+      <div className={styles.box} style={{height:`${props.height}px`}} >
         <MiscpayContainer />
         <MiscpayContainer />
         <MiscpayContainer />

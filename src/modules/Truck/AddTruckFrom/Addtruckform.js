@@ -234,6 +234,7 @@ const Addtruckform = (props) => {
               </div>
 
               <Send
+              width="33.33%" 
                 children={
                   selectedImage ?
                     <img src={selectedImage}

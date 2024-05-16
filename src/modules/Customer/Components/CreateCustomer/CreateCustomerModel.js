@@ -21,6 +21,7 @@ const createCustomerStyles = {
   selectFiled: {
     borderColor: '#c4c4c4',
     margin: '15px 0',
+    boxShadow: 'none',
     padding: '17px 14px 17.5px 10px',
     fontSize: '13px',
     width: '100%',

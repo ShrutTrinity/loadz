@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 const CustomTextFiled = ({ label, placeholder, type, children4, name, id,required}) => {
   return (
     <>
-      <label>{label}</label>
+      <label style={{fontSize:'13px'}}>{label}</label>
       <TextField
         sx={{
           width: '100%',

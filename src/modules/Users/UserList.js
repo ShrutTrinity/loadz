@@ -17,6 +17,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import InviteUserDialog from './Components/InviteUserDialog';
+import UserInvitation from './Components/UserInvitationPage';
 
 const TrafficShopStyle = {
   button: {
@@ -196,6 +197,9 @@ const UserList = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
               <div className={styles.emptyCondition}>
                 <span className={styles.emptyText}>There is no Staff!</span>
               </div>
+            </TabPanel>
+            <TabPanel value="2" sx={{ padding: '24px' }}>
+             <UserInvitation/>
             </TabPanel>
           </TabContext>
         </Box>

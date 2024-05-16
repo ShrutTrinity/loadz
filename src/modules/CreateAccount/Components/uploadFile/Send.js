@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './styles/upload.module.scss';
 
-const Send = ({children}) => {
+const Send = ({children,width}) => {
   return (
-    <div className={styles.secondHalf}>
+    <div className={styles.secondHalf} style={{width:`${width}`}}>
     <div className={styles.secondContainer}>
       <div className={styles.upload}>
         {children}
