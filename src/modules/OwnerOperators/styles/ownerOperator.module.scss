@@ -1,0 +1,196 @@
+@import "@styles";
+
+.container {
+  margin-top: 63px;
+  position: absolute;
+  right: 0;
+
+  .backrow {
+    position: absolute;
+    background-color: $color_3;
+    height: 200px;
+    width: auto;
+    z-index: -1;
+    width: 100%;
+  }
+
+  .CardWrapper {
+    z-index: 2;
+    height: 80vh;
+    padding: 30px;
+    // position: absolute;
+    max-height: 100%;
+    width: 100%;
+
+    .contentCard {
+      height: 100%;
+      border-radius: 30px;
+      display: flex;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      .drawer {
+        height: 100%;
+        overflow: auto;
+        width: 26%;
+        border-top-left-radius: 20px;
+        background-color: $color_4;
+
+        .searchbar {
+          background-color: rgb(245, 245, 245);
+          padding: 16px 16px;
+        }
+
+        .customer {
+          padding: 24px;
+          font-size: 20px;
+          width: 100%;
+          font-weight: 500;
+        }
+
+        .headingCover {
+          @include flex-column();
+          padding: 20px 10px;
+          color: black;
+          justify-content: space-between;
+
+          .componentName {
+            font-size: 20px;
+            font-weight: 500;
+          }
+          .listoficon {
+            display: flex;
+            padding: 8px;
+            flex-wrap: wrap;
+            gap: 13px;
+
+            .credit {
+              height: 25px;
+              width: 25px;
+            }
+          }
+        }
+
+        .switchCover {
+          padding: 0 16px 16px;
+          font-size: 13px;
+          font-weight: 300;
+        }
+
+        .profile {
+          margin: 0 10px;
+          padding: 10px 0 0 6px;
+          @include flex-column();
+          gap: 10px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid $color_1;
+          cursor: pointer;
+
+          .name {
+            font-size: 14px;
+            margin-left: 8px;
+            text-transform: uppercase;
+          }
+        }
+
+        .profile:hover{
+          background-color:rgb(245,245,245);
+        }
+      }
+
+      .contentWrapper {
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        background-color: $color_4;
+        border-top-right-radius: 20px;
+        width: 75%;
+
+        .heading {
+          padding: 15px;
+          font-size: 30px;
+          width: 100%;
+
+          font-weight: 700;
+          color: $color_1;
+          background-color: $color_3;
+
+          .openDailogIcon {
+            display: none;
+          }
+        }
+
+        .box {
+          padding: 40px 20px;
+          @include center();
+          flex-direction: column;
+
+          .circle {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 20px -20px,
+              rgba(0, 0, 0, 0.3) 0px 20px 40px -30px;
+            padding: 64px;
+            border-radius: 50%;
+
+            @include center();
+
+            .image {
+              height: 150px;
+              width: 150px;
+            }
+          }
+
+          .heading2 {
+            padding: 15px;
+            font-size: 30px;
+            width: 100%;
+
+            font-weight: 700;
+            color: $color_1;
+            text-align: center;
+          }
+
+          .drawerButton {
+            line-height: 1.75;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            padding: 5px 16px;
+            border-radius: 18px;
+            display: none;
+          }
+
+          .detail {
+            font-size: 16px;
+            font-weight: 300;
+            color: rgb(107, 114, 128);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:899px) {
+  .container {
+    .CardWrapper {
+      .contentCard {
+        .drawer {
+          display: none;
+        }
+
+        .contentWrapper {
+          width: 100%;
+          position: relative;
+
+          .box {
+            height: 100%;
+            
+            .drawerButton{
+              display: block;
+            }
+            .detail{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

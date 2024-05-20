@@ -11,10 +11,8 @@ import Welcome from '@modules/Company/Welcome';
 import CreateAccount from '@modules/CreateAccount/newAccount/CreateAccount';
 import SetupOfCompany from '@modules/CreateAccount/companySetup/SetupOfCompany';
 import Error from '@modules/ErrorPage/Error';
-import Customer from '@modules/Jobs/components/CreateCustomer/Customer';
-import FunctionList from './modules/Jobs/components/RowEdit/FunctionList';
-import Panel from '@modules/DashboardPanel';
-import DeleteAlert from './modules/Jobs/components/BillingBody/DeleteAlert';
+import BaseLayout from '@modules/DashboardPanel';
+
 
 const App = () => {
  
@@ -22,7 +20,7 @@ const App = () => {
    <>
       <Router>
         <Routes>
-          <Route path='/' element={<LoginPage />} />
+          <Route path='/' element={<LoginPage />} />``
           <Route path='/customerportal/login' element={<Portal />} />
           <Route exact path='/forgetPassword' element={<ForgetPass />} />
           <Route exact path='/subscription' element={<Subscription/>} />
@@ -33,10 +31,7 @@ const App = () => {
           <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
           <Route exact path='/404' element={<Error />} />
-          <Route exact path='/*' element={<Panel />} />
-          <Route exact path='/cus'   element={<Customer />} />
-          <Route exact path='/5' element={<FunctionList />} />
-          <Route exact path='/6' element={<DeleteAlert />} />          
+          <Route exact path='/*' element={<BaseLayout />} />
         </Routes>
       </Router>
     </>

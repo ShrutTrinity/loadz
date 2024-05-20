@@ -1,0 +1,87 @@
+@import '@styles';
+
+.form {
+  display: flex;
+  height: 100%;
+
+  // padding: 20px;
+  .flexitem1 {
+    display: flex;
+    padding: 30px;
+    width: 58%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .name {
+      width: 40%;
+    }
+
+    .eni {
+      width: 25%;
+    }
+
+    .text {
+      width: 2%;
+    }
+
+    .fname {
+      width: 35%;
+    }
+
+    .m {
+      width: 10%;
+    }
+
+    .suffix {
+      width: 15%;
+    }
+  }
+
+  .width25 {
+    width: 24%;
+  }
+
+  .width50 {
+    width: 49%;
+  }
+
+  .create {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .btn {
+      width: 40%;
+
+      background-color: $color_3;
+      color: $color_1;
+      text-transform: none;
+      margin-top: 10px;
+    }
+  }
+
+  .verticalline {
+    height: 100%;
+    border-left: 2px solid $color_1;
+  }
+
+  .hrLine {
+    border: 0;
+    border-left: 2px solid #000000;
+  }
+
+  .flexitem2 {
+    width: 42%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .checkbox {
+      display: flex ;
+    }
+  }
+
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import { Box, Typography } from '@mui/material';
 
 const Android12Switch = styled(Switch)(({ checked }) => ({
   padding: 8,
@@ -43,6 +44,30 @@ const Index = (props) => {
 //   };
   return (
     <>
+   {props.label1 ?
+    <Box display="flex" alignItems="center" sx={{marginLeft:'10px'}}>
+    <Typography variant="body1" >
+        {props.label1}
+      </Typography>
+      <FormControlLabel
+      sx={{margin:0}}
+        control={
+        <Android12Switch checked={props.checked} onChange={props.onChange}   sx={{
+          '& .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track': {
+            backgroundColor: 'rgb(237, 202,51)',
+            opacity:0.5
+          },
+          '& .MuiSwitch-thumb':{
+            backgroundColor: props.checked ? 'rgb(237, 202, 51)' : ''
+          }
+        }} />}
+        
+        labelPlacement="start"
+      />
+      <Typography variant="body1" sx={{ marginRight: 1 }}>
+        {props.label2}
+      </Typography>
+      </Box> :
       <FormControlLabel
       sx={{margin:0}}
         control={<Android12Switch checked={props.checked} onChange={props.onChange}   sx={{
@@ -56,7 +81,7 @@ const Index = (props) => {
         }} />}
         label={props.label}
         labelPlacement="start"
-      />
+      />}
     </>
   )
 }

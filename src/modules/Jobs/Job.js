@@ -28,12 +28,11 @@ const Job = (props) => {
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [searchValue, setSearchValue] = useState("");
   const [displayTable, setDisplayTable] = useState(true);
-
+  
   const bodyStyles = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
     zIndex: 1,
   };
-
   useEffect(() => {
     if (window.innerWidth >= 600) {
       setDisplayTable(true);
@@ -46,7 +45,6 @@ const Job = (props) => {
     bodyStyles.width = '100%';
     var bodyclick = props.handleDrawerClose;
   }
-
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchValue(value);

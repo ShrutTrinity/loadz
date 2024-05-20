@@ -1,18 +1,25 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-const CustomTextFiled = ({ label, placeholder, type, children4, name, id,required}) => {
+const CustomTextFiled = ({ label, placeholder, type, children4, name, id, required,disabled }) => {
   return (
     <>
-      <label style={{fontSize:'13px'}}>{label}</label>
+      <label style={{ fontSize: '13px' }}>{label}</label>
       <TextField
         sx={{
+          '& .MuiInputLabel-root': {
+            fontSize: 13,
+          },
           width: '100%',
-          marginBottom: '16px'
+          marginBottom: '16px',
+          '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'rgba(0, 0, 0, 0.23) !important'
+          },
         }}
         id={id}
         required={required}
         name={name}
+        disabled={disabled}
         type={type}
         placeholder={placeholder}
         InputProps={{

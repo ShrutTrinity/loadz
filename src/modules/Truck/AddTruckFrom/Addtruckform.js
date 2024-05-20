@@ -153,13 +153,7 @@ const Addtruckform = (props) => {
                   />
                 </div>
                 <div className={styles.width}>
-                  <CustomTextFiled
-                    id='cost-rate'
-                    name='Truck Model'
-                    type='text'
-                    label='Truck Model'
-                    placeholder='Truck Model'
-                  />
+                w
                 </div>
                 <div className={styles.width}>
                   <InputLabel

@@ -46,7 +46,7 @@ const PersistentDrawerLeft = ({
     { header: { 'DRIVER LIST': '/drivers' }, detail: { 'TIME SHEETS': '/timesheet' } },
     { header: { 'USER LIST': '/users' }, detail: {} },
     { header: { 'SUBCONTRACTORS': '/sub-contractor' }, detail: {} },
-    { header: { 'OWNER OPERATORS': '' }, detail: {} },
+    { header: { 'OWNER OPERATORS': '/ownerops' }, detail: {} },
   ];
 
 

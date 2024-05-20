@@ -65,8 +65,10 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
     };
   }
+  
   return (
     <>
+    
       <Archived
         openArchiveDialog={archiveDialog}
         closeArchiveDialog={handleArchiveDialog}

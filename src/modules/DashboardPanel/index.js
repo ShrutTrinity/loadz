@@ -20,8 +20,9 @@ import InspectionScreen from '../Truck/Inspection/InspectionScreen';
 import DriversScreen from '../Driver/DriversScreen';
 import SubContractor from '../SubContractor/SubContractor';
 import TimeSheetScreen from '../Driver/TimeSheet/TimeSheetScreen';
+import OwnerOperator from '../OwnerOperators/OwnerOperator';
 
-const Panel = () => {
+const BaseLayout = () => {
 
   const [open, setOpen] = useState(false);
   const [setting, setSetting] = useState(false);
@@ -34,6 +35,7 @@ const Panel = () => {
   const handleOpen = () => {
     setSetting(true)
   }
+
   const handleClosse = () => {
     console.log("abc")
     setSetting(false)
@@ -54,7 +56,15 @@ const Panel = () => {
 
   return (
     <>
-      <PersistentDrawerLeft setting={setting} handleClose={handleClosse} handleOpen={handleOpen} open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} textSelectorOpen={textSelectorOpen} toggleTextSelector={toggleTextSelector} />
+      <PersistentDrawerLeft 
+      setting={setting} 
+      handleClose={handleClosse} 
+      handleOpen={handleOpen} 
+      open={open} 
+      handleDrawerOpen={handleDrawerOpen} 
+      handleDrawerClose={handleDrawerClose} 
+      textSelectorOpen={textSelectorOpen} 
+      toggleTextSelector={toggleTextSelector} />
       <Routes>
         <Route
           exact
@@ -264,10 +274,23 @@ const Panel = () => {
             />
           }
         />
+        
+        <Route
+          exact
+          path='/ownerops'
+          element={
+            <OwnerOperator
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
       </Routes>
       <Index />
     </>
   );
 };
 
-export default Panel;
+export default BaseLayout;
