@@ -23,6 +23,12 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
   const [ownerOperatorDetailscreen, setOwnerOperatorDetailScreen] = useState(false)
   const [openAddNewOperator, setOpenAddNewOperator] = useState(false);
+  const [isCheckedActive, setIsCheckedArchive] = useState(true);
+
+  const handleToggle = () => {
+    setIsCheckedArchive(prevChecked => !prevChecked);
+  };
+
 
   const OpenFormAddOperator = () => {
     setOpenAddNewOperator(true);
@@ -129,7 +135,7 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
               </div>
 
               <div className={styles.switchCover}>
-                <Index label1="Active" label2='Archive' />
+                <Index label1="Active" label2='Archive' checked={isCheckedActive} onChange={handleToggle} />
 
               </div>
 
@@ -159,18 +165,18 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                       <img src={inspection} alt='pictureOfInspection' className={styles.image} />
                     </div>
                     <div className={styles.heading2}>
-                      ownerOperator Info
+                      OwnerOperator Info
                     </div>
                     <div className={styles.drawerButton}>
                       <Button
                         style={ownerOperatorScreenStyle.drawerButton}
                       // onClick={handleResponsiveDrawer}
                       >
-                        View ownerOperator Profile...
+                        View OwnerOperator Profile...
                       </Button>
                     </div>
                     <div className={styles.detail}>
-                      Choose a ownerOperator to view their profile...
+                      Choose a OwnerOperator to view their profile...
                     </div>
                     {/* <ownerOperatorScreenDrawer
                     openResponsiveDrawer={responsiveDrawer}

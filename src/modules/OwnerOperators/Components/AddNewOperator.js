@@ -8,24 +8,15 @@ import CustomTextFiled from '@Jobs/components/TextField/CustomTextFiled';
 import styles from '../styles/addNewOperator.module.scss'
 import { Checkbox, InputLabel } from '@mui/material';
 import { useState } from 'react';
-import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
-import Send from '../../CreateAccount/Components/uploadFile/Send';
-
+import FileUpload from './FileUpload'
 
 const AddNewOperator = (props) => {
-  const [isChecked, setIsChecked] = useState(true);
-  const [medicalImage, setMedicalImage] = useState(null);
-  const [showMedicalUploadPopUp, setShowMedicalUploadPopUp] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
-
-  const handleClickOpenMedicalPopup = (event) => {
-    event.stopPropagation();
-    setShowMedicalUploadPopUp(true)
-  };
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
-   
+
   };
   const statesArray = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',
@@ -48,6 +39,14 @@ const AddNewOperator = (props) => {
   }
 
   const { open, handleClose } = props
+  const handleFileSelect1 = (fileURL, file) => {
+    console.log('File selected for the first FileUpload component:', file);
+  };
+  const handleFileSelect2 = (fileURL, file) => {
+    
+    console.log('File selected for the second FileUpload component:', file);
+  };
+
   return (
     <>
       <Dialog
@@ -154,7 +153,6 @@ const AddNewOperator = (props) => {
                   style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px' }}
                   aria-label="Default select example"
                   name="state"
-
                 >
                   <option value="" selected disabled >State</option>
                   {statesArray.map((state, index) => (
@@ -201,56 +199,46 @@ const AddNewOperator = (props) => {
             <div className={styles.flexitem2}>
               <div className={styles.checkbox}>
                 <Checkbox
+                  sx={{
+                    marginLeft: '-0.5rem',
+
+                    '&.Mui-checked': {
+                      color: 'black',
+                    },
+                  }}
                   checked={isChecked}
                   onChange={handleCheckboxChange}
                 />
                 <InputLabel
                   id="demo-simple-select-label"
-                  sx={{
-                    fontSize: '15px',
-                    color: 'black',
-                    padding: '9px 0'
-                  }}
+                  className={styles.label}
                 >
                   Check here if <b>Owner Operator</b> is under<br /> your authority (insurance)
                 </InputLabel>
               </div>
               <div className={styles.width50}>
                 <CustomTextFiled
-                  name='email'
-                  type='email'
-                  label='Email'
-                  placeholder='Email'
+                  name='policy'
+                  type='number'
+                  label='Policy Number'
+                  placeholder='Policy#'
                   required
                   disabled={!isChecked}
                 />
               </div>
               <div className={styles.width50}>
                 <CustomTextFiled
-                  name='email'
-                  type='email'
-                  label='Email'
-                  placeholder='Email'
+                  name='expireDate'
+                  type='date'
+                  label='Policy Expiration Date'
+                  placeholder='Policy Expiration Date'
                   required
                   disabled={!isChecked}
                 />
               </div>
               <div className={styles.addfilepopup}>
-              <Send
-              width="100%"
-              children={
-                medicalImage ?
-                  <img src={medicalImage}
-                    className={styles.img}
-                    alt='Selecte Logo'
-                    onClick={handleClickOpenMedicalPopup} /> :
-                  <div className={styles.imageContainer} onClick={handleClickOpenMedicalPopup}
-                  >
-                    <NoteAddOutlinedIcon />
-                    <span className={styles.imageDiscription}>JPEG,PNG,JPG,PDF</span>
-                  </div>
-              }
-            />
+                <FileUpload id="fileInput1" disabled={isChecked} onFileSelect={handleFileSelect1} text='Upload Insurance Card' />
+                <FileUpload id="fileInput2"  disabled={isChecked} onFileSelect={handleFileSelect2} text='Upload W-9' />
               </div>
             </div>
           </form>

@@ -78,10 +78,80 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    .addfilepopup{
+      display: flex;
+      gap: 10px;
+    }
 
     .checkbox {
-      display: flex ;
+      display: flex;
+
+      .label {
+        font-size: '15px';
+        color: $color_1;
+        padding: '9px 0';
+      }
+    }
+
+    .imageContainer {
+      background-color: $color_1;
+      color: $color_4;
+      display: flex;
+      align-items: center;
+      height: 140px;
+      width: 140px;
+      flex-direction: column;
+      justify-content: center;      
+      border-radius: 20px;
+      padding: 10px 0 ;
+
+      .icon {
+        height: 70px;
+        width: 90px;
+        color: $color_3;
+        margin:10px;
+      }
     }
   }
+}
+.imageDiscription{
+  font-size: 10px;
+  padding: 10px;
+}
+.addfilepopup {
+  cursor: pointer;
+}
 
+
+
+.icon {
+  font-size: 48px;
+  color: #666;
+}
+
+
+.uploadContainer {
+  cursor: pointer;
+}
+
+.uploadedImage {
+  height: 140px;
+  width: 140px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.deleteButton{
+  background-color: $color_3;
+  color: $color_1;
+  border: 0;
+  font-size: 14px;
+  padding: 5px 15px;
+  border-radius: 15px;
+  margin: 5px;
+}
+.downloadButton{
+  background-color: $color_1;
+  color: $color_3;
+  padding: 2px 15px;
+  border-radius: 25px;
 }
