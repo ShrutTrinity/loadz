@@ -6,6 +6,7 @@
 import EditDriverDetail from './EditDriverDetail';
 
   const DriverDetail = (props) => {
+
     const [lastClickedButton, setLastClickedButton] = useState(null);
     const [reportsPopupVisible, setReportsPopupVisible] = useState(false);
     const [miscPayPopupVisible, setMiscPayPopupVisible] = useState(false);
@@ -14,7 +15,6 @@ import EditDriverDetail from './EditDriverDetail';
 
     const cardContainerRef = useRef(null);
     const boxRef = useRef(null)
-
     const changeColor = (event, popup) => {
       const clickedButton = event.target;
       if (lastClickedButton) {
@@ -72,7 +72,7 @@ import EditDriverDetail from './EditDriverDetail';
                   <div className={styles.items}><b>Rate: </b>{rate} %</div>
                 </div>
                 <div className={styles.flexItem2} >
-                  <EmailIcon className={styles.emailicon} />
+                  <EmailIcon className={styles.emailicon}/>
                 </div>
               </div>
             </div>

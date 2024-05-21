@@ -11,6 +11,8 @@ import OwnerOperatorDetail from './Components/OwnerOperatorDetail';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import AddNewOperator from './Components/AddNewOperator';
+import MessageDialog from './Components/MessageDialog';
+import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
 
 const ownerOperatorScreenStyle = {
   drawerButton: {
@@ -24,10 +26,24 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const [ownerOperatorDetailscreen, setOwnerOperatorDetailScreen] = useState(false)
   const [openAddNewOperator, setOpenAddNewOperator] = useState(false);
   const [isCheckedActive, setIsCheckedArchive] = useState(true);
+  const [mailDialog, setMailDialog] = useState(false);
+  const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenPaymentDailog(true);
+  };
+
+  const handleApplyPaymentDailogClose = () => {
+    setOpenPaymentDailog(false);
+  };
+
 
   const handleToggle = () => {
     setIsCheckedArchive(prevChecked => !prevChecked);
   };
+  const handleMailDialog = () => {
+    setMailDialog(!mailDialog)
+  }
 
 
   const OpenFormAddOperator = () => {
@@ -60,6 +76,11 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
   return (
     <>
+     <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
+      <MessageDialog
+        openMessageDialog={mailDialog}
+        closeMessageDialog={handleMailDialog}
+      />
       <AddNewOperator open={openAddNewOperator} handleClose={CloseFormAddOperator} />
       <div className={styles.container}
         style={bodyStyles}
@@ -117,12 +138,12 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   </Tooltip>
                   <Tooltip title="Send Email to All" placement="top">
                     <MailIcon
-                      // onClick={handleMailDialog}
+                      onClick={handleMailDialog}
                       sx={{ cursor: 'pointer' }}
                     />
                   </Tooltip>
                   <Tooltip title="Apply Payments" placement="top">
-                    <PaymentsIcon sx={{ cursor: 'pointer' }} />
+                    <PaymentsIcon sx={{ cursor: 'pointer' }}  onClick={handleClickOpen} />
                   </Tooltip>
                   <Tooltip title="Global Invoice Search" placement="top">
                     <TravelExploreIcon sx={{ cursor: 'pointer' }} />

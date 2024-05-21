@@ -26,7 +26,7 @@ const MiscpayContainer = (props) => {
     const amount = document.getElementById('new-row-amount').value;
     setFirstEntries([...Firstentries, {id, date, reason, amount }]);
     console.log("Date:", date);
-    console.log("Reason:", reason);
+    console.log("Reason:", reason); 
     console.log("Amount:", amount);
   };
   const handleAddEntryForSecond = () => {
@@ -254,7 +254,7 @@ const MiscpayContainer = (props) => {
 
               {/* second entry for update and Delete */}
               {Secondentries.map((entry, index) => (
-                <TableRow key={index}>
+                <TableRow key={entry.id}>
                   <TableCell align="center" sx={{ padding: '0px' }}>
                     <button className={styles.minusbtn}>-</button>
                   </TableCell>
@@ -289,7 +289,7 @@ const MiscpayContainer = (props) => {
                     <div style={tableStyles.button}>
                       <EditIcon />
                     </div>
-                    <div style={tableStyles.button}  onClick={() => handleDeleteEntry(index, 'second')}>
+                    <div style={tableStyles.button}  onClick={() => handleDeleteEntry(entry.id, 'second')}>
                       <DeleteIcon />
                     </div>
                   </TableCell>
