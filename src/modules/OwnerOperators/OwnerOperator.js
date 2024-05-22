@@ -14,20 +14,26 @@ import AddNewOperator from './Components/AddNewOperator';
 import MessageDialog from './Components/MessageDialog';
 import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
 
-const ownerOperatorScreenStyle = {
-  drawerButton: {
-    color: 'black',
-    fontWeight: 300,
-  }
-}
-
 const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
+
+  const ownerOperatorScreenStyle = {
+    drawerButton: {
+      color: 'black',
+      fontWeight: 300,
+    }
+  }
 
   const [ownerOperatorDetailscreen, setOwnerOperatorDetailScreen] = useState(false)
   const [openAddNewOperator, setOpenAddNewOperator] = useState(false);
   const [isCheckedActive, setIsCheckedArchive] = useState(true);
   const [mailDialog, setMailDialog] = useState(false);
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
+
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
+  const handleSearchbarChange = () => {
+    setShowSearchBar(true)
+  }
 
   const handleClickOpen = () => {
     setOpenPaymentDailog(true);
@@ -37,14 +43,13 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
     setOpenPaymentDailog(false);
   };
 
-
   const handleToggle = () => {
     setIsCheckedArchive(prevChecked => !prevChecked);
   };
-  const handleMailDialog = () => {
-    setMailDialog(!mailDialog)
-  }
 
+  const handleMailDialog = () => {
+    setMailDialog(!mailDialog);
+  };
 
   const OpenFormAddOperator = () => {
     setOpenAddNewOperator(true);
@@ -76,12 +81,16 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
   return (
     <>
-     <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
+      <ApplyPayment
+        isOpen={openPaymentDailog}
+        handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
       <MessageDialog
         openMessageDialog={mailDialog}
         closeMessageDialog={handleMailDialog}
       />
-      <AddNewOperator open={openAddNewOperator} handleClose={CloseFormAddOperator} />
+      <AddNewOperator
+        open={openAddNewOperator}
+        handleClose={CloseFormAddOperator} />
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
@@ -95,6 +104,12 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   placeholder='Search Customers'
                   variant="outlined"
                   sx={{
+                    "& input::placeholder": {
+                      fontSize: "13px"
+                    },
+                    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgba(0, 0, 0, 0.23)',
+                    },
                     '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
                       borderRadius: '20px',
                     },
@@ -112,7 +127,6 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     }
                   }}
                   InputProps={{
-
                     startAdornment: (
                       <InputAdornment position="start">
                         <SearchIcon sx={{ color: 'black' }} />
@@ -121,12 +135,10 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   }}
                 />
               </div>
-
               <div className={styles.headingCover}>
                 <div className={styles.listoficon}>
                   <Tooltip title="Reconcile Owner Operator Invoices" placement="top">
                     <FactCheckIcon
-                      // onClick={handleCreateModel}
                       sx={{ cursor: 'pointer' }}
                     />
                   </Tooltip>
@@ -143,16 +155,51 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     />
                   </Tooltip>
                   <Tooltip title="Apply Payments" placement="top">
-                    <PaymentsIcon sx={{ cursor: 'pointer' }}  onClick={handleClickOpen} />
+                    <PaymentsIcon sx={{ cursor: 'pointer' }} onClick={handleClickOpen} />
                   </Tooltip>
                   <Tooltip title="Global Invoice Search" placement="top">
-                    <TravelExploreIcon sx={{ cursor: 'pointer' }} />
+                    <TravelExploreIcon sx={{ cursor: 'pointer' }} onClick={handleSearchbarChange} />
                   </Tooltip>
                   <Tooltip title="Global Ticket Invoice Search" placement="top">
                     <TravelExploreIcon sx={{ cursor: 'pointer' }} />
                   </Tooltip>
 
                 </div>
+
+                {showSearchBar &&
+                  <>
+                    <TextField
+                      size="small"
+                      placeholder='Global Invoice Search'
+                      variant="outlined"
+                      sx={{
+                        "& input::placeholder": {
+                          fontSize: "13px"
+                        },
+                        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                        '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
+                          borderRadius: '5px',
+                        },
+                        '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
+                          padding: '5px 0'
+                        },
+                        border: 'none',
+                        justifyContent: 'flex-end',
+                        width: '90%',
+                        borderRadius: '20px',
+                        backgroundColor: 'white',
+                        '@media (max-width: 1200px)': {
+                          width: '100%',
+                        }
+                      }}
+
+                    />
+                    <SearchIcon sx={{ color: 'black' }} />
+                  </>
+
+                }
               </div>
 
               <div className={styles.switchCover}>

@@ -1,14 +1,17 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-const CustomTextFiled = ({ label, placeholder, type, children4, name, id, required,disabled }) => {
+const CustomTextFiled = ({ label, placeholder, type, children4, name, id, required, disabled }) => {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
       <label style={{ fontSize: '13px' }}>{label}</label>
       <TextField
         sx={{
           '& .MuiInputLabel-root': {
             fontSize: 13,
+          },
+          "& input::placeholder": {
+            fontSize: "13px"
           },
           width: '100%',
           marginBottom: '16px',
@@ -35,7 +38,7 @@ const CustomTextFiled = ({ label, placeholder, type, children4, name, id, requir
           }
         }}
       />
-    </>
+    </div>
   )
 }
 

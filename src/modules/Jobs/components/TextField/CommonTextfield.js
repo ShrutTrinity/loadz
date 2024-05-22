@@ -14,6 +14,7 @@ const CommonTextfield = (props) => {
             height:`${props.height}`,
             
           },
+          
           '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: 'rgba(0, 0, 0, 0.23)',
           },
@@ -31,6 +32,7 @@ const CommonTextfield = (props) => {
         placeholder={props.placeholder}
         id={props.id}
         name={props.name}
+        defaultValue={props.defaultValue}
         type={props.type}
         InputProps={{
           endAdornment: <InputAdornment position="start">{props.end}</InputAdornment>,

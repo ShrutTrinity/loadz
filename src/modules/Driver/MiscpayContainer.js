@@ -15,10 +15,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { v4 as uuidv4 } from 'uuid';
 
 const MiscpayContainer = (props) => {
-
   const [Firstentries, setFirstEntries] = useState([]);
   const [Secondentries, setSecondEntries] = useState([]);
-
   const handleAddEntryForFirst = () => {
     const id = uuidv4();
     const date = document.getElementById('new-row-date');
@@ -31,7 +29,6 @@ const MiscpayContainer = (props) => {
   };
   const handleAddEntryForSecond = () => {
     const id = uuidv4();
-
     const date = document.getElementById('new-row-date-second');
     const reason = document.getElementById('new-row-reason-second').value;
     const amount = document.getElementById('new-row-amount-second').value;
@@ -80,7 +77,7 @@ const MiscpayContainer = (props) => {
         <TableContainer
           component={Paper}
           sx={{ borderRadius: 0 }}
-        >
+        > 
           <Table
             aria-label="simple table"
           >
