@@ -1,0 +1,75 @@
+@import '@styles';
+
+.header{
+  padding: 20px 24px;
+  background-color: $color_1;
+  color:$color_4;
+  @include flex-column();
+
+  .heading{
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 13px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px;
+
+  .instructions{
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .fieldCover{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 6px;
+    width: 100%;
+    font-size: 13px !important;
+
+    .field1 , .field2{
+      width: 50%;
+    }
+    .iconCover{
+      padding: 4px 4px 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      background-color: $color_3;
+      height: 40%;
+    }
+  }
+}
+  .createIcon{
+    display: flex;
+    justify-content:flex-start;
+    padding: '5px';
+
+    .iconCover{
+      padding: 4px 4px 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: $color_3;
+      margin-left: 20px;
+      width: min-content;
+    }
+}
+
+@media screen and (max-width: 899px) {
+  .content{
+    .fieldCover{
+     flex-direction: column;
+      .field1 , .field2{
+        width: 100%;
+      }
+    }
+  }
+}

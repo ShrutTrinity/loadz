@@ -7,10 +7,22 @@ import DownloadIcon from '@mui/icons-material/Download';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import OwnerDetailTable from './OwnerDetailTable';
+import { Tooltip } from '@mui/material';
+import AddDriverDailog from './Driver/AddDriverDailog';
+import EarnignDailog from './EarningDailog';
 
 const OwnerOperatorDetail = (props) => {
   const { email, phoneNumber } = props;
   const [remainingHeight, setRemainingHeight] = useState(0);
+  const [inviteDriver,setInviteDriver] =useState(false);
+  const[earningDailog,setEarningDailog] = useState(false);
+
+  const HandleEarningDailog = (e) => {
+    setEarningDailog(!earningDailog)
+  }
+  const InviteDriverDaiologHnadle = ()=>{
+    setInviteDriver(!inviteDriver)
+  }
   const cardContainerRef = useRef(null);
   const boxRef = useRef(null)
 
@@ -30,6 +42,8 @@ const OwnerOperatorDetail = (props) => {
 
   return (
     <>
+    <EarnignDailog open={earningDailog} onClose={HandleEarningDailog}/> 
+    <AddDriverDailog open={inviteDriver} onClose={InviteDriverDaiologHnadle}/>
       <div className={styles.heading}>Owner Operators Details</div>
       <div className={styles.box} ref={boxRef}>
         <div className={styles.cardContainer} ref={cardContainerRef}  >
@@ -45,19 +59,30 @@ const OwnerOperatorDetail = (props) => {
               </div>
             </div>
             <div className={styles.icon}>
-              <AddTaskIcon />
-              <AddCircleIcon />
-              <SettingsIcon />
-              <RequestQuoteIcon />
-              <DownloadIcon />
-              <ArchiveIcon />
+              <Tooltip title="Force Get Invoices" placement="top">
+                <AddTaskIcon sx={{cursor:'pointer'}}/>
+              </Tooltip>
+              <Tooltip title="Invite Drivers" placement="top">
+                <AddCircleIcon sx={{cursor:'pointer'}} onClick={InviteDriverDaiologHnadle}/>
+              </Tooltip>
+              <Tooltip title="Edit Owner Operator" placement="top">
+                <SettingsIcon sx={{cursor:'pointer'}} />
+              </Tooltip>
+              <Tooltip title="Owner Operator Earnings" placement="top">
+                <RequestQuoteIcon sx={{cursor:'pointer'}} onClick={HandleEarningDailog} />
+              </Tooltip>
+              <Tooltip title="Download Pending Reconcile Report" placement="top">
+                <DownloadIcon sx={{cursor:'pointer'}} />
+              </Tooltip>
+              <Tooltip title="Archive Owner Operator" placement="top">
+                <ArchiveIcon sx={{cursor:'pointer'}} />
+              </Tooltip>
               <div className={styles.items}>Apply Payments</div>
             </div>
           </div>
         </div>
-        <OwnerDetailTable height={remainingHeight}/>
+        <OwnerDetailTable height={remainingHeight} />
       </div>
-     
     </>
   );
 };

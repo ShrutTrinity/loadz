@@ -10,7 +10,7 @@ import Index from '@Jobs/components/switchForJob';
 import { useState } from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HistoryIcon from '@mui/icons-material/History';
-import EditDriverDetail from '../../Driver/EditDriverDetail';
+import EditDriverDetail from '../../../Driver/EditDriverDetail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Button } from '@mui/material';
 import AddDriverDailog from './AddDriverDailog';

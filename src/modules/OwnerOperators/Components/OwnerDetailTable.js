@@ -5,7 +5,9 @@ import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
 import { Tabs } from '@mui/material';
 import MiscPayDetail from './MiscPayDetail';
-import DriverTable from './DriverTable';
+import DriverTable from './Driver/DriverTable';
+import TruckTable from './Trucks/TruckTable';
+import TrailerTable from './Trailer/TrailerTable';
 
 const OwnerDetailTable = ({height}) => {
   const formstyle = {
@@ -101,8 +103,8 @@ const OwnerDetailTable = ({height}) => {
         <TabPanel value="3">Item Three</TabPanel>
         <TabPanel value="4"> <MiscPayDetail  height={height}/> </TabPanel>
         <TabPanel value="5"><DriverTable height={height}/></TabPanel>
-        <TabPanel value="6">Item Six</TabPanel>
-        <TabPanel value="7">Item Seven</TabPanel>
+        <TabPanel value="6"><TruckTable height={height}/></TabPanel>
+        <TabPanel value="7"><TrailerTable height={height}/></TabPanel>
       </TabContext>
     </Box>
   );

@@ -61,7 +61,6 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
   const openownerOperatorDetailScreen = () => {
     setOwnerOperatorDetailScreen(true)
-    console.log("abg")
   }
 
   function stringAvatar(name) {
