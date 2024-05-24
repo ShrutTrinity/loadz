@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/addNewOperator.module.scss';
+import styles from '../styles/fileUpload.module.scss';
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
 import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
 import DownloadIcon from '@mui/icons-material/Download';
 
-const FileUpload = ({ id, onFileSelect,text,disabled}) => {
+const FileUpload = ({ id, onFileSelect,text,disabled,height,width}) => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -53,13 +53,13 @@ const FileUpload = ({ id, onFileSelect,text,disabled}) => {
       {file ? (
         <>
           {file.type === 'application/pdf' ? (
-            <div className={styles.imageContainer}>            
+            <div className={styles.imageContainer} style={{height:`${height}px`,width:`${width}px`}}>            
             <PictureAsPdfOutlinedIcon className={styles.icon} />
             </div>
 
           ) : (
             <>
-            <img src={file.url} alt="Uploaded file" className={styles.uploadedImage} />
+            <img src={file.url} alt="Uploaded file" className={styles.uploadedImage}  style={{height:`${height}px`,width:`${width}px`}}/>
             <br/>
             </>
           )}
@@ -72,7 +72,7 @@ const FileUpload = ({ id, onFileSelect,text,disabled}) => {
         </>
       ) : (
         <div className={styles.placeholder}>
-          <div className={styles.imageContainer}>
+          <div className={styles.imageContainer} style={{height:`${height}px`,width:`${width}px`}}>
             <NoteAddOutlinedIcon className={styles.icon} />
             <span className={styles.imageDiscription}>{text}</span>
           </div>

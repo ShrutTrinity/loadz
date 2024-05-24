@@ -14,7 +14,6 @@
       .heading {
         font-weight: 700;
       }
-
       .icons {
         display: flex;
         gap: 10px;
@@ -34,27 +33,27 @@
 
   .flexitem2 {
     width: 50%;
-   margin-top: 30px;
+    margin-top: 30px;
 
     .title {
-     justify-content: center;
-     text-align: center;
+      justify-content: center;
+      text-align: center;
       font-size: 25px;
       font-weight: 700;
     }
-    .img{
-      border:2px solid black;
+    .img {
+      border: 2px solid black;
     }
     .imageContainer {
       width: 100%;
       padding: 25%;
       border-radius: 40px;
       border: 5px dashed lightblue;
-
+      
       .imageDiscription {
         font-weight: 300;
         font-size: 13px;
-       
+
       }
     }
   }

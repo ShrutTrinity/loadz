@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  gap: 30px;
   display: flex;
   padding: 20px;
 
@@ -22,7 +23,7 @@
     }
     
     .details{
-      padding: 20px;
+      padding: 20px 0;
     }
     .updateButton {
       display: flex;
@@ -37,7 +38,11 @@
 
   .flexitem2 {
     width: 50%;
-   margin-top: 30px;
+   margin-top: 60px;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   gap: 20px;
 
     .title {
      justify-content: center;

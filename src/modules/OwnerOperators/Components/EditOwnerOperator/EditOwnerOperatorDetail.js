@@ -1,18 +1,14 @@
 import * as React from 'react';
 import styles from './Styles/editOwnerOperatorDetail.module.scss'
 import Drawer from '@mui/material/Drawer';
-import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
-import PersonOffIcon from '@mui/icons-material/PersonOff';
-import CommonTextfield from '@Jobs/components/TextField/CommonTextfield.js'
 import CustomTextField from '@Jobs/components/TextField/CustomTextFiled.js'
-import { Button, Tooltip } from '@mui/material';
-// import Send from '../CreateAccount/Components/uploadFile/Send';
+import { Button, InputLabel } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
-// import FilePopUp from '../CreateAccount/Components/uploadPopUp';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-// import ArchiveAlertDialog from './ArchiveAlertDailog';
-
-
+import FileUpload from '../FileUpload';
 const EditOwnerOperator = (props) => {
 
   const statesArray = [
@@ -23,47 +19,29 @@ const EditOwnerOperator = (props) => {
     'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
     'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
   ];
+  const [showIdentification, setShowIdentification] = useState(false);
+  const [showSocialSecurity, setShowSocialSecurity] = useState(false);
+  
 
-  const [showPopUp, setShowPopUp] = useState(false);
-  const [showMedicalUploadPopUp, setShowMedicalUploadPopUp] = useState(false);
-  const [cdslImage, setCdslImage] = useState(null);
-  const [medicalImage, setMedicalImage] = useState(null);
-  const [openArchiveAlert, setOpenArchiveAlert] = useState(false);
-
-  const handleClickOpenArchiveAlert = () => {
-    setOpenArchiveAlert(true);
+  const handleFileSelect1 = (fileURL, file) => {
+    console.log('File selected for the first FileUpload component:', file);
   };
+  const handleFileSelect2 = (fileURL, file) => {
 
-  const handleCloseArchiveAlert = () => {
-    setOpenArchiveAlert(false);
+    console.log('File selected for the second FileUpload component:', file);
   };
+  const handleFileSelect3 = (fileURL, file) => {
 
-  const handleClosePop = () => {
-    setShowPopUp(false);
-  }
-  const handleClosePopForMedical = () => {
-    setShowMedicalUploadPopUp(false);
-  }
-
-  const handleCdslImageSelect = (imageUrl) => {
-    setCdslImage(imageUrl);
-    setShowPopUp(false)
-  };
-  const handleClickOpen = (event) => {
-    event.stopPropagation();
-    setShowPopUp(true)
-  };
-  const handleClickOpenMedicalPopup = (event) => {
-    event.stopPropagation();
-    setShowMedicalUploadPopUp(true)
+    console.log('File selected for the second FileUpload component:', file);
   };
 
 
-  const handleMedicalImageSelect = (imageUrl) => {
-    setMedicalImage(imageUrl);
-    setShowMedicalUploadPopUp(false)
+  const handleToggleIdentificationVisibility = () => {
+    setShowIdentification((prevShowPassword) => !prevShowPassword);
   };
-
+  const handleToggleSocialSecurityVisibility = () => {
+    setShowSocialSecurity((prevShowPassword) => !prevShowPassword);
+  };
 
   const editOwnerOperatorStyles = {
     selectFiled: {
@@ -77,27 +55,27 @@ const EditOwnerOperator = (props) => {
     btn: {
       backgroundColor: 'black',
       padding: '10px 20pxpx',
-      fontSize: '20px',
+      fontSize: '18px',
       fontWeight: '400',
+      borderRadius: '10px',
       width: '200px',
+    },
+    invitationbtn:{
+      backgroundColor: 'rgb(237, 202, 51)',
+      padding: '2px 0px',
+      textTransform:'none',
+      fontSize: '14px',
+      margin: '10px 0',
+      color:'black',
+      borderRadius: '40px',
+      fontWeight: '300',
+      width: '360px',
     }
   }
 
   return (
     <>
-      
-      {/* <FilePopUp
-        imageUrlforPopUp={cdslImage}
-        onSelect={handleCdslImageSelect}
-        open={showPopUp}
-        onClose={handleClosePop}
-      />
-      <FilePopUp
-        imageUrlforPopUp={medicalImage || ''}
-        onSelect={handleMedicalImageSelect}
-        open={showMedicalUploadPopUp}
-        onClose={handleClosePopForMedical}
-      /> */}
+
       <Drawer sx={{ '& .css-1160xiw-MuiPaper-root-MuiDrawer-paper ': { width: '55% !important' } }}
         anchor='right'
         open={props.open}
@@ -131,7 +109,7 @@ const EditOwnerOperator = (props) => {
                 id='phonenumber'
                 name='phonenumber'
                 type='number'
-                required={true}
+                required
                 label='Phone Number'
                 variant='outlined'
               />
@@ -160,14 +138,21 @@ const EditOwnerOperator = (props) => {
                 variant='outlined'
               />
               <div className={styles.selectFields}>
+                <InputLabel
+                  id="demo-simple-select-label"
+                  sx={{
+                    fontSize: '13px',
+                    color: 'black'
+                  }}
+                >State</InputLabel>
                 <select
-                  className='form-select'
-                  style={editOwnerOperatorStyles.selectFiled}
-                  defaultValue={''}
+                  label='State'
+                  className="form-select"
+                  style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px', marginBottom: '10px' }}
                   aria-label="Default select example"
                   name="state"
                 >
-                  <option value="" disabled >State</option>
+                  <option value="" selected disabled >State</option>
                   {statesArray.map((state, index) => (
                     <option key={index} value={state}>
                       {state}
@@ -175,7 +160,7 @@ const EditOwnerOperator = (props) => {
                   ))}
                 </select>
               </div>
-              <CommonTextfield
+              <CustomTextField
                 width='100'
                 id='zip'
                 name='zip'
@@ -183,32 +168,7 @@ const EditOwnerOperator = (props) => {
                 label='Zip'
                 variant='outlined'
               />
-              <CommonTextfield
-                width='100'
-                id='cdl'
-                name='cdl'
-                type='text'
-                label='CDL'
-                variant='outlined'
-              />
               <CustomTextField
-                width='100'
-                id='cdlIssue'
-                name='cdlIssue'
-                type='date'
-                label='CDL Issued'
-                variant='outlined'
-              />
-
-              <CustomTextField
-                width='100'
-                label='CDL Expiration'
-                id='cdlExpire'
-                name='cdlExpire'
-                type='date'
-                variant='outlined'
-              />
-              <CommonTextfield
                 width='100'
                 id='insurance'
                 name='insurance'
@@ -224,71 +184,57 @@ const EditOwnerOperator = (props) => {
                 label='Insurance Expiration'
                 variant='outlined'
               />
-              <CommonTextfield
+              <CustomTextField
                 width='100'
-                id='commissionRate'
-                name='commissionRate'
-                end='%'
-                type='number'
-                label='Commission Rate'
+                id='insuranceExpire'
+                name='identification'
+                type={showIdentification ? 'text' : 'password'}
+                label='Employee Identification #'
                 variant='outlined'
+                children4={<InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle Identification visibility"
+                    onClick={handleToggleIdentificationVisibility}
+                    edge="end"
+                  >
+                    {showIdentification ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>}
               />
-              <CommonTextfield
+              <CustomTextField
                 width='100'
-                id='hourlyrate'
-                name='hourlyrate'
-                end='$'
-                type='number'
-                label='Hourly Rate'
+                id='insuranceExpire'
+                name='identification'
+                type={showSocialSecurity ? 'text' : 'password'}
+                label='Social Security #'
                 variant='outlined'
+                children4={<InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleToggleSocialSecurityVisibility}
+                    edge="end"
+                  >
+                    {showSocialSecurity ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>}
               />
+            </div>
+            <div className={styles.invitationButton}>
+              <Button variant="contained" style={editOwnerOperatorStyles.invitationbtn}>
+                Invitation to Graduation
+              </Button>
             </div>
             <div className={styles.updateButton}>
               <Button variant="contained" style={editOwnerOperatorStyles.btn}>
                 UPDATE
               </Button>
             </div>
-            <div className={styles.sessionDetail}>
-              Last Session : {"No Session Found"}<br />
-              Device: {"No Device Found"}<br />
-              Browser : {"No Browser Found"}
-            </div>
+           
           </div>
           <div className={styles.flexitem2}>
-            <div className={styles.title}>CDL</div>
-            {/* <Send
-              width="100%"
-              children={
-                cdslImage ?
-                  <img src={cdslImage}
-                    alt='Selecte Logo'
-                    className={styles.img}
-                    onClick={handleClickOpen} /> :
-                  <div
-                    className={styles.imageContainer} onClick={handleClickOpen}
-                  >
-                    <AddPhotoAlternateIcon />
-                    <span className={styles.imageDiscription}>JPEG,PNG,JPG,PDF</span>
-                  </div>
-              }
-            /> */}
-            <div className={styles.title}>Medical Info</div>
-            {/* <Send
-              width="100%"
-              children={
-                medicalImage ?
-                  <img src={medicalImage}
-                    className={styles.img}
-                    alt='Selecte Logo'
-                    onClick={handleClickOpenMedicalPopup} /> :
-                  <div
-                    className={styles.imageContainer} onClick={handleClickOpenMedicalPopup}
-                  >
-                    <AddPhotoAlternateIcon />
-                    <span className={styles.imageDiscription}>JPEG,PNG,JPG,PDF</span>
-                  </div>
-              }
-            /> */}
+            <FileUpload id="fileInput1" disabled= {true} onFileSelect={handleFileSelect1} text='Upload Owner Operator Logo' height='300' width='300' />
+            <FileUpload id="fileInput2" disabled= {true} onFileSelect={handleFileSelect2} text='Upload Insurance' height='300' width='300' />
+            <FileUpload id="fileInput2" disabled= {true} onFileSelect={handleFileSelect3} text='Upload W-9' height='300' width='300' />
           </div>
         </div>
       </Drawer>
