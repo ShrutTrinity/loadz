@@ -10,19 +10,26 @@ import OwnerDetailTable from './OwnerDetailTable';
 import { Tooltip } from '@mui/material';
 import AddDriverDailog from './Driver/AddDriverDailog';
 import EarnignDailog from './EarningDailog';
+import EditOwnerOperator from './EditOwnerOperator/EditOwnerOperatorDetail';
 
 const OwnerOperatorDetail = (props) => {
   const { email, phoneNumber } = props;
   const [remainingHeight, setRemainingHeight] = useState(0);
   const [inviteDriver,setInviteDriver] =useState(false);
   const[earningDailog,setEarningDailog] = useState(false);
+  const[editOwnerOperator,setEditOwnerOperator] = useState(false);
 
+  const handleEditDailog = ()=>{
+    setEditOwnerOperator(!editOwnerOperator)
+  }
   const HandleEarningDailog = (e) => {
     setEarningDailog(!earningDailog)
   }
+
   const InviteDriverDaiologHnadle = ()=>{
     setInviteDriver(!inviteDriver)
   }
+
   const cardContainerRef = useRef(null);
   const boxRef = useRef(null)
 
@@ -42,6 +49,7 @@ const OwnerOperatorDetail = (props) => {
 
   return (
     <>
+    <EditOwnerOperator open={editOwnerOperator} onClose={handleEditDailog}/>
     <EarnignDailog open={earningDailog} onClose={HandleEarningDailog}/> 
     <AddDriverDailog open={inviteDriver} onClose={InviteDriverDaiologHnadle}/>
       <div className={styles.heading}>Owner Operators Details</div>
@@ -66,7 +74,7 @@ const OwnerOperatorDetail = (props) => {
                 <AddCircleIcon sx={{cursor:'pointer'}} onClick={InviteDriverDaiologHnadle}/>
               </Tooltip>
               <Tooltip title="Edit Owner Operator" placement="top">
-                <SettingsIcon sx={{cursor:'pointer'}} />
+                <SettingsIcon sx={{cursor:'pointer'}} onClick={handleEditDailog} />
               </Tooltip>
               <Tooltip title="Owner Operator Earnings" placement="top">
                 <RequestQuoteIcon sx={{cursor:'pointer'}} onClick={HandleEarningDailog} />

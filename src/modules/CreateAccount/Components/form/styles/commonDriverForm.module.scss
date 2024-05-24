@@ -1,33 +1,38 @@
-.formOuter{
-    box-shadow: 0 0 14px 0 rgba(0,0,0,.11);
-    padding: 30px;
-    
-    border-radius: 10px;
-    margin: 10px 0 12px 
+.formOuter {
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, .11);
+  padding: 30px;
+
+  border-radius: 10px;
+  margin: 10px 0 12px
 }
-.userDetail{
-    width: 100%;
-    display: flex;
-    gap:6px;
-    margin-bottom: 6px;
+
+.userDetail {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
 }
-.div{
-    width: 100%;
+
+.div {
+  width: 100%;
 }
-.div2{
-    width: 60%;
+
+.div2 {
+  width: 60%;
 }
 
 
-@media screen and (max-width: 600px){
-    .userDetail{
-        flex-direction: column;
-    }
-    .div{
-        width: 100%;
-    }
-    .div2{
-        width: 100%;
-    }
-    
+@media screen and (max-width: 600px) {
+  .userDetail {
+    flex-direction: column;
+  }
+
+  .div {
+    width: 100%;
+  }
+
+  .div2 {
+    width: 100%;
+  }
+
 }

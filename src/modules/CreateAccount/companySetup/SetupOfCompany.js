@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import CustomStepper from '../Components/stepper/CustomStepper'
 import BoxComponent from '../Components/formBox/Box'
 import styles from './styles/setup.module.scss'
@@ -26,10 +26,10 @@ const statesArray = [
   'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
   'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
 ];
-  
+
 const SetupOfCompany = () => {
-  
-  
+
+
   const { isPopupOpen, handleToggle } = useVideoPopup();
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -173,9 +173,9 @@ const SetupOfCompany = () => {
                         <div className={styles.selector}>
                           <label className={styles.formLabel1}>State<span className={styles.requiredAll}>*</span></label>
                           <select
-                          
+
                             className="form-select"
-                            style={{  borderColor: '#c4c4c4',padding: '13px 14px 13px 10px',fontSize:'13px' }}
+                            style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px' }}
                             aria-label="Default select example"
                             name="state"
                             {...formik.getFieldProps('state')}
@@ -285,10 +285,10 @@ const SetupOfCompany = () => {
                   {formik.touched.condition && formik.errors.condition}
                 </div>
                 <div className={styles.flexitems}>
-                    <div className={styles.add}>
-                      <span className={styles.plusicon} onClick={handleAddContact}>+</span>
-                      Add another content
-                    </div>
+                  <div className={styles.add}>
+                    <span className={styles.plusicon} onClick={handleAddContact}>+</span>
+                    Add another content
+                  </div>
 
                   <Button variant="contained"
                     type='submit'

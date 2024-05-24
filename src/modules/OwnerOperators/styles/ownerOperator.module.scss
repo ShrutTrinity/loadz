@@ -58,6 +58,7 @@
             font-size: 20px;
             font-weight: 500;
           }
+
           .listoficon {
             display: flex;
             padding: 8px;
@@ -93,8 +94,8 @@
           }
         }
 
-        .profile:hover{
-          background-color:rgb(245,245,245);
+        .profile:hover {
+          background-color: rgb(245, 245, 245);
         }
       }
 
@@ -182,11 +183,12 @@
 
           .box {
             height: 100%;
-            
-            .drawerButton{
+
+            .drawerButton {
               display: block;
             }
-            .detail{
+
+            .detail {
               display: none;
             }
           }

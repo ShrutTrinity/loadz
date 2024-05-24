@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+
+  .flexitem1 {
+    width: 50%;
+    padding: 20px;
+
+    .headingContainer {
+      display: flex;
+      justify-content: space-between;
+
+      .heading {
+        font-weight: 700;
+      }
+      
+      .icons {
+        display: flex;
+        gap: 10px;
+      }
+    }
+    
+    .details{
+      padding: 20px;
+    }
+    .updateButton {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .sessionDetail {
+      padding: 10px 0;
+      font-size: 13px;
+    }
+  }
+
+  .flexitem2 {
+    width: 50%;
+   margin-top: 30px;
+
+    .title {
+     justify-content: center;
+     text-align: center;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .img{
+      border:2px solid black;
+    }
+    .imageContainer {
+      width: 100%;
+      padding: 25%;
+      border-radius: 40px;
+      border: 5px dashed lightblue;
+
+      .imageDiscription {
+        font-weight: 300;
+        font-size: 13px;
+       
+      }
+    }
+  }
+}

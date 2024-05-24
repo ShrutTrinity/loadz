@@ -28,7 +28,6 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const [isCheckedActive, setIsCheckedArchive] = useState(true);
   const [mailDialog, setMailDialog] = useState(false);
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
-
   const [showSearchBar, setShowSearchBar] = useState(false);
 
   const handleSearchbarChange = () => {
@@ -42,33 +41,26 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const handleApplyPaymentDailogClose = () => {
     setOpenPaymentDailog(false);
   };
-
   const handleToggle = () => {
     setIsCheckedArchive(prevChecked => !prevChecked);
   };
-
   const handleMailDialog = () => {
     setMailDialog(!mailDialog);
   };
-
   const OpenFormAddOperator = () => {
     setOpenAddNewOperator(true);
   };
-
   const CloseFormAddOperator = () => {
     setOpenAddNewOperator(false);
   };
-
   const openownerOperatorDetailScreen = () => {
     setOwnerOperatorDetailScreen(true)
   }
-
   function stringAvatar(name) {
     return {
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
     };
   }
-
   const bodyStyles = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
     zIndex: 1,
@@ -77,7 +69,6 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
     bodyStyles.width = '100%';
     var bodyclick = handleDrawerClose;
   }
-
   return (
     <>
       <ApplyPayment
