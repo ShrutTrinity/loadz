@@ -7,6 +7,7 @@ import inspection from "@images/inspection.png";
 import TrailerAvtar from "@images/TrailerIcon.svg";
 import InspectionDrawer from './InspectionDrawer';
 import TruckDetail from './TruckDetail';
+import useDimensions from '@hooks/useDimensions';
 
 const inspectionScreenStyle = {
   drawerButton: {
@@ -19,6 +20,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
 
   const [responsiveDrawer, setResponsiveDrawer] = useState(false);
   const [truckDetailComponent, setTruckDetailComponent] = useState(false);
+  const [ref, dimensions] = useDimensions();
 
   const handleResponsiveDrawer = () => {
     setResponsiveDrawer(!responsiveDrawer)
@@ -132,7 +134,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
               </div>
             </div>
 
-            <div className={styles.contentWrapper} >
+            <div className={styles.contentWrapper} ref={ref}>
               {truckDetailComponent ? <TruckDetail /> : <div className={styles.box}>
                 <div className={styles.circle}>
                   <img src={inspection} alt='pictureOfInspection' className={styles.image} />
@@ -153,11 +155,12 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
                 </div>
               </div>}
               <InspectionDrawer
+                height={dimensions.height}
+                width={dimensions.width}
                 openResponsiveDrawer={responsiveDrawer}
                 closeResponsiveDrawer={handleResponsiveDrawer}
               />
             </div>
-
           </div>
         </div>
       </div>

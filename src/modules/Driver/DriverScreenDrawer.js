@@ -67,10 +67,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
       <Drawer
         anchor='left'
         open={openResponsiveDrawer}
-        onTouchMove={closeResponsiveDrawer}
-        sx={{
-          
-        }}
+        onTouchMove={closeResponsiveDrawer} 
         PaperProps={{
           sx: {
             position: 'absolute',
