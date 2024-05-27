@@ -70,13 +70,16 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
       />
       <Dialog
         open={openResponsiveDrawer}
-        onClose={closeResponsiveDrawer}
-        
+        onTouchMove={closeResponsiveDrawer}
+        // onClose={closeResponsiveDrawer}
         sx={{
           position: 'absolute',
+          '& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop': {
+                      backgroundColor:  'unset'
+                    },
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper':{
-          height:`${height}px`,
-          width:`${width}px`,
+          height:`${height+10}px`,
+          width:`${width + 2}px`,
           maxWidth:'unset'
 
           },
