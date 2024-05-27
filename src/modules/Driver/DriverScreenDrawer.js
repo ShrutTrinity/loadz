@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
-import styles from './style/driverScreenDrawer.module.scss';
-import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
+import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -12,6 +12,7 @@ import CreateInvite from './CreateInvite';
 import MailDialog from './MailDialog';
 import Invitation from './Invitation';
 import PriviousDriver from './PriviousDriver';
+import styles from './style/driverScreenDrawer.module.scss';
 
 const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, width }) => {
   const [createInviteModel, setCreateInviteModel] = useState(false);
@@ -65,10 +66,26 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
         closePreviousDriver={handlePreviousDriverDialog}
       />
       <Drawer
-        anchor="left"
+        anchor='left'
         open={openResponsiveDrawer}
         onTouchMove={closeResponsiveDrawer}
-        transitionDuration={300}  
+        sx={{
+          
+        }}
+        PaperProps={{
+          sx: {
+            position: 'absolute',
+            top: `calc(50% - ${height / 2}px)`,
+            left: `calc(50% - ${width / 2}px)`,
+            height: `${height}px`,
+            width: `${width}px`,
+            transform: 'translate(-50%, -0%)',
+            transition: 'transform 0.3s ease-in-out',
+          },
+        }}
+        ModalProps={{
+          hideBackdrop:true,
+        }}
       >
         <div className={styles.drawer}>
           <div className={styles.searchbar}>
@@ -160,6 +177,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
       </Drawer>
     </>
   );
-}
+};
 
 export default DriverScreenDrawer;
+

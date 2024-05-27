@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './style/driversScreen.module.scss';
 import { TextField, InputAdornment, Avatar, Tooltip, Button } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
@@ -14,6 +14,7 @@ import PriviousDriver from './PriviousDriver';
 import Invitation from './Invitation';
 import DriverScreenDrawer from './DriverScreenDrawer';
 import DriverDetail from './DriverDetailScreen';
+import useDimensions from '@hooks/useDimensions.js';
 
 const driverScreenStyle = {
   drawerButton: {
@@ -29,59 +30,31 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const [invitationDialog, setInvitationDialog] = useState(false);
   const [responsiveDrawer, setResponsiveDrawer] = useState(false);
   const [driverDetailscreen, setDriverDetailScreen] = useState(false);
-  const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
-
-  const contentWrapperRef = useRef(null);
-
-  useEffect(() => {
-    function handleResize() {
-      if (contentWrapperRef.current) {
-        const { clientHeight, clientWidth } = contentWrapperRef.current;
-        setDimensions({ height: clientHeight, width: clientWidth });
-      }
-    }
-
-    // Initial dimension calculation
-    handleResize();
-
-    // Event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [driverDetailscreen, responsiveDrawer]);
+  const [ref, dimensions] = useDimensions();
 
   const openDriverDetailScreen = () => {
     setDriverDetailScreen(true);
   }
-
   const handleCreateModel = () => {
     setCreateInviteModel(!createInviteModel);
   }
-
   const handleMailDialog = () => {
     setMailDialog(!mailDialog);
   }
-
   const handleInvitationDialog = () => {
     setInvitationDialog(!invitationDialog);
   }
-
   const handlePreviousDriverDialog = () => {
     setPreviousDriverDialog(!previousDriverDialog);
   }
-
   const handleResponsiveDrawer = () => {
     setResponsiveDrawer(!responsiveDrawer);
   }
-
   function stringAvatar(name) {
     return {
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
     };
   }
-
   const bodyStyles = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
     zIndex: 1,
@@ -90,25 +63,20 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
     bodyStyles.width = '100%';
     var bodyclick = handleDrawerClose;
   }
-
   return (
     <>
       <CreateInvite
         openCreateModel={createInviteModel}
-        closeCreateModel={handleCreateModel}
-      />
+        closeCreateModel={handleCreateModel}/>
       <MailDialog
         openMailDialog={mailDialog}
-        closeMailDialog={handleMailDialog}
-      />
+        closeMailDialog={handleMailDialog}/>
       <Invitation
         openInvitationDialog={invitationDialog}
-        closeInvitationDialog={handleInvitationDialog}
-      />
+        closeInvitationDialog={handleInvitationDialog}/>
       <PriviousDriver
         openPreviousDriver={previousDriverDialog}
-        closePreviousDriver={handlePreviousDriverDialog}
-      />
+        closePreviousDriver={handlePreviousDriverDialog}/>
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
@@ -203,7 +171,7 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
               </div>
             </div>
 
-            <div className={styles.contentWrapper} ref={contentWrapperRef}>
+            <div className={styles.contentWrapper} ref={ref}>
               {driverDetailscreen ? <DriverDetail /> :
                 <div className={styles.box}>
                   <div className={styles.circle}>
@@ -224,14 +192,13 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     Choose a driver to view their profile...
                   </div>
                   <DriverScreenDrawer
-                  height={dimensions.height}
-                  width={dimensions.width}
+                    height={dimensions.height}
+                    width={dimensions.width}
                     openResponsiveDrawer={responsiveDrawer}
                     closeResponsiveDrawer={handleResponsiveDrawer}
                   />
                 </div>
               }
-      
             </div>
           </div>
         </div>
@@ -241,4 +208,3 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 }
 
 export default DriversScreen;
-
