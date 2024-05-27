@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
-import Dialog from '@mui/material/Dialog';
 import styles from './style/driverScreenDrawer.module.scss';
-import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
+import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -14,33 +13,31 @@ import MailDialog from './MailDialog';
 import Invitation from './Invitation';
 import PriviousDriver from './PriviousDriver';
 
-
-const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height,width}) => {
-
+const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, width }) => {
   const [createInviteModel, setCreateInviteModel] = useState(false);
   const [mailDialog, setMailDialog] = useState(false);
   const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
   const [invitationDialog, setInvitationDialog] = useState(false);
-  const[driverDetailscreen ,setDriverDetailScreen] = useState(false)
+  const [driverDetailscreen, setDriverDetailScreen] = useState(false);
 
   const handleCreateModel = () => {
-    setCreateInviteModel(!createInviteModel)
+    setCreateInviteModel(!createInviteModel);
   }
 
-  const openDriverDetailScreen = () =>{
-    setDriverDetailScreen(true)
+  const openDriverDetailScreen = () => {
+    setDriverDetailScreen(true);
   }
 
   const handleMailDialog = () => {
-    setMailDialog(!mailDialog)
+    setMailDialog(!mailDialog);
   }
 
   const handleInvitationDialog = () => {
-    setInvitationDialog(!invitationDialog)
+    setInvitationDialog(!invitationDialog);
   }
 
   const handlePreviousDriverDialog = () => {
-    setPreviousDriverDialog(!previousDriverDialog)
+    setPreviousDriverDialog(!previousDriverDialog);
   }
 
   function stringAvatar(name) {
@@ -51,7 +48,6 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
 
   return (
     <>
-    {/* <DriverDetail open/> */}
       <CreateInvite
         openCreateModel={createInviteModel}
         closeCreateModel={handleCreateModel}
@@ -68,22 +64,11 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
         openPreviousDriver={previousDriverDialog}
         closePreviousDriver={handlePreviousDriverDialog}
       />
-      <Dialog
+      <Drawer
+        anchor="left"
         open={openResponsiveDrawer}
         onTouchMove={closeResponsiveDrawer}
-        // onClose={closeResponsiveDrawer}
-        sx={{
-          position: 'absolute',
-          '& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop': {
-                      backgroundColor:  'unset'
-                    },
-          '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper':{
-          height:`${height+10}px`,
-          width:`${width + 2}px`,
-          maxWidth:'unset'
-
-          },
-        }}
+        transitionDuration={300}  
       >
         <div className={styles.drawer}>
           <div className={styles.searchbar}>
@@ -92,13 +77,13 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
               placeholder='Search Customers'
               variant="outlined"
               sx={{
-                '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
+                '& .MuiOutlinedInput-root': {
                   borderRadius: '20px',
                 },
-                '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                  padding: '5px'
+                '& .MuiInputBase-input': {
+                  padding: '5px',
                 },
-                boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 2px;',
+                boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 2px',
                 border: 'none',
                 flexGrow: 1,
                 width: '100%',
@@ -106,10 +91,9 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
                 backgroundColor: 'white',
                 '@media (max-width: 1200px)': {
                   width: '100%',
-                }
+                },
               }}
               InputProps={{
-
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon sx={{ color: 'black' }} />
@@ -164,7 +148,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
                 width: '40px',
                 fontWeight: 800,
                 fontSize: '16px',
-                color: 'black'
+                color: 'black',
               }}
               {...stringAvatar('Kent Dodds')}
             />
@@ -173,9 +157,9 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
             </div>
           </div>
         </div>
-      </Dialog>
+      </Drawer>
     </>
-  )
+  );
 }
 
 export default DriverScreenDrawer;
