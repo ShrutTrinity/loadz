@@ -6,19 +6,26 @@ import TruckAvtar from "@images/truckIcon.svg";
 import TrailerAvtar from "@images/TrailerIcon.svg";
 import styles from './style/InspectionDrawer.module.scss';
 
-const InspectionDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => {
+const InspectionDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height, width }) => {
   return (
-    <Drawer
-     
-      open={openResponsiveDrawer}
-      onClose={closeResponsiveDrawer}
-      sx={{
-        position:'absolute',
-      
-        '& .MuiDrawer-paper': {
-         
-        },
-      }}
+    <Drawer 
+    anchor='left'
+    open={openResponsiveDrawer}
+    onTouchMove={closeResponsiveDrawer}
+    PaperProps={{
+      sx: {
+        position: 'absolute',
+        top: `calc(50% - ${height / 2}px)`,
+        left: `calc(50% - ${width / 2}px)`,
+        height: `${height}px`,
+        width: `${width}px`,
+        transform: 'translate(-50%, -0%)',
+        transition: 'transform 0.3s ease-in-out',
+      },
+    }}
+    ModalProps={{
+      hideBackdrop:true,
+    }}
     >
       <div className={styles.drawer}>
         <div className={styles.searchbar}>
