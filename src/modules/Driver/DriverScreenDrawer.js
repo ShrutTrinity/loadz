@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
-import Dialog from '@mui/material/Dialog';
-import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
+import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -22,19 +21,19 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
   const [driverDetailscreen, setDriverDetailScreen] = useState(false);
 
   const handleCreateModel = () => {
-    setCreateInviteModel(!createInviteModel);
+    setCreateInviteModel(!createInviteModel)
   }
 
-  const openDriverDetailScreen = () => {
-    setDriverDetailScreen(true);
+  const openDriverDetailScreen = () =>{
+    setDriverDetailScreen(true)
   }
 
   const handleMailDialog = () => {
-    setMailDialog(!mailDialog);
+    setMailDialog(!mailDialog)
   }
 
   const handleInvitationDialog = () => {
-    setInvitationDialog(!invitationDialog);
+    setInvitationDialog(!invitationDialog)
   }
 
   const handlePreviousDriverDialog = () => {
@@ -182,4 +181,3 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
 };
 
 export default DriverScreenDrawer;
-
