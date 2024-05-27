@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Styles/subcontactor.module.scss';
-import { TextField, InputAdornment, Avatar, Tooltip, Dialog, DialogContent, Button } from '@mui/material'
+import { TextField, InputAdornment, Avatar, Tooltip, Button } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import PaymentsIcon from '@mui/icons-material/Payments';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -14,7 +14,8 @@ import InviteUserDialog from './Components/InviteUserDialog';
 import SubContractorMail from './SubContractorMail';
 import Archived from './Archived';
 import Invitation from './Invitation';
-import SubContractorDrawer from './Components/SubContractorDrawer.js';
+import SubContractorDrawer from './SubContractorDrawer';
+import useDimensions from '@hooks/useDimensions.js';
 
 const allStyle = {
   drawerButton: {
@@ -29,7 +30,8 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const [mailDialog, setMailDialog] = useState(false);
   const [archiveDialog, setArchiveDialog] = useState(false);
   const [invitationDialog, setInvitationDialog] = useState(false);
-  const [subContractorDrawer, setSubContractorDrawer] = useState(false);
+  const [responsiveDrawer, setResponsiveDrawer] = useState(false);
+  const [ref, dimensions] = useDimensions();
 
   const handleArchiveDialog = () => {
     setArchiveDialog(!archiveDialog)
@@ -47,8 +49,8 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
     setInvitationDialog(!invitationDialog)
   }
 
-  const handleSubContractorDrawer = () => {
-    setSubContractorDrawer(!subContractorDrawer)
+  const handleResponsiveDrawer = () => {
+    setResponsiveDrawer(!responsiveDrawer);
   }
 
 
@@ -65,10 +67,15 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
     };
   }
-  
+
   return (
     <>
-    
+      <SubContractorDrawer
+        height={dimensions.height}
+        width={dimensions.width}
+        openResponsiveDrawer={responsiveDrawer}
+        closeResponsiveDrawer={handleResponsiveDrawer}
+      />
       <Archived
         openArchiveDialog={archiveDialog}
         closeArchiveDialog={handleArchiveDialog}
@@ -84,10 +91,6 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
       <Invitation
         openInvitationDialog={invitationDialog}
         closeInvitationDialog={handleInvitationDialog}
-      />
-      <SubContractorDrawer
-        openSubCOntractorDrawer={subContractorDrawer}
-        closeSubCOntractorDrawer={handleSubContractorDrawer}
       />
       <div className={styles.container}
         style={bodyStyles}
@@ -188,113 +191,9 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
               </div>
             </div>
-            <div className={styles.contentWrapper}>
+            <div className={styles.contentWrapper} ref={ref}>
               <div className={styles.heading}>
-                <ChatIcon className={styles.openDailogIcon} />
-                <Dialog
-                  sx={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    zIndex: 1,
-                    '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
-                      height: '79%',
-                      width: 'auto',
-                    },
-                    '& .css-ypiqx9-MuiDialogContent-root': {
-                      padding: '20px'
-                    },
-                    '& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop': {
-                      backgroundColor: 'set',
-                    },
-                  }}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogContent
-                  >
-                    <div className={styles.drawer}>
-                      <div className={styles.searchbar}>
-                        <TextField
-                          size="small"
-                          placeholder='Search Customers'
-                          variant="outlined"
-                          sx={{
-                            '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
-                              borderRadius: '20px',
-                            },
-                            '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                              padding: '05px'
-                            },
-                            boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 2px;',
-                            border: 'none',
-                            flexGrow: 1,
-                            width: '100%',
-                            borderRadius: '20px',
-                            '@media (max-width: 1200px)': {
-                              width: '100%',
-                              backgroundColor: 'white'
-                            }
-
-                          }}
-                          InputProps={{
-
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <SearchIcon sx={{ color: 'black' }} />
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                      </div>
-                      <div className={styles.listoficon}>
-                        <Tooltip title="Archive" placement="top">
-                          <HistoryIcon sx={{ cursor: 'pointer' }} />
-                        </Tooltip>
-                        <Tooltip title="Create Invite" placement="top">
-                          <AddCircleIcon sx={{ cursor: 'pointer' }} />
-                        </Tooltip>
-                        <Tooltip title="Send Email to All" placement="top">
-                          <EmailIcon sx={{ cursor: 'pointer' }} />
-                          55                        </Tooltip>
-                        <Tooltip title="Invitations" placement="top">
-                          <ApartmentIcon sx={{ cursor: 'pointer' }} />
-                        </Tooltip>
-                        <Tooltip title="Apply Payments" placement="top">
-                          <PaymentsIcon sx={{ cursor: 'pointer' }} />
-                        </Tooltip>
-
-                        <Tooltip title="Global Invoice Search" placement="top">
-                          <TravelExploreIcon sx={{ cursor: 'pointer' }} />
-                        </Tooltip>
-                        <Tooltip title="Global Ticket Invoice Search" placement="top">
-                          <TravelExploreIcon sx={{ cursor: 'pointer' }} />
-                        </Tooltip>
-
-                      </div>
-                      <div className={styles.profile}>
-                        <Avatar
-                          sx={{
-                            height: '40px',
-                            width: '40px',
-                            fontWeight: 800,
-                            fontSize: '16px',
-                            color: 'black'
-                          }}
-                          {...stringAvatar('Kent Dodds')}
-                        />
-                        <div className={styles.name}>
-                          kent dodds
-                          <div className={styles.balance}>
-                            <b>Balance</b>  $0.00
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </DialogContent>
-
-                </Dialog>
+                <ChatIcon className={styles.openDailogIcon} onClick={handleResponsiveDrawer}/>
                 Subcontractors Details
               </div>
               <div className={styles.box}>
@@ -307,7 +206,7 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                 <div className={styles.detailButton}>
                   <Button
                     style={allStyle.drawerButton}
-                    onClick={handleSubContractorDrawer}
+                    onClick={handleResponsiveDrawer}
                   >
                     Select a subcontractor to view invoices info...
                   </Button>
