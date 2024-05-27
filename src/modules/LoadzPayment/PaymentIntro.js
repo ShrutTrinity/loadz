@@ -3,8 +3,8 @@ import styles from './styles/paymentintro.module.scss'
 import loadz from '@images/loadz_fp.jpg'
 import phonetransition from '@images/phoneTransition.png'
 
-
 const PaymentIntro = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
+  
   const bodyStyles = {
     width: `calc(100% - ${open ? 300 : 0}px)`,
     zIndex: 1,
