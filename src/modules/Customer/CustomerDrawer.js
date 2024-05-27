@@ -11,12 +11,20 @@ import credit from '@images/credit.png'
 import ArchiveIcon from '@mui/icons-material/Archive';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import SettlementReportDialog from './Components/SettelemntReport/SettlementReportDialog';
+import CustomerBalance from './Components/CustomerBalance/CustomerBalance';
+import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
+import CreateCustomer from './Components/CreateCustomer/CreateCustomerModel';
 
 const CustomerDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, width }) => {
   const [BalancePopupOpen, setBalancePopupOpen] = useState(false);
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false);
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
   const [settlementReportDialog, setSettlementReportDialog] = useState(false)
+  
+  const handleApplyPaymentDailogClose = () => {
+    setOpenPaymentDailog(false);
+  };
 
   const BalancePopupRendered = () => {
     setBalancePopupOpen(!BalancePopupOpen)
@@ -42,6 +50,11 @@ const CustomerDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, w
   }
 
   return (
+    <>
+     {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
+      <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
+      <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
+      <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
     <Drawer
       anchor='left'
       open={openResponsiveDrawer}
@@ -151,6 +164,7 @@ const CustomerDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, w
         </div>
       </div>
     </Drawer>
+    </>
   )
 }
 
