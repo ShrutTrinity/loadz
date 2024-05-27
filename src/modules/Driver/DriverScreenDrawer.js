@@ -39,7 +39,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
 
   const handlePreviousDriverDialog = () => {
     setPreviousDriverDialog(!previousDriverDialog);
-  }
+  };
 
   function stringAvatar(name) {
     return {
@@ -85,7 +85,9 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
         }}
         ModalProps={{
           hideBackdrop:true,
+          
         }}
+       
       >
         <div className={styles.drawer}>
           <div className={styles.searchbar}>
