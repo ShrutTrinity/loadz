@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './styles/customer.module.scss'
-import { TextField, InputAdornment, Avatar, Tooltip, Dialog, DialogContent } from '@mui/material'
+import { TextField, InputAdornment, Avatar, Tooltip} from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -26,7 +26,6 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
   const [settlementReportDialog, setSettlementReportDialog] = useState(false)
-  const [openLeftDrawerForMobileView, setOpenLeftDrawerForMobileView] = useState(false);
   const [responsiveDrawer, setResponsiveDrawer] = useState(false)
   const [ref, dimensions] = useDimensions();
 
@@ -34,10 +33,7 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
     setResponsiveDrawer(!responsiveDrawer)
   }
 
-  const handleClickForLeftDrawer = () => {
-    setOpenLeftDrawerForMobileView(true);
-  };
-
+ 
   const handleClickOpen = () => {
     setOpenPaymentDailog(true);
   };
