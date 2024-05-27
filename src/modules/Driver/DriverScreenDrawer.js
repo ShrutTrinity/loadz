@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
-import Dialog from '@mui/material/Dialog';
-import styles from './style/driverScreenDrawer.module.scss';
-import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
+import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -13,35 +11,34 @@ import CreateInvite from './CreateInvite';
 import MailDialog from './MailDialog';
 import Invitation from './Invitation';
 import PriviousDriver from './PriviousDriver';
+import styles from './style/driverScreenDrawer.module.scss';
 
-
-const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height,width}) => {
-
+const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, width }) => {
   const [createInviteModel, setCreateInviteModel] = useState(false);
   const [mailDialog, setMailDialog] = useState(false);
   const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
   const [invitationDialog, setInvitationDialog] = useState(false);
-  const[driverDetailscreen ,setDriverDetailScreen] = useState(false)
+  const [driverDetailscreen, setDriverDetailScreen] = useState(false);
 
   const handleCreateModel = () => {
-    setCreateInviteModel(!createInviteModel)
-  }
+    setCreateInviteModel(!createInviteModel);
+  };
 
-  const openDriverDetailScreen = () =>{
-    setDriverDetailScreen(true)
-  }
+  const openDriverDetailScreen = () => {
+    setDriverDetailScreen(true);
+  };
 
   const handleMailDialog = () => {
-    setMailDialog(!mailDialog)
-  }
+    setMailDialog(!mailDialog);
+  };
 
   const handleInvitationDialog = () => {
-    setInvitationDialog(!invitationDialog)
-  }
+    setInvitationDialog(!invitationDialog);
+  };
 
   const handlePreviousDriverDialog = () => {
-    setPreviousDriverDialog(!previousDriverDialog)
-  }
+    setPreviousDriverDialog(!previousDriverDialog);
+  };
 
   function stringAvatar(name) {
     return {
@@ -51,7 +48,6 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
 
   return (
     <>
-    {/* <DriverDetail open/> */}
       <CreateInvite
         openCreateModel={createInviteModel}
         closeCreateModel={handleCreateModel}
@@ -68,21 +64,26 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
         openPreviousDriver={previousDriverDialog}
         closePreviousDriver={handlePreviousDriverDialog}
       />
-      <Dialog
+      <Drawer
+        anchor='left'
         open={openResponsiveDrawer}
         onTouchMove={closeResponsiveDrawer}
-        // onClose={closeResponsiveDrawer}
         sx={{
-          position: 'absolute',
-          '& .css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop': {
-                      backgroundColor:  'unset'
-                    },
-          '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper':{
-          height:`${height+10}px`,
-          width:`${width + 2}px`,
-          maxWidth:'unset'
-
+          
+        }}
+        PaperProps={{
+          sx: {
+            position: 'absolute',
+            top: `calc(50% - ${height / 2}px)`,
+            left: `calc(50% - ${width / 2}px)`,
+            height: `${height}px`,
+            width: `${width}px`,
+            transform: 'translate(-50%, -0%)',
+            transition: 'transform 0.3s ease-in-out',
           },
+        }}
+        ModelProps={{
+          hideBackdrop:true,
         }}
       >
         <div className={styles.drawer}>
@@ -109,7 +110,6 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
                 }
               }}
               InputProps={{
-
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon sx={{ color: 'black' }} />
@@ -173,9 +173,9 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height
             </div>
           </div>
         </div>
-      </Dialog>
+      </Drawer>
     </>
-  )
-}
+  );
+};
 
 export default DriverScreenDrawer;

@@ -224,8 +224,8 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     Choose a driver to view their profile...
                   </div>
                   <DriverScreenDrawer
-                  height={dimensions.height}
-                  width={dimensions.width}
+                    height={dimensions.height}
+                    width={dimensions.width}
                     openResponsiveDrawer={responsiveDrawer}
                     closeResponsiveDrawer={handleResponsiveDrawer}
                   />
@@ -241,4 +241,3 @@ const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 }
 
 export default DriversScreen;
-
