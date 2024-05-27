@@ -82,7 +82,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
             transition: 'transform 0.3s ease-in-out',
           },
         }}
-        ModelProps={{
+        ModalProps={{
           hideBackdrop:true,
         }}
       >
