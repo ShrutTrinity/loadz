@@ -9,10 +9,11 @@ import logo from '@images/loadzlogo.png'
 import banner from '@images/banner.png'
 import NavigationBar from './NavigationBar';
 import { AppBar } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const DrawerContent = styled('div')(({ theme }) => ({
- 
+
   overflowY: 'inherit',
   paddingTop: '70px !important',
   height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
@@ -78,19 +79,22 @@ const PersistentDrawerLeft = ({
             style=
             {{
               cursor: 'pointer',
-              height: '20px', 
-              width: '20px', 
+              height: '20px',
+              width: '20px',
               borderRadius: '50%'
             }} />
         </DrawerHeader>
-         <div className={styles.profile}>
+        <div className={styles.profile}>
           <img src={Profile} alt='profile' className={styles.img2} />
         </div>
         <DrawerContent>
           {data.map((item, index) => (
             <According key={index} header={item.header} detail={item.detail} />
           ))}
-          <img src={banner} className={styles.banner} alt='logo' />
+          <Link to='/dwolla/intro'>
+            <img src={banner} className={styles.banner} alt='logo' />
+          </Link>
+
         </DrawerContent>
         <img src={logo} className={styles.img} alt='logo' />
       </Drawer>

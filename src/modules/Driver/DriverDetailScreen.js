@@ -50,7 +50,7 @@ import EditDriverDetail from './EditDriverDetail';
     }
 
     const { address, email, phoneNumber, balance, Commision, totalTimeLogged, rate } = props;
-    return (
+    return (    
       <>
       <EditDriverDetail open={editDailog} onClose={openEditDailog}/>
         <div className={styles.heading}></div>

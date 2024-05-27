@@ -32,8 +32,7 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
   const handleSearchbarChange = () => {
     setShowSearchBar(true)
-  }
-
+  };
   const handleClickOpen = () => {
     setOpenPaymentDailog(true);
   };
@@ -55,7 +54,7 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   };
   const openownerOperatorDetailScreen = () => {
     setOwnerOperatorDetailScreen(true)
-  }
+  };
   function stringAvatar(name) {
     return {
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,

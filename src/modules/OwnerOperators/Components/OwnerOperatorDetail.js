@@ -11,6 +11,7 @@ import { Tooltip } from '@mui/material';
 import AddDriverDailog from './Driver/AddDriverDailog';
 import EarnignDailog from './EarningDailog';
 import EditOwnerOperator from './EditOwnerOperator/EditOwnerOperatorDetail';
+import ArchiveAlertDialog from '../../Driver/ArchiveAlertDailog';
 
 const OwnerOperatorDetail = (props) => {
   const { email, phoneNumber } = props;
@@ -18,6 +19,11 @@ const OwnerOperatorDetail = (props) => {
   const [inviteDriver,setInviteDriver] =useState(false);
   const[earningDailog,setEarningDailog] = useState(false);
   const[editOwnerOperator,setEditOwnerOperator] = useState(false);
+  const[archivealert,setArchiveAlert] = useState(false);
+
+  const openArchivealertDailog = () =>{
+    setArchiveAlert(!archivealert)
+  }
 
   const handleEditDailog = ()=>{
     setEditOwnerOperator(!editOwnerOperator)
@@ -49,6 +55,7 @@ const OwnerOperatorDetail = (props) => {
 
   return (
     <>
+    <ArchiveAlertDialog open={archivealert} onClose={openArchivealertDailog}/>
     <EditOwnerOperator open={editOwnerOperator} onClose={handleEditDailog}/>
     <EarnignDailog open={earningDailog} onClose={HandleEarningDailog}/> 
     <AddDriverDailog open={inviteDriver} onClose={InviteDriverDaiologHnadle}/>
@@ -83,7 +90,7 @@ const OwnerOperatorDetail = (props) => {
                 <DownloadIcon sx={{cursor:'pointer'}} />
               </Tooltip>
               <Tooltip title="Archive Owner Operator" placement="top">
-                <ArchiveIcon sx={{cursor:'pointer'}} />
+                <ArchiveIcon sx={{cursor:'pointer'}} onClick={openArchivealertDailog} />
               </Tooltip>
               <div className={styles.items}>Apply Payments</div>
             </div>

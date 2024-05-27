@@ -115,14 +115,6 @@ const EditOwnerOperator = (props) => {
               />
               <CustomTextField
                 width='100'
-                id='email'
-                name='email'
-                type='email'
-                label='Email'
-                variant='outlined'
-              />
-              <CustomTextField
-                width='100'
                 id='address'
                 name='address'
                 type='text'
@@ -234,7 +226,7 @@ const EditOwnerOperator = (props) => {
           <div className={styles.flexitem2}>
             <FileUpload id="fileInput1" disabled= {true} onFileSelect={handleFileSelect1} text='Upload Owner Operator Logo' height='300' width='300' />
             <FileUpload id="fileInput2" disabled= {true} onFileSelect={handleFileSelect2} text='Upload Insurance' height='300' width='300' />
-            <FileUpload id="fileInput2" disabled= {true} onFileSelect={handleFileSelect3} text='Upload W-9' height='300' width='300' />
+            <FileUpload id="fileInput3" disabled= {true} onFileSelect={handleFileSelect3} text='Upload W-9' height='300' width='300' />
           </div>
         </div>
       </Drawer>

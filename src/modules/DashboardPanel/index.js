@@ -21,6 +21,7 @@ import DriversScreen from '../Driver/DriversScreen';
 import SubContractor from '../SubContractor/SubContractor';
 import TimeSheetScreen from '../Driver/TimeSheet/TimeSheetScreen';
 import OwnerOperator from '../OwnerOperators/OwnerOperator';
+import PaymentIntro from '../LoadzPayment/PaymentIntro';
 
 const BaseLayout = () => {
 
@@ -280,6 +281,18 @@ const BaseLayout = () => {
           path='/ownerops'
           element={
             <OwnerOperator
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/dwolla/intro'
+          element={
+            <PaymentIntro
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

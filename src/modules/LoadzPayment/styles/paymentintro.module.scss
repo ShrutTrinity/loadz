@@ -1,0 +1,57 @@
+@import '@styles';
+
+.container {
+  display: flex;
+  margin-top: 73px;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .flexitem1 {
+  overflow-y: auto;
+    text-align: start; 
+    padding: 0px 10px 0px 180px;
+    width: 50%;
+    margin-bottom: 50px;
+
+    .img {
+      height: 250px;
+      width: 250px;
+    }
+    .heading {
+      font-size: 45px;
+      font-weight: 700;
+      align-items: end;
+    }
+    .intro{
+      font-size: 20px;
+    }
+    .intro2{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .btn{
+      padding:15px 40px;
+      background-color: $color_3;
+      border-radius: 10px;
+      border: 0px;
+      margin: 10px 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  .flexitem2 {
+    width: 50%;
+    overflow-y: auto;
+    margin-bottom: 50px;
+
+
+    .img2{
+      height: 90%;
+      width: 90%;
+    }
+  }
+}

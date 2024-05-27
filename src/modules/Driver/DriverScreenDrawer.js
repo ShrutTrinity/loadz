@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
+import Dialog from '@mui/material/Dialog';
 import styles from './style/driverScreenDrawer.module.scss';
 import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
@@ -14,7 +15,7 @@ import Invitation from './Invitation';
 import PriviousDriver from './PriviousDriver';
 
 
-const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => {
+const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer,height,width}) => {
 
   const [createInviteModel, setCreateInviteModel] = useState(false);
   const [mailDialog, setMailDialog] = useState(false);
@@ -67,13 +68,16 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => 
         openPreviousDriver={previousDriverDialog}
         closePreviousDriver={handlePreviousDriverDialog}
       />
-      <Drawer
+      <Dialog
         open={openResponsiveDrawer}
         onClose={closeResponsiveDrawer}
+        
         sx={{
           position: 'absolute',
-
-          '& .MuiDrawer-paper': {
+          '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper':{
+          height:`${height}px`,
+          width:`${width}px`,
+          maxWidth:'unset'
 
           },
         }}
@@ -166,7 +170,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer }) => 
             </div>
           </div>
         </div>
-      </Drawer>
+      </Dialog>
     </>
   )
 }
