@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
-import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material';
+import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -18,27 +18,27 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
   const [mailDialog, setMailDialog] = useState(false);
   const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
   const [invitationDialog, setInvitationDialog] = useState(false);
-  const [driverDetailscreen, setDriverDetailScreen] = useState(false);
+  const setDriverDetailScreen= (false);
 
   const handleCreateModel = () => {
-    setCreateInviteModel(!createInviteModel)
+    setCreateInviteModel(!createInviteModel);
   }
 
-  const openDriverDetailScreen = () =>{
-    setDriverDetailScreen(true)
+  const openDriverDetailScreen = () => {
+    setDriverDetailScreen(true);
   }
 
   const handleMailDialog = () => {
-    setMailDialog(!mailDialog)
+    setMailDialog(!mailDialog);
   }
 
   const handleInvitationDialog = () => {
-    setInvitationDialog(!invitationDialog)
+    setInvitationDialog(!invitationDialog);
   }
 
   const handlePreviousDriverDialog = () => {
     setPreviousDriverDialog(!previousDriverDialog);
-  };
+  }
 
   function stringAvatar(name) {
     return {
@@ -84,9 +84,7 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
         }}
         ModalProps={{
           hideBackdrop:true,
-          
         }}
-       
       >
         <div className={styles.drawer}>
           <div className={styles.searchbar}>
@@ -179,5 +177,4 @@ const DriverScreenDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heigh
     </>
   );
 };
-
 export default DriverScreenDrawer;

@@ -298,15 +298,10 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
                             <b>Balance</b>  $0.00
                           </div>
                         </div>
-
                       </div>
                     </div>
-
                   </DialogContent>
-
                 </Dialog>
-
-
                 Customer Details
               </div>
               <div className={styles.box}>
