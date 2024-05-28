@@ -42,8 +42,9 @@ const BaseLayout = () => {
     setSetting(false)
   }
 
-  const handleDrawerOpen = () => {
+  const handleDrawerOpen = (event) => {
     setOpen(true);
+    event.stopPropagation()
   };
   const handleDrawerClose = () => {
     setOpen(false);

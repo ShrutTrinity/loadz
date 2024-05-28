@@ -68,7 +68,7 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
             sx={{ mr: 2, display:`${Open ? 'none' :'block'} `}}
             onClick={toggleDrawer} 
             
-          >
+          > 
             <MenuIcon />
           </IconButton>   
 
@@ -119,10 +119,7 @@ const NavigationBar = ({toggleDrawer,Open,setting,handleOpen,handleClose,toggleT
             <IconButton size="large" aria-label="Settings" onClick={handleOpen} >
               <img className={styles.gearIcon} src={Gear} alt='Gear Icon' />
             </IconButton>
-          
-
               </span>
-
               <IconButton
                 sx={{
                   padding: '6px 16px',
