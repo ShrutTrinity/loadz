@@ -1,9 +1,9 @@
-import React from 'react';
-import {Drawer} from '@mui/material'
-import Function from './Components/Function';
+import React from 'react'
+import ArchiveDrawer from '../ArchiveDrawer'
+import { Drawer } from '@mui/material';
 
-const SubContractorDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, width }) => {
- 
+const ArchiveResponsiveDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, width }) => {
+
   return (
     <Drawer
         anchor='left'
@@ -24,9 +24,9 @@ const SubContractorDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, heig
           hideBackdrop:true,
         }}
       >
-        <Function />
+        <ArchiveDrawer />
       </Drawer>
   )
 }
 
-export default SubContractorDrawer;
+export default ArchiveResponsiveDrawer;

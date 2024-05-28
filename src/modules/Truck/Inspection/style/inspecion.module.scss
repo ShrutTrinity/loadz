@@ -27,62 +27,10 @@
       display: flex;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-      .drawer {
-        height: 100%;
-        overflow: auto;
+      .drawerContainer {
         width: 26%;
-        border-top-left-radius: 20px;
-        background-color: $color_4;
-
-        .searchbar {
-          background-color: rgb(245, 245, 245);
-          padding: 16px 16px;
-        }
-
-        .profileTrucks {
-          padding: 24px 16px;
-          font-size: 20px;
-          font-weight: 500;
-        }
-
-        .truckList {
-          padding: 0px 6px 6px;
-          margin: 0 8px;
-          @include flex-column();
-          border-bottom: 1px solid $color_1;
-
-          .truckDetail {
-            padding: 0 8px;
-            flex-direction: column;
-            @include flex-row();
-            width: 70%;
-
-            .truckNo{
-              margin-bottom: 0px;
-              font-size: 13px;
-            }
-          }
-        }
-
-        .truckList:hover{
-          background-color: rgb(245, 245, 245);
-          cursor: pointer;
-        }
-
-        .profile {
-          margin: 0 10px;
-          margin-top: 10px;
-          display: flex;
-          gap: 10px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid $color_1;
-
-          .name {
-            font-size: 13px;
-          }
-        }
       }
-
+      
       .contentWrapper {
         position: relative;
         height: 100%;
@@ -158,7 +106,7 @@
   .container {
     .CardWrapper {
       .contentCard {
-        .drawer {
+        .drawerContainer {
           display: none;
         }
 

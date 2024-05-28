@@ -1,31 +1,15 @@
 import React, { useState } from 'react'
 import styles from './styles/customer.module.scss'
-import { TextField, InputAdornment, Avatar, Tooltip} from '@mui/material'
-import SearchIcon from "@mui/icons-material/Search";
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import PaymentsIcon from '@mui/icons-material/Payments';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import credit from '@images/credit.png'
-import ArchiveIcon from '@mui/icons-material/Archive';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import inspection from '@images/inspection.png'
 import CustomerBalance from './Components/CustomerBalance/CustomerBalance';
-import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
-import CreateCustomer from './Components/CreateCustomer/CreateCustomerModel';
-import SettlementReportDialog from './Components/SettelemntReport/SettlementReportDialog';
 import ChatIcon from '@mui/icons-material/Chat';
 import CustomerDrawer from './CustomerDrawer';
 import useDimensions from '@hooks/useDimensions';
+import CustomerFunction from './Components/CustomerFunction';
 
 
 const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
   const [BalancePopupOpen, setBalancePopupOpen] = useState(false)
-  const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
-  const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
-  const [settlementReportDialog, setSettlementReportDialog] = useState(false)
   const [responsiveDrawer, setResponsiveDrawer] = useState(false)
   const [ref, dimensions] = useDimensions();
 
@@ -33,25 +17,8 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
     setResponsiveDrawer(!responsiveDrawer)
   }
 
- 
-  const handleClickOpen = () => {
-    setOpenPaymentDailog(true);
-  };
-
-  const handleApplyPaymentDailogClose = () => {
-    setOpenPaymentDailog(false);
-  };
-
   const BalancePopupRendered = () => {
     setBalancePopupOpen(!BalancePopupOpen)
-  }
-
-  const clickFroCreateCustomerModel = () => {
-    setOpenCreateCustomerModel(!openCreateCustomerModel)
-  }
-
-  const handleSettlementReportDialog = () => {
-    setSettlementReportDialog(!settlementReportDialog)
   }
 
   const bodyStyles = {
@@ -62,17 +29,9 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
     var bodyclick = handleDrawerClose;
   }
 
-  function stringAvatar(name) {
-    return {
-      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-    };
-  }
   return (
     <>
       {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
-      <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
-      <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
-      <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
       <CustomerDrawer 
          height={dimensions.height}
          width={dimensions.width}
@@ -86,7 +45,7 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
           <div className={styles.contentCard}>
-            <div className={styles.drawer}>
+            {/* <div className={styles.drawer}>
               <div className={styles.searchbar}>
                 <TextField
                   size="small"
@@ -173,7 +132,13 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
                 </div>
 
               </div>
+            </div> */}
+
+            <div className={styles.drawerContainer}>
+              <CustomerFunction />
             </div>
+
+
             <div className={styles.contentWrapper} ref={ref}>
               <div className={styles.heading}>
                 <ChatIcon className={styles.openDailogIcon} onClick={handleResponsiveDrawer} />
