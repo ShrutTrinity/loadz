@@ -13,6 +13,9 @@ import PaymentsIcon from '@mui/icons-material/Payments';
 import AddNewOperator from './Components/AddNewOperator';
 import MessageDialog from './Components/MessageDialog';
 import ApplyPayment from './Components/ApplyPayment/ApplyPayment';
+import useDimensions from '@hooks/useDimensions.js';
+import ChatIcon from '@mui/icons-material/Chat';
+import OwnerOperatorDrawer from './OwnerOperatorDrawer';
 
 const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
@@ -29,6 +32,8 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const [mailDialog, setMailDialog] = useState(false);
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const [responsiveDrawer, setResponsiveDrawer] = useState(false);
+  const [ref, dimensions] = useDimensions();
 
   const handleSearchbarChange = () => {
     setShowSearchBar(true)
@@ -55,6 +60,9 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
   const openownerOperatorDetailScreen = () => {
     setOwnerOperatorDetailScreen(true)
   };
+  const handleResponsiveDrawer = () => {
+    setResponsiveDrawer(!responsiveDrawer);
+  }
   function stringAvatar(name) {
     return {
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
@@ -76,6 +84,12 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
       <MessageDialog
         openMessageDialog={mailDialog}
         closeMessageDialog={handleMailDialog}
+      />
+      <OwnerOperatorDrawer
+        height={dimensions.height}
+        width={dimensions.width}
+        openResponsiveDrawer={responsiveDrawer}
+        closeResponsiveDrawer={handleResponsiveDrawer}
       />
       <AddNewOperator
         open={openAddNewOperator}
@@ -193,7 +207,6 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
               <div className={styles.switchCover}>
                 <Index label1="Active" label2='Archive' checked={isCheckedActive} onChange={handleToggle} />
-
               </div>
 
               <div className={styles.profile} onClick={openownerOperatorDetailScreen}>
@@ -207,16 +220,24 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                   }}
                   {...stringAvatar('Kent Dodds')}
                 />
-                <div className={styles.name}>
-                  kent dodds
+                <div className={styles.profileDetails}>
+                  <div className={styles.name}>
+                    kent dodds
+                  </div>
+                  <div className={styles.balance}>
+                    Balance: <span className={styles.value}>$0.00</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className={styles.contentWrapper}>
+            <div className={styles.contentWrapper} ref={ref}>
               {ownerOperatorDetailscreen ? <OwnerOperatorDetail /> :
                 <>
-                  <div className={styles.heading}>Owner Operators Details</div>
+                  <div className={styles.heading}>
+                    <ChatIcon className={styles.openDailogIcon} onClick={handleResponsiveDrawer} />
+                    Owner Operators Details
+                  </div>
                   <div className={styles.box}>
                     <div className={styles.circle}>
                       <img src={inspection} alt='pictureOfInspection' className={styles.image} />
@@ -227,7 +248,7 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     <div className={styles.drawerButton}>
                       <Button
                         style={ownerOperatorScreenStyle.drawerButton}
-                      // onClick={handleResponsiveDrawer}
+                        onClick={handleResponsiveDrawer}
                       >
                         View OwnerOperator Profile...
                       </Button>
@@ -235,14 +256,9 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
                     <div className={styles.detail}>
                       Choose a OwnerOperator to view their profile...
                     </div>
-                    {/* <ownerOperatorScreenDrawer
-                    openResponsiveDrawer={responsiveDrawer}
-                    closeResponsiveDrawer={handleResponsiveDrawer}
-                  /> */}
                   </div>
                 </>
               }
-
             </div>
 
           </div>
