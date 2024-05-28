@@ -22,6 +22,7 @@ import SubContractor from '../SubContractor/SubContractor';
 import TimeSheetScreen from '../Driver/TimeSheet/TimeSheetScreen';
 import OwnerOperator from '../OwnerOperators/OwnerOperator';
 import PaymentIntro from '../LoadzPayment/PaymentIntro';
+import Profile from '../MyAccount/Profile';
 
 const BaseLayout = () => {
 
@@ -294,6 +295,18 @@ const BaseLayout = () => {
           path='/dwolla/intro'
           element={
             <PaymentIntro
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/account'
+          element={
+            <Profile
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
