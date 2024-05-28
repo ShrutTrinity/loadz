@@ -27,72 +27,8 @@
       display: flex;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-      .drawer {
-        height: 100%;
-        overflow: auto;
+      .drawerContainer{
         width: 26%;
-        border-top-left-radius: 20px;
-        background-color: $color_4;
-
-        .searchbar {
-          background-color: rgb(245, 245, 245);
-          padding: 16px 16px;
-        }
-
-        .customer {
-          padding: 24px;
-          font-size: 20px;
-          width: 100%;
-          font-weight: 500;
-        }
-
-        .headingCover {
-          @include flex-column();
-          padding: 20px 25px;
-          justify-content: space-between;
-
-          .componentName {
-            font-size: 20px;
-            font-weight: 500;
-          }
-          .listoficon {
-            display: flex;
-            padding: 8px;
-            flex-wrap: wrap;
-            gap: 13px;
-
-            .credit {
-              height: 25px;
-              width: 25px;
-            }
-          }
-        }
-
-        .switchCover {
-          padding: 0 16px 16px;
-          font-size: 13px !important;
-          font-weight: 300;
-        }
-
-        .profile {
-          margin: 0 10px;
-          padding: 10px 0 0 6px;
-          @include flex-column();
-          gap: 10px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid $color_1;
-          cursor: pointer;
-
-          .name {
-            font-size: 14px;
-            margin-left: 8px;
-            text-transform: uppercase;
-          }
-        }
-
-        .profile:hover{
-          background-color:rgb(245,245,245);
-        }
       }
 
       .contentWrapper {
@@ -169,7 +105,7 @@
   .container {
     .CardWrapper {
       .contentCard {
-        .drawer {
+        .drawerContainer {
           display: none;
         }
 

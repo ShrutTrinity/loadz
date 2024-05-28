@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Styles/archive.module.scss';
 import DialogActions from '@mui/material/DialogActions';
 import { Button } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-import { TextField, InputAdornment, Dialog, DialogContent } from '@mui/material'
-import SearchIcon from "@mui/icons-material/Search";
+import { Dialog, DialogContent } from '@mui/material'
 import inspection from '@images/inspection.png';
 import ChatIcon from '@mui/icons-material/Chat';
+import ArchiveDrawer from './ArchiveDrawer';
+import ArchiveResponsiveDrawer from './Components/ArchiveResponsiveDrawer';
+import useDimensions from '@hooks/useDimensions.js';
 
 const allStyle = {
   button: {
@@ -29,13 +31,26 @@ const allStyle = {
 
 const Archived = ({ openArchiveDialog, closeArchiveDialog }) => {
 
+  const [responsiveDrawer, setResponsiveDrawer] = useState(false);
+  const [ref, dimensions] = useDimensions();
+
+  const handleResponsiveDrawer = () => {
+    console.log('hello')
+    setResponsiveDrawer(true);
+  }
+
   return (
     <>
+    <ArchiveResponsiveDrawer 
+       height={dimensions.height}
+       width={dimensions.width}
+       openResponsiveDrawer={responsiveDrawer}
+       closeResponsiveDrawer={handleResponsiveDrawer}
+    />
       <Dialog
         open={openArchiveDialog}
         onClose={closeArchiveDialog}
         aria-describedby="alert-dialog-slide-description"
-
         sx={{
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
             maxWidth: 'unset',
@@ -66,47 +81,14 @@ const Archived = ({ openArchiveDialog, closeArchiveDialog }) => {
               <div className={styles.backrow}></div>
               <div className={styles.CardWrapper}>
                 <div className={styles.contentCard}>
-                  <div className={styles.drawer}>
-                    <div className={styles.searchbar}>
-                      <TextField
-                        size="small"
-                        placeholder='Search Customers'
-                        variant="outlined"
-                        sx={{
-                          '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
-                            borderRadius: '20px',
-                          },
-                          '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                            padding: '5px'
-                          },
-                          boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 2px;',
-                          border: 'none',
-                          flexGrow: 1,
-                          width: '100%',
-                          borderRadius: '20px',
-                          backgroundColor: 'white',
-                          '@media (max-width: 1200px)': {
-                            width: '100%',
-                          }
-                        }}
-                        InputProps={{
 
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <SearchIcon sx={{ color: 'black' }} />
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                    </div>
-                    <div className={styles.title}>
-                      Subcontractors
-                    </div>
+                  <div className={styles.drawerContainer}>
+                    <ArchiveDrawer />
                   </div>
 
-                  <div className={styles.contentWrapper}>
+                  <div className={styles.contentWrapper} ref={ref}>
                     <div className={styles.heading}>
-                      <ChatIcon className={styles.openDailogIcon} />
+                      <ChatIcon className={styles.openDailogIcon} onClick={handleResponsiveDrawer} />
                       Subcontractors Details
                     </div>
                     <div className={styles.box}>

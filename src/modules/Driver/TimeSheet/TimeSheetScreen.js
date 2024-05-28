@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import styles from './style/timeSheetScreen.module.scss';
-import { TextField, InputAdornment, Avatar, Tooltip, Button } from '@mui/material'
-import SearchIcon from "@mui/icons-material/Search";
-import MailIcon from '@mui/icons-material/Mail';
-import RestoreIcon from '@mui/icons-material/Restore';
+import { Button } from '@mui/material'
 import inspection from '@images/inspection.png'
-import Index from '../../Jobs/components/switchForJob/index';
-import MailSendModel from './MailSendModel';
-import PreviousDriver from './PreviousDriver';
+import TimeSheetFunction from './TimeSheetFunction';
+import useDimensions from '@hooks/useDimensions.js';
+import TSDrawer from './TSDrawer';
+
 
 const allStyle = {
   drawerButton: {
@@ -23,15 +21,11 @@ const TimeSheetScreen = ({
   open, handleDrawerClose, textSelectorOpen, toggleTextSelector
 }) => {
 
-  const [mailSendDialog, setMailSendDialog] = useState(false);
-  const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
+  const [responsiveDrawer, setResponsiveDrawer] = useState(false);
+  const [ref, dimensions] = useDimensions();
 
-  const handleMailSendDialog = () => {
-    setMailSendDialog(!mailSendDialog)
-  }
-
-  const handlePreviousDriverDialog = () => {
-    setPreviousDriverDialog(!previousDriverDialog)
+  const handleResponsiveDrawer = () => {
+    setResponsiveDrawer(!responsiveDrawer);
   }
 
   const bodyStyles = {
@@ -42,109 +36,28 @@ const TimeSheetScreen = ({
     var bodyclick = handleDrawerClose;
   }
 
-  function stringAvatar(name) {
-    return {
-      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-    };
-  }
-
   return (
     <>
-      <MailSendModel
-        openMailDialog={mailSendDialog}
-        closeMailDialog={handleMailSendDialog}
+
+      <TSDrawer
+        height={dimensions.height}
+        width={dimensions.width}
+        openResponsiveDrawer={responsiveDrawer}
+        closeResponsiveDrawer={handleResponsiveDrawer}
       />
-      <PreviousDriver
-        openDialog={previousDriverDialog}
-        closeDialog={handlePreviousDriverDialog}
-      />
+
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
           <div className={styles.contentCard}>
-            <div className={styles.drawer}>
-              <div className={styles.searchbar}>
-                <TextField
-                  size="small"
-                  placeholder='Search Customers'
-                  variant="outlined"
-                  sx={{
-                    '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
-                      borderRadius: '20px',
-                    },
-                    '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                      padding: '5px'
-                    },
-                    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 2px;',
-                    border: 'none',
-                    flexGrow: 1,
-                    width: '100%',
-                    borderRadius: '20px',
-                    backgroundColor: 'white',
-                    '@media (max-width: 1200px)': {
-                      width: '100%',
-                    }
-                  }}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon sx={{ color: 'black' }} />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </div>
 
-              <div className={styles.headingCover}>
-                <div className={styles.componentName}>
-                  Drivers
-                </div>
-
-                <div className={styles.listoficon}>
-                  <Tooltip title="Send Email to All" placement="top">
-                    <MailIcon
-                      onClick={handleMailSendDialog}
-                      sx={{ cursor: 'pointer' }}
-                    />
-                  </Tooltip>
-                  <Tooltip title="View Previous Drivers" placement="top">
-                    <RestoreIcon
-                      onClick={handlePreviousDriverDialog}
-                      sx={{ cursor: 'pointer' }}
-                    />
-                  </Tooltip>
-                </div>
-              </div>
-
-              <div className={styles.switchCover}>
-                <Index style={allStyle.switchLable} label="Active" />
-                <Index style={allStyle.switchLable} label="Disabled" />
-                <Index style={allStyle.switchLable} label="Company Drivers"
-                  checked={true}
-                />
-                <Index style={allStyle.switchLable} label="Owner Operator Drivers" />
-              </div>
-
-              <div className={styles.profile}>
-                <Avatar
-                  sx={{
-                    height: '40px',
-                    width: '40px',
-                    fontWeight: 800,
-                    fontSize: '16px',
-                    color: 'black'
-                  }}
-                  {...stringAvatar('Kent Dodds')}
-                />
-                <div className={styles.name}>
-                  kent dodds
-                </div>
-              </div>
+            <div className={styles.drawerContainer}>
+              <TimeSheetFunction />
             </div>
 
-            <div className={styles.contentWrapper}>
+            <div className={styles.contentWrapper} ref={ref}>
               <div className={styles.box}>
                 <div className={styles.circle}>
                   <img src={inspection} alt='pictureOfInspection' className={styles.image} />
@@ -155,6 +68,7 @@ const TimeSheetScreen = ({
                 <div className={styles.drawerButton}>
                   <Button
                     style={allStyle.drawerButton}
+                    onClick={handleResponsiveDrawer}
                   >
                     View Driver Profile...
                   </Button>

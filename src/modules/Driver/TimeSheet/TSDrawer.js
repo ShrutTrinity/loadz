@@ -1,32 +1,38 @@
-import React from 'react';
-import {Drawer} from '@mui/material'
-import Function from './Components/Function';
+import { Drawer } from '@mui/material';
+import React from 'react'
+import TimeSheetFunction from './TimeSheetFunction';
 
-const SubContractorDrawer = ({ openResponsiveDrawer, closeResponsiveDrawer, height, width }) => {
- 
+const TSDrawer = ({
+  openResponsiveDrawer,
+  closeResponsiveDrawer,
+  height,
+  width,
+}) => {
   return (
-    <Drawer
+    <>
+      <Drawer
         anchor='left'
         open={openResponsiveDrawer}
-        onTouchMove={closeResponsiveDrawer} 
+        onTouchMove={closeResponsiveDrawer}
         PaperProps={{
           sx: {
             position: 'absolute',
-            top: `calc(50% - ${height / 2}px)`, 
+            top: `calc(50% - ${height / 2}px)`,
             left: `calc(50% - ${width / 2}px)`,
             height: `${height}px`,
             width: `${width}px`,
             transform: 'translate(-50%, -0%)',
             transition: 'transform 0.3s ease-in-out',
           },
-        }} 
+        }}
         ModalProps={{
-          hideBackdrop:true,
+          hideBackdrop: true,
         }}
       >
-        <Function />
+        <TimeSheetFunction />
       </Drawer>
+    </>
   )
 }
 
-export default SubContractorDrawer;
+export default TSDrawer;

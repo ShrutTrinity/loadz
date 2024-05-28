@@ -49,49 +49,9 @@
         display: flex;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-        .drawer {
-          height: 100%;
-          overflow: auto;
+        .drawerContainer{
           width: 26%;
-          border-top-left-radius: 20px;
-          background-color: $color_4;
-          z-index: 2;
-
-          .searchbar {
-            background-color: rgb(245, 245, 245);
-            padding: 16px 16px;
-          }
-
-          .title {
-            z-index: 3;
-            font-weight: 500;
-            font-size: 20px;
-            color: $color_1;
-            margin: 8px 10px;
-            padding: 24px 10px;
-          }
-
-          .headingCover {
-            @include flex-column();
-            padding: 20px 25px;
-            justify-content: space-between;
-
-            .componentName {
-              font-size: 20px;
-              font-weight: 500;
-            }
-            .listoficon {
-              display: flex;
-              padding: 8px;
-              flex-wrap: wrap;
-              gap: 13px;
-
-              .credit {
-                height: 25px;
-                width: 25px;
-              }
-            }
-          }
+          z-index: 1;
         }
 
         .contentWrapper {
@@ -163,4 +123,48 @@
       }
     }
   }
+}
+
+
+@media only screen and (max-width:899px) {
+  .body{
+  .container {
+    .CardWrapper {
+      .contentCard {
+        .drawerContainer {
+          display: none;
+        }
+
+        .contentWrapper {
+          width: 100%;
+          position: relative;
+
+          .heading{
+            padding: 10px 15px;
+            font-size: 20px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            .openDailogIcon {
+              display: block;
+              position: relative;
+            }
+          }
+
+          .box {
+            height: 100%;
+
+            .drawerButton {
+              display: block;
+            }
+
+            .detail {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 }

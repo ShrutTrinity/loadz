@@ -1,4 +1,4 @@
-@import '@styles';
+@import "@styles";
 
 .drawer {
   height: 100%;
@@ -6,8 +6,6 @@
   width: 100%;
   border-top-left-radius: 20px;
   background-color: $color_4;
-  position: relative; 
-  z-index: 2;
 
   .searchbar {
     background-color: rgb(245, 245, 245);
@@ -24,7 +22,7 @@
     padding: 0px 6px 6px;
     margin: 0 8px;
     @include flex-column();
-    border-bottom: 1px solid $color_1;  
+    border-bottom: 1px solid $color_1;
 
     .truckDetail {
       padding: 0 8px;
@@ -32,14 +30,14 @@
       @include flex-row();
       width: 70%;
 
-      .truckNo{
+      .truckNo {
         margin-bottom: 0px;
         font-size: 13px;
       }
     }
   }
 
-  .truckList:hover{
+  .truckList:hover {
     background-color: rgb(245, 245, 245);
     cursor: pointer;
   }

@@ -27,55 +27,59 @@
       display: flex;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-      .drawer {
-        height: 100%;
-        overflow: auto;
+      // .drawer {
+      //   height: 100%;
+      //   overflow: auto;
+      //   width: 26%;
+      //   border-top-left-radius: 20px;
+      //   background-color: $color_4;
+
+      //   .title {
+      //     font-size: 18px;
+      //     font-weight: 500;
+      //     padding: 20px 30px 10px 30px;
+      //   }
+
+      //   .searchbar {
+      //     background-color: aliceblue;
+      //     padding: 10px 10px;
+      //   }
+
+      //   .customer {
+      //     padding: 24px;
+      //     font-size: 20px;
+      //     width: 100%;
+      //     font-weight: 500;
+      //   }
+
+      //   .listoficon {
+      //     padding: 20px;
+      //     display: flex;
+      //     flex-wrap: wrap;
+      //     gap: 13px;
+
+      //     .credit {
+      //       height: 25px;
+      //       width: 25px;
+      //     }
+      //   }
+
+      //   .profile {
+      //     margin: 0 10px;
+      //     margin-top: 10px;
+      //     display: flex;
+      //     gap: 10px;
+      //     padding-bottom: 15px;
+      //     border-bottom: 1px solid $color_1;
+
+      //     .name {
+      //       font-size: 13px;
+      //     }
+      //   }
+      // }
+
+      .drawerContainer {
         width: 26%;
-        border-top-left-radius: 20px;
-        background-color: $color_4;
-
-        .title {
-          font-size: 18px;
-          font-weight: 500;
-          padding: 20px 30px 10px 30px;
-        }
-
-        .searchbar {
-          background-color: aliceblue;
-          padding: 10px 10px;
-        }
-
-        .customer {
-          padding: 24px;
-          font-size: 20px;
-          width: 100%;
-          font-weight: 500;
-        }
-
-        .listoficon {
-          padding: 20px;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 13px;
-
-          .credit {
-            height: 25px;
-            width: 25px;
-          }
-        }
-
-        .profile {
-          margin: 0 10px;
-          margin-top: 10px;
-          display: flex;
-          gap: 10px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid $color_1;
-
-          .name {
-            font-size: 13px;
-          }
-        }
       }
 
       .contentWrapper {
@@ -195,7 +199,7 @@
   .container {
     .CardWrapper {
       .contentCard {
-        .drawer {
+        .drawerContainer {
           display: none;
         }
 
@@ -229,7 +233,7 @@
   .container {
     .CardWrapper {
       .contentCard {
-        .drawer {
+        .drawerContainer {
           display: none;
         }
 
