@@ -40,7 +40,6 @@ const Formcontroller = (props) => {
           }
           label={props.label}
         />
-        <InfoOutlinedIcon />
       </div>
 
     </>

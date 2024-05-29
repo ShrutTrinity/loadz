@@ -52,7 +52,7 @@ const SubContractor = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
 
             <div className={styles.contentWrapper} ref={ref}>
               <div className={styles.heading}>
-                <ChatIcon className={styles.openDailogIcon} onClick={handleResponsiveDrawer} />
+                <ChatIcon className={styles.openDialogIcon} onClick={handleResponsiveDrawer} />
                 Subcontractors Details
               </div>
               <div className={styles.box}>

@@ -27,7 +27,7 @@ const allStyle = {
     width: '100%'
   },
 }
-const EditDriverInvitation = ({ editDialog, EditDailogClose }) => {
+const EditDriverInvitation = ({ editDialog, EditDialogClose }) => {
 
   const [messageType, setMessageType] = useState('');
 
@@ -38,7 +38,7 @@ const EditDriverInvitation = ({ editDialog, EditDailogClose }) => {
     <>
       <Dialog
         open={editDialog}
-        onClose={EditDailogClose}
+        onClose={EditDialogClose}
         aria-describedby="alert-dialog-slide-description"
 
         sx={{
@@ -117,7 +117,7 @@ const EditDriverInvitation = ({ editDialog, EditDailogClose }) => {
         </DialogContent>
         <DialogActions sx={{justifyContent:'flex-start'}}>
           <Button
-            onClick={EditDailogClose}
+            onClick={EditDialogClose}
             style={allStyle.button}
           >
            Resend Invite

@@ -8,28 +8,28 @@ import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import OwnerDetailTable from './OwnerDetailTable';
 import { Tooltip } from '@mui/material';
-import AddDriverDailog from './Driver/AddDriverDailog';
-import EarnignDailog from './EarningDailog';
+import AddDriverDialog from './Driver/AddDriverDialog';
+import EarnignDialog from './EarningDialog';
 import EditOwnerOperator from './EditOwnerOperator/EditOwnerOperatorDetail';
-import ArchiveAlertDialog from '../../Driver/ArchiveAlertDailog';
+import ArchiveAlertDialog from '../../Driver/ArchiveAlertDialog';
 
 const OwnerOperatorDetail = (props) => {
   const { email, phoneNumber } = props;
   const [remainingHeight, setRemainingHeight] = useState(0);
   const [inviteDriver,setInviteDriver] =useState(false);
-  const[earningDailog,setEarningDailog] = useState(false);
+  const[earningDialog,setEarningDialog] = useState(false);
   const[editOwnerOperator,setEditOwnerOperator] = useState(false);
   const[archivealert,setArchiveAlert] = useState(false);
 
-  const openArchivealertDailog = () =>{
+  const openArchivealertDialog = () =>{
     setArchiveAlert(!archivealert)
   }
 
-  const handleEditDailog = ()=>{
+  const handleEditDialog = ()=>{
     setEditOwnerOperator(!editOwnerOperator)
   }
-  const HandleEarningDailog = (e) => {
-    setEarningDailog(!earningDailog)
+  const HandleEarningDialog = (e) => {
+    setEarningDialog(!earningDialog)
   }
 
   const InviteDriverDaiologHnadle = ()=>{
@@ -55,10 +55,10 @@ const OwnerOperatorDetail = (props) => {
 
   return (
     <>
-    <ArchiveAlertDialog open={archivealert} onClose={openArchivealertDailog}/>
-    <EditOwnerOperator open={editOwnerOperator} onClose={handleEditDailog}/>
-    <EarnignDailog open={earningDailog} onClose={HandleEarningDailog}/> 
-    <AddDriverDailog open={inviteDriver} onClose={InviteDriverDaiologHnadle}/>
+    <ArchiveAlertDialog open={archivealert} onClose={openArchivealertDialog}/>
+    <EditOwnerOperator open={editOwnerOperator} onClose={handleEditDialog}/>
+    <EarnignDialog open={earningDialog} onClose={HandleEarningDialog}/> 
+    <AddDriverDialog open={inviteDriver} onClose={InviteDriverDaiologHnadle}/>
       <div className={styles.heading}>Owner Operators Details</div>
       <div className={styles.box} ref={boxRef}>
         <div className={styles.cardContainer} ref={cardContainerRef}  >
@@ -81,16 +81,16 @@ const OwnerOperatorDetail = (props) => {
                 <AddCircleIcon sx={{cursor:'pointer'}} onClick={InviteDriverDaiologHnadle}/>
               </Tooltip>
               <Tooltip title="Edit Owner Operator" placement="top">
-                <SettingsIcon sx={{cursor:'pointer'}} onClick={handleEditDailog} />
+                <SettingsIcon sx={{cursor:'pointer'}} onClick={handleEditDialog} />
               </Tooltip>
               <Tooltip title="Owner Operator Earnings" placement="top">
-                <RequestQuoteIcon sx={{cursor:'pointer'}} onClick={HandleEarningDailog} />
+                <RequestQuoteIcon sx={{cursor:'pointer'}} onClick={HandleEarningDialog} />
               </Tooltip>
               <Tooltip title="Download Pending Reconcile Report" placement="top">
                 <DownloadIcon sx={{cursor:'pointer'}} />
               </Tooltip>
               <Tooltip title="Archive Owner Operator" placement="top">
-                <ArchiveIcon sx={{cursor:'pointer'}} onClick={openArchivealertDailog} />
+                <ArchiveIcon sx={{cursor:'pointer'}} onClick={openArchivealertDialog} />
               </Tooltip>
               <div className={styles.items}>Apply Payments</div>
             </div>

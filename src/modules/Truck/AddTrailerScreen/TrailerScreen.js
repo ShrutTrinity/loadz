@@ -12,7 +12,7 @@ import ResponsiveDrawer from './ResponsiveDrawer';
 
 const TrailerScreen = (props) => {
 
-  const [openEditTrailerDailog, setOpenEditTrailerDailog] = useState(false);
+  const [openEditTrailerDialog, setOpenEditTrailerDialog] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [cardData, setCardData] = useState([...vehicles]);
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -36,10 +36,10 @@ const TrailerScreen = (props) => {
   };
   const handleCardClick = (item) => {
     setSelectedItem(item);
-    setOpenEditTrailerDailog(true);
+    setOpenEditTrailerDialog(true);
   };
-  const handleCloseEditTrailerDailog = () => {
-    setOpenEditTrailerDailog(false);
+  const handleCloseEditTrailerDialog = () => {
+    setOpenEditTrailerDialog(false);
   };
 
   const updateCardData = (updatedItem) => {
@@ -55,8 +55,8 @@ const TrailerScreen = (props) => {
 
   return (
     <>
-      <EditTrailerForm isOpen={openEditTrailerDailog}
-        handleEditTrailertDailogClose={handleCloseEditTrailerDailog}
+      <EditTrailerForm isOpen={openEditTrailerDialog}
+        handleEditTrailertDialogClose={handleCloseEditTrailerDialog}
         selectedItem={selectedItem}
         updateCardData={updateCardData}
       />

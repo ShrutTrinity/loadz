@@ -26,7 +26,7 @@ const AddNewOperator = (props) => {
     'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
     'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
   ];
-  const dailogstyle = {
+  const dialogstyle = {
     title: {
       backgroundColor: 'black',
       fontSize: '30px',
@@ -61,7 +61,7 @@ const AddNewOperator = (props) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title" style={dailogstyle.title}>
+        <DialogTitle id="alert-dialog-title" style={dialogstyle.title}>
           <div> {"Add New Owner Operator"}</div>
           <CloseIcon />
         </DialogTitle>

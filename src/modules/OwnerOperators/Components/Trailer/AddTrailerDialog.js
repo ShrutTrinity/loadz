@@ -27,7 +27,7 @@ const allStyle = {
   }
 }
 
-const AddTrailerDailog = ({ open, onClose }) => {
+const AddTrailerDialog = ({ open, onClose }) => {
   const [fieldCovers, setFieldCovers] = useState([{ id: uuidv4() }]);
   const [selectedValue, setSelectedValue] = useState('');
 
@@ -147,4 +147,4 @@ const AddTrailerDailog = ({ open, onClose }) => {
   );
 }
 
-export default AddTrailerDailog;
+export default AddTrailerDialog;

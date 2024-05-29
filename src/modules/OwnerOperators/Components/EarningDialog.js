@@ -8,8 +8,8 @@ import CustomTextFiled from '@Jobs/components/TextField/CustomTextFiled';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
-const EarnignDailog = ({ open, onClose }) => {
-  const DailogStyle = {
+const EarnignDialog = ({ open, onClose }) => {
+  const DialogStyle = {
     title: {
       fontWeight: '300',
       display:'flex',
@@ -58,28 +58,28 @@ const EarnignDailog = ({ open, onClose }) => {
           }
         }}
       >
-        <DialogTitle id="alert-dialog-title" style={DailogStyle.title}>
+        <DialogTitle id="alert-dialog-title" style={DialogStyle.title}>
           {"Owner Operator Earnings"}
           <CloseIcon onClick={onClose}/>
         </DialogTitle>
-        <DialogContent style={DailogStyle.contaxt}>
+        <DialogContent style={DialogStyle.contaxt}>
           <label>
             Select a date range to view earnings</label>
-          <div style={DailogStyle.flexdiv}>
-            <DateRangeIcon style={DailogStyle.icon} />
-            <div style={DailogStyle.textfield}>
+          <div style={DialogStyle.flexdiv}>
+            <DateRangeIcon style={DialogStyle.icon} />
+            <div style={DialogStyle.textfield}>
               <CustomTextFiled type='date' />
             </div>
-            <div style={DailogStyle.textfield}>
+            <div style={DialogStyle.textfield}>
               <CustomTextFiled type='date' />
             </div>
-            <SearchIcon style={DailogStyle.icon}/>
+            <SearchIcon style={DialogStyle.icon}/>
           </div>
 
         </DialogContent>
         <DialogActions>
           <Button
-          style={DailogStyle.closebtn}
+          style={DialogStyle.closebtn}
             onClick={onClose}
           >
             Close
@@ -91,4 +91,4 @@ const EarnignDailog = ({ open, onClose }) => {
   );
 }
 
-export default EarnignDailog;
+export default EarnignDialog;

@@ -14,6 +14,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import BlockIcon from '@mui/icons-material/Block';
 import EditIcon from '@mui/icons-material/Edit';
+import EditDriverInvitation from '../../Driver/EditDriverInvitation';
 
 function createData(number, type, senttype, valid, accept) {
   return { number, type, senttype, valid, accept };
@@ -92,10 +93,10 @@ const UserInvitation = () => {
     setSelectAll(!selectAll);
   };
 
-  const EditDailogOpen = () => {
+  const EditDialogOpen = () => {
     setEditDialog(true)
   }
-  const EditDailogClose = () => {
+  const EditDialogClose = () => {
     setEditDialog(false)
   }
   const handleCheckboxChange = (index) => {
@@ -118,11 +119,11 @@ const UserInvitation = () => {
 
   return (
     <>
-      {/* <EditDriverInvitation
+      <EditDriverInvitation
         editDialog={editDialog}
-        EditDailogClose={EditDailogClose}
+        EditDialogClose={EditDialogClose}
       />
-      */}
+     
      { rows.length>0?
         <div className={styles.container}>
         <div className={styles.content}>
@@ -188,7 +189,7 @@ const UserInvitation = () => {
                           </div>
                         </TableCell>
                         <TableCell>
-                          <div className={styles.pendingDiv2} onClick={EditDailogOpen}>
+                          <div className={styles.pendingDiv2} onClick={EditDialogOpen}>
                             <EditIcon sx={{ color: 'rgb(237, 202, 51)' }} />
                             Edit
                           </div>

@@ -17,14 +17,14 @@ const Functions = ({detailScreen}) => {
   const [openAddNewOperator, setOpenAddNewOperator] = useState(false);
   const [isCheckedActive, setIsCheckedArchive] = useState(true);
   const [mailDialog, setMailDialog] = useState(false);
-  const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
+  const [openPaymentDialog, setOpenPaymentDialog] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
 
   const handleSearchbarChange = () => {
     setShowSearchBar(true);
   };
   const handleClickOpen = () => {
-    setOpenPaymentDailog(true);
+    setOpenPaymentDialog(true);
   };
   const handleToggle = () => {
     setIsCheckedArchive(prevChecked => !prevChecked);
@@ -39,8 +39,8 @@ const Functions = ({detailScreen}) => {
   const CloseFormAddOperator = () => {
     setOpenAddNewOperator(false);
   };
-  const handleApplyPaymentDailogClose = () => {
-    setOpenPaymentDailog(false);
+  const handleApplyPaymentDialogClose = () => {
+    setOpenPaymentDialog(false);
   };
 
   function stringAvatar(name) {
@@ -52,8 +52,8 @@ const Functions = ({detailScreen}) => {
   return (
     <>
       <ApplyPayment
-        isOpen={openPaymentDailog}
-        handleApplyPaymentDailogClose={handleApplyPaymentDailogClose}
+        isOpen={openPaymentDialog}
+        handleApplyPaymentDialogClose={handleApplyPaymentDialogClose}
       />
       <MessageDialog
         openMessageDialog={mailDialog}

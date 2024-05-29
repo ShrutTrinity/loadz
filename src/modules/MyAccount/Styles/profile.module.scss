@@ -2,16 +2,15 @@
 
 .container {
   margin-top: 57px;
+  position: absolute;
+  right: 0;
   margin-bottom: 30px;
   color: black;
-
   .userProfile {
     padding: 20px;
-
     .heading {
       font-weight: 700;
     }
-
     .profileContainer {
       border: 1px solid black;
       padding: 30px;
@@ -19,66 +18,54 @@
       display: flex;
       position: relative;
       align-items: center;
-
       .detail {
         width: 50%;
         padding: 10px;
         display: flex;
         gap: 20px;
-
         .img {
+          @include center();
           height: 120px;
           width: 120px;
           border: 4px solid rgb(245, 245, 245);
         }
-
         .nameDetail {
           .name {
             font-size: 17px;
             font-weight: 700;
             padding: 3px;
           }
-
           .address {
             font-size: 14px;
             padding: 3px;
-
           }
         }
       }
-
       .session {
-        width: 25%;
-
+        width: 30%;
         .running {
           border: 1px solid black;
           border-radius: 10px;
           display: flex;
-          padding: 20px;
+          padding: 10px;
           align-items: center;
           color: black;
-
           .leftside {
-            width: 50%;
+            width: 60%;
             font-size: 15px;
             display: flex;
             font-weight: 700;
             padding: 10px 0px;
-
             .icon {
               font-size: 60px;
-              padding: 5px;
-            }
+              }
           }
-
           .rightside {
-            width: 50%;
+            width: 40%;
             font-size: 13px;
           }
-
         }
       }
-
       .editbtn {
         display: flex;
         justify-content: flex-end;
@@ -87,10 +74,96 @@
         right: 0;
         margin: 30px;
         width: 25%;
-
         .btn{
           background-color: white;
           font-size: 14px;
+          padding: 5px 30px;
+        }
+        .btn:hover {
+          background-color: rgb(30, 30, 30);
+          color: white;
+          transition:1s;
+        }
+      }
+    }
+
+  }
+  .companyProfile {
+    padding:40px 20px;
+    
+    .heading {
+      font-weight: 700;
+    }
+    .profileContainer {
+      border: 1px solid black;
+      padding: 30px;
+      width: 100%;
+      display: flex;
+      position: relative;
+      align-items: center;
+      .detail {
+        width: 40%;
+        padding: 10px;
+        display: flex;
+        gap: 20px;
+        .img {
+            @include center();
+          height: 120px;
+          width: 120px;
+          border: 4px solid rgb(245, 245, 245);
+        }
+        .nameDetail {
+          .name {
+            font-size: 17px;
+            font-weight: 700;
+            padding: 3px;
+          }
+          .address {
+            font-size: 14px;
+            padding: 3px;
+          }
+        }
+      }
+      .switches {
+        width: 30%;
+        gap: 10px;
+        .heading2 {
+          font-weight: 700;
+          font-size: 16px;
+          display: inline;
+          line-height: 0.5;
+          border-bottom: 2px solid rgb(0, 0, 0);
+        }
+        .contorl{
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin: 20px 0;
+        }
+      }
+      .editbtn {
+        width: 35%;
+        .heading2{
+          font-weight: 700;
+          font-size: 16px;
+          display: inline;
+          line-height: 0.5;
+          border-bottom: 2px solid rgb(0, 0, 0);
+
+        }
+        .detail2{
+          margin: 20px 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          font-size: 13px;
+        }
+        .btn{
+          background-color: white;
+          font-size: 14px;
+          position: absolute;
+          right: 0;
+          margin:0 20px;
           padding: 5px 30px;
         }
         .btn:hover {

@@ -37,7 +37,7 @@ const statesArray = [
 ];
 
 
-const AddDriverDailog = ({ open, onClose }) => {
+const AddDriverDialog = ({ open, onClose }) => {
   const [fieldCovers, setFieldCovers] = useState([{ id: uuidv4() }]);
 
   const addFieldCover = () => {
@@ -173,4 +173,4 @@ const AddDriverDailog = ({ open, onClose }) => {
   );
 }
 
-export default AddDriverDailog;
+export default AddDriverDialog;

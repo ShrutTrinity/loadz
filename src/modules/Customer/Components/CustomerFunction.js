@@ -18,7 +18,7 @@ import CustomerBalance from './CustomerBalance/CustomerBalance';
 
 const CustomerFunction = () => {
 
-  const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
+  const [openPaymentDialog, setOpenPaymentDialog] = useState(false);
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
   const [settlementReportDialog, setSettlementReportDialog] = useState(false)
   const [customerbalance, setCustomerbalance] = useState(false)
@@ -28,11 +28,11 @@ const CustomerFunction = () => {
   }
 
   const handleClickOpen = () => {
-    setOpenPaymentDailog(true);
+    setOpenPaymentDialog(true);
   };
 
-  const handleApplyPaymentDailogClose = () => {
-    setOpenPaymentDailog(false);
+  const handleApplyPaymentDialogClose = () => {
+    setOpenPaymentDialog(false);
   };
 
   const clickFroCreateCustomerModel = () => {
@@ -52,7 +52,7 @@ const CustomerFunction = () => {
   return (
     <>
     <CustomerBalance openCustomerbalanceDialog={customerbalance} closeCustomerbalanceDialog={handleCustomerbalanceDialog}/>
-      <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
+      <ApplyPayment isOpen={openPaymentDialog} handleApplyPaymentDialogClose={handleApplyPaymentDialogClose} />
       <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
       <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
       <div className={styles.drawer}>
