@@ -14,12 +14,18 @@ import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import ApplyPayment from './ApplyPayment/ApplyPayment';
 import CreateCustomer from './CreateCustomer/CreateCustomerModel';
 import SettlementReportDialog from './SettelemntReport/SettlementReportDialog';
+import CustomerBalance from './CustomerBalance/CustomerBalance';
 
 const CustomerFunction = () => {
 
   const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
   const [settlementReportDialog, setSettlementReportDialog] = useState(false)
+  const [customerbalance, setCustomerbalance] = useState(false)
+
+  const handleCustomerbalanceDialog = () => {
+    setCustomerbalance(!customerbalance)
+  }
 
   const handleClickOpen = () => {
     setOpenPaymentDailog(true);
@@ -45,6 +51,7 @@ const CustomerFunction = () => {
 
   return (
     <>
+    <CustomerBalance openCustomerbalanceDialog={customerbalance} closeCustomerbalanceDialog={handleCustomerbalanceDialog}/>
       <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
       <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
       <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
@@ -86,7 +93,7 @@ const CustomerFunction = () => {
             <FactCheckIcon sx={{ cursor: 'pointer' }} />
           </Tooltip>
           <Tooltip title="Customer Balance & Aging Summary" placement="top">
-            <MonetizationOnIcon sx={{ cursor: 'pointer' }} />
+            <MonetizationOnIcon sx={{ cursor: 'pointer' }} onClick={handleCustomerbalanceDialog}/>
           </Tooltip>
           <Tooltip title="Apply Payments" placement="top">
             <PaymentsIcon sx={{ cursor: 'pointer' }} onClick={handleClickOpen} />
@@ -140,4 +147,4 @@ const CustomerFunction = () => {
   )
 }
 
-export default CustomerFunction
+export default CustomerFunction;
