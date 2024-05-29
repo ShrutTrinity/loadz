@@ -7,6 +7,12 @@
   display: flex;
   @include flex-column();
 
+  .navigateIcon{
+    cursor: pointer;
+    padding-right: 15px;
+    display: none;
+  }
+
   .headers{
     margin: 0px 8px;
   }
@@ -29,4 +35,12 @@
     overflow-x: auto;
     width: 100%;
   }
+}
+
+@media only screen and (max-width: 899px) {
+   .heading{
+    .navigateIcon{
+      display: block;
+    }
+   }
 }

@@ -1,27 +1,24 @@
 import React, { useState } from 'react'
-import styles from './styles/trailerscreen.module.scss'
-import dump from '@images/dump.png'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import styles from './styles/trailerscreen.module.scss';
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import Switch from '@Jobs/components/switchForJob/index';
-import vehicles from './vehicles.json'
-import AddTrailerForm from './AddTrailerForm';
+import vehicles from './vehicles.json';
 import EditTrailerForm from './EditTrailerForm';
+import FunctionPortion from './FunctionPortion';
+import MenuIcon from '@mui/icons-material/Menu';
+import useDimensions from '@hooks/useDimensions';
+import ResponsiveDrawer from './ResponsiveDrawer';
 
 const TrailerScreen = (props) => {
-  const [openAddTrailerDailog, setOpenAddTrailerDailog] = React.useState(false);
-  const [openEditTrailerDailog, setOpenEditTrailerDailog] = React.useState(false);
+
+  const [openEditTrailerDailog, setOpenEditTrailerDailog] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [cardData, setCardData] = useState([...vehicles]);
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [checked, setChecked] = useState(true);
+  const [ref, dimensions] = useDimensions();
 
-  const handleClickOpenTrailerDailog = () => {
-    setOpenAddTrailerDailog(true);
-  };
-
-  const handleCloseTrailerDailog = () => {
-    setOpenAddTrailerDailog(false);
-  };
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
   }
@@ -29,21 +26,24 @@ const TrailerScreen = (props) => {
     bodyStyle.width = '100%';
     var bodyclick = props.handleDrawerClose;
   }
-  const [checked, setChecked] = useState(true);
+
+  const handleResponsiveDrawer = () => {
+    setOpenDrawer(!openDrawer)
+  }
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
   const handleCardClick = (item) => {
     setSelectedItem(item);
-    setOpenEditTrailerDailog(true); 
+    setOpenEditTrailerDailog(true);
   };
   const handleCloseEditTrailerDailog = () => {
     setOpenEditTrailerDailog(false);
   };
 
   const updateCardData = (updatedItem) => {
-    
+
     const updatedCardData = cardData.map(item => {
       if (item.id === updatedItem.id) {
         return updatedItem;
@@ -55,35 +55,25 @@ const TrailerScreen = (props) => {
 
   return (
     <>
-     <AddTrailerForm isOpen={openAddTrailerDailog} 
-     handleAddTrailertDailogClose={handleCloseTrailerDailog}
-     selectedItem={selectedItem} 
+      <EditTrailerForm isOpen={openEditTrailerDailog}
+        handleEditTrailertDailogClose={handleCloseEditTrailerDailog}
+        selectedItem={selectedItem}
+        updateCardData={updateCardData}
       />
-     <EditTrailerForm isOpen={openEditTrailerDailog} 
-     handleEditTrailertDailogClose={handleCloseEditTrailerDailog}
-     selectedItem={selectedItem} 
-     updateCardData={updateCardData}
+      <ResponsiveDrawer
+        openResponsiveDrawer={openDrawer}
+        closeResponsiveDrawer={handleResponsiveDrawer}
+        height={dimensions.height}
+        width={dimensions.width}
       />
-      <div className={styles.container} 
-      style={bodyStyle} 
-      onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
+      <div className={styles.container}
+        style={bodyStyle}
+        onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
       >
-        <div className={styles.flexContainer}>
-          <div className={styles.drawer} style={{ width: props.open ? '31%' : '25%' }}>
-            <div className={styles.logo}>
-              <img src={dump} alt='dump' className={styles.dumplogo} />
-              <div className={styles.label}>Trailer</div>
-            </div>
-            <div className={styles.innerDrawer}>
-              <button className={styles.addtrailerbtn} onClick={handleClickOpenTrailerDailog}>Add Trailers</button>
-              <div className={styles.Title}>Type</div>
-              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />Flatbed </div>
-              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />Belly Dump </div>
-              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />End Dump </div>
-              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />Cement </div>
-              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />Box </div>
-              <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />Tanker </div>
-            </div>
+        <div className={styles.flexContainer} ref={ref}>
+
+          <div className={styles.drawerCover}>
+            <FunctionPortion />
           </div>
 
           <div className={styles.searchbar}>
@@ -111,6 +101,7 @@ const TrailerScreen = (props) => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
+                    <MenuIcon className={styles.navigateIcon} onClick={handleResponsiveDrawer} />
                     <SearchIcon style={{ color: 'black' }} />
                   </InputAdornment>
                 )
@@ -124,20 +115,20 @@ const TrailerScreen = (props) => {
             </div>
             {cardData.map((item, index) => (
               <>
-            <div className={styles.card} onClick={() => handleCardClick(item)}>
-              <div className={styles.cardimage}>
-                <img className={styles.img} src={item.image} alt={item.name} />
-              </div>
-              <div className={styles.carddetails}>
-                <div className={styles.detail}>Trailer Type:{item.type}</div>
-                <div className={styles.detail}>Trailer No: {item.trailerno}</div>
-                <div className={styles.detail}>Trailer Tires: {item.tires}</div>
-                <div className={styles.detail}>Status: {item.status}</div>
-              </div>
-            </div>
-            <hr/>
-            </>
-            
+                <div className={styles.card} onClick={() => handleCardClick(item)}>
+                  <div className={styles.cardimage}>
+                    <img className={styles.img} src={item.image} alt={item.name} />
+                  </div>
+                  <div className={styles.carddetails}>
+                    <div className={styles.detail}>Trailer Type:{item.type}</div>
+                    <div className={styles.detail}>Trailer No: {item.trailerno}</div>
+                    <div className={styles.detail}>Trailer Tires: {item.tires}</div>
+                    <div className={styles.detail}>Status: {item.status}</div>
+                  </div>
+                </div>
+                <hr />
+              </>
+
             ))}
           </div>
         </div>

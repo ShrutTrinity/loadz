@@ -7,7 +7,8 @@ import loadzlogo from '@images/loadzlogo.png'
 import CloseIcon from '@mui/icons-material/Close';
 import Dialog from '@mui/material/Dialog';
 
-const CustomerBalance = ({ BalancePopupRendered, closeCustomerbalanceDialog, openCustomerbalanceDialog }) => {
+
+const CustomerBalance = ({ closeCustomerbalanceDialog, openCustomerbalanceDialog }) => {
   var date = new Date();
   var Fulldate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 
@@ -54,7 +55,7 @@ const CustomerBalance = ({ BalancePopupRendered, closeCustomerbalanceDialog, ope
               },
             }} />} label="Expand Balance Sheet" />
           </div>
-          {!switchOn && <CloseIcon sx={{ margin: '10px', cursor: 'pointer' }} onClick={BalancePopupRendered} />}
+          {!switchOn && <CloseIcon sx={{ margin: '10px', cursor: 'pointer' }} onClick={closeCustomerbalanceDialog} />}
         </div>
         <div className={styles.detail} id='print'>
           <h2 className={styles.heading}>  {switchOn ? 'CUSTOMER BALANCE & AGING SUMMARY ' : 'CUSTOMER BALANCE & AGING SUMMARY 2'}</h2>

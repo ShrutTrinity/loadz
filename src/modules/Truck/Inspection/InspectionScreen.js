@@ -52,7 +52,7 @@ const InspectionScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTex
             </div>
 
             <div className={styles.contentWrapper} ref={ref}>
-              {truckDetailComponent ? <TruckDetail /> : <div className={styles.box}>
+              {truckDetailComponent ? <TruckDetail drawerOpen={handleResponsiveDrawer}/> : <div className={styles.box}>
                 <div className={styles.circle}>
                   <img src={inspection} alt='pictureOfInspection' className={styles.image} />
                 </div>
