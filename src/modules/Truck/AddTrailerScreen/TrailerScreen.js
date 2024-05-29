@@ -12,17 +12,13 @@ import ResponsiveDrawer from './ResponsiveDrawer';
 
 const TrailerScreen = (props) => {
 
-  const [openEditTrailerDialog, setOpenEditTrailerDailog] = useState(false);
+  const [openEditTrailerDialog, setOpenEditTrailerDialog] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [cardData, setCardData] = useState([...vehicles]);
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [checked, setChecked] = useState(true);
+  const [ref, dimensions] = useDimensions();
 
-  const handleClickOpenTrailerDailog = () => {
-    setOpenAddTrailerDailog(true);
-  };
-
-  const handleCloseTrailerDailog = () => {
-    setOpenAddTrailerDailog(false);
-  };
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
   }
@@ -40,7 +36,7 @@ const TrailerScreen = (props) => {
   };
   const handleCardClick = (item) => {
     setSelectedItem(item);
-    setOpenEditTrailerDialog(true); 
+    setOpenEditTrailerDialog(true);
   };
   const handleCloseEditTrailerDialog = () => {
     setOpenEditTrailerDialog(false);
@@ -59,14 +55,20 @@ const TrailerScreen = (props) => {
 
   return (
     <>
-      <EditTrailerForm isOpen={openEditTrailerDailog}
-        handleEditTrailertDailogClose={handleCloseEditTrailerDailog}
+      <EditTrailerForm isOpen={openEditTrailerDialog}
+        handleEditTrailertDialogClose={handleCloseEditTrailerDialog}
         selectedItem={selectedItem}
         updateCardData={updateCardData}
       />
-      <div className={styles.container} 
-      style={bodyStyle} 
-      onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
+      <ResponsiveDrawer
+        openResponsiveDrawer={openDrawer}
+        closeResponsiveDrawer={handleResponsiveDrawer}
+        height={dimensions.height}
+        width={dimensions.width}
+      />
+      <div className={styles.container}
+        style={bodyStyle}
+        onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}
       >
         <div className={styles.flexContainer} ref={ref}>
 

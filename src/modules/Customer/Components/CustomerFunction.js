@@ -52,7 +52,7 @@ const CustomerFunction = () => {
   return (
     <>
     <CustomerBalance openCustomerbalanceDialog={customerbalance} closeCustomerbalanceDialog={handleCustomerbalanceDialog}/>
-      <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
+      <ApplyPayment isOpen={openPaymentDialog} handleApplyPaymentDialogClose={handleApplyPaymentDialogClose} />
       <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
       <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
       <div className={styles.drawer}>
