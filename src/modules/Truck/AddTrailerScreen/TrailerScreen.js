@@ -10,17 +10,17 @@ import AddTrailerForm from './AddTrailerForm';
 import EditTrailerForm from './EditTrailerForm';
 
 const TrailerScreen = (props) => {
-  const [openAddTrailerDailog, setOpenAddTrailerDailog] = React.useState(false);
-  const [openEditTrailerDailog, setOpenEditTrailerDailog] = React.useState(false);
+  const [openAddTrailerDialog, setOpenAddTrailerDialog] = React.useState(false);
+  const [openEditTrailerDialog, setOpenEditTrailerDialog] = React.useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [cardData, setCardData] = useState([...vehicles]);
 
-  const handleClickOpenTrailerDailog = () => {
-    setOpenAddTrailerDailog(true);
+  const handleClickOpenTrailerDialog = () => {
+    setOpenAddTrailerDialog(true);
   };
 
-  const handleCloseTrailerDailog = () => {
-    setOpenAddTrailerDailog(false);
+  const handleCloseTrailerDialog = () => {
+    setOpenAddTrailerDialog(false);
   };
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
@@ -36,10 +36,10 @@ const TrailerScreen = (props) => {
   };
   const handleCardClick = (item) => {
     setSelectedItem(item);
-    setOpenEditTrailerDailog(true); 
+    setOpenEditTrailerDialog(true); 
   };
-  const handleCloseEditTrailerDailog = () => {
-    setOpenEditTrailerDailog(false);
+  const handleCloseEditTrailerDialog = () => {
+    setOpenEditTrailerDialog(false);
   };
 
   const updateCardData = (updatedItem) => {
@@ -55,12 +55,12 @@ const TrailerScreen = (props) => {
 
   return (
     <>
-     <AddTrailerForm isOpen={openAddTrailerDailog} 
-     handleAddTrailertDailogClose={handleCloseTrailerDailog}
+     <AddTrailerForm isOpen={openAddTrailerDialog} 
+     handleAddTrailertDialogClose={handleCloseTrailerDialog}
      selectedItem={selectedItem} 
       />
-     <EditTrailerForm isOpen={openEditTrailerDailog} 
-     handleEditTrailertDailogClose={handleCloseEditTrailerDailog}
+     <EditTrailerForm isOpen={openEditTrailerDialog} 
+     handleEditTrailertDialogClose={handleCloseEditTrailerDialog}
      selectedItem={selectedItem} 
      updateCardData={updateCardData}
       />
@@ -75,7 +75,7 @@ const TrailerScreen = (props) => {
               <div className={styles.label}>Trailer</div>
             </div>
             <div className={styles.innerDrawer}>
-              <button className={styles.addtrailerbtn} onClick={handleClickOpenTrailerDailog}>Add Trailers</button>
+              <button className={styles.addtrailerbtn} onClick={handleClickOpenTrailerDialog}>Add Trailers</button>
               <div className={styles.Title}>Type</div>
               <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />Flatbed </div>
               <div className={styles.indexLabel}><CheckCircleIcon className={styles.circleicon} />Belly Dump </div>

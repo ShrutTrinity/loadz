@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import CommonTextfield from '@Jobs/components/TextField/CommonTextfield';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-const AddTrailerForm = ({ isOpen, handleAddTrailertDailogClose }) => {
+const AddTrailerForm = ({ isOpen, handleAddTrailertDialogClose }) => {
   return (
     <>
       <Dialog
@@ -25,12 +25,12 @@ const AddTrailerForm = ({ isOpen, handleAddTrailertDailogClose }) => {
           width: '100%'
         }}
         open={isOpen}
-        onClose={handleAddTrailertDailogClose}
+        onClose={handleAddTrailertDialogClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title" sx={{ padding: 0 }}>
-          <div className={styles.title}> New Trailer  <CloseIcon onClick={handleAddTrailertDailogClose} className={styles.closebtn} /></div>
+          <div className={styles.title}> New Trailer  <CloseIcon onClick={handleAddTrailertDialogClose} className={styles.closebtn} /></div>
         </DialogTitle>
         <div className={styles.container}>
           <InputLabel sx={{ fontSize: '14px' }} required>Trailer Type</InputLabel>
@@ -81,7 +81,7 @@ const AddTrailerForm = ({ isOpen, handleAddTrailertDailogClose }) => {
 
         </div>
           <div className={styles.performAction} >
-          <button onClick={handleAddTrailertDailogClose} className={styles.addbtn}>Add</button>
+          <button onClick={handleAddTrailertDialogClose} className={styles.addbtn}>Add</button>
           </div>
          
       </Dialog>

@@ -6,7 +6,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 const  ArchiveAlertDialog = (props) => {
   const{open,onClose} = props
-  const dailogstyle={
+  const dialogstyle={
     title:{
       backgroundColor:'black',
       color:'white',
@@ -50,14 +50,14 @@ const  ArchiveAlertDialog = (props) => {
         onClose={onClose}
        
       >
-        <DialogTitle id="alert-dialog-title" style={dailogstyle.title} >
+        <DialogTitle id="alert-dialog-title" style={dialogstyle.title} >
           {"Are you sure you want to remove?"}
         </DialogTitle>
-        <DialogActions style={dailogstyle.action}>
-          <Button onClick={onClose} style={dailogstyle.nobtn} autoFocus>
+        <DialogActions style={dialogstyle.action}>
+          <Button onClick={onClose} style={dialogstyle.nobtn} autoFocus>
             No
           </Button>
-          <Button onClick={onClose} style={dailogstyle.yesbtn}>Yes</Button>
+          <Button onClick={onClose} style={dialogstyle.yesbtn}>Yes</Button>
         </DialogActions>
       </Dialog>
     </>

@@ -13,7 +13,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import EditDriverDetail from '../../../Driver/EditDriverDetail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Button } from '@mui/material';
-import AddDriverDailog from './AddDriverDailog';
+import AddDriverDialog from './AddDriverDialog';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -44,7 +44,7 @@ const DriverTable = (props) => {
  const handleCloseAddDriver = () => {
     setOpenAddDriver(false)
   }
-const  handleOpenAddDriverDailog = () => {
+const  handleOpenAddDriverDialog = () => {
   console.log("call")
     setOpenAddDriver(true)
   }
@@ -106,7 +106,7 @@ const  handleOpenAddDriverDailog = () => {
 
   return (
     <>
-      <AddDriverDailog open={openAddDriver} onClose={handleCloseAddDriver}/>
+      <AddDriverDialog open={openAddDriver} onClose={handleCloseAddDriver}/>
       <EditDriverDetail open={editRowIndex !== null} onClose={handleClose} rows={rows} />
       <TableContainer component={Paper} style={tablestyles.container}>
         <HistoryIcon style={tablestyles.history} />
@@ -150,7 +150,7 @@ const  handleOpenAddDriverDailog = () => {
           '&:hover': {
             backgroundColor: "lightgrey",
           },
-        }} style={tablestyles.addbtn} onClick={handleOpenAddDriverDailog}> <AddCircleIcon style={tablestyles.addicon} /> Add Driver</Button>
+        }} style={tablestyles.addbtn} onClick={handleOpenAddDriverDialog}> <AddCircleIcon style={tablestyles.addicon} /> Add Driver</Button>
       </TableContainer>
 
     </>

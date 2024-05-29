@@ -97,6 +97,7 @@ const PersistentDrawerLeft = ({
 
         </DrawerContent>
         <img src={logo} className={styles.img} alt='logo' />
+        
       </Drawer>
     </AppBar>
   );

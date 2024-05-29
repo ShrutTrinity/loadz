@@ -10,7 +10,7 @@ import Send from '../CreateAccount/Components/uploadFile/Send';
 import { useState } from 'react';
 import FilePopUp from '../CreateAccount/Components/uploadPopUp';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import ArchiveAlertDialog from './ArchiveAlertDailog';
+import ArchiveAlertDialog from './ArchiveAlertDialog';
 
 
 const EditDriverDetail = (props) => {

@@ -11,7 +11,7 @@ import EditDriverDetail from './EditDriverDetail';
     const [reportsPopupVisible, setReportsPopupVisible] = useState(false);
     const [miscPayPopupVisible, setMiscPayPopupVisible] = useState(false);
     const [remainingHeight, setRemainingHeight] = useState(0);
-    const [editDailog,setEditDailog] = useState(false);
+    const [editDialog,setEditDialog] = useState(false);
 
     const cardContainerRef = useRef(null);
     const boxRef = useRef(null)
@@ -45,14 +45,14 @@ import EditDriverDetail from './EditDriverDetail';
       };
     }, []);
 
-    const openEditDailog =()=>{
-        setEditDailog(!editDailog)
+    const openEditDialog =()=>{
+        setEditDialog(!editDialog)
     }
 
     const { address, email, phoneNumber, balance, Commision, totalTimeLogged, rate } = props;
     return (    
       <>
-      <EditDriverDetail open={editDailog} onClose={openEditDailog}/>
+      <EditDriverDetail open={editDialog} onClose={openEditDialog}/>
         <div className={styles.heading}></div>
         <div className={styles.box} ref={boxRef}>
           <div className={styles.cardContainer} ref={cardContainerRef}>
@@ -63,7 +63,7 @@ import EditDriverDetail from './EditDriverDetail';
                   <div className={styles.items}><b>Address: </b>{address}</div>
                   <div className={styles.items}><b>Email: </b>{email}</div>
                   <div className={styles.items}><b>Phone Number: </b>{phoneNumber}</div>
-                  <button className={styles.editButton} onClick={openEditDailog}><u>Edit info</u></button>
+                  <button className={styles.editButton} onClick={openEditDialog}><u>Edit info</u></button>
                 </div>
                 <div className={styles.flexItem1}>
                   <div className={styles.items}><b>Balance: </b>{balance}</div>

@@ -141,7 +141,7 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
 
             <div className={styles.contentWrapper} ref={ref}>
               <div className={styles.heading}>
-                <ChatIcon className={styles.openDailogIcon} onClick={handleResponsiveDrawer} />
+                <ChatIcon className={styles.openDialogIcon} onClick={handleResponsiveDrawer} />
                 Customer Details
               </div>
               <div className={styles.box}>

@@ -17,16 +17,16 @@ import SettlementReportDialog from './SettelemntReport/SettlementReportDialog';
 
 const CustomerFunction = () => {
 
-  const [openPaymentDailog, setOpenPaymentDailog] = useState(false);
+  const [openPaymentDialog, setOpenPaymentDialog] = useState(false);
   const [openCreateCustomerModel, setOpenCreateCustomerModel] = useState(false)
   const [settlementReportDialog, setSettlementReportDialog] = useState(false)
 
   const handleClickOpen = () => {
-    setOpenPaymentDailog(true);
+    setOpenPaymentDialog(true);
   };
 
-  const handleApplyPaymentDailogClose = () => {
-    setOpenPaymentDailog(false);
+  const handleApplyPaymentDialogClose = () => {
+    setOpenPaymentDialog(false);
   };
 
   const clickFroCreateCustomerModel = () => {
@@ -45,7 +45,7 @@ const CustomerFunction = () => {
 
   return (
     <>
-      <ApplyPayment isOpen={openPaymentDailog} handleApplyPaymentDailogClose={handleApplyPaymentDailogClose} />
+      <ApplyPayment isOpen={openPaymentDialog} handleApplyPaymentDialogClose={handleApplyPaymentDialogClose} />
       <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
       <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
       <div className={styles.drawer}>

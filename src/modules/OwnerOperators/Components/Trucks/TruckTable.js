@@ -11,7 +11,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/material';
-import AddTruckDailog from './AddTruckDailog';
+import AddTruckDialog from './AddTruckDialog';
 
 function createData(num, vin, color, year, make, model) {
   return { num, vin, color, year, make, model };
@@ -40,7 +40,7 @@ const TruckTable = (props) => {
     setOpenAddTruck(false);
   };
 
-  const handleOpenAddTruckDailog = () => {
+  const handleOpenAddTruckDialog = () => {
     setOpenAddTruck(true);
   };
 
@@ -84,7 +84,7 @@ const TruckTable = (props) => {
 
   return (
     <>
-      <AddTruckDailog open={openAddTruck} onClose={handleCloseAddTruck} />
+      <AddTruckDialog open={openAddTruck} onClose={handleCloseAddTruck} />
       <TableContainer component={Paper} style={tablestyles.container}>
         <HistoryIcon style={tablestyles.history} />
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -125,7 +125,7 @@ const TruckTable = (props) => {
         <Button
           sx={{ '&:hover': { backgroundColor: "lightgrey" } }}
           style={tablestyles.addbtn}
-          onClick={handleOpenAddTruckDailog}
+          onClick={handleOpenAddTruckDialog}
         >
           <AddCircleIcon style={tablestyles.addicon} /> Add Truck
         </Button>

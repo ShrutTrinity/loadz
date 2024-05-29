@@ -9,6 +9,8 @@ import SquareFootIcon from '@mui/icons-material/SquareFoot';
 import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import Formcontroller from './Formcontroller';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
 
 
 const Setting = ({handleClose}) => {
@@ -33,9 +35,20 @@ const Setting = ({handleClose}) => {
           <div class='flex'>
             <FormControl component="fieldset" variant="standard" sx={{width:'100%'}}>
               <FormGroup>
+              <div className={styles.flex2}>
                 <Formcontroller label={'Enable Contractors'} />
+                <InfoOutlinedIcon />
+                </div>
+                <div className={styles.flex2}>
                 <Formcontroller label={'Employee can Skip'} />
+                <InfoOutlinedIcon/>
+                </div>
+                <div className={styles.flex2}>
                 <Formcontroller label={'Enable Notifications'} />
+                <InfoOutlinedIcon />
+                </div>
+
+
               </FormGroup>
                </FormControl>
 
@@ -44,8 +57,15 @@ const Setting = ({handleClose}) => {
           <div class='flex'>
             <FormControl component="fieldset" variant="standard" sx={{width:'100%'}}>
               <FormGroup>
+              <div className={styles.flex2}>
                 <Formcontroller label={'Contractors'} />
+                <InfoOutlinedIcon/>
+                </div>
+                <div className={styles.flex2}>
                 <Formcontroller label={'Employees'} />
+                <InfoOutlinedIcon/>
+                </div>
+             
               </FormGroup>
                </FormControl>
           </div>

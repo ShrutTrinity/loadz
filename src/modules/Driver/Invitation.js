@@ -93,10 +93,10 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
     setSelectAll(!selectAll);
   };
 
-  const EditDailogOpen = () => {
+  const EditDialogOpen = () => {
     setEditDialog(true)
   }
-  const EditDailogClose = () => {
+  const EditDialogClose = () => {
     setEditDialog(false)
   }
   const handleCheckboxChange = (index) => {
@@ -121,7 +121,7 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
     <>
       <EditDriverInvitation
         editDialog={editDialog}
-        EditDailogClose={EditDailogClose}
+        EditDialogClose={EditDialogClose}
       />
       <Dialog
         open={openInvitationDialog}
@@ -204,7 +204,7 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                           </div>
                         </TableCell>
                         <TableCell>
-                          <div className={styles.pendingDiv2} onClick={EditDailogOpen}>
+                          <div className={styles.pendingDiv2} onClick={EditDialogOpen}>
                             <EditIcon sx={{ color: 'rgb(237, 202, 51)' }} />
                             Edit
                           </div>

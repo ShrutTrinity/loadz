@@ -26,7 +26,7 @@ const allStyle = {
   }
 }
 
-const AddTruckDailog = ({ open, onClose }) => {
+const AddTruckDialog = ({ open, onClose }) => {
   const [fieldCovers, setFieldCovers] = useState([{ id: uuidv4() }]);
   const [selectedValue, setSelectedValue] = useState('');
 
@@ -176,4 +176,4 @@ const AddTruckDailog = ({ open, onClose }) => {
   );
 }
 
-export default AddTruckDailog;
+export default AddTruckDialog;

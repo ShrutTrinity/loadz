@@ -8,7 +8,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DisableTraileIcon from '@mui/icons-material/NoBackpack';
 
-const EditTrailerForm = ({ isOpen, handleEditTrailertDailogClose, selectedItem,updateCardData }) => {
+const EditTrailerForm = ({ isOpen, handleEditTrailertDialogClose, selectedItem,updateCardData }) => {
   const [formData, setFormData] = useState({});
   useEffect(() => {
     if (selectedItem) {
@@ -45,7 +45,7 @@ const EditTrailerForm = ({ isOpen, handleEditTrailertDailogClose, selectedItem,u
     };
    updateCardData(updatedItem);
   
-    handleEditTrailertDailogClose();
+    handleEditTrailertDialogClose();
   };
   
 
@@ -67,13 +67,13 @@ const EditTrailerForm = ({ isOpen, handleEditTrailertDailogClose, selectedItem,u
           width: '100%',
         }}
         open={isOpen}
-        onClose={handleEditTrailertDailogClose}
+        onClose={handleEditTrailertDialogClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title" sx={{ padding: 0 }}>
           <div className={styles.title}>
-            Edit Trailer <CloseIcon onClick={handleEditTrailertDailogClose} className={styles.closebtn} />
+            Edit Trailer <CloseIcon onClick={handleEditTrailertDialogClose} className={styles.closebtn} />
           </div>
         </DialogTitle>
           <form onSubmit={handleSubmit}>

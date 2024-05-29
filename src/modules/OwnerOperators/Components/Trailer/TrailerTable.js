@@ -10,7 +10,7 @@ import Index from '@Jobs/components/switchForJob';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/material';
-import AddTrailerDailog from './AddTrailerDailog';
+import AddTrailerDialog from './AddTrailerDialog';
 
 function createData(num, vin, year, make) {
   return { num, vin,  year, make };
@@ -39,7 +39,7 @@ const TrailerTable = (props) => {
     setOpenAddTrailer(false);
   };
 
-  const handleOpenAddTrailerDailog = () => {
+  const handleOpenAddTrailerDialog = () => {
     setOpenAddTrailer(true);
   };
 
@@ -83,7 +83,7 @@ const TrailerTable = (props) => {
 
   return (
     <>
-      <AddTrailerDailog open={openAddTrailer} onClose={handleCloseAddTrailer} />
+      <AddTrailerDialog open={openAddTrailer} onClose={handleCloseAddTrailer} />
       <TableContainer component={Paper} style={tablestyles.container}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
@@ -119,7 +119,7 @@ const TrailerTable = (props) => {
         <Button
           sx={{ '&:hover': { backgroundColor: "lightgrey" } }}
           style={tablestyles.addbtn}
-          onClick={handleOpenAddTrailerDailog}
+          onClick={handleOpenAddTrailerDialog}
         >
           <AddCircleIcon style={tablestyles.addicon} /> Add Trailer
         </Button>

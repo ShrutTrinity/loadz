@@ -62,7 +62,7 @@ const OwnerOperator = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSe
               {ownerOperatorDetailscreen ? <OwnerOperatorDetail /> :
                 <>
                   <div className={styles.heading}>
-                    <ChatIcon className={styles.openDailogIcon} onClick={handleResponsiveDrawer} />
+                    <ChatIcon className={styles.openDialogIcon} onClick={handleResponsiveDrawer} />
                     Owner Operators Details
                   </div>
                   <div className={styles.box}>
