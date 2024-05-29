@@ -3,12 +3,13 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from './styles/editprofileinfo.module.scss'
+import CommonTextfield from '@Jobs/components/TextField/CommonTextfield.js'
 
-const EditProfileInfo = ({open,onClose}) => {
+
+const EditProfileInfo = ({ open, onClose }) => {
   return (
     <>
       <Dialog
@@ -18,16 +19,35 @@ const EditProfileInfo = ({open,onClose}) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-         <CloseIcon/>
+          <CloseIcon />
         </DialogTitle>
-        <DialogContent>
-        <div className={styles.heading}>
-          Edit User Profile
-        </div>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
-          </DialogContentText>
+        <DialogContent sx={{ margin: '30px' }}>
+          <div className={styles.heading}>
+            Edit User Profile
+          </div>
+          <div className={styles.textFields}>
+            <CommonTextfield
+              name='address'
+              type='text'
+              label='Address'
+              width='50'
+              placeholder='Address'
+            />
+            <CommonTextfield
+              name='address'
+              type='text'
+              label='Address'
+              width='50'
+              placeholder='Address'
+            />
+            <CommonTextfield
+              name='address'
+              type='text'
+              label='Address'
+              width='50'
+              placeholder='Address'
+            />
+          </div>
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose}>Disagree</Button>
