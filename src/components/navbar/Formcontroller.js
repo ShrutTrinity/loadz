@@ -1,6 +1,5 @@
-import { FormControlLabel, Switch } from '@mui/material'
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import React from 'react'
+import React from 'react';
+import { FormControlLabel, Switch } from '@mui/material';
 
 
 const Formcontroller = (props) => {
