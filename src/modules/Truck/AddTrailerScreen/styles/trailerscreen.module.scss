@@ -1,102 +1,70 @@
 @import "@styles";
 
-.container{
-      margin: 63px 0 0  0;
-      padding: 20px 15px;
-      position: absolute;
-      right: 0;
-  .flexContainer{
+.container {
+  margin: 63px 0 0 0;
+  padding: 20px 15px;
+  position: absolute;
+  right: 0;
+  .flexContainer {
     margin: 10px 0;
     display: flex;
     gap: 5%;
 
-    .drawer{
-      padding: 20px 0;
-      width: 40%;
-
-      .logo{
-          display: flex;
-          padding: 24px;
-
-        .dumplogo{
-          height: 50px;
-          width: 50px;
-        }
-        .label{
-          font-size: 24px;
-          display: flex;
-          font-weight: 700;
-          justify-content: center;
-          align-items: center;
-        } 
-      }
-      .innerDrawer{
-        padding: 24px;
-      .addtrailerbtn{
-        width: 100%;
-        background-color: rgb(237, 202, 51);
-        border-radius: 20px;
-        font-size: 14px;
-        font-weight: 300;
-        padding: 5px;
-        border: none;
-      }
-      .Title{
-        padding: 30px 10px 10px 0px;
-        font-weight: 700;
-        font-size: 16px;
-      }
-      .indexLabel{
-          display: flex;
-          gap: 10px;
-          padding: 10px 0;
-          margin: 5px 0;
-          align-items: center;
-          font-size: 14px;
-
-        .circleicon {
-          font-size: 16px;
-        }
-      }
-      .indexLabel:hover{
-        background-color: rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-      }
-    }
+    .drawerCover {
+      width: 25%;
     }
     .searchbar {
       width: 70%;
       padding: 30px 0;
 
-      .hr{
+      .navigateIcon {
+        color: $color_1;
+        margin: 0 16px 0 6px;
+        display: none;
+        cursor: pointer;
+      }
+      .hr {
         margin-top: 60px;
       }
-      .archivebtn{
+      .archivebtn {
         font-weight: 600;
         font-size: 14px;
-
       }
-      .card{
-        @include center ();
+      .card {
+        @include center();
         cursor: pointer;
 
         width: 100%;
-        .cardimage{
+        .cardimage {
           width: 20%;
-          .img{
+          .img {
             height: 60px;
             width: 100px;
           }
         }
-        .carddetails{
+        .carddetails {
           width: 80%;
-          .detail{
+          .detail {
             font-size: 13px;
           }
         }
       }
+    }
+  }
+}
 
-
+@media only screen and (max-width: 899px) {
+  .container{
+    .flexContainer{
+      .drawerCover{
+        display: none;
+      }
+      .searchbar{
+        width: 100%;
+        .navigateIcon{
+          display: block;
+        }
+      }
     }
   }
 }

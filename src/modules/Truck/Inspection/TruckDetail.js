@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 
 const tableStyles = {
   th: {
@@ -18,10 +19,13 @@ const tableStyles = {
   }
 }
 
-const TruckDetail = () => {
+const TruckDetail = ({drawerOpen}) => {
   return (
     <>
       <div className={styles.heading}>
+        <div className={styles.navigateIcon} onClick={drawerOpen}>
+          <AirportShuttleIcon fontSize='large'/>
+        </div>
         <Avatar
           src={Camion}
         />
