@@ -153,7 +153,11 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
                 </div>
               }
               <div className={styles.textContainer}>
-                <CustomTextFiled name='Unit-Cost-Rate' label='Unit Cost Rate' placeholder='$0.00' type='number' />
+                <CustomTextFiled 
+                name='Unit-Cost-Rate' 
+                label='Unit Cost Rate' 
+                placeholder='$0.00' 
+                type='number' />
               </div>
             </div>
           </div>

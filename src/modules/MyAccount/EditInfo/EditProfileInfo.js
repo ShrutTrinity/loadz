@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -7,18 +8,42 @@ import styles from './styles/editprofileinfo.module.scss'
 import CommonTextfield from '@Jobs/components/TextField/CommonTextfield.js';
 import AppleIcon from '@mui/icons-material/Apple';
 import profile from '@images/profile.jpg';
-
+import FilePopUp from '../../CreateAccount/Components/uploadPopUp';
+import ImageUploadLogo from '@images/upload-image.svg';
 
 const EditProfileInfo = ({ open, onClose }) => {
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleClosePop = () => {
+    setShowPopUp(false);
+  }
+
+  const handleImageSelect = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setShowPopUp(false);
+  };
+
+  const handleClickOpen = (event) => {
+    event.stopPropagation();
+    setShowPopUp(true);
+  };
+
   return (
     <>
+      <FilePopUp
+        open={showPopUp}
+        imageUrlforPopUp={selectedImage || ImageUploadLogo}
+        onSelect={handleImageSelect}
+        onClose={handleClosePop}
+      />
       <Dialog
-      sx={{
-        '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper':{
-            maxWidth:'850px',
-            borderRadius:'20px'
-        }
-      }}  
+        sx={{
+          '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
+            maxWidth: '850px',
+            borderRadius: '20px'
+          }
+        }}
         open={open}
         onClose={onClose}
         aria-labelledby="alert-dialog-title"
@@ -63,11 +88,14 @@ const EditProfileInfo = ({ open, onClose }) => {
               />
             </div>
             <div className={styles.updateimg}>
-              <div className={styles.imgdiv}>
-                <img src={profile} alt='profile' className={styles.profile} />
+              <div className={styles.imgdiv} onClick={handleClickOpen}>
+                {selectedImage ? (
+                  <img src={selectedImage} alt='profile' className={styles.profile} />
+                ) : (
+                  <img src={profile} alt='profile' className={styles.profile} />
+                )}
               </div>
               <button className={styles.btn2}>Update</button>
-
             </div>
           </div>
           <div className={styles.session}>
@@ -78,21 +106,16 @@ const EditProfileInfo = ({ open, onClose }) => {
               </div>
               <div className={styles.rightside}>
                 <b>Linux<br /></b>
-
                 Chrome<br />
-
                 Mumbai, MH, IN<br />
-
                 5/28/2024 10:28 am
               </div>
             </div>
           </div>
         </DialogContent>
-        
       </Dialog>
     </>
   );
 }
 
-
-export default EditProfileInfo
+export default EditProfileInfo;

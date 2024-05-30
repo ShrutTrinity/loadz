@@ -1,9 +1,9 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-const CustomTextFiled = ({ label, placeholder, type, children4, name, id, required, disabled }) => {
+const CustomTextFiled = ({ label, placeholder, type, children4, name, id, required, disabled,width }) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: `${width}%` }}>
       <label style={{ fontSize: '13px' }}>{label}</label>
       <TextField
         sx={{
@@ -13,7 +13,7 @@ const CustomTextFiled = ({ label, placeholder, type, children4, name, id, requir
           "& input::placeholder": {
             fontSize: "13px"
           },
-          width: '100%',
+          width:'100%',
           marginBottom: '16px',
           '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: 'rgba(0, 0, 0, 0.23) !important'

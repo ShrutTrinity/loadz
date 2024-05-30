@@ -4,14 +4,39 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from './styles/editcompanyinfo.module.scss'
-import CommonTextfield from '@Jobs/components/TextField/CommonTextfield.js';
-import AppleIcon from '@mui/icons-material/Apple';
 import profile from '@images/profile.jpg';
+import CustomTextFiled from '@Jobs/components/TextField/CustomTextFiled';
+import { useState } from 'react';
+import FilePopUp from '../../CreateAccount/Components/uploadPopUp';
+import ImageUploadLogo from '@images/upload-image.svg';
+
 
 
 const EditCompanyInfo = ({ open, onClose }) => {
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleClosePop = () => {
+    setShowPopUp(false);
+  }
+
+  const handleImageSelect = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setShowPopUp(false);
+  };
+
+  const handleClickOpen = (event) => {
+    event.stopPropagation();
+    setShowPopUp(true);
+  };
   return (
     <>
+       <FilePopUp
+        open={showPopUp}
+        imageUrlforPopUp={selectedImage || ImageUploadLogo}
+        onSelect={handleImageSelect}
+        onClose={handleClosePop}
+      />
       <Dialog
       sx={{
         '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper':{
@@ -27,66 +52,103 @@ const EditCompanyInfo = ({ open, onClose }) => {
         <DialogTitle id="alert-dialog-title">
           <CloseIcon className={styles.closeicon} onClick={onClose} />
         </DialogTitle>
-        <DialogContent sx={{ margin: '30px' }}>
+        <DialogContent sx={{ padding: '10px' }}>
           <div className={styles.heading}>
             Edit Company Profile
           </div>
           <div className={styles.flex}>
             <div className={styles.textFields}>
-              <CommonTextfield
-                name='fname'
+              <CustomTextFiled
+                name='cname'
                 type='text'
-                label='First Name'
-                width='45'
-                placeholder='First Name'
+                label='Company Name'
+                width='100'
+                placeholder='Company Name'
               />
-              <CommonTextfield
-                name='lname'
+              <CustomTextFiled
+                name='address'
                 type='text'
-                label='Last Name'
-                width='45'
-                placeholder='Last Name'
+                label='Address'
+                width='100'
+                placeholder='Address'
               />
-              <CommonTextfield
-                name='email'
+              <CustomTextFiled
+                name='city'
+                type='text'
+                label='City'
+                width='31.5'
+                placeholder='City'
+              />
+              <CustomTextFiled
+                name='state'
+                type='number'
+                label='State'
+                width='31.5'
+                placeholder='State'
+              />
+              <CustomTextFiled
+                name='zip'
+                type='number'
+                label='Zip'
+                width='31.5'
+                placeholder='Zip'
+              />
+              <CustomTextFiled
+                name='cemail'
                 type='email'
-                label='Email'
-                width='45'
-                placeholder='Email'
+                label='Company Email'
+                width='48'
+                placeholder='Phone'
               />
-              <CommonTextfield
+              <CustomTextFiled
+                name='cphone'
+                type='number'
+                label='Company Phone'
+                width='48'
+                placeholder='Company Phone'
+              />
+              <CustomTextFiled
+                name='waitrate'
+                type='number'
+                label='Company Wait Rate'
+                width='48'
+                placeholder='Phone'
+              />
+              <CustomTextFiled
+                name='taxrate'
+                type='number'
+                label='Company Tax Rate'
+                width='48'
+                placeholder='Phone'
+              />
+              <CustomTextFiled
+                name='driverrate'
+                type='number'
+                label='Default Driver Hourly Rate'
+                width='48'
+                placeholder='Phone'
+              />
+              <CustomTextFiled
                 name='phone'
-                type='email'
-                label='Phone'
-                width='45'
+                type='number'
+                label='Default Driver Commission Rate'
+                width='48'
                 placeholder='Phone'
               />
             </div>
             <div className={styles.updateimg}>
-              <div className={styles.imgdiv}>
-                <img src={profile} alt='profile' className={styles.profile} />
+            <div className={styles.imgdiv} onClick={handleClickOpen}>
+                {selectedImage ? (
+                  <img src={selectedImage} alt='profile' className={styles.profile} />
+                ) : (
+                  <img src={profile} alt='profile' className={styles.profile} />
+                )}
               </div>
               <button className={styles.btn2}>Update</button>
 
             </div>
           </div>
-          <div className={styles.session}>
-            <div className={styles.running}>
-              <div className={styles.leftside}>
-                <AppleIcon className={styles.icon} />
-                <div>1 session(s) on Mac</div>
-              </div>
-              <div className={styles.rightside}>
-                <b>Linux<br /></b>
-
-                Chrome<br />
-
-                Mumbai, MH, IN<br />
-
-                5/28/2024 10:28 am
-              </div>
-            </div>
-          </div>
+         
         </DialogContent>
         
       </Dialog>

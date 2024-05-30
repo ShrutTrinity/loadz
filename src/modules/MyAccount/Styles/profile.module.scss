@@ -1,5 +1,4 @@
 @import "@styles";
-
 .container {
   margin-top: 57px;
   position: absolute;
@@ -14,12 +13,14 @@
     .profileContainer {
       border: 1px solid black;
       padding: 30px;
+      height: 100%;
       width: 100%;
+      flex-wrap: wrap;
       display: flex;
       position: relative;
-      align-items: center;
+      align-items: flex-end;
       .detail {
-        width: 50%;
+        width: 44%;
         padding: 10px;
         display: flex;
         gap: 20px;
@@ -68,12 +69,11 @@
       }
       .editbtn {
         display: flex;
+        align-items: flex-end;
         justify-content: flex-end;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        margin: 30px;
-        width: 25%;
+        flex-direction: column;
+        height: 100%;
+        width: 20%;
         .btn{
           background-color: white;
           font-size: 14px;
@@ -143,6 +143,7 @@
       }
       .editbtn {
         width: 35%;
+        
         .heading2{
           font-weight: 700;
           font-size: 16px;
