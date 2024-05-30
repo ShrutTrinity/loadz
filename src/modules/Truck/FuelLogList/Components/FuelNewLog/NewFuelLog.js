@@ -12,7 +12,7 @@ import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs'
-import CustomTextFiled from '../../../../Jobs/components/TextField/CustomTextFiled';
+import CustomTextFiled from '@Jobs/components/TextField/CustomTextFiled';
 import Send from '../../../../CreateAccount/Components/uploadFile/Send';
 import FilePopUp from '../../../../CreateAccount/Components/uploadPopUp';
 import ImageUploadLogo from '@images/upload-image.svg';
@@ -86,11 +86,12 @@ const NewFuelLog = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelec
 
   return (
     <>
-      {showPopUp && <FilePopUp
+       <FilePopUp
+      open={showPopUp}
         imageUrlforPopUp={selectedImage || ImageUploadLogo}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
-      />}
+      />
       <div
         className={styles.body}
         style={bodyStyle}

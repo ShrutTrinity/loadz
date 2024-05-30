@@ -108,11 +108,12 @@ const SetupOfCompany = () => {
           discription='Company Setting for Sales Tax, Commission Rates, Waiting Time Rates, and Automatic Invoice time'
         />
       }
-      {showPopUp && <FilePopUp
+     <FilePopUp
+      open={showPopUp}
         imageUrlforPopUp={selectedImage || companyLogoImage}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
-      />}
+      />
 
       {gopreference ?
         <Preference /> :

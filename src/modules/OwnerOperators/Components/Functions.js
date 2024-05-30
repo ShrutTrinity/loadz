@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import Index from '../../Jobs/components/switchForJob';
+import Index from '@Jobs/components/switchForJob';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import ApplyPayment from './ApplyPayment/ApplyPayment';

@@ -40,11 +40,12 @@ const Addtruckform = (props) => {
 
   return (
     <>
-      {showPopUp && <FilePopUp
+      <FilePopUp
+      open={showPopUp}
         imageUrlforPopUp={selectedImage || ImageUploadLogo}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
-      />}
+      />
       <div
         className={styles.body}
         style={bodyStyle}
@@ -153,7 +154,13 @@ const Addtruckform = (props) => {
                   />
                 </div>
                 <div className={styles.width}>
-                w
+                <CustomTextFiled
+                    id='truckmodel'
+                    name='truckModel'
+                    type='text'
+                    label='Truck Model'
+                    placeholder='Truck Model'
+                  />
                 </div>
                 <div className={styles.width}>
                   <InputLabel

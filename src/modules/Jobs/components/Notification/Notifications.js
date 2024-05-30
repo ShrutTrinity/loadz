@@ -1,7 +1,7 @@
 import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import styles from './notification.module.scss';
-import CustomTextField from '../../../../components/textfield/CustomeTextfield';
+import CustomTextField from '@components/textfield/CustomeTextfield';
 import { useFormik } from 'formik';
 
 const Notifications = (props) => {
