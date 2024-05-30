@@ -1,17 +1,15 @@
-@import '@styles';
+@import "@styles";
 
 .container {
-  display: flex;
+  @include center();
   margin-top: 73px;
   position: absolute;
   right: 0;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 
   .flexitem1 {
-  overflow-y: auto;
-    text-align: start; 
+    overflow-y: auto;
+    text-align: start;
     padding: 0px 10px 0px 180px;
     width: 50%;
     margin-bottom: 50px;
@@ -25,15 +23,15 @@
       font-weight: 700;
       align-items: end;
     }
-    .intro{
+    .intro {
       font-size: 20px;
     }
-    .intro2{
+    .intro2 {
       font-size: 20px;
       font-weight: 600;
     }
-    .btn{
-      padding:15px 40px;
+    .btn {
+      padding: 15px 40px;
       background-color: $color_3;
       border-radius: 10px;
       border: 0px;
@@ -48,10 +46,39 @@
     overflow-y: auto;
     margin-bottom: 50px;
 
-
-    .img2{
+    .img2 {
       height: 90%;
       width: 90%;
+    }
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .container {
+    flex-direction: column;
+
+    .flexitem1 {
+      width: 100%;
+      padding: 0 10px 0px 190px;
+      margin-bottom: 28px;
+    }
+
+    .flexitem2 {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .container {
+    flex-direction: column;
+
+    .flexitem1 {
+      padding: 32px 32px 0;
+    }
+
+    .flexitem2 {
+      padding: 32px;
     }
   }
 }
