@@ -4,11 +4,16 @@ import AppleIcon from '@mui/icons-material/Apple';
 import profile from '@images/profile.jpg'
 import Formcontroller from '@components/navbar/Formcontroller';
 import EditProfileInfo from './EditInfo/EditProfileInfo';
+import EditCompanyInfo from './EditInfo/EditCompanyInfo';
 
 const Profile = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
   const  [editProfileInfo,setEditProfileInfo] = useState(false)
+  const  [editCompanyInfo,setEditCompanyInfo] = useState(false)
 
+  const handleEditCompanyDialog = () =>{
+    setEditCompanyInfo(!editCompanyInfo)
+  }
   const handleEditProfileDialog = () =>{
     setEditProfileInfo(!editProfileInfo)
   }
@@ -22,6 +27,7 @@ const Profile = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector
   }
   return (
     <>
+    <EditCompanyInfo open={editCompanyInfo} onClose={handleEditCompanyDialog}/>
     <EditProfileInfo open={editProfileInfo} onClose={handleEditProfileDialog}/>
       <div className={styles.container}  style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
@@ -110,7 +116,7 @@ const Profile = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector
               <div> W9: N/A <br/></div>
               <div> Insurance: Available</div>
               </div>
-              <button className={styles.btn}>Edit Company Info</button>
+              <button className={styles.btn} onClick={handleEditCompanyDialog}>Edit Company Info</button>
             </div>
           </div>
         </div>
