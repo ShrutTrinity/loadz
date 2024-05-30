@@ -5,6 +5,7 @@
   right: 0;
   margin-bottom: 30px;
   color: black;
+  
   .userProfile {
     padding: 20px;
     .heading {
@@ -18,7 +19,8 @@
       flex-wrap: wrap;
       display: flex;
       position: relative;
-      align-items: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
       .detail {
         width: 44%;
         padding: 10px;
@@ -88,6 +90,7 @@
     }
 
   }
+
   .companyProfile {
     padding:40px 20px;
     
@@ -176,4 +179,8 @@
     }
 
   }
+}
+
+@media only screen and (max-width: 599px) {
+
 }

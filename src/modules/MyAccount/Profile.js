@@ -8,13 +8,13 @@ import EditCompanyInfo from './EditInfo/EditCompanyInfo';
 
 const Profile = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
-  const  [editProfileInfo,setEditProfileInfo] = useState(false)
-  const  [editCompanyInfo,setEditCompanyInfo] = useState(false)
+  const [editProfileInfo, setEditProfileInfo] = useState(false)
+  const [editCompanyInfo, setEditCompanyInfo] = useState(false)
 
-  const handleEditCompanyDialog = () =>{
+  const handleEditCompanyDialog = () => {
     setEditCompanyInfo(!editCompanyInfo)
   }
-  const handleEditProfileDialog = () =>{
+  const handleEditProfileDialog = () => {
     setEditProfileInfo(!editProfileInfo)
   }
   const bodyStyles = {
@@ -27,10 +27,12 @@ const Profile = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector
   }
   return (
     <>
-    <EditCompanyInfo open={editCompanyInfo} onClose={handleEditCompanyDialog}/>
-    <EditProfileInfo open={editProfileInfo} onClose={handleEditProfileDialog}/>
-      <div className={styles.container}  style={bodyStyles}
+      <EditCompanyInfo open={editCompanyInfo} onClose={handleEditCompanyDialog} />
+      <EditProfileInfo open={editProfileInfo} onClose={handleEditProfileDialog} />
+      <div className={styles.container} style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
+        
+        {/* user Profile */}
         <div className={styles.userProfile}>
           <div className={styles.heading}> User Profile</div>
           <div className={styles.profileContainer}>
@@ -67,6 +69,8 @@ const Profile = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector
             </div>
           </div>
         </div>
+
+        {/* company Profile */}
         <div className={styles.companyProfile}>
           <div className={styles.heading}> Company Profile</div>
           <div className={styles.profileContainer}>
@@ -113,8 +117,8 @@ const Profile = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector
               </div>
               <div className={styles.heading2}>Documents</div>
               <div className={styles.detail2}>
-              <div> W9: N/A <br/></div>
-              <div> Insurance: Available</div>
+                <div> W9: N/A <br /></div>
+                <div> Insurance: Available</div>
               </div>
               <button className={styles.btn} onClick={handleEditCompanyDialog}>Edit Company Info</button>
             </div>
