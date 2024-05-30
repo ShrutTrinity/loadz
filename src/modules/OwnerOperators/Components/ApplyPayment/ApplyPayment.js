@@ -87,7 +87,6 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
           </div>
           <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-
             <DemoContainer components={['DatePicker']}>
               <DatePicker sx={{
                 width: '200px',
@@ -187,4 +186,4 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
   )
 }
 
-export default ApplyPayment 
+export default ApplyPayment;
