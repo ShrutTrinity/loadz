@@ -13,9 +13,9 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link as RouterLink } from 'react-router-dom';
 import Send from '../Components/uploadFile/Send';
 import FilePopUp from '../Components/uploadPopUp';
-import useVideoPopup from '../../../hooks/useVideopopup'
+import useVideoPopup from '@hooks/useVideopopup'
 import Video from '../Components/videotag'
-import CustomTextField from '../../../components/textfield/CustomeTextfield';
+import CustomTextField from '@components/textfield/CustomeTextfield';
 import Otppage from '../../Authentication/OTP/Otppage';
 import OtpPopupHandle from '@hooks/OtpPopupHandle';
 import {getValidationSchema} from '@validation/validationshema'
@@ -88,11 +88,12 @@ const CreateAccount = () => {
         title='COMPANY SETUP'
         discription='Create your companys administrators account'
       />}
-      {showPopUp && <FilePopUp
+      <FilePopUp
+      open={showPopUp}
         imageUrlforPopUp={selectedImage || persionImage}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
-      />}
+      />
       {optPopup && asisPopupOpen && <Otppage childrenForCloseOtp={forCloseOtpPopup} />}
       <CustomStepper currentstep='1' />
       <div className={styles.page}>

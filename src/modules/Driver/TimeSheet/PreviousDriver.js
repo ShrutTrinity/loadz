@@ -6,7 +6,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { TextField, InputAdornment, Dialog, DialogContent } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import inspection from '@images/inspection.png';
-import Index from '../../Jobs/components/switchForJob';
+import Index from '@Jobs/components/switchForJob';
 
 const allStyle = {
   button: {

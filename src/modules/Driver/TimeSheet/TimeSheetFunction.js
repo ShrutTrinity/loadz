@@ -4,7 +4,7 @@ import { TextField, InputAdornment, Avatar, Tooltip } from '@mui/material'
 import SearchIcon from "@mui/icons-material/Search";
 import MailIcon from '@mui/icons-material/Mail';
 import RestoreIcon from '@mui/icons-material/Restore';
-import Index from '../../Jobs/components/switchForJob/index';
+import Index from '@Jobs/components/switchForJob/index';
 import PreviousDriver from './PreviousDriver';
 import MailSendModel from './MailSendModel';
 

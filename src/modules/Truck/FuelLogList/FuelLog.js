@@ -14,7 +14,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
-import Index from '../../Jobs/components/switchForJob';
+import Index from '@Jobs/components/switchForJob';
 import FuelData from './Components/FuelDataTable/FuelData';
 import MileageReportDialog from './Components/MileageReport/MileageReportDialog';
 import { Link } from 'react-router-dom';
