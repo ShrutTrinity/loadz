@@ -10,8 +10,6 @@ import { useState } from 'react';
 import FilePopUp from '../../CreateAccount/Components/uploadPopUp';
 import ImageUploadLogo from '@images/upload-image.svg';
 
-
-
 const EditCompanyInfo = ({ open, onClose }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
