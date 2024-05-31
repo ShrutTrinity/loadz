@@ -46,7 +46,7 @@ const EditCompanyInfo = ({ open, onClose }) => {
       <Dialog
         sx={{
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
-            maxWidth: '850px',
+            maxWidth: '950px',
             borderRadius: '20px'
           }
         }}
@@ -164,8 +164,8 @@ const EditCompanyInfo = ({ open, onClose }) => {
                   Tax / Insurance Documents
                 </div>
                 <div className={styles.uploadContainer}>
-                <FileUpload id="fileInput1" disabled= {true} onFileSelect={handleFileSelect1} text='Upload Owner Operator Logo' height='250' width='200' />
-                <FileUpload id="fileInput2" disabled= {true} onFileSelect={handleFileSelect2} text='Upload Owner Operator Logo' height='250' width='200' />
+                  <FileUpload id="fileInput1" disabled={true} onFileSelect={handleFileSelect1} text='Upload Owner Operator Logo' height='250' width='200' />
+                  <FileUpload id="fileInput2" disabled={true} onFileSelect={handleFileSelect2} text='Upload Owner Operator Logo' height='250' width='200' />
                 </div>
                 <button className={styles.btn2}>Update</button>
               </div>
@@ -179,34 +179,40 @@ const EditCompanyInfo = ({ open, onClose }) => {
                 )}
               </div>
               <div className={styles.switches}>
+                <div className={styles.heading2}>
+                  Inspection Settings
+                </div>
+                <div className={styles.contorl}>
+                  <Formcontroller label='Enable Contractors' />
+                  <Formcontroller label='Employee can Skip' />
+                  <Formcontroller label='Enable Notifications' />
+                </div>
+                <div className={styles.heading2}>
+                  Time Clock Settings
+                </div>
+                <div className={styles.contorl}>
+                  <Formcontroller label='Contractors' />
+                  <Formcontroller label='Employees' />
+                </div>
+              </div>
               <div className={styles.heading2}>
-                Inspection Settings
+                Configure Tickets Auto Batch Schedule.
               </div>
-              <div className={styles.contorl}>
-                <Formcontroller label='Enable Contractors' />
-                <Formcontroller label='Employee can Skip' />
-                <Formcontroller label='Enable Notifications' />
-              </div>
-              <div className={styles.heading2}>
-                Time Clock Settings
-              </div>  
-              <div className={styles.contorl}>
-                <Formcontroller label='Contractors' />
-                <Formcontroller label='Employees' />
-              </div>
-            </div>
-            <div className={styles.heading2}>
-            Configure Tickets Auto Batch Schedule.
-              </div>  
               <button className={styles.btn2}>Configure Ticket Auto Batch </button>
               <div className={styles.batch}>Batches run at 17:00 Hrs (05:00 pm CST) everyday</div>
-              
-            <div className={styles.heading2}>
-            Set the schedule for Driver Payroll.
-              </div>  
+                <div className={styles.lastpart}>
+              <div className={styles.heading3}>
+                Set the schedule for Driver Payroll.
+              </div>
               <button className={styles.btn3} disabled>Set time to create payroll</button>
-              <div className={styles.batch}>Batches run at 23:59 Hrs (11:59 pm CST) Sunday</div>
-            </div> 
+              <div className={styles.batch2}>Batches run at 23:59 Hrs (11:59 pm CST) Sunday</div>
+              <div className={styles.heading3}>
+                Configure Invoice Automation Schedule.
+              </div>
+              <Formcontroller label='Invoice Automation' />
+              <Formcontroller label='Auto Send Invoices' />
+              </div>
+            </div>
           </div>
 
         </DialogContent>
