@@ -17,7 +17,7 @@ const Formcontroller = (props) => {
   }
   return (
     <>
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',flexWrap:'wrap' }}>
         <FormControlLabel
           sx={{
             "& .css-ahj2mt-MuiTypography-root": {
