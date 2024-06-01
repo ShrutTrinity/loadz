@@ -1,0 +1,79 @@
+@import "@styles";
+
+.container {
+  @include flex-column();
+  padding: 16px;
+  width: 100%;
+  flex-direction: column;
+  font-size: 18.5714px;
+
+  .closeIcon{
+    padding-right: 16px;
+    margin-bottom: 16px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    display: none;
+  }
+
+  .heading {
+    margin: 16px 0;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .searchbar {
+    width: 100%;
+    margin: 24px 0;
+  }
+
+  .listOfInfo {
+    width: 100%;
+    margin: 16px 0;
+    @include flex-row();
+    flex-direction: column;
+
+    .infoHeaders {
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+
+  .truckCounter {
+    @include center();
+    flex-direction: column;
+    margin: 16px;
+    .counter {
+      margin-top: 16px;
+      @include center();
+      gap: 6px;
+    }
+  }
+
+  .submitButton {
+    @include center();
+    cursor: pointer;
+    margin-top: 16px;
+
+    .labelText {
+      font-size: 18.5714px;
+      font-weight: bold;
+      color: black;
+      margin-left: 8px;
+      text-transform: capitalize;
+    }
+
+    .AddIcon {
+      color: black;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container{
+    .closeIcon{
+      display: block;
+    }
+  }
+}
