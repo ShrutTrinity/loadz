@@ -24,6 +24,7 @@ import OwnerOperator from '../OwnerOperators/OwnerOperator';
 import PaymentIntro from '../LoadzPayment/PaymentIntro';
 import Profile from '../MyAccount/Profile';
 import DispatchScreen from '../Dispatch/DispatchScreen';
+import TemplateScreen from '../Dispatch/Template/TemplateScreen';
 
 const BaseLayout = () => {
 
@@ -315,12 +316,23 @@ const BaseLayout = () => {
             />
           }
         />
-
         <Route
           exact
           path='/dispatch'
           element={
             <DispatchScreen
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/dispatch/template'
+          element={
+            <TemplateScreen
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

@@ -1,0 +1,12 @@
+@import "@styles";
+
+  .driverHeading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hrTag{
+    margin: 8px 0;
+    border-color: rgba(0,0,0,0.50);
+  }
