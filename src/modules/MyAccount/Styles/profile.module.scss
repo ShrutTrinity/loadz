@@ -181,6 +181,64 @@
   }
 }
 
-@media only screen and (max-width: 599px) {
-
+@media only screen and (max-width:600px) {
+  .container{
+    .userProfile{
+      .profileContainer{
+      flex-direction: column;
+      @include center();
+      .detail{
+        @include center();
+        width: 100%;
+        flex-direction: column;
+      }
+      .session{
+        width: auto;
+        display: flex;
+        min-width: 70%;
+        flex-direction: column;
+        .running{
+          flex-direction: column;
+          @include center();
+          .leftside{
+            width: 100%;
+            @include center();
+            flex-direction: column;
+          }
+          .rightside{
+            width: 100%;
+          }
+        }
+      }
+      .editbtn{
+        width: auto;
+        margin-top: 20px;
+      }
+    }
+    
+  }
+}
+.companyProfile{
+  margin-bottom: 60px;
+  padding: 40px 10px;
+  .profileContainer{
+    flex-direction: column;
+    @include center();
+    padding: 10px !important;
+      .detail {
+        width: 100% !important;
+        flex-direction: column;
+        gap: 0px;
+      }
+      .switches{
+        width: 100% !important;
+      }
+      .editbtn{
+        width: 100% !important; 
+          .btn{
+            position: relative !important;
+          }
+      }
+    }
+  }
 }

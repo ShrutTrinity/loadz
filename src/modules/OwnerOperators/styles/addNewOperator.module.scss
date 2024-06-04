@@ -3,7 +3,7 @@
 .form {
   display: flex;
   height: 100%;
-
+  
   // padding: 20px;
   .flexitem1 {
     display: flex;
@@ -154,4 +154,48 @@
   color: $color_3;
   padding: 2px 15px;
   border-radius: 25px;
+}
+@media only screen and (max-width:600px) {
+  .heading{
+    font-size: 20px;
+  }
+  .form{
+    flex-wrap: wrap;
+    .flexitem1{
+      width: 100%;
+      .name{
+        width: 100%;
+      }
+      .eni{
+        width: 100%;
+        
+      }
+      .text {
+        width: 100%;
+      }
+  
+      .fname {
+        width: 100%;
+      }
+  
+      .m {
+        width: 100%;
+      }
+  
+      .suffix {
+        width: 100%;
+      }
+    }
+    .width25 {
+      width: 49%;
+    }
+    .flexitem2{
+      width: 100%;
+      .checkbox{
+        .label{
+        font-size: 13px;
+        }
+      }
+    }
+  }
 }

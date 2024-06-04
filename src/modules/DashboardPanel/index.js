@@ -25,6 +25,7 @@ import PaymentIntro from '../LoadzPayment/PaymentIntro';
 import Profile from '../MyAccount/Profile';
 import DispatchScreen from '../Dispatch/DispatchScreen';
 import TemplateScreen from '../Dispatch/Template/TemplateScreen';
+import Request from '../Dashboard/Request';
 
 const BaseLayout = () => {
 
@@ -76,6 +77,17 @@ const BaseLayout = () => {
           path='/dashboard'
           element={
             <Body
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />}
+        />
+        <Route
+          exact
+          path='/request'
+          element={
+            <Request
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

@@ -42,11 +42,9 @@
   gap: 10px;
   margin: 10px 20px;
 }
-
 .session {
   width: 50%;
   margin: 40px 20px 10px 20px;
-
   .running {
     border: 1px solid black;
     border-radius: 10px;
@@ -71,6 +69,32 @@
     .rightside {
       width: 40%;
       font-size: 13px;
+    }
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .flex{
+    flex-direction: column-reverse;
+    .updateimg{
+      width: 100%;
+      .btn2{
+        width: 90%;
+      }
+    }
+  }
+}
+.session{
+  width: 100%;
+  margin: 0px;
+  .running{
+    flex-direction: column;
+    align-items: flex-start;
+    .leftside{
+      width: 100%;
+    }
+    .rightside{
+      width: 100%;
     }
   }
 }

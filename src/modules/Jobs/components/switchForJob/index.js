@@ -41,7 +41,7 @@ const Index = (props) => {
   return (
     <>
    {props.label1 ?
-    <Box display="flex" alignItems="center" sx={{marginLeft:'10px',flexWrap:'wrap'}}>
+    <Box display="flex">
     <Typography variant="body1" >
         {props.label1}
       </Typography>
@@ -64,7 +64,7 @@ const Index = (props) => {
         {props.label2}
       </Typography>
       </Box> :
-      <Box display="flex" alignItems="center" sx={{marginLeft:'10px',flexWrap:'wrap'}}>
+     
       <FormControlLabel
       sx={{margin:0}}
         control={<Android12Switch checked={props.checked} onChange={props.onChange}   sx={{
@@ -79,7 +79,7 @@ const Index = (props) => {
         label={props.label}
         labelPlacement="start"
       />
-      </Box>
+ 
       }
 
     </>

@@ -40,7 +40,7 @@ const PersistentDrawerLeft = ({
   textSelectorOpen }) => {
 
   const data = [
-    { header: { 'DASHBOARD': '/dashboard' }, detail: { 'REQUEST BOARD': '/jobs' } },
+    { header: { 'DASHBOARD': '/dashboard' }, detail: { 'REQUEST BOARD': '/request' } },
     { header: { 'Jobs': '/jobs' }, detail: {} },
     { header: { 'CUSTOMERS': '/customers' }, detail: { 'UNINVOICED TICKETS': '/uninvoiced' } },
     { header: { 'TRUCK': '/truck/all' }, detail: { FUELLOG: '/mileages/logs', 'TRAFFIC STOPS': '/dps/logs', INSPECTIONS: '/inspections' } },

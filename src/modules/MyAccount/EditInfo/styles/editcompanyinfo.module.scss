@@ -60,6 +60,7 @@
         font-size: 16px;
         line-height: 0.5;
       }
+
       .contorl {
         padding: 0 10px;
         display: flex;
@@ -74,17 +75,19 @@
       padding: 20px 10px 10px 20px;
       font-size: 16px;
     }
+
     .batch {
       padding: 0 10px 10px 20px;
       border-bottom: 3px solid rgb(233, 233, 233);
       color: black;
       font-size: 13px;
     }
+
     .lastpart {
       padding: 0px 20px;
 
       .heading3 {
-        padding: 20px 10px 10px 0px;
+        padding: 10px 10px 10px 0px;
         font-weight: 700;
         color: black;
         font-size: 16px;
@@ -98,6 +101,16 @@
         color: black;
         border: 1px solid black;
         transition: 1s;
+      }
+
+      .invoiceBtn {
+        font-size: 13px;
+        padding: 8px 20px;
+        margin: 20px 10px 10px 0px;
+        background-color: rgb(237, 202, 51);
+        color: rgb(0, 0, 0);
+        transition: 1s;
+        border: 0px;
       }
 
       .batch2 {
@@ -143,8 +156,20 @@
         background-color: rgb(30, 30, 30);
         color: white;
         transition: 1s;
-      }
 
+      }
+    }
+  }
+}
+@media only screen and (max-width:600px) {
+  .flex{
+    flex-direction: column-reverse;
+    .updateimg{
+      width: 100%;
+      border: 0px;
+    }
+    .left{
+      width: 100%;
     }
   }
 }
