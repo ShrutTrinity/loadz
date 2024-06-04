@@ -71,14 +71,14 @@ const RequestFunction = () => {
                 Pending
               </AccordionSummary>
             </Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Resolved
-              </AccordionSummary>
-            
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              Resolved
+            </AccordionSummary>
+
           </AccordionDetails>
         </Accordion>
         <Accordion>
