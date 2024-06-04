@@ -12,6 +12,14 @@ const TemplateCard = ({ headingName }) => {
         <span className={styles.headingText}>{headingName}</span>
         <div className={styles.searchCover}>
           <TextField
+            sx={{
+              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(0, 0, 0, 0.23)',
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'rgb(237, 202, 51)',
+              },
+            }}
             id="outlined-search"
             label={labelName}
             type="search"
