@@ -35,6 +35,9 @@ const AddNewOperator = (props) => {
       fontWeight: '800',
       alignItems: 'center',
       color: 'white',
+     ' @media only screen and (max-width:600px)': {
+      fontSize:'15px'
+      }
     }
   }
 
@@ -62,8 +65,8 @@ const AddNewOperator = (props) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title" style={dialogstyle.title}>
-          <div> {"Add New Owner Operator"}</div>
-          <CloseIcon />
+          <div className={styles.heading}> {"Add New Owner Operator"}</div>
+          <CloseIcon onClick={handleClose}/>
         </DialogTitle>
         <DialogContent sx={{ padding: 0 }}>
           <form className={styles.form}>
@@ -89,7 +92,7 @@ const AddNewOperator = (props) => {
                 <CustomTextFiled
                   name='SSN#'
                   type='number'
-                  label='EIN#'
+                  label='SSN#'
                   placeholder='XX-XXXXXXX'
                 />
               </div>
