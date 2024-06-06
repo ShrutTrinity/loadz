@@ -12,6 +12,7 @@ import CreateAccount from '@modules/CreateAccount/newAccount/CreateAccount';
 import SetupOfCompany from '@modules/CreateAccount/companySetup/SetupOfCompany';
 import Error from '@modules/ErrorPage/Error';
 import BaseLayout from '@modules/DashboardPanel';
+import CreateCustomer from './modules/Dwolla/CreateCustomer';
 
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
    <>
       <Router>
         <Routes>
-          <Route path='/' element={<LoginPage />} />``
+          <Route path='/' element={<LoginPage />} />
           <Route path='/customerportal/login' element={<Portal />} />
           <Route exact path='/forgetPassword' element={<ForgetPass />} />
           <Route exact path='/subscription' element={<Subscription/>} />
@@ -30,6 +31,7 @@ const App = () => {
           <Route exact path='/subscription/company/0' element={<Welcome />} />
           <Route exact path='/subscription/company/1' element={<CreateAccount />} />
           <Route exact path='/subscription/company/2' element={<SetupOfCompany />} />
+          <Route exact path='/dwolla' element={<CreateCustomer />} />
           <Route exact path='/404' element={<Error />} />
           <Route exact path='/*' element={<BaseLayout />} />
         </Routes>
