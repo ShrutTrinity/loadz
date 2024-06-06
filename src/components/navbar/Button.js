@@ -6,7 +6,7 @@ const Button = (props) => {
   return (
     <>
       <div className={styles.contain}>
-        <Link to='/' style={{ textDecoration: 'none' }}><button className={styles.btn}>
+        <Link to={props.link} style={{ textDecoration: 'none' }}><button className={styles.btn}>
           {props.icon}
           {props.title}</button></Link>
       </div>

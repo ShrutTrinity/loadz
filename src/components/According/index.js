@@ -5,6 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { Tooltip } from '@mui/material';
 
 const According = (props) => {
   return (
@@ -36,9 +37,18 @@ const According = (props) => {
           ))}
           {Object.entries(props.header).map(([itemName, link]) => (
             <Link key={itemName} to={link} style={{ color: 'black', textDecoration: 'none' }}>
-
-              {itemName === 'SUBCONTRACTORS' && <ErrorOutlineIcon />}
-              {itemName === 'OWNER OPERATORS' && <ErrorOutlineIcon />}
+              {itemName === 'SUBCONTRACTORS' && (
+                <Tooltip title="Subcontractors are independent truck owners who operate under their own authority. They maintain ownership of their trucks and are responsible for their own subscriptions. As a result, subcontractors do not contribute towards your subscription count">
+                  <ErrorOutlineIcon />
+                </Tooltip>
+              )}
+              {itemName === 'OWNER OPERATORS' && (
+                <Tooltip sx={{'& .css-ja5taz-MuiTooltio-tooltip':{
+                  'fontSize':'20px'
+                }}} title="Owner Operators are independent truck owners without their own Loadz subscription. They count as a subscription seat per driver.">
+                  <ErrorOutlineIcon />
+                </Tooltip>
+              )}
             </Link>
           ))}
           {props.detail && Object.keys(props.detail).length > 0 && <ExpandMoreIcon />}
