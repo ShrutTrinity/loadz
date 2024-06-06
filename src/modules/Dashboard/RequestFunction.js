@@ -63,6 +63,7 @@ const RequestFunction = () => {
         <div className={styles.profile}>
           Requests
         </div>
+        <div className={styles.scroll}>
         <Accordion sx={{ backgroundColor: 'none', boxShadow: 'none' }}>
           <AccordionSummary
             sx={{ fontSize: '20px', fontWeight: '500' }}
@@ -159,10 +160,10 @@ const RequestFunction = () => {
             </AccordionSummary>
             </Accordion>
           </AccordionDetails>
-        </Accordion>
+        </Accordion></div>
       </div>
     </>
   )
 }
 
-export default RequestFunction;
+export default RequestFunction
