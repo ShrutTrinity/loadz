@@ -1,9 +1,35 @@
-@import '@styles';
+@import "@styles";
 
-.body{
+.body {
   padding: 6px;
+  width: 100vw;
 
-  .stepperCover{
+  .stepperCover {
     margin-bottom: 16px;
+  }
+
+  .formSection {
+    margin: 8px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+      rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 16px 16px 24px;
+
+    .formHeading {
+      margin: 24px 16px;
+      font-weight: 300;
+      font-size: 22.2857px;
+      line-height: 1.334;
+    }
+
+    .businessDetail{
+      margin: 24px 16px;
+      display: flex;
+      align-items: center;
+    }
   }
 }
