@@ -26,10 +26,45 @@
       line-height: 1.334;
     }
 
-    .businessDetail{
+    .businessDetail {
       margin: 24px 16px;
       display: flex;
       align-items: center;
+    }
+
+    .industryInformation {
+      display: flex;
+      width: 65%;
+      margin: 16px;
+    }
+
+    .addressInformation {
+      display: flex;
+      width: 100%;
+      margin: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 758px) {
+  .body {
+    .stepperCover {
+      .formSection {
+        
+        .businessDetail {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .industryInformation{
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .addressInformation{
+          flex-direction: column;
+        }
+      }
     }
   }
 }
