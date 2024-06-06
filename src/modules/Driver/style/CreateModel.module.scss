@@ -1,18 +1,18 @@
 @import '@styles';
 
-.header{
+.header {
   padding: 13px 24px;
   background-color: $color_3;
   @include flex-column();
 
-  .headerIcon{
+  .headerIcon {
     padding: 6px;
     background-color: green;
     border-radius: 50%;
     margin-left: 13px;
   }
 
-  .heading{
+  .heading {
     font-size: 18px;
     font-weight: 600;
     margin-left: 13px;
@@ -24,30 +24,35 @@
   flex-direction: column;
   padding: 16px 16px;
 
-  .instructions{
+  .instructions {
     font-size: 12px;
     font-weight: 300;
   }
 
-  .fieldCover{
+  .fieldCover {
     display: flex;
     gap: 8px;
+    overflow-x: auto;
     margin-top: 16px;
     padding: 6px;
-    width: 100%;
+    width: auto;
     border: 1px solid rgba(0, 0, 0, 0.416);
     font-size: 13px !important;
+    flex-wrap: nowrap;
+    width: 100%;
 
-    .field1 , .field2{
-      width: 50%;
+    .field1,
+    .field2 {
+      flex: 0 0 48%;
+      min-width: 48%;
     }
   }
 
-  .createIcon{
+  .createIcon {
     display: flex;
     justify-content: center;
 
-    .iconCover{
+    .iconCover {
       padding: 2px 2px 3px;
       border-radius: 50%;
       cursor: pointer;
@@ -58,12 +63,15 @@
 }
 
 @media screen and (max-width: 899px) {
-  .content{
-    .fieldCover{
-     flex-direction: column;
-  
-      .field1 , .field2{
+  .content {
+    .fieldCover {
+      flex-direction: column;
+      overflow-x: visible;
+
+      .field1,
+      .field2 {
         width: 100%;
+        min-width: 100%;
       }
     }
   }
