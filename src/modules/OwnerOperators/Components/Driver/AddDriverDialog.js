@@ -73,6 +73,7 @@ const AddDriverDialog = ({ open, onClose }) => {
                 <div key={fieldCover.id} className={styles.fieldCover}>
                   <CustomTextFiled
                     style={{ width: '100%' }}
+                    width='100'
                     name='name'
                     type='text'
                     required
@@ -82,12 +83,14 @@ const AddDriverDialog = ({ open, onClose }) => {
                   <CustomTextFiled
                     style={{ width: '100%' }}
                     name='address'
+                    width='100'
                     type='text'
                     label='Address'
                     placeholder='Address'
                   />
                   <CustomTextFiled
                     style={{width:'100%'}}
+                    width='100'
                     name='city'
                     type='text'
                     label='City'
@@ -113,12 +116,14 @@ const AddDriverDialog = ({ open, onClose }) => {
                     style={{width: '100%'}}
                     name='zip'
                     type='number'
+                    width='100'
                     label='Zip'
                     placeholder='Zip'
                   />
                   <CustomTextFiled
                     style={{width: '100%'}}
-                    name='phone'
+                    name='phone' 
+                    width='100'
                     type='number'
                     label='Phone'
                     placeholder='Company Owner Name'
@@ -126,12 +131,14 @@ const AddDriverDialog = ({ open, onClose }) => {
                   <CustomTextFiled
                     style={{width: '100%'}}
                     name='hourlyWage'
+                    width='100'
                     type='number'
                     label='Hourly Wage'
                     placeholder='$0.00'
                   />
                   <CustomTextFiled
                     style={{width: '100%'}}
+                    width='100'
                     name='commission'
                     type='number'
                     label='Commission Rate'
