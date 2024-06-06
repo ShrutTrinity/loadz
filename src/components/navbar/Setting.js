@@ -25,8 +25,8 @@ const Setting = ({handleClose}) => {
             Settings
           </div>
           <div className={styles.btns}>
-            <Button title={"Ticket Status"} icon={<ConfirmationNumberIcon />} />
-            <Button title={"Inspection Questions"} icon={<AssignmentTurnedInIcon />} />
+            <Button title={"Ticket Status"} link='/ticiketStatus' icon={<ConfirmationNumberIcon />} />
+            <Button title={"Inspection Ques tions"} icon={<AssignmentTurnedInIcon />} />
             <Button title={"Materials"} icon={<ShopIcon />} />
             <Button title={"Units"} icon={<SquareFootIcon />} />
             <Button title={"Quarries"} icon={<PlaceIcon />} />
