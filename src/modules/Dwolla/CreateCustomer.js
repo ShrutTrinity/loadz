@@ -108,8 +108,7 @@ const states = [
 const allStyle = {
   labelStyle: {
     fontSize: '13px'
-  },
-
+  }
 }
 
 const CreateCustomer = () => {

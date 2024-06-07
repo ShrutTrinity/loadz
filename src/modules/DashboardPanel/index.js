@@ -26,6 +26,7 @@ import Profile from '../MyAccount/Profile';
 import DispatchScreen from '../Dispatch/DispatchScreen';
 import TemplateScreen from '../Dispatch/Template/TemplateScreen';
 import Request from '../Dashboard/Request';
+import SubscriptionCompany from '../SubscriptionPanel/SubscriptionCompany';
 
 const BaseLayout = () => {
 
@@ -345,6 +346,18 @@ const BaseLayout = () => {
           path='/dispatch/template'
           element={
             <TemplateScreen
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/subscriptions-company'
+          element={
+            <SubscriptionCompany
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

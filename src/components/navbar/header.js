@@ -8,7 +8,7 @@ import According from '../According';
 import logo from '@images/loadzlogo.png'
 import banner from '@images/banner.png'
 import NavigationBar from './NavigationBar';
-import { AppBar } from '@mui/material';
+import { AppBar, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
@@ -92,13 +92,34 @@ const PersistentDrawerLeft = ({
           {data.map((item, index) => (
             <According key={index} header={item.header} detail={item.detail} />
           ))}
+          <section className={styles.billingDetails}>
+            <div className={styles.heading}>
+              free trial ends in
+            </div>
+            <div className={styles.days}>29</div>
+            <span>DAYS</span>
+            <Link to='/subscriptions-company'>
+              <Button
+                sx={{
+                  background: 'black',
+                  color: 'white',
+                  fontSize: '11px',
+                  borderRadius: '18px'
+                }}
+                variant="contained"
+              >
+                Update Billing Details
+              </Button>
+            </Link>
+          </section>
           <Link to='/dwolla/intro'>
             <img src={banner} className={styles.banner} alt='logo' />
           </Link>
 
         </DrawerContent>
+
         <img src={logo} className={styles.img} alt='logo' />
-        
+
       </Drawer>
     </AppBar>
   );

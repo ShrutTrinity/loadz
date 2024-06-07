@@ -48,23 +48,36 @@
 
 @media only screen and (max-width: 758px) {
   .body {
-    .stepperCover {
-      .formSection {
-        
-        .businessDetail {
-          flex-direction: column;
-          width: 100%;
-        }
-
-        .industryInformation{
-          flex-direction: column;
-          width: 100%;
-        }
-
-        .addressInformation{
-          flex-direction: column;
-        }
+    .formSection {
+      .businessDetail {
+        flex-direction: column;
+        align-items: center;
+        margin: 24px 0;
+        width: 100%;
       }
+
+      .industryInformation {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+      }
+
+      .addressInformation {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .body {
+    .stepperCover {
+      display: none;
     }
   }
 }
