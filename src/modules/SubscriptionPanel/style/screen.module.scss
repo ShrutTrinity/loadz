@@ -1,13 +1,271 @@
-@import '@styles';
+@import "@styles";
 
-.body{
+.body {
   margin-top: 57px;
   padding: 16px;
   position: absolute;
+  height: auto;
   right: 0;
+  width: 100%;
+  background-color: rgba(245, 245, 245, 1);
+  color: $color_1;
 
-  .heading{
+  .heading {
     font-size: 31.5714px;
     font-weight: 300;
+  }
+
+  .screen {
+    margin: 32px;
+    display: flex;
+    flex-direction: column;
+
+    .professionalDetail {
+      display: flex;
+
+      .part1 {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 32px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-radius: 16px;
+        overflow: hidden;
+        min-width: 275px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+          rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
+          rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+        padding: 16px 16px 24px;
+        width: 65%;
+
+        .currentPlan {
+          display: flex;
+          flex-direction: column;
+
+          span {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgb(107, 114, 128);
+          }
+
+          h5 {
+            font-weight: bold;
+            font-size: 22.2857px;
+          }
+        }
+
+        .status {
+          display: flex;
+          flex-direction: column;
+
+          span {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgb(107, 114, 128);
+            margin: 0;
+          }
+
+          .freeTrial {
+            margin: 0;
+            font-weight: 300;
+            font-weight: 22.2857px;
+          }
+          .day {
+            font-weight: 300;
+            color: rgb(107, 114, 128);
+            font-size: 10px;
+          }
+          .link {
+            color: $color_3;
+            font-size: 10px;
+          }
+        }
+
+        .paymentDisplay {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+
+          .payment {
+            display: flex;
+            flex-direction: column;
+            font-size: 30px;
+            font-weight: bold;
+
+            .subDetail {
+              font-size: 10px;
+              font-weight: 700;
+            }
+          }
+
+          .paymentProcess {
+            display: flex;
+            width: 65%;
+            margin-top: 16px;
+            gap: 8px;
+
+            .link {
+              margin-right: 16px;
+              font-size: 10px;
+              color: $color_3;
+            }
+          }
+        }
+      }
+
+      .part2 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-radius: 16px;
+        overflow: hidden;
+        min-width: 275px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+          rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
+          rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+        padding: 16px 16px 24px;
+        width: 30%;
+
+        .email {
+          margin-top: 16px;
+          font-size: 13px;
+          color: rgb(107, 114, 128);
+        }
+      }
+    }
+
+    .resource {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      margin-left: 32px;
+      margin-top: 32px;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border-radius: 16px;
+      overflow: hidden;
+      min-width: 275px;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+        rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+      padding: 16px 16px 24px;
+
+      .resourceHeader {
+        font-size: 18.5714px;
+        font-weight: 300;
+        margin-bottom: 3.5px;
+      }
+
+      .resourceList {
+        display: flex;
+        justify-content: space-around;
+        padding: 16px;
+
+        .driver {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: column;
+          color: rgba(0, 0, 0, 0.54);
+
+          .resourceName {
+            font-size: 13px;
+          }
+
+          num {
+            font-size: 22.2857px;
+          }
+        }
+      }
+    }
+
+    .transactions {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      margin-left: 32px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border-radius: 16px;
+      overflow: hidden;
+      min-width: 275px;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+        rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+      padding: 16px 16px 24px;
+
+      .transactionsHeader {
+        img {
+          height: 32px;
+          width: 32px;
+        }
+        .headingText {
+          margin-left: 4px;
+          font-weight: 700;
+          font-size: 18.5714px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 899px) {
+  .body {
+    .screen {
+      .professionalDetail {
+        flex-direction: column;
+
+        .part1 {
+          margin: 0;
+          margin-bottom: 16px;
+          width: 100%;
+        }
+        .part2 {
+          width: 100%;
+        }
+      }
+      .resource {
+        margin-left: 0;
+      }
+      .transactions {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .body {
+    .screen {
+      .professionalDetail {
+        flex-direction: column;
+
+        .part1 {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+
+          .paymentDisplay {
+            align-items: center;
+            .paymentProcess {
+              width: 100%;
+              align-items: center;
+            }
+          }
+        }
+      }
+      .resource {
+        .resourceList {
+          flex-direction: column;
+        }
+      }
+    }
   }
 }
