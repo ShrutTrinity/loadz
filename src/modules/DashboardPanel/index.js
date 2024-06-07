@@ -27,6 +27,8 @@ import DispatchScreen from '../Dispatch/DispatchScreen';
 import TemplateScreen from '../Dispatch/Template/TemplateScreen';
 import Request from '../Dashboard/Request';
 import SubscriptionCompany from '../SubscriptionPanel/SubscriptionCompany';
+import Tickets from '../Tickets/Tickets';
+import AddTicket from '../Tickets/AddTicket';
 
 const BaseLayout = () => {
 
@@ -358,6 +360,30 @@ const BaseLayout = () => {
           path='/subscriptions-company'
           element={
             <SubscriptionCompany
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/tickets/status'
+          element={
+            <Tickets
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/tickets/status/new'
+          element={
+            <AddTicket
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

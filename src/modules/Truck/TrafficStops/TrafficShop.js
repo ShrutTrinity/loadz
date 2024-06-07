@@ -51,7 +51,6 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   const bodyStyle = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
   }
@@ -59,7 +58,6 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
     bodyStyle.width = '100%';
     var bodyclick = handleDrawerClose;
   }
-
   return (
     <>
       <div
