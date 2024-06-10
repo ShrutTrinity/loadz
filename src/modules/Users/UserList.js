@@ -91,7 +91,7 @@ const UserList = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
     bodyStyle.width = '100%';
     var bodyclick = handleDrawerClose;
   }
-
+  
   return (
     <>
       {

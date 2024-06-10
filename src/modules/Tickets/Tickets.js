@@ -45,66 +45,66 @@ const Tickets = (props) => {
 
   return (
     <>
-    
+
       <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.headerPart}>
           <div className={styles.headerName}>
-            <ConfirmationNumberIcon  className={styles.blockIcon} />
+            <ConfirmationNumberIcon className={styles.blockIcon} />
             <span className={styles.headerText}>Ticket List</span>
           </div>
-         
-            <div className={styles.search}>
-              <FormControl
-                className={search}
-                sx={{ width: '100%', position: 'relative' }}
+
+          <div className={styles.search}>
+            <FormControl
+              className={search}
+              sx={{ width: '100%', position: 'relative' }}
+            >
+              <TextField
+                size="small"
+                placeholder='Search Customers'
+                variant="outlined"
+                sx={{
+                  "& input::placeholder": {
+                    fontSize: "13px"
+                  },
+                  '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
+                    borderRadius: '20px',
+                  },
+                  '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
+                    padding: '5px'
+                  },
+                  boxShadow: ' rgba(0, 0, 0, 0.2) 4px 4px 4px',
+                  border: '0px',
+                  flexGrow: 1,
+                  width: '200%',
+                  borderRadius: '20px',
+                  backgroundColor: 'white',
+                  '@media (max-width: 1200px)': {
+                    width: '100%',
+                  }
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon sx={{ color: 'black' }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </FormControl>
+          </div>
+          <div className={styles.buttonsContainer}>
+            <Link to='/tickets/status/new'>
+              <Button
+                variant="contained"
+                style={allStyle.button}
               >
-                 <TextField
-            size="small"
-            placeholder='Search Customers'
-            variant="outlined"
-            sx={{
-              "& input::placeholder": {
-                fontSize: "13px"
-              },
-              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: 'rgba(0, 0, 0, 0.23)',
-              },
-              '& .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root': {
-                borderRadius: '20px',
-              },
-              '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                padding: '5px'
-              },
-              boxShadow:' rgba(0, 0, 0, 0.2) 4px 4px 4px',
-              border: '0px',
-              flexGrow: 1,
-              width: '200%',
-              borderRadius: '20px',
-              backgroundColor: 'white',
-              '@media (max-width: 1200px)': {
-                width: '100%',
-              }
-            }}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon sx={{ color: 'black' }} />
-                </InputAdornment>
-              ),
-            }}
-          />
-              </FormControl>
-            </div>
-            <div className={styles.buttonsContainer}>
-              <Link to='/tickets/status/new'>
-                <Button
-                  variant="contained"
-                  style={allStyle.button}
-                >
-                  Add Ticket
-                </Button>
-              </Link>
-              
+                Add Ticket
+              </Button>
+            </Link>
+
           </div>
         </div>
 
