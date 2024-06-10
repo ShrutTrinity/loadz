@@ -1,7 +1,7 @@
+
 import React from 'react';
-import styles from './styles/tickets.module.scss';
+import styles from './Styles/inspection.module.scss';
 import {
-  Button,
   FormControl,
   InputAdornment,
   TextField,
@@ -9,20 +9,8 @@ import {
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import { createStyles, makeStyles } from '@mui/styles';
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from 'react-router-dom';
-import TicketDataTable from './TicketDataTable';
-import rows from './tickets.json'
 
-const allStyle = {
-  button: {
-    background: 'rgb(0,0,0)',
-    color: 'rgb(255,255,255)',
-    fontSize: '13px',
-    fontWeight: '300',
-    margin: '3px 6px',
-    borderRadius: '18px'
-  }
-}
+
 
 const useStyles = makeStyles(() => {
   return createStyles({
@@ -34,8 +22,7 @@ const useStyles = makeStyles(() => {
   });
 });
 
-const Tickets = (props) => {
-  console.log(rows.length)
+const Inspection = (props) => {
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
   }
@@ -81,7 +68,7 @@ const Tickets = (props) => {
                   boxShadow: ' 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);',
                   border: '0px',
                   flexGrow: 1,
-                  width: '200%',
+                  width: '100%',
                   borderRadius: '20px',
                   backgroundColor: 'white',
                   '@media (max-width: 1200px)': {
@@ -98,29 +85,10 @@ const Tickets = (props) => {
               />
             </FormControl>
           </div>
-          <div className={styles.buttonsContainer}>
-            <Link to='/tickets/status/new'>
-              <Button
-                variant="contained"
-                style={allStyle.button}>
-                Add Ticket
-              </Button>
-            </Link>
-
-          </div>
-        </div>
-
-        <div className={styles.container}>
-          {rows.length !== 0 ?
-          <TicketDataTable rows={rows}/>:
-          <div className={styles.emptyCondition}>
-            <span className={styles.emptyText}>There are no Tickets Status References!</span>
-          </div>
-            }
-        </div>
+      </div>
       </div>
     </>
   )
 }
 
-export default Tickets;
+export default Inspection;

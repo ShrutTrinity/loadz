@@ -41,7 +41,7 @@ const Index = (props) => {
   return (
     <>
    {props.label1 ?
-    <Box display="flex">
+    <Box display="flex" sx={{alignItems:'center'}}>
     <Typography variant="body1" >
         {props.label1}
       </Typography>

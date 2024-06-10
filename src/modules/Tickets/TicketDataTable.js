@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from './style/InvitationModel.module.scss';
-import { Dialog, Checkbox, IconButton, TablePagination, TableFooter, TableRow, Avatar } from '@mui/material'; // Import necessary components from MUI
+import styles from './styles/Datatable.module.scss';
+import { Checkbox, IconButton, TablePagination, TableFooter, TableRow } from '@mui/material'; 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,21 +12,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import BlockIcon from '@mui/icons-material/Block';
-import EditIcon from '@mui/icons-material/Edit';
-import EditDriverInvitation from './EditDriverInvitation';
 
-function createData(number, type, senttype, valid, accept) {
-  return { number, type, senttype, valid, accept };
-}
-
-const rows = [
-  createData(23879675, 'employeeA', 'phone', 'valid', 'Pending'),
-  createData(23879875, 'employeeB', 'phone', 'valid', 'Pending'),
-  createData(23897675, 'employeeC', 'phone', 'valid', 'Pending'),
-  createData(23872675, 'employeeD', 'phone', 'valid', 'Pending'),
-  createData(23879675, 'employeeE', 'phone', 'valid', 'Pending'),
-];
 const TablePaginationActions = (props) => {
   const { count, page, rowsPerPage, onPageChange } = props;
 
@@ -80,12 +66,13 @@ const TablePaginationActions = (props) => {
   );
 };
 
-const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
+const TicketDataTable = (props) => {
+
+  const {rows} = props  
   const [selectAll, setSelectAll] = useState(false);
   const [selected, setSelected] = useState(Array(rows.length).fill(false));
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(1);
-  const [editDialog, setEditDialog] = useState(false);
 
   const handleSelectAll = () => {
     const newSelected = Array(rows.length).fill(!selectAll);
@@ -93,12 +80,6 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
     setSelectAll(!selectAll);
   };
 
-  const EditDialogOpen = () => {
-    setEditDialog(true)
-  }
-  const EditDialogClose = () => {
-    setEditDialog(false)
-  }
   const handleCheckboxChange = (index) => {
     const newSelected = [...selected];
     newSelected[index] = !newSelected[index];
@@ -119,34 +100,14 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
 
   return (
     <>
-      <EditDriverInvitation
-        editDialog={editDialog}
-        EditDialogClose={EditDialogClose}
-      />
-      <Dialog
-        open={openInvitationDialog}
-        onClose={closeInvitationDialog}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        sx={{
-          '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
-            maxWidth: 'unset',
-            width: '90vw',
-            borderRadius: '20px',
-            fontSize: '10px !important'
-          }
-        }}
-      >
+     
         <div className={styles.container}>
-          <div className={styles.heading}>
-            Invitations
-          </div>
           <div className={styles.content}>
-            <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="caption table">
-                <TableHead sx={{ backgroundColor: 'rgb(219 224 229 / 25%)' }}>
-                  <TableRow>
-                    <TableCell>
+            <TableContainer component={Paper} sx={{boxShadow:'none'}}>
+              <Table  aria-label="caption table">
+                <TableHead >
+                  <TableRow >
+                    <TableCell sx={{width:'50px',display:'flex' }}>
                       <Checkbox
                         sx={{
                           '&.Mui-checked': {
@@ -156,26 +117,22 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                         checked={selectAll}
                         onChange={handleSelectAll}
                       />
-                    </TableCell>
-                    <TableCell>{isAnyCheckboxSelected && (
+                    {isAnyCheckboxSelected && (
                       <IconButton aria-label="menu" sx={{ padding: '0px' }}>
                         <MoreHorizIcon />
                       </IconButton>
-                    )}</TableCell>
-                    <TableCell>Sent to</TableCell>
-                    <TableCell>Invite Type	</TableCell>
-                    <TableCell >Sent With</TableCell>
-                    <TableCell>Invite Valid	</TableCell>
-                    <TableCell>Invite Accepted	</TableCell>
-                    <TableCell>Edit</TableCell>
+                    )}
+                    </TableCell>
+                    <TableCell align="left" >
+                    Name</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {rows
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row, index) => (
-                      <TableRow key={row.name}>
-                        <TableCell>
+                      <TableRow key={row.name} >
+                        <TableCell sx={{width:'50px'}}>
                           <Checkbox
                             sx={{
                               '&.Mui-checked': {
@@ -186,35 +143,18 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                             onChange={() => handleCheckboxChange(index)}
                           />
                         </TableCell>
-                        <TableCell>
-                          <div className={styles.Avatarimage}>
-                          <Avatar alt="Trevor Henderson" src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?size=626&ext=jpg" />
-                          </div>
-                        </TableCell>
-                        <TableCell component="th" scope="row">
-                          {row.number}
-                        </TableCell>
-                        <TableCell >{row.type}</TableCell>
-                        <TableCell >{row.senttype}</TableCell>
-                        <TableCell>{row.valid}</TableCell>
-                        <TableCell >
-                          <div className={styles.pendingDiv}>
-                            <BlockIcon sx={{ color: 'red' }} />
-                            {row.accept}
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className={styles.pendingDiv2} onClick={EditDialogOpen}>
-                            <EditIcon sx={{ color: 'rgb(237, 202, 51)' }} />
-                            Edit
-                          </div>
-                        </TableCell>
+                        <TableCell align='left'>{row.name}</TableCell>
                       </TableRow>
                     ))}
                 </TableBody>
               </Table>
-              <TableFooter sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                <TableRow>
+              <TableFooter sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center',border:'0px' }}>
+                <TableRow sx={{
+                  '& .css-fikjyc-MuiTableCell-root-MuiTablePagination-root':{
+                  borderBottom:'0px'
+                  }}
+                  }
+                  >
                   <TablePagination
                     rowsPerPageOptions={[1, 10, 25, { label: 'All', value: -1 }]}
                     colSpan={7}
@@ -230,9 +170,8 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
             </TableContainer>
           </div>
         </div>
-      </Dialog>
     </>
-  );
+  )
 }
 
-export default Invitation;
+export default TicketDataTable
