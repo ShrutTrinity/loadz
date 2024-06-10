@@ -29,6 +29,7 @@ import Request from '../Dashboard/Request';
 import SubscriptionCompany from '../SubscriptionPanel/SubscriptionCompany';
 import Tickets from '../Tickets/Tickets';
 import AddTicket from '../Tickets/AddTicket';
+import Inspection from '../Inspection/Inspection';
 
 const BaseLayout = () => {
 
@@ -384,6 +385,18 @@ const BaseLayout = () => {
           path='/tickets/status/new'
           element={
             <AddTicket
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/Inspection/all'
+          element={
+            <Inspection
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

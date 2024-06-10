@@ -88,7 +88,7 @@ const AddTicket = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelect
           </Button>
           </Link>
           <Button
-            variant="contained"
+            variant="contained" 
             style={AddTicketStyle.button}
           >Update
           </Button>
