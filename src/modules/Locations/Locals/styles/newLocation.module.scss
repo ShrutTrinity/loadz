@@ -7,7 +7,6 @@
   right: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
   background-color: rgba(245, 245, 245, 1);
 
   .header {
@@ -65,12 +64,15 @@
     }
   }
 
-  .formContainer {
-    display: flex;
-    width: 100%;
+  .content {
+    overflow: auto;
+    .formContainer {
+      display: flex;
+      width: 100%;
 
-    .part1 {
-      width: 50%;
+      .part1 {
+        width: 50%;
+      }
     }
   }
 }
