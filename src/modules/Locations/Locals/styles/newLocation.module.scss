@@ -45,7 +45,7 @@
         .headerText {
           margin: 0 8px;
 
-           .h4{
+          .h4 {
             font-weight: 700;
             font-size: 20px;
             margin: 0;
@@ -59,14 +59,18 @@
       }
     }
 
-    .buttons{
+    .buttons {
       display: flex;
       gap: 8px;
     }
   }
 
-  .content{
+  .formContainer {
+    display: flex;
+    width: 100%;
 
-
+    .part1 {
+      width: 50%;
+    }
   }
 }

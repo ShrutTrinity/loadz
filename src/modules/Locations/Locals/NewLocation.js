@@ -124,7 +124,14 @@ const NewLocation = (props) => {
                   </TabList>
                 </Box>
                 <TabPanel value="1" sx={{ padding: '24px' }}>
-                  hii
+                  <section className={styles.formContainer}>
+                    <div className={styles.part1}>
+                      hii
+                    </div>
+                    <div className={styles.part1}>
+                      hii
+                    </div>
+                  </section>
                 </TabPanel>
               </TabContext>
             </Box>
