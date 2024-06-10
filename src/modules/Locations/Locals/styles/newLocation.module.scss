@@ -1,0 +1,72 @@
+@import "@styles";
+
+.body {
+  margin-top: 57px;
+  padding: 50px 32px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: rgba(245, 245, 245, 1);
+
+  .header {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 100%;
+
+      .backLink {
+        text-decoration: none;
+        cursor: pointer;
+
+        .part1 {
+          color: $color_1;
+          display: flex;
+          margin: 0px;
+          font-size: 13px;
+          font-weight: 300;
+          align-items: center;
+          margin-bottom: 12px;
+          gap: 6px;
+        }
+      }
+      .part2 {
+        align-items: center;
+        max-width: 100%;
+        display: flex;
+
+        .headerText {
+          margin: 0 8px;
+
+           .h4{
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0;
+          }
+        }
+      }
+      .subText {
+        font-size: 13px;
+        font-weight: 300;
+        margin: 0px 8px;
+      }
+    }
+
+    .buttons{
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  .content{
+
+
+  }
+}

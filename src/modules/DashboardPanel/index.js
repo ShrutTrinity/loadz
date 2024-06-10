@@ -29,6 +29,8 @@ import Request from '../Dashboard/Request';
 import SubscriptionCompany from '../SubscriptionPanel/SubscriptionCompany';
 import Tickets from '../Tickets/Tickets';
 import AddTicket from '../Tickets/AddTicket';
+import LocalsScreen from '../Locations/Locals/LocalsScreen';
+import NewLocation from '../Locations/Locals/NewLocation';
 import Inspection from '../Inspection/Inspection';
 
 const BaseLayout = () => {
@@ -177,7 +179,6 @@ const BaseLayout = () => {
         />
         <Route
           exact
-
           path='/dps/logs'
           element={
             <DpsLogs
@@ -385,6 +386,30 @@ const BaseLayout = () => {
           path='/tickets/status/new'
           element={
             <AddTicket
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/locations/locals'
+          element={
+            <LocalsScreen
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/locations/locals/new'
+          element={
+            <NewLocation
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
