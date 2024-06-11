@@ -56,7 +56,7 @@ const MailDialog = ({ openMailDialog, closeMailDialog }) => {
         </div>
         <div className={styles.content}>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+            <InputLabel id="demo-simple-select-label">Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"

@@ -63,11 +63,12 @@ const Tickets = (props) => {
             >
               <TextField
                 size="small"
-                placeholder='Search Customers'
+                placeholder='Search'
                 variant="outlined"
                 sx={{
+                  "& fieldset": { border: 'none' },
                   "& input::placeholder": {
-                    fontSize: "13px"
+                    fontSize: "14px"
                   },
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: 'rgba(0, 0, 0, 0.23)',
