@@ -3,6 +3,8 @@
 .body {
   margin-top: 57px;
   padding: 50px 32px;
+  background-color: rgba(245, 245, 245, 1);
+  min-height: calc(100% - 57px);
   position: absolute;
   right: 0;
 }
@@ -36,6 +38,10 @@
       margin: 0 6px;
     }
   }
+}
+
+.container{
+  margin-top: 30px
 }
 
 .emptyCondition {

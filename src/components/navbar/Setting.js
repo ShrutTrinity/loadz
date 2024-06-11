@@ -54,7 +54,7 @@ const Setting = ({ handleClose }) => {
           </div>
           <div className={styles.btns}>
             <Button title={"Ticket Status"} link='/tickets/status' icon={<ConfirmationNumberIcon />} />
-            <Button title={"Inspection Ques tions"} icon={<AssignmentTurnedInIcon />} link='/Inspection/all' />
+            <Button title={"Inspection Questions"} icon={<AssignmentTurnedInIcon />} link='/Inspection/all' />
             <Button title={"Materials"} icon={<ShopIcon />} link='/e-commerce/materials' />
             <Button title={"Units"} icon={<SquareFootIcon />} link='/unitTemps/units' />
             <Button title={"Quarries"} icon={<PlaceIcon />} link='/locations/locals' />

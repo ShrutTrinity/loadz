@@ -2,60 +2,107 @@
 
 .body {
   margin-top: 57px;
+  min-height: calc(100% - 57px);
   padding: 50px 32px;
+  background-color: rgba(245, 245, 245, 1);
   position: absolute;
   right: 0;
 }
 
 .headerPart {
   @include flex-column();
+  align-items: flex-start;
+  color: $color_1;
   justify-content: space-between;
-  flex-wrap: nowrap;
 
-  .headerName {
-    align-items: center;
-    display: flex;
-    .blockIcon {
-      font-size: 32px;
-    }
-    .headerText {
-      font-weight: 700;
-      margin-left: 12px;
-      font-size: 24px;
-    }
-  }
+  .left {
+    width: 28%;
 
-  .functionButtons {
-    display: flex;
-
-    .buttonsContainer{
+    .headerName {
+      align-items: center;
       display: flex;
+      margin-bottom: 20px;
+
+      .blockIcon {
+        font-size: 32px;
+      }
+
+      .headerText {
+        font-weight: 700;
+        margin-left: 12px;
+        font-size: 24px;
+      }
     }
 
-    .search{
-      margin: 0 6px;
+    .addbtn {
+      background-color: $color_3;
+      font-weight: 300;
+      font-size: 13px;
+      text-transform: none;
+      color: $color_1;
+      border-radius: 20px;
+      margin: 30px 0px;
+      width: 100%;
     }
   }
+
+  .search {
+    width: 65%;
+    margin: 0 6px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    .listNavbar{
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .list {
+      display: flex;
+      overflow-y: auto;
+      width: 100%;
+      margin: 30px 0px;
+      font-size: 13px;
+      font-weight: 300;
+      justify-content: space-between;
+
+      .nameAndType {
+        width: 60%;
+      }
+    }
+  }
+
 }
 
 .emptyCondition {
   @include center();
   height: 65vh;
 
-  .emptyText{
+  .emptyText {
     font-size: 22.2857px;
-    color: rgb(107,114,128);
+    color: rgb(107, 114, 128);
     font-weight: 300;
   }
 }
 
 @media only screen and (max-width: 991px) {
-  .headerPart{
+  .headerPart {
     flex-wrap: wrap;
-    .functionButtons{
+
+    .left{
+      width: 100%;
+    }
+     .search {
+      width: 100%;
+    }
+    .functionButtons {
       flex-direction: column;
 
-      .functionButtons{
+      .functionButtons {
         width: 100%;
       }
     }
