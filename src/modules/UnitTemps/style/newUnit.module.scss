@@ -7,6 +7,7 @@
   right: 0;
   display: flex;
   flex-direction: column;
+  min-height: calc(100% - 57px);
   background-color: rgba(245, 245, 245, 1);
 
   .header {
@@ -63,55 +64,34 @@
 
   .content {
     overflow: auto;
-    .formContainer {
+    padding: 24px 0;
+
+    .form {
       display: flex;
+      justify-content: space-between;
       width: 100%;
-
-      .part1 {
-        width: 48%;
-        padding-right: 16px;
-
-        .heading {
-          font-size: 14.8571px;
-          color: $color_1;
-          font-weight: 300;
-        }
-
-        .addressInfo { 
-          display: flex;
-          gap: 8px;
-        }
-
-        .map {
-          margin-top: 16px;
-          text-align: center;
-        }
+      gap: 16px;
+      .name {
+        width: 50%;
       }
-
-      .part1:nth-child(2) {
-        padding-left: 16px;
+      .matric {
+        width: 50%;
       }
     }
   }
 }
 
-@media screen and (max-width: 768px) {
-  .body {
-    .content {
-      .formContainer {
+@media screen and (max-width: 599px) {
+  .body{
+    .content{
+      .form{
         flex-direction: column;
 
-        .part1 {
+        .name{
           width: 100%;
-          padding-right: 0px;
-
-          .addressInfo {
-            margin-right: 16px;
-          }
         }
-
-        .part1:nth-child(2) {
-          padding-left: 0;
+        .matric{
+          width: 100%;
         }
       }
     }

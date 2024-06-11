@@ -18,7 +18,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
 import Table from './PaymentDetailTable';
-  
+
 const Paymentmethods = [
   'Web Payment',
   'Online Credit Card',
@@ -32,7 +32,7 @@ const Paymentmethods = [
   'Wire Transfer'
 ]
 
-const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
+const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen }) => {
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -79,7 +79,6 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
               type='name'
               label='Customer Name'
               width='30'
-
             />
 
             <div className={styles.dollar}>
@@ -87,11 +86,11 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
             </div>
           </div>
           <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
-          <LocalizationProvider dateAdapter={AdapterDayjs }>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
 
             <DemoContainer components={['DatePicker']}>
               <DatePicker sx={{
-                width:'200px',
+                width: '200px',
                 '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root': {
                   color: 'rgb(237, 202, 51)'
                 },
@@ -101,15 +100,17 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
                 '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
                   borderColor: '#98999a'
                 }
-              }} label="Payment Date" 
+              }} label="Payment Date"
               />
             </DemoContainer>
           </LocalizationProvider>
           <div className={styles.flex2}>
-            <FormControl sx={{ width: '20%',
-            '@media (max-width: 700px)': {
-                  width: '100%'
-                } }}>
+            <FormControl sx={{
+              width: '20%',
+              '@media (max-width: 700px)': {
+                width: '100%'
+              }
+            }}>
               <Select
                 sx={{
                   '& .css-1nfzlfx-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
@@ -129,7 +130,7 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
                   ))
                 }
 
-            </Select>
+              </Select>
             </FormControl>
             <CommonTextfield
               id='number'
@@ -138,29 +139,31 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen}) => {
               label='Reference No.'
               width='20%'
             />
-            <FormControl sx={{ width: '50%', display: 'flex',alignItems:'flex-end',
-            '@media (max-width: 700px)': {
-                  width: '100%'
-                } }}>
-            <TextField
-              sx={{
-                width: `${50}%`,
-                margin: '15px 0 15px 0',
-                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: 'rgba(0, 0, 0, 0.23)',
-                },
-                '& .MuiInputLabel-outlined.Mui-focused': {
-                  color: 'rgb(237, 202, 51)',
-                },
-                '@media (max-width: 700px)': {
-                  width: '97%'
-                }
-              }}
-              type='number'
-              label='Amount Recived'
-              variant='outlined'
-          
-            />
+            <FormControl sx={{
+              width: '50%', display: 'flex', alignItems: 'flex-end',
+              '@media (max-width: 700px)': {
+                width: '100%'
+              }
+            }}>
+              <TextField
+                sx={{
+                  width: `${50}%`,
+                  margin: '15px 0 15px 0',
+                  '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  '& .MuiInputLabel-outlined.Mui-focused': {
+                    color: 'rgb(237, 202, 51)',
+                  },
+                  '@media (max-width: 700px)': {
+                    width: '97%'
+                  }
+                }}
+                type='number'
+                label='Amount Recived'
+                variant='outlined'
+
+              />
             </FormControl>
           </div>
           <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>

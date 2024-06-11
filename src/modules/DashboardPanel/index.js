@@ -32,6 +32,8 @@ import AddTicket from '../Tickets/AddTicket';
 import LocalsScreen from '../Locations/Locals/LocalsScreen';
 import NewLocation from '../Locations/Locals/NewLocation';
 import Inspection from '../Inspection/Inspection';
+import UnitTempsUnit from '../UnitTemps/UnitTempsUnit';
+import NewUnit from '../UnitTemps/NewUnit';
 
 const BaseLayout = () => {
 
@@ -422,6 +424,30 @@ const BaseLayout = () => {
           path='/Inspection/all'
           element={
             <Inspection
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/unitTemps/units'
+          element={
+            <UnitTempsUnit
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/unitTemps/units/new'
+          element={
+            <NewUnit
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
