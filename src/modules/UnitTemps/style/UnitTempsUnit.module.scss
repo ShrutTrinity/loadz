@@ -1,0 +1,53 @@
+@import "@styles";
+
+.body {
+  margin-top: 57px;
+  padding: 50px 32px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - 57px);
+  background-color: rgba(245, 245, 245, 1);
+
+  .headerPart {
+    @include flex-column();
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-bottom: 16px;
+
+    .headerName {
+      align-items: center;
+      display: flex;
+      .blockIcon {
+        font-size: 32px;
+      }
+      .headerText {
+        font-weight: 700;
+        margin-left: 12px;
+        font-size: 24px;
+      }
+    }
+
+    .search {
+      width: 50%;
+    }
+
+    .functionButtons {
+      display: flex;
+
+      .buttonsContainer {
+        display: flex;
+      }
+
+      .search {
+        margin: 0 6px;
+      }
+    }
+  }
+
+  .table{
+    padding-top: 24px;
+    overflow-y: auto;
+  }
+}
