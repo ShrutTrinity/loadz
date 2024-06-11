@@ -51,3 +51,15 @@
     overflow-y: auto;
   }
 }
+
+@media screen and (max-width: 599px) {
+  .body{
+    .headerPart{
+      .headerName{
+        .headerText{
+          display: none;
+        }
+      }
+    }
+  }
+}
