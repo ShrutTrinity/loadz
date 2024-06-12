@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => {
 });
 
 const Tickets = (props) => {
-  console.log(rows.length)
+ 
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
   }
@@ -77,7 +77,7 @@ const Tickets = (props) => {
                     borderRadius: '20px',
                   },
                   '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                    padding: '5px'
+                    padding: '7 px'
                   },
                   boxShadow: ' 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);',
                   border: '0px',
