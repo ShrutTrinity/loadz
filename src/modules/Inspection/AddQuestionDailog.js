@@ -1,5 +1,4 @@
-import React from 'react'
-import Button from '@mui/material/Button';
+import React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -60,15 +59,10 @@ const AddQuestionDailog = (props) => {
               <StarIcon className="icon star" sx={{ color: 'rgb(237, 202, 51)' }} />
             </span>
           </div>
-          <hr/>
-
-        
+          <hr/>        
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button>
+          
         </DialogActions>
       </Dialog>
     </>
