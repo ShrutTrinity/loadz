@@ -140,14 +140,15 @@ const Materials = (props) => {
             </FormControl>
           </div>
           <div className={styles.buttonsContainer}>
-            <Link to='/tickets/status/new'>
+            <Link to='/catmaterials/categories'>
               <Button
                 variant="contained"
                 style={allStyle.button}>
-                <CategoryIcon sx={{fontSize:'19px'}}/>Categories
+                <CategoryIcon sx={{ fontSize: '19px' }} />
+                Categories
               </Button>
             </Link>
-            <Link to='/tickets/status/new'>
+            <Link to='/e-commerce/materials/new'>
               <Button
                 variant="contained"
                 style={allStyle.button}>
@@ -176,7 +177,7 @@ const Materials = (props) => {
                       />
                     </TableCell>
 
-                    <TableCell sx={{ fontWeight: "800",width:'40%'}}>
+                    <TableCell sx={{ fontWeight: "800", width: '40%' }}>
                       {isAnyCheckboxSelected ? (
                         <IconButton aria-label="menu" sx={{ padding: '0px 8.5px' }}>
                           <MoreHorizIcon />
@@ -212,10 +213,10 @@ const Materials = (props) => {
                         <TableCell >
                           <div className={styles.pendingDiv}>
                             <CheckCircleIcon sx={{ color: 'green' }} />
-                           
+
                           </div>
                         </TableCell>
-                        
+
                       </TableRow>
                     ))}
                 </TableBody>

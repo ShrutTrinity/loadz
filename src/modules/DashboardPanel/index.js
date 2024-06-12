@@ -36,6 +36,7 @@ import UnitTempsUnit from '../UnitTemps/UnitTempsUnit';
 import NewUnit from '../UnitTemps/NewUnit';
 import Materials from '../Materials/Materials';
 import EcommerceMaterial from '../Materials/NewMaterials/EcommerceMaterial';
+import Categories from '../Materials/Catmaterials/Categories';
 
 const BaseLayout = () => {
 
@@ -474,6 +475,18 @@ const BaseLayout = () => {
           path='/e-commerce/materials/new'
           element={
             <EcommerceMaterial
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/catmaterials/categories'
+          element={
+            <Categories
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
