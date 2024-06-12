@@ -42,7 +42,9 @@ const UnitTable = () => {
       sx={{
         '& .MuiDataGrid-columnHeaderTitle':{
           padding:'0 24px',
-
+        '& .MuiButtonBase-root-MuiCheckbox-root.Mui-checked':{
+          color:'rgb(237, 202, 51)'
+        }
         }
       }}
         rows={rows}
