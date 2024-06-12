@@ -34,6 +34,7 @@ import NewLocation from '../Locations/Locals/NewLocation';
 import Inspection from '../Inspection/Inspection';
 import UnitTempsUnit from '../UnitTemps/UnitTempsUnit';
 import NewUnit from '../UnitTemps/NewUnit';
+import Materials from '../Materials/Materials';
 
 const BaseLayout = () => {
 
@@ -448,6 +449,18 @@ const BaseLayout = () => {
           path='/unitTemps/units/new'
           element={
             <NewUnit
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/e-commerce/materials'
+          element={
+            <Materials
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
