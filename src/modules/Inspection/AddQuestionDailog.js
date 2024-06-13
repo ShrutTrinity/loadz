@@ -10,6 +10,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 
 const TypeArray = ['tractor', 'trailer'];
 
@@ -17,9 +19,19 @@ const AddQuestionDailog = (props) => {
 
   const { open, handleClose } = props;
   const [type, setType] = useState(TypeArray[0]);
+  const [requireColor, setRequireColor] = useState(false);
+  const [suggestColor, setSuggestColor] = useState(false);
 
   const handleTypes = (event) => {
     setType(event.target.value);
+  }
+
+  const handleRequireColor = () => {
+    setRequireColor(!requireColor);
+  }
+
+  const handleSuggestColor = () => {
+    setSuggestColor(!suggestColor);
   }
 
   const dailogstyle = {
@@ -47,15 +59,16 @@ const AddQuestionDailog = (props) => {
       backgroundColor: 'rgb(237, 202, 51)',
       borderRadius: '18px'
     },
-    question:{
+    question: {
       marginTop: '16px',
       fontSize: '13px',
       width: '100%',
     },
-    submitButtons:{
-      paddingTop:'16px',
+    submitButtons: {
+      paddingTop: '16px',
     }
   }
+
   return (
     <>
       <Dialog
@@ -78,16 +91,18 @@ const AddQuestionDailog = (props) => {
           <form action="" >
             <section>
               <Button
+                onClick={handleRequireColor}
                 style={dailogstyle.button}
                 variant="text"
-                endIcon={<ErrorIcon sx={{ color: 'red' }} />}
+                endIcon={requireColor ? <ErrorIcon sx={{ color: 'red' }} /> : <ErrorOutlineOutlinedIcon />}
               >
                 required
               </Button>
               <Button
+                onClick={handleSuggestColor}
                 style={dailogstyle.button}
                 variant="text"
-                endIcon={<StarIcon sx={{ color: 'orange' }} />}
+                endIcon={suggestColor ? <StarIcon sx={{ color: 'rgb(255, 193, 7)' }} /> : <StarBorderOutlinedIcon />}
               >
                 suggested
               </Button>
