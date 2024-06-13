@@ -37,6 +37,7 @@ import NewUnit from '../UnitTemps/NewUnit';
 import Materials from '../Materials/Materials';
 import EcommerceMaterial from '../Materials/NewMaterials/EcommerceMaterial';
 import Categories from '../Materials/Catmaterials/Categories';
+import AddCategories from '../Materials/Catmaterials/AddCategories';
 
 const BaseLayout = () => {
 
@@ -487,6 +488,18 @@ const BaseLayout = () => {
           path='/catmaterials/categories'
           element={
             <Categories
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/catmaterials/categories/new'
+          element={
+            <AddCategories
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

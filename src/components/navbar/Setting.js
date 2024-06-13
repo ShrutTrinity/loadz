@@ -53,11 +53,11 @@ const Setting = ({ handleClose }) => {
             Settings
           </div>
           <div className={styles.btns}>
-            <Button title={"Ticket Status"} link='/tickets/status' icon={<ConfirmationNumberIcon />} />
-            <Button title={"Inspection Questions"} icon={<AssignmentTurnedInIcon />} link='/Inspection/all' />
-            <Button title={"Materials"} icon={<ShopIcon />} link='/e-commerce/materials' />
-            <Button title={"Units"} icon={<SquareFootIcon />} link='/unitTemps/units' />
-            <Button title={"Quarries"} icon={<PlaceIcon />} link='/locations/locals' />
+            <Button title={"Ticket Status"} link='/tickets/status' icon={<ConfirmationNumberIcon />} onClick={handleClose} />
+            <Button title={"Inspection Questions"} icon={<AssignmentTurnedInIcon />} link='/Inspection/all' onClick={handleClose} />
+            <Button title={"Materials"} icon={<ShopIcon />} link='/e-commerce/materials' onClick={handleClose} />
+            <Button title={"Units"} icon={<SquareFootIcon />} link='/unitTemps/units' onClick={handleClose}  />
+            <Button title={"Quarries"} icon={<PlaceIcon />} link='/locations/locals' onClick={handleClose} />
           </div>
           <div className={styles.tt2}>Inspection Setting</div>
           <div class='flex'>

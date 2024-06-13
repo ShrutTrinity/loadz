@@ -6,7 +6,6 @@ import TimeSheetFunction from './TimeSheetFunction';
 import useDimensions from '@hooks/useDimensions.js';
 import TSDrawer from './TSDrawer';
 
-
 const allStyle = {
   drawerButton: {
     color: 'black',
@@ -38,25 +37,21 @@ const TimeSheetScreen = ({
 
   return (
     <>
-
       <TSDrawer
         height={dimensions.height}
         width={dimensions.width}
         openResponsiveDrawer={responsiveDrawer}
         closeResponsiveDrawer={handleResponsiveDrawer}
       />
-
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
           <div className={styles.contentCard}>
-
             <div className={styles.drawerContainer}>
               <TimeSheetFunction />
             </div>
-
             <div className={styles.contentWrapper} ref={ref}>
               <div className={styles.box}>
                 <div className={styles.circle}>
