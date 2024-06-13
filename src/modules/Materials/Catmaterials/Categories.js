@@ -9,6 +9,30 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from 'react-router-dom';
 import CategoryIcon from '@mui/icons-material/Category';
+import { Checkbox, IconButton, TableRow } from '@mui/material';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import Paper from '@mui/material/Paper';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useState } from 'react';
+
+function createData(name, status) {
+  return { name, status };
+}
+
+const rows = [
+  createData('employeeA'),
+  createData('employeeB'),
+  createData('employeeC'),
+  createData('employeeD'),
+  createData('employeeE'),
+
+];
+
 
 const allStyle = {
   button: {
@@ -49,6 +73,26 @@ const Categories = (props) => {
     bodyStyle.width = '100%';
     var bodyclick = handleDrawerClose;
   }
+  const [selectAll, setSelectAll] = useState(false);
+  const [selected, setSelected] = useState(Array(rows.length).fill(false));
+
+  const handleSelectAll = () => {
+    const newSelected = Array(rows.length).fill(!selectAll);
+    setSelected(newSelected);
+    setSelectAll(!selectAll);
+  };
+
+  const handleCheckboxChange = (index) => {
+    const newSelected = [...selected];
+    newSelected[index] = !newSelected[index];
+    setSelected(newSelected);
+    setSelectAll(newSelected.every((value) => value === true));
+  };
+
+
+  const isAnyCheckboxSelected = selected.some((value) => value === true);
+
+
 
   return (
     <>
@@ -71,7 +115,6 @@ const Categories = (props) => {
                 placeholder='Search'
                 variant="outlined"
                 sx={{
-                  padding: '8px',
                   "& fieldset": { border: 'none' },
                   "& input::placeholder": {
                     fontSize: "13px",
@@ -80,7 +123,7 @@ const Categories = (props) => {
                     borderRadius: '20px',
                   },
                   '& .css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input': {
-                    padding: '5px'
+                    padding: '7px'
                   },
                   boxShadow: ' rgba(0, 0, 0, 0.2) 4px 4px 4px',
                   flexGrow: 1,
@@ -104,7 +147,7 @@ const Categories = (props) => {
             </FormControl>
           </div>
           <div className={styles.buttonsContainer}>
-            <Link to='/'>
+            <Link to='/catmaterials/categories/new'>
               <Button
                 variant="contained"
                 style={allStyle.button}
@@ -113,6 +156,66 @@ const Categories = (props) => {
               </Button>
             </Link>
 
+          </div>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.content}>
+            <TableContainer component={Paper} sx={{ boxShadow: 'none', padding: '20px', border: '1px solid black' }}>
+              <Table sx={{ minWidth: 650 }} aria-label="caption table">
+                <TableHead sx={{ backgroundColor: 'rgb(219 224 229 / 25%)' }}>
+                  <TableRow >
+                    <TableCell >
+                      <Checkbox
+                        sx={{
+                          '&.Mui-checked': {
+                            color: 'rgb(237, 202, 51)',
+                          },
+                        }}
+                        checked={selectAll}
+                        onChange={handleSelectAll}
+                      />
+                    </TableCell>
+
+                    <TableCell sx={{ fontWeight: "800", width: '40%' }} align="left">
+                      {isAnyCheckboxSelected ? (
+                        <IconButton aria-label="menu" sx={{ padding: '0px 8.5px' }}>
+                          <MoreHorizIcon />
+                        </IconButton>
+                      ) : 'Name '}
+                      Category
+                    </TableCell>
+                    <TableCell sx={{ fontWeight: "800" }}>Status</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows
+                    .map((row, index) => (
+                      <TableRow key={row.name}>
+                        <TableCell>
+                          <Checkbox
+                            sx={{
+                              '&.Mui-checked': {
+                                color: 'rgb(237, 202, 51)',
+                              },
+                            }}
+                            checked={selected[index]}
+                            onChange={() => handleCheckboxChange(index)}
+                          />
+                        </TableCell>
+                        <TableCell component="th" scope="row">
+                          {row.name}
+                        </TableCell>
+                        <TableCell >
+                          <div className={styles.pendingDiv}>
+                            <CheckCircleIcon sx={{ color: 'green' }} />
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                </TableBody>
+              </Table>
+
+            </TableContainer>
           </div>
         </div>
       </div>
