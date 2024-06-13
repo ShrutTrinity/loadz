@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import StarIcon from '@mui/icons-material/Star';
 import ErrorIcon from '@mui/icons-material/Error';
+import { Button, TextField } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+
+const TypeArray = ['tractor', 'trailer'];
 
 const AddQuestionDailog = (props) => {
 
+  const { open, handleClose } = props;
+  const [type, setType] = useState(TypeArray[0]);
 
-  const { open, handleClose } = props
+  const handleTypes = (event) => {
+    setType(event.target.value);
+  }
 
   const dailogstyle = {
     title: {
@@ -17,18 +28,32 @@ const AddQuestionDailog = (props) => {
       fontSize: '14px'
     },
     content: {
-      margin: '10px 0px'
+      margin: '10px 0px 0px'
     },
-    icons: {
-      display: 'flex',
-      gap: '30px',
-      fontSize: '14px',
-      alignItem: 'center',
+    button: {
+      color: 'rgb(0,0,0)',
+      textTransform: 'lowercase',
     },
-    req: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
+    selectList: {
+      fontSize: '13px',
+      fontWeight: '300',
+    },
+    questionField: {
+      fontSize: '13px',
+      fontWeight: '300'
+    },
+    submitButton: {
+      color: 'rgb(0,0,0)',
+      backgroundColor: 'rgb(237, 202, 51)',
+      borderRadius: '18px'
+    },
+    question:{
+      marginTop: '16px',
+      fontSize: '13px',
+      width: '100%',
+    },
+    submitButtons:{
+      paddingTop:'16px',
     }
   }
   return (
@@ -37,8 +62,8 @@ const AddQuestionDailog = (props) => {
         sx={{
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
             borderRadius: '20px',
-            minWidth:'40%',
-            maxWidth:'unset'
+            minWidth: '40%',
+            maxWidth: 'unset'
           }
         }}
         open={open}
@@ -50,19 +75,106 @@ const AddQuestionDailog = (props) => {
           {"New Question"}
         </DialogTitle>
         <DialogContent style={dailogstyle.content}>
-          <div style={dailogstyle.icons}>
-            <span style={dailogstyle.req}>
-              required <ErrorIcon className="icon" sx={{ color: 'red' }} />
-            </span>
-            <span style={dailogstyle.req}>
-              suggested
-              <StarIcon className="icon star" sx={{ color: 'rgb(237, 202, 51)' }} />
-            </span>
-          </div>
-          <hr/>        
+          <form action="" >
+            <section>
+              <Button
+                style={dailogstyle.button}
+                variant="text"
+                endIcon={<ErrorIcon sx={{ color: 'red' }} />}
+              >
+                required
+              </Button>
+              <Button
+                style={dailogstyle.button}
+                variant="text"
+                endIcon={<StarIcon sx={{ color: 'orange' }} />}
+              >
+                suggested
+              </Button>
+            </section>
+
+            <hr />
+
+            <FormControl fullWidth size='small' sx={{
+              backgroundColor: 'rgb(255,255,255)',
+              fontSize: '13px'
+            }}>
+              <InputLabel
+                id="demo-simple-select-label"
+                sx={{
+                  fontSize: '13px',
+                  '&.Mui-focused': {
+                    color: 'rgb(237,202,51)',
+                  },
+                }}
+                required
+              >
+                Types
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={type}
+                defaultValue={type}
+                label="Types"
+                onChange={handleTypes}
+                required
+                sx={{
+                  fontSize: '13px',
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                }}
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      borderRadius: '12px'
+                    },
+                  },
+                }}
+              >
+                {TypeArray.map((type, index) => (
+                  <MenuItem key={index} value={type} style={dailogstyle.selectList}>
+                    {type}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            <div style={dailogstyle.question}>
+              <TextField
+                name='question'
+                id='quetion'
+                label="Question"
+                multiline
+                rows={4}
+                defaultValue=""
+                sx={{
+                  width: '100%',
+                  fontSize: '13px',
+                  '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  '& .MuiInputLabel-outlined.Mui-focused': {
+                    color: 'rgb(237, 202, 51)',
+                  },
+                }}
+                style={dailogstyle.questionField}
+              />
+            </div>
+
+            <section style={dailogstyle.submitButtons}>
+              <Button
+                variant='contained'
+                style={dailogstyle.submitButton}
+              >
+                Add
+              </Button>
+            </section>
+          </form>
         </DialogContent>
         <DialogActions>
-          
+
         </DialogActions>
       </Dialog>
     </>

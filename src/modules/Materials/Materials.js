@@ -232,4 +232,4 @@ const Materials = (props) => {
   )
 }
 
-export default Materials
+export default Materials;
