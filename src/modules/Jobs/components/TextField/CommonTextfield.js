@@ -4,7 +4,7 @@ import { InputAdornment, TextField } from '@mui/material';
 const CommonTextfield = (props) => {
   return (
     <>
-      <TextField
+      <TextField size='small'
         sx={{
           background: 'rgb(255,255,255)',
           width: `${props.width}%`,
@@ -15,7 +15,7 @@ const CommonTextfield = (props) => {
 
           },
           "& input::placeholder": {
-            fontSize: "13px"
+            fontSize: "9px"
           },
 
           '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {

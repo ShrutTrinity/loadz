@@ -157,9 +157,9 @@ const AddCategories = (props) => {
                         width='45'
                         required='required'
                       />
-                    <FormControl  sx={{
+                    <FormControl size='small' sx={{
                       width:'45%',
-                      margin:'10px',
+                      margin:'12px',
                       fontSize: '13px'
                     }}>
                       <InputLabel
