@@ -94,7 +94,9 @@ const AddQuestionDailog = (props) => {
                 onClick={handleRequireColor}
                 style={dailogstyle.button}
                 variant="text"
-                endIcon={requireColor ? <ErrorIcon sx={{ color: 'red' }} /> : <ErrorOutlineOutlinedIcon />}
+                endIcon={requireColor ?
+                  <ErrorIcon sx={{ color: 'red' }} /> :
+                  <ErrorOutlineOutlinedIcon />}
               >
                 required
               </Button>
@@ -102,7 +104,11 @@ const AddQuestionDailog = (props) => {
                 onClick={handleSuggestColor}
                 style={dailogstyle.button}
                 variant="text"
-                endIcon={suggestColor ? <StarIcon sx={{ color: 'rgb(255, 193, 7)' }} /> : <StarBorderOutlinedIcon />}
+                endIcon={
+                  suggestColor ?
+                    <StarIcon sx={{ color: 'rgb(255, 193, 7)' }} /> :
+                    <StarBorderOutlinedIcon />
+                }
               >
                 suggested
               </Button>
@@ -189,7 +195,6 @@ const AddQuestionDailog = (props) => {
           </form>
         </DialogContent>
         <DialogActions>
-
         </DialogActions>
       </Dialog>
     </>

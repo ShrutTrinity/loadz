@@ -52,12 +52,14 @@ const Inspection = (props) => {
     var bodyclick = props.handleDrawerClose;
   }
   const { search } = useStyles();
-
-
   return (
     <>
     <AddQuestionDailog open={questionDailog} handleClose={openQuestionDailog} />
-      <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
+      <div 
+      className={styles.body} 
+      style={bodyStyle}
+       onClick={props.textSelectorOpen ? 
+       props.toggleTextSelector : bodyclick}>
         <div className={styles.headerPart}>
           <div className={styles.left}>
             <div className={styles.headerName}>
