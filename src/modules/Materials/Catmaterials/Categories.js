@@ -30,7 +30,6 @@ const rows = [
   createData('employeeC'),
   createData('employeeD'),
   createData('employeeE'),
-
 ];
 
 
@@ -89,10 +88,7 @@ const Categories = (props) => {
     setSelectAll(newSelected.every((value) => value === true));
   };
 
-
   const isAnyCheckboxSelected = selected.some((value) => value === true);
-
-
 
   return (
     <>
@@ -223,4 +219,4 @@ const Categories = (props) => {
   )
 }
 
-export default Categories
+export default Categories;

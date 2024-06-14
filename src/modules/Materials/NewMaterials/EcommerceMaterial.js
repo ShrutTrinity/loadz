@@ -324,10 +324,13 @@ const EcommerceMaterial = (props) => {
                           label='Weight Unit'
                           width='100'
                         />
-                        <FormControl fullWidth sx={{
-                          backgroundColor: 'rgb(255,255,255)',
-                          fontSize: '13px'
-                        }}>
+                        <FormControl
+                          size='small'
+                          fullWidth
+                          sx={{
+                            backgroundColor: 'rgb(255,255,255)',
+                            fontSize: '13px'
+                          }}>
                           <InputLabel
                             id="demo-simple-select-label"
                             sx={{
