@@ -104,7 +104,10 @@ const PersistentDrawerLeft = ({
                   background: 'black',
                   color: 'white',
                   fontSize: '11px',
-                  borderRadius: '18px'
+                  borderRadius: '18px',
+                  ":hover":{
+                    backgroundColor:'rgb(0,0,0)'
+                  }
                 }}
                 variant="contained"
               >
