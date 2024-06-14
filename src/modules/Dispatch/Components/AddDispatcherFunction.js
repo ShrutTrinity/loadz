@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import styles from '../style/AddDispatcherDrawer.module.scss'
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -23,7 +23,6 @@ const allStyles = {
     color: 'black'
   }
 }
-
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: '5px',
@@ -49,7 +48,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: '6px',
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     fontSize: '13px',
     transition: theme.transitions.create('width'),
@@ -60,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const AddDispatcherFunction = ({closeDrawer}) => {
+const AddDispatcherFunction = ({ closeDrawer }) => {
   const [truckCount, setTruckCount] = useState(1);
 
   const incrementTruckCount = () => {
@@ -95,11 +93,21 @@ const AddDispatcherFunction = ({closeDrawer}) => {
         </section>
 
         <section className={styles.listOfInfo}>
-          <span className={styles.infoHeaders}>Customer : </span>
-          <span className={styles.infoHeaders}>Source : </span>
-          <span className={styles.infoHeaders}>Destination : </span>
-          <span className={styles.infoHeaders}>Material : </span>
-          <span className={styles.infoHeaders}>Unit : </span>
+          <span className={styles.infoHeaders}>
+            Customer :
+          </span>
+          <span className={styles.infoHeaders}>
+            Source :
+          </span>
+          <span className={styles.infoHeaders}>
+            Destination :
+          </span>
+          <span className={styles.infoHeaders}>
+            Material :
+          </span>
+          <span className={styles.infoHeaders}>
+            Unit :
+          </span>
         </section>
 
         <section className={styles.truckCounter}>
@@ -112,7 +120,12 @@ const AddDispatcherFunction = ({closeDrawer}) => {
             >
               <RemoveIcon />
             </Button>
-            <Button variant="outlined" style={allStyles.button}>{truckCount}</Button>
+            <Button
+              variant="outlined"
+              style={allStyles.button}>
+              {truckCount}
+            </Button>
+
             <Button
               variant="outlined"
               style={allStyles.button}
@@ -125,7 +138,9 @@ const AddDispatcherFunction = ({closeDrawer}) => {
 
         <section className={styles.submitButton}>
           <Button style={allStyles.addbutton}>
-            <AddIcon className={styles.AddIcon} fontSize='medium' />
+            <AddIcon
+              className={styles.AddIcon}
+              fontSize='medium' />
             <span className={styles.labelText}>Add Dispatch</span>
           </Button>
         </section>

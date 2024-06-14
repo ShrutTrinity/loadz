@@ -51,8 +51,6 @@ const RecoverPassword = () => {
                 variant="standard"
               />
             </div>
-
-
             <div className={styles.multiInput}>
               <TextField
                 sx={{
@@ -79,7 +77,6 @@ const RecoverPassword = () => {
                 variant="standard"
               />
             </div>
-
             <Button
               type="submit"
               variant="contained"
@@ -91,11 +88,10 @@ const RecoverPassword = () => {
                 ":hover": { backgroundColor: "black" }
               }}
             >
-
-              <RouterLink to="/" className={styles.resetlink}>Reset my password</RouterLink>
-
-
-
+              <RouterLink to="/"
+                className={styles.resetlink}>
+                Reset my password
+              </RouterLink>
             </Button>
           </form>
           <div>

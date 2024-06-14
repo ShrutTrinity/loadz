@@ -20,7 +20,8 @@ const dispatchStyles = {
   }
 }
 
-const DispatchScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
+const DispatchScreen = (props) => {
+  const { open, handleDrawerClose, textSelectorOpen, toggleTextSelector } = props
 
   const [addDispatcherDrawer, setAddDispatcherDrawer] = useState();
 
@@ -42,20 +43,23 @@ const DispatchScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextS
 
   return (
     <>
-    {/* calling other component */}
-      <AddDispatchDrawer openDrawer={addDispatcherDrawer} closeDrawer={handleAddDispatcherDrawer}/>
-
-    {/* routeScreen */}
+      <AddDispatchDrawer openDrawer={addDispatcherDrawer} closeDrawer={handleAddDispatcherDrawer} />
       <div className={styles.body}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}
       >
         <div className={styles.container}>
-
-          <div className={styles.addDispatcher} onClick={handleAddDispatcherDrawer}>
+          <div
+            className={styles.addDispatcher}
+            onClick={handleAddDispatcherDrawer}
+          >
             <Button style={dispatchStyles.addbutton}>
-              <AddIcon className={styles.AddIcon} fontSize='medium' />
-              <span className={styles.labelText}>Add Dispatch</span>
+              <AddIcon
+                className={styles.AddIcon}
+                fontSize='medium' />
+              <span className={styles.labelText}>
+                Add Dispatch
+              </span>
             </Button>
           </div>
 
@@ -78,11 +82,8 @@ const DispatchScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextS
             </Button>
           </div>
         </div>
-
         <div className={styles.contentDivision}>
-
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-
             <StaticDatePicker
               sx={{
                 '& .MuiPickersLayout-toolbar': {
@@ -102,7 +103,6 @@ const DispatchScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextS
               }}
             />
           </LocalizationProvider>
-
           <div className={styles.addDispatchSection}>
             <div className={styles.addCover}>
               <AddIcon className={styles.iconForAdd} />

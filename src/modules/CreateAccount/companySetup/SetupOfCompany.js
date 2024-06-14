@@ -68,11 +68,7 @@ const SetupOfCompany = () => {
     } else {
       formattedNumber = inputValue;
     }
-
-    // Set the formatted number back to the formik field
     formik.setFieldValue('phone', formattedNumber);
-
-    // If you need to validate on change, you can manually trigger validation
     formik.validateField('phone');
   };
 
@@ -84,18 +80,25 @@ const SetupOfCompany = () => {
   const handleClosePop = () => {
     setShowPopUp(false);
   }
-
   const handleImageSelect = (imageUrl) => {
     setSelectedImage(imageUrl);
     setShowPopUp(false)
   };
-
   const handleClick = () => {
     handleToggle();
   };
   const handleAddContact = () => {
     setContactCount((prevCount) => prevCount + 1);
   };
+
+  const pagestyle = {
+    formik: {
+      color: 'red',
+      marginTop: '-16px',
+      marginBottom: '16px',
+      fontSize: '12px'
+    }
+  }
 
   return (
     <>
@@ -108,8 +111,8 @@ const SetupOfCompany = () => {
           discription='Company Setting for Sales Tax, Commission Rates, Waiting Time Rates, and Automatic Invoice time'
         />
       }
-     <FilePopUp
-      open={showPopUp}
+      <FilePopUp
+        open={showPopUp}
         imageUrlforPopUp={selectedImage || companyLogoImage}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
@@ -135,7 +138,7 @@ const SetupOfCompany = () => {
                       placeholder="Company Name"
                       type="text"
                     />
-                    <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                    <div style={pagestyle.formik}>
                       {formik.touched.companyName && formik.errors.companyName}
                     </div>
                     <NorequiredTextField
@@ -153,7 +156,7 @@ const SetupOfCompany = () => {
                           placeholder="Address"
                           type="text"
                         />
-                        <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                        <div style={pagestyle.formik}>
                           {formik.touched.address && formik.errors.address}
                         </div>
                       </div>
@@ -165,18 +168,30 @@ const SetupOfCompany = () => {
                           placeholder="City"
                           type="text"
                         />
-                        <div style={{ color: 'red', marginTop: '-16px', marginBottom: '0px', fontSize: '12px' }}>
+                        <div style={{
+                          color: 'red',
+                          marginTop: '-16px',
+                          marginBottom: '0px',
+                          fontSize: '12px'
+                        }}>
                           {formik.touched.city && formik.errors.city}
                         </div>
 
                       </div>
                       <div>
                         <div className={styles.selector}>
-                          <label className={styles.formLabel1}>State<span className={styles.requiredAll}>*</span></label>
+                          <label className={styles.formLabel1}>
+                            State
+                            <span className={styles.requiredAll}>
+                              *</span>
+                          </label>
                           <select
-
                             className="form-select"
-                            style={{ borderColor: '#c4c4c4', padding: '13px 14px 13px 10px', fontSize: '13px' }}
+                            style={{
+                              borderColor: '#c4c4c4',
+                              padding: '13px 14px 13px 10px',
+                              fontSize: '13px'
+                            }}
                             aria-label="Default select example"
                             name="state"
                             {...formik.getFieldProps('state')}
@@ -190,7 +205,12 @@ const SetupOfCompany = () => {
                           </select>
                         </div>
 
-                        <div style={{ color: 'red', marginTop: '0px', marginBottom: '16px', fontSize: '12px' }}>
+                        <div style={{
+                          color: 'red',
+                          marginTop: '0px',
+                          marginBottom: '16px',
+                          fontSize: '12px'
+                        }}>
                           {formik.touched.state && formik.errors.state}
                         </div>
                       </div>
@@ -204,13 +224,17 @@ const SetupOfCompany = () => {
                             type="text"
                           />
                         </div>
-                        <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                        <div style={pagestyle.formik}>
                           {formik.touched.zip && formik.errors.zip}
                         </div>
                       </div>
                     </div>
                     <div className={styles.combiner}>
-                      <div style={{ display: 'flex', flexDirection: 'column' }}> <lable className={styles.telephone}> Telephone <span className={styles.requiredAll}>*</span></lable>
+                      <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <lable className={styles.telephone}>
+                          Telephone
+                          <span className={styles.requiredAll}>*</span>
+                        </lable>
                         <TextField
                           name='phone'
                           onChange={(e) => {
@@ -235,7 +259,11 @@ const SetupOfCompany = () => {
                           onBlur={formik.handleBlur}
                         />
 
-                        <div style={{ color: 'red', marginBottom: '16px', fontSize: '12px' }}>
+                        <div style={{
+                          color: 'red',
+                          marginBottom: '16px',
+                          fontSize: '12px'
+                        }}>
                           {formik.touched.phone && formik.errors.phone}
                         </div>
                       </div>
@@ -248,7 +276,7 @@ const SetupOfCompany = () => {
                           type="tel"
                         />
 
-                        <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                        <div style={pagestyle.formik}>
                           {formik.touched.cemail && formik.errors.cemail}
                         </div>
                       </div>
@@ -258,14 +286,21 @@ const SetupOfCompany = () => {
                       <CommonForm key={index} formik={formik} />
                     ))}
                   </div>
-                  <Send width="33.33%" className={styles.uploadimg} children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={companyLogoImage} alt='Default Company logo' onClick={handleClickOpen} />} />
+                  <Send width="33.33%"
+                    className={styles.uploadimg}
+                    children={selectedImage ?
+                      <img src={selectedImage}
+                        alt='Selecte persion'
+                        onClick={handleClickOpen} /> :
+                      <img src={companyLogoImage}
+                        alt='Default Company logo'
+                        onClick={handleClickOpen} />} />
                 </div>
                 <div className={styles.contain1}>
                   <span>
                     <Checkbox
                       defaultChecked
                       required
-
                       name='condition'
                       sx={{
                         marginLeft: '-0.5rem',
@@ -279,15 +314,25 @@ const SetupOfCompany = () => {
                     />
                   </span>
 
-                  <lable className={styles.conditions}>I agree to receive 2FA codes, account notifications, and app download links from Loadz Online LLC via Twilio. I understand multiple messages may be sent monthly. Standard data rates might apply. Reply 'STOP' to opt-out.</lable>
+                  <lable className={styles.conditions}>
+                    I agree to receive 2FA codes, account notifications, and app download links from Loadz Online LLC via Twilio. I understand multiple messages may be sent monthly. Standard data rates might apply. Reply 'STOP' to opt-out.
+                  </lable>
 
                 </div>
-                <div style={{ color: 'red', margin: '-15px 0 16px 30px', marginBottom: '16px', fontSize: '12px' }}>
+                <div style={{
+                  color: 'red',
+                  margin: '-15px 0 16px 30px',
+                  fontSize: '12px'
+                }}>
                   {formik.touched.condition && formik.errors.condition}
                 </div>
                 <div className={styles.flexitems}>
                   <div className={styles.add}>
-                    <span className={styles.plusicon} onClick={handleAddContact}>+</span>
+                    <span
+                      className={styles.plusicon}
+                      onClick={handleAddContact}>
+                      +
+                    </span>
                     Add another content
                   </div>
 

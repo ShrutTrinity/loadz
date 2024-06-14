@@ -50,7 +50,6 @@ const RequestFunction = () => {
               }
             }}
             InputProps={{
-
               startAdornment: (
                 <InputAdornment position="start">
                   <SearchIcon sx={{ color: 'black' }} />
@@ -59,108 +58,120 @@ const RequestFunction = () => {
             }}
           />
         </div>
-
         <div className={styles.profile}>
           Requests
         </div>
         <div className={styles.scroll}>
-        <Accordion sx={{ backgroundColor: 'none', boxShadow: 'none' }}>
-          <AccordionSummary
-            sx={{ fontSize: '20px', fontWeight: '500' }}
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-          >
-            Driver Requests
-          </AccordionSummary>
-          <AccordionDetails>
-            <Accordion style={style.boxStyle}>
-              <AccordionSummary
-                sx={{ fontSize: '18px', fontWeight: '400' }}
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Pending
-              </AccordionSummary>
-            </Accordion>
-            <Accordion style={style.boxStyle}>
-              <AccordionSummary
-                sx={{ fontSize: '18px', fontWeight: '400' }}
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Resolved
-              </AccordionSummary>
-            </Accordion>
+          <Accordion sx={{ backgroundColor: 'none', boxShadow: 'none' }}>
+            <AccordionSummary
+              sx={{ fontSize: '20px', fontWeight: '500' }}
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              Driver Requests
+            </AccordionSummary>
+            <AccordionDetails>
+              <Accordion style={style.boxStyle}>
+                <AccordionSummary
+                  sx={{ fontSize: '18px', fontWeight: '400' }}
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Pending
+                </AccordionSummary>
+              </Accordion>
+              <Accordion style={style.boxStyle}>
+                <AccordionSummary
+                  sx={{ fontSize: '18px', fontWeight: '400' }}
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Resolved
+                </AccordionSummary>
+              </Accordion>
 
-          </AccordionDetails>
-        </Accordion>
-        <Accordion sx={{ backgroundColor: 'none', boxShadow: 'none' }}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            sx={{ fontSize: '20px', fontWeight: '500' }}
-            aria-controls="panel2-content"
-            id="panel2-header"
-          >
-            Dispatcher Requests
-          </AccordionSummary>
-          <AccordionDetails>
-            <Accordion style={style.boxStyle}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                sx={{ fontSize: '18px', fontWeight: '400' }}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Pending
-              </AccordionSummary>
-            </Accordion>
-            <Accordion style={style.boxStyle}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                sx={{ fontSize: '18px', fontWeight: '400' }}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Resolved
-              </AccordionSummary>
-            </Accordion>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion defaultExpanded sx={{ backgroundColor: 'none', boxShadow: 'none' }}>
-          <AccordionSummary
-            sx={{ fontSize: '20px', fontWeight: '500', backGroundColor: 'none' }}
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3-content"
-            id="panel3-header"
-          >
-            Accordion Actions
-          </AccordionSummary>
-          <AccordionDetails>
-          <Accordion style={style.boxStyle}>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            sx={{
+              backgroundColor: 'none',
+              boxShadow: 'none'
+            }}>
             <AccordionSummary
-              sx={{ fontSize: '18px', fontWeight: '400' }}
               expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+              sx={{ fontSize: '20px', fontWeight: '500' }}
+              aria-controls="panel2-content"
+              id="panel2-header"
             >
-              Pending
+              Dispatcher Requests
             </AccordionSummary>
-            </Accordion>
-            <Accordion style={style.boxStyle}>
+            <AccordionDetails>
+              <Accordion style={style.boxStyle}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  sx={{ fontSize: '18px', fontWeight: '400' }}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Pending
+                </AccordionSummary>
+              </Accordion>
+              <Accordion style={style.boxStyle}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  sx={{ fontSize: '18px', fontWeight: '400' }}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Resolved
+                </AccordionSummary>
+              </Accordion>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            defaultExpanded
+            sx={{
+              backgroundColor: 'none',
+              boxShadow: 'none'
+            }}>
             <AccordionSummary
-              sx={{ fontSize: '18px', fontWeight: '400' }}
+              sx={{
+                fontSize: '20px',
+                fontWeight: '500',
+                backGroundColor: 'none'
+              }}
               expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+              aria-controls="panel3-content"
+              id="panel3-header"
             >
-              Resolved
+              Accordion Actions
             </AccordionSummary>
-            </Accordion>
-          </AccordionDetails>
-        </Accordion></div>
+            <AccordionDetails>
+              <Accordion style={style.boxStyle}>
+                <AccordionSummary
+                  sx={{ fontSize: '18px', fontWeight: '400' }}
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Pending
+                </AccordionSummary>
+              </Accordion>
+              <Accordion style={style.boxStyle}>
+                <AccordionSummary
+                  sx={{ fontSize: '18px', fontWeight: '400' }}
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Resolved
+                </AccordionSummary>
+              </Accordion>
+            </AccordionDetails>
+          </Accordion></div>
       </div>
     </>
   )

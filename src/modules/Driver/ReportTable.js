@@ -37,7 +37,8 @@ const ReportTable = (props) => {
   };
 
   return (
-    <div className={styles.box} style={{ height: `${props.height}px` }}>
+    <div className={styles.box}
+      style={{ height: `${props.height}px` }}>
       <div
         className={styles.tableCover}
         ref={tableRef}
@@ -45,16 +46,22 @@ const ReportTable = (props) => {
       >
         <TableContainer
           component={Paper}
-          sx={{ borderRadius: 0}}
+          sx={{ borderRadius: 0 }}
         >
           <Table
             aria-label="simple table"
           >
             <TableHead>
               <TableRow style={tableStyles.th}>
-                <TableCell style={tableStyles.cell} align="left">Start</TableCell>
-                <TableCell style={tableStyles.cell} align="left">End</TableCell>
-                <TableCell style={tableStyles.cell} align="left">Commission</TableCell>
+                <TableCell style={tableStyles.cell} align="left">
+                  Start
+                </TableCell>
+                <TableCell style={tableStyles.cell} align="left">
+                  End
+                </TableCell>
+                <TableCell style={tableStyles.cell} align="left">
+                  Commission
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -63,8 +70,12 @@ const ReportTable = (props) => {
                   <TableCell align="left" component="th" scope="row">
                     {row.Start}
                   </TableCell>
-                  <TableCell align="left">{row.End}</TableCell>
-                  <TableCell align="left">{row.Commission}</TableCell>
+                  <TableCell align="left">
+                    {row.End}
+                  </TableCell>
+                  <TableCell align="left">
+                    {row.Commission}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

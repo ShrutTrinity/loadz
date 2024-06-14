@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './style/createCustomer.module.scss';
-import Stepr from './Components/Stepr';
+import Stepper from './Components/Stepper';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -138,7 +138,7 @@ const CreateCustomer = () => {
     <>
       <div className={styles.body}>
         <div className={styles.stepperCover}>
-          <Stepr />
+          <Stepper />
         </div>
         <section className={styles.formSection}>
           <h4 className={styles.formHeading}>

@@ -9,10 +9,16 @@ const CommonTrailers = ({ formik }) => {
       <div className={styles.truckForm}>
         <div className={styles.detail}>
           <label className={styles.inputNo}>
-            Trailer Type.<span className={styles.requiredAll}>*</span>
+            Trailer Type.
+            <span className={styles.requiredAll}>*</span>
             <select
               className="form-select"
-              style={{  borderColor: '#c4c4c4', padding: '9px 14px 13px 9px', fontSize: '15px', borderRadius: '5px' }}
+              style={{
+                borderColor: '#c4c4c4',
+                padding: '9px 14px 13px 9px',
+                fontSize: '15px',
+                borderRadius: '5px'
+              }}
               aria-label="Default select example"
               name="trailerType"
             >
@@ -32,7 +38,12 @@ const CommonTrailers = ({ formik }) => {
               name='trailerNo'
               formik={formik}
             />
-            <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+            <div style={{
+              color: 'red',
+              marginTop: '-20px',
+              marginLeft: '0',
+              fontSize: '12px'
+            }}>
               {formik.touched.trailerNo && formik.errors.trailerNo}
             </div>
           </label>

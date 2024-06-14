@@ -7,7 +7,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz'; 
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
@@ -188,7 +188,8 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                         </TableCell>
                         <TableCell>
                           <div className={styles.Avatarimage}>
-                          <Avatar alt="Trevor Henderson" src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?size=626&ext=jpg" />
+                            <Avatar alt="Trevor Henderson"
+                              src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?size=626&ext=jpg" />
                           </div>
                         </TableCell>
                         <TableCell component="th" scope="row">
@@ -213,7 +214,12 @@ const Invitation = ({ openInvitationDialog, closeInvitationDialog }) => {
                     ))}
                 </TableBody>
               </Table>
-              <TableFooter sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+              <TableFooter
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  alignItems: 'center'
+                }}>
                 <TableRow>
                   <TablePagination
                     rowsPerPageOptions={[1, 10, 25, { label: 'All', value: -1 }]}

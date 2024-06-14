@@ -1,4 +1,4 @@
-
+import React from 'react'
 import { Checkbox } from "@mui/material"
 import styles from './styles/commonTruck.module.scss';
 import DisableTextField from "@components/textfield/DisableTextfield";
@@ -13,9 +13,7 @@ const Disabletruck = () => {
             placeholder='Truck No'
             type='text'
             name='truckNo'
-            
           />
-        
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -23,19 +21,15 @@ const Disabletruck = () => {
             placeholder='VIN#'
             type='text'
             name='VIN'
-            
           />
-        
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
             label='Color'
             placeholder='Color'
             type='text'
-            name='color'
-            
+            name='color' 
           />
-         
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -44,7 +38,6 @@ const Disabletruck = () => {
             type='number'
             name='year' 
           />
-          
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
@@ -52,17 +45,14 @@ const Disabletruck = () => {
             placeholder='Manufacturer*'
             type='text'
             name='mnufacturer'
-            
           />
-        
         </label>
         <label className={styles.inputNo}>
           <DisableTextField
             label='Model'
             placeholder='Model'
             type='text'
-            name='model'
-            
+            name='model'  
           />
         </label>
         <label className={styles.inputNo}>
@@ -71,7 +61,6 @@ const Disabletruck = () => {
             placeholder=''
             type='date'
             name='expiryDate'
-            
           />
         </label>
         <div className={styles.checkBox}>

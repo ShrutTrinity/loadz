@@ -16,10 +16,8 @@ const allStyle = {
   }
 }
 
-const TimeSheetScreen = ({
-  open, handleDrawerClose, textSelectorOpen, toggleTextSelector
-}) => {
-
+const TimeSheetScreen = (props) => {
+  const {open, handleDrawerClose, textSelectorOpen, toggleTextSelector} = props
   const [responsiveDrawer, setResponsiveDrawer] = useState(false);
   const [ref, dimensions] = useDimensions();
 

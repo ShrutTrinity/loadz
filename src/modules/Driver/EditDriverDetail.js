@@ -124,7 +124,6 @@ const EditDriverDetail = (props) => {
                 width='100'
                 id='fistName'
                 name='fistName'
-           
                 required
                 type='text'
                 label='First Name'

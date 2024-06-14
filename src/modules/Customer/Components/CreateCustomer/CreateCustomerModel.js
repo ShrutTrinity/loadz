@@ -69,7 +69,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                 <h4 className={styles.newCustomer}>New Customer</h4>
                 <h6 className={styles.enterdetail}>Customer Details</h6>
               </div>
-            
+
             </div>
             <br />
             <form className={styles.form}>
@@ -124,7 +124,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                     aria-label="Default select example"
                     name="state"
                   >
-                    <option value=""  disabled >Select a State</option>
+                    <option value="" disabled >Select a State</option>
                     {statesArray.map((state, index) => (
                       <option key={index} value={state}>
                         {state}
@@ -199,9 +199,13 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   variant='outlined'
                 />
               </div>
-              
+
               <div className={styles.last}>
-                <button className={styles.btn} onClick={handleClose}>Close</button>
+                <button
+                  className={styles.btn}
+                  onClick={handleClose}>
+                  Close
+                </button>
               </div>
             </form>
           </div>

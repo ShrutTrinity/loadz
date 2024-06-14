@@ -19,7 +19,7 @@ const CustomStepIcon = styled('div')(({ theme, active }) => ({
   color: active ? 'black' : theme.palette.common.white,
 }));
 
-const Stepr = () => {
+const Steppers = () => {
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -40,7 +40,9 @@ const Stepr = () => {
                   </CustomStepIcon>
                 )}
               >
-                <span style={{ fontSize: '20px' }}>{label}</span> {/* Set font size here */}
+                <span style={{ fontSize: '20px' }}>
+                  {label}
+                </span>
               </StepLabel>
             </StepButton>
           </Step>
@@ -50,4 +52,4 @@ const Stepr = () => {
   )
 }
 
-export default Stepr;
+export default Steppers;

@@ -14,31 +14,32 @@ const Request = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector
   }
   return (
     <>
-    
+
       <div className={styles.container}
         style={bodyStyles}
         onClick={textSelectorOpen ? toggleTextSelector : bodyclick}>
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
           <div className={styles.contentCard}>
-            <div className= {styles.drawerContainer}>
+            <div className={styles.drawerContainer}>
               <RequestFunction />
             </div>
 
 
             <div className={styles.contentWrapper}>
-              
+
               <div className={styles.box}>
                 <div className={styles.circle}>
-
-                  <img src={inspection} alt='pictureOfInspection' className={styles.image} />
-
+                  <img
+                    src={inspection}
+                    alt='pictureOfInspection'
+                    className={styles.image} />
                 </div>
                 <div className={styles.heading2}>
                   Requests
                 </div>
                 <div className={styles.detail}>
-                Select a request to view it...
+                  Select a request to view it...
                 </div>
               </div>
             </div>

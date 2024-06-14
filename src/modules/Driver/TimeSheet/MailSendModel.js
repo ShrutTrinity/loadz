@@ -29,7 +29,6 @@ const allStyle = {
 
 const MailSendModel = ({ openMailDialog, closeMailDialog }) => {
   const [messageType, setMessageType] = useState('');
-
   const handleChange = (event) => {
     setMessageType(event.target.value);
   };
@@ -38,7 +37,6 @@ const MailSendModel = ({ openMailDialog, closeMailDialog }) => {
       open={openMailDialog}
       onClose={closeMailDialog}
       aria-describedby="alert-dialog-slide-description"
-
       sx={{
         '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
           width: '100%',

@@ -52,10 +52,22 @@ function CustomStepIcon({ icon, active, completed }) {
             className={clsx(classes.stepIcon, {
                 [classes.activeStepIcon]: active || completed,
             })}
-            style={{ backgroundColor : completed ? 'black' : active ? 'rgb(237, 202, 51)' : 'black'}}
+            style={{
+                backgroundColor: completed ?
+                    'black' :
+                    active ? 'rgb(237, 202, 51)' :
+                        'black'
+            }}
         >
-            {completed ? <CheckIcon sx={{color:'white',height:'45px',width:'45px'}} /> : icon}
+            {completed ? <CheckIcon
+                sx={{
+                    color: 'white',
+                    height: '45px',
+                    width: '45px'
+                }} /> :
+                icon}
         </div>
+
     );
 }
 

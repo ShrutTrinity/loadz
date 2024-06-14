@@ -70,48 +70,56 @@ const AddDriver = () => {
         />
       }
       {isBack === true ? <Preference /> : isNext === true ? <IncludeTruck /> :
-      <div>
-        <CustomStepper currentstep="4" />
-        <div className={styles.page}>
-          <BoxComponent className={styles.mainContainer}
-            handleClick={handleClick}
-            children1={
-              <h2 className={styles.heading}>ADD DRIVERS</h2>
-            }
-            children3={
-              <div className={styles.conatainer}>
-                <label className={styles.switchCover}>
-                  Do you have drivers?
-                  <label className={styles.switchLabel}>
-                    <SwitchMUI handleSwitchValue={handleSwitchVlue} valueOfSwitch={value} />
+        <div>
+          <CustomStepper currentstep="4" />
+          <div className={styles.page}>
+            <BoxComponent className={styles.mainContainer}
+              handleClick={handleClick}
+              children1={
+                <h2 className={styles.heading}>ADD DRIVERS</h2>
+              }
+              children3={
+                <div className={styles.conatainer}>
+                  <label className={styles.switchCover}>
+                    Do you have drivers?
+                    <label className={styles.switchLabel}>
+                      <SwitchMUI
+                        handleSwitchValue={handleSwitchVlue}
+                        valueOfSwitch={value} />
+                    </label>
                   </label>
-                </label>
-                { value ? [...Array(driverCount)].map((index) => (
-                  <CommonDriverForm key={index} formik={formik} />
-                )) : [...Array(driverCount)].map((index)=>(
-                  <Disabledriverform key={index}/>
-                ))
-                }
-                <div className={styles.flexitems}>
-                  <div className={styles.add}>
-                    <span className={styles.plusicon} onClick={handleAddContact}>+</span>
-                    Add another content</div>
-
-                  <div style={{ display: 'flex' }}>
-                    <div style={{ marginRight: '10px' }}>
-                      <SolidButton buttonValue='Back' onClick={BackTO_prev_Page} />
+                  {value ? [...Array(driverCount)].map((index) => (
+                    <CommonDriverForm key={index} formik={formik} />
+                  )) : [...Array(driverCount)].map((index) => (
+                    <Disabledriverform key={index} />
+                  ))
+                  }
+                  <div className={styles.flexitems}>
+                    <div className={styles.add}>
+                      <span
+                        className={styles.plusicon}
+                        onClick={handleAddContact}>
+                        +
+                      </span>
+                      Add another content
                     </div>
 
-                    <SolidButton buttonValue='Next' type='submit' onClick={value ? formik.handleSubmit : to_Next_Page}  />
+                    <div style={{ display: 'flex' }}>
+                      <div style={{ marginRight: '10px' }}>
+                        <SolidButton buttonValue='Back' onClick={BackTO_prev_Page} />
+                      </div>
 
-
+                      <SolidButton
+                        buttonValue='Next'
+                        type='submit'
+                        onClick={value ? formik.handleSubmit : to_Next_Page} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            }
-          />
+              }
+            />
+          </div>
         </div>
-      </div>
       }
     </>
   )

@@ -7,7 +7,12 @@ import RemoveIcon from '@mui/icons-material/Remove';
 const ContactFrom = ({ index, handleAddForm, handleRemove }) => {
   return (
     <>
-      <div style={{ display: 'flex', gap: '10px', marginTop: '10px', flexWrap: 'wrap' }}>
+      <div style={{
+        display: 'flex',
+        gap: '10px',
+        marginTop: '10px',
+        flexWrap: 'wrap'
+      }}>
         <CommonTextfield
           width='22.5'
           id='title'
@@ -41,7 +46,9 @@ const ContactFrom = ({ index, handleAddForm, handleRemove }) => {
           variant='outlined'
         />
 
-        <Fab size="small" aria-label="add"
+        <Fab
+          size="small"
+          aria-label="add"
           sx={{
             background: 'rgb(237, 202, 51)',
             marginTop: 'auto',

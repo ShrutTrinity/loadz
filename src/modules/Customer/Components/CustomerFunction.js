@@ -51,10 +51,22 @@ const CustomerFunction = () => {
 
   return (
     <>
-    <CustomerBalance openCustomerbalanceDialog={customerbalance} closeCustomerbalanceDialog={handleCustomerbalanceDialog}/>
-      <ApplyPayment isOpen={openPaymentDialog} handleApplyPaymentDialogClose={handleApplyPaymentDialogClose} />
-      <CreateCustomer isOpen={openCreateCustomerModel} handleClose={clickFroCreateCustomerModel} />
-      <SettlementReportDialog isOpen={settlementReportDialog} handleSettlementReportDialog={handleSettlementReportDialog} />
+      <CustomerBalance
+        openCustomerbalanceDialog={customerbalance}
+        closeCustomerbalanceDialog={handleCustomerbalanceDialog}
+      />
+      <ApplyPayment
+        isOpen={openPaymentDialog}
+        handleApplyPaymentDialogClose={handleApplyPaymentDialogClose}
+      />
+      <CreateCustomer
+        isOpen={openCreateCustomerModel}
+        handleClose={clickFroCreateCustomerModel}
+      />
+      <SettlementReportDialog
+        isOpen={settlementReportDialog}
+        handleSettlementReportDialog={handleSettlementReportDialog}
+      />
       <div className={styles.drawer}>
         <div className={styles.searchbar}>
           <TextField
@@ -93,7 +105,7 @@ const CustomerFunction = () => {
             <FactCheckIcon sx={{ cursor: 'pointer' }} />
           </Tooltip>
           <Tooltip title="Customer Balance & Aging Summary" placement="top">
-            <MonetizationOnIcon sx={{ cursor: 'pointer' }} onClick={handleCustomerbalanceDialog}/>
+            <MonetizationOnIcon sx={{ cursor: 'pointer' }} onClick={handleCustomerbalanceDialog} />
           </Tooltip>
           <Tooltip title="Apply Payments" placement="top">
             <PaymentsIcon sx={{ cursor: 'pointer' }} onClick={handleClickOpen} />

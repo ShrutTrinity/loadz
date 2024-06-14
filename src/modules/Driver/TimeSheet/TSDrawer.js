@@ -2,12 +2,8 @@ import { Drawer } from '@mui/material';
 import React from 'react'
 import TimeSheetFunction from './TimeSheetFunction';
 
-const TSDrawer = ({
-  openResponsiveDrawer,
-  closeResponsiveDrawer,
-  height,
-  width,
-}) => {
+const TSDrawer = (props) => {
+  const { openResponsiveDrawer, closeResponsiveDrawer, height, width, } = props
   return (
     <>
       <Drawer

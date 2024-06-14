@@ -24,7 +24,9 @@ const allStyle = {
   },
 };
 
-const CreateInvite = ({ openCreateModel, closeCreateModel }) => {
+const CreateInvite = (props) => {
+  const { openCreateModel, closeCreateModel } = props
+  
   const [anchorEl, setAnchorEl] = useState(null);
   const [checkboxState, setCheckboxState] = useState({
     CDL: false,
@@ -73,11 +75,19 @@ const CreateInvite = ({ openCreateModel, closeCreateModel }) => {
               <TabletAndroidIcon sx={{ color: 'white' }} />
             </div>
             <span className={styles.heading}>Send Message</span>
-            <IconButton aria-label="list" sx={{ color: 'black', marginLeft: 'auto', }} onClick={handleMenuOpen}>
+            <IconButton
+              aria-label="list"
+              sx={{
+                color: 'black',
+                marginLeft: 'auto',
+              }}
+              onClick={handleMenuOpen}>
               <ListIcon />
               <ExpandMoreIcon />
             </IconButton>
-            <CloseIcon onClick={closeCreateModel} sx={{cursor:'pointer'}}/>
+            <CloseIcon
+              onClick={closeCreateModel}
+              sx={{ cursor: 'pointer' }} />
 
             <Menu
               anchorEl={anchorEl}

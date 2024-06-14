@@ -9,7 +9,9 @@ const TemplateCard = ({ headingName }) => {
   return (
     <>
       <div className={styles.driverHeading}>
-        <span className={styles.headingText}>{headingName}</span>
+        <span className={styles.headingText}>
+          {headingName}
+        </span>
         <div className={styles.searchCover}>
           <TextField
             sx={{

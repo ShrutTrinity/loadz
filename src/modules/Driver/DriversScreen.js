@@ -14,7 +14,8 @@ const driverScreenStyle = {
   }
 }
 
-const DriversScreen = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
+const DriversScreen = (props) => {
+  const { open, handleDrawerClose, textSelectorOpen, toggleTextSelector } =props
 
   const [responsiveDrawer, setResponsiveDrawer] = useState(false);
   const [driverDetailscreen, setDriverDetailScreen] = useState(false);

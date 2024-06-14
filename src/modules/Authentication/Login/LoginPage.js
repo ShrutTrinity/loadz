@@ -80,8 +80,12 @@ const LoginPage = () => {
                 InputProps={{
                   disableUnderline: true,
                   endAdornment: (
-                    <div className={styles.icon} onClick={togglePasswordVisibility}>
-                      {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                    <div
+                      className={styles.icon}
+                      onClick={togglePasswordVisibility}>
+                      {showPassword ?
+                        <VisibilityIcon /> :
+                        <VisibilityOffIcon />}
                     </div>
                   ),
                 }}
@@ -108,13 +112,20 @@ const LoginPage = () => {
               </div>
               <RouterLink className={styles.a} to='/forgetPassword'>
                 Forgot Password?
-
               </RouterLink>
             </div>
             <Button
               type='submit'
               variant='contained'
-              sx={{ backgroundColor: 'black', ':hover': { backgroundColor: 'black' }, borderRadius: '1.125rem', width: '16rem', padding: '1.2', marginTop: '1rem', margin: '0 0rem' }}
+              sx={{
+                backgroundColor: 'black',
+                ':hover': { backgroundColor: 'black' },
+                borderRadius: '1.125rem',
+                width: '16rem',
+                padding: '1.2',
+                marginTop: '1rem',
+                margin: '0 0rem'
+              }}
             >
               Login
             </Button>
@@ -122,23 +133,39 @@ const LoginPage = () => {
 
           <div className={styles.bottomdetail}>
             <span>Don't have an account?</span>
-            <RouterLink className={styles.a2} to='/subscription'>
+            <RouterLink
+              className={styles.a2}
+              to='/subscription'>
               Create an account
             </RouterLink>
           </div>
-          <RouterLink className={styles.a2} style={{ marginTop: '0.5rem', marginBottom: '1.5rem' }} to='/customerportal/login'>
+          <RouterLink
+            className={styles.a2}
+            style=
+            {{
+              marginTop: '0.5rem',
+              marginBottom: '1.5rem'
+            }}
+            to='/customerportal/login'>
             Want to Pay Hauling Invoices?
           </RouterLink>
         </Card>
-        <span style={{ color: 'white' }}>{versions}</span>
+        <span style={{
+          color: 'white'
+        }}>
+          {versions}
+        </span>
       </div>
       <div className={styles.toolbar}>
         <div className={styles.toolbarDetail}>
           <div className={styles.toolbarDetail}>
-            <RouterLink to='/terms' className={styles.bottomLink}>
+            <RouterLink to='/terms'
+              className={styles.bottomLink}>
               Terms and conditions
             </RouterLink>
-            <RouterLink className={styles.bottomLink} to='/privacy'>
+            <RouterLink
+              className={styles.bottomLink}
+              to='/privacy'>
               Privacy Policy
             </RouterLink>
           </div>

@@ -4,6 +4,14 @@ import NorequiredTextField from '@components/textfield/NorequiredTextfield'
 import CustomTextField from '@components/textfield/CustomeTextfield'
 
 const CommonForm = ({formik}) => {
+  const pagestyle = {
+    formik: {
+      color: 'red',
+      marginTop: '-16px',
+      marginBottom: '16px',
+      fontSize: '12px'
+    }
+  }
     return (
         <>
             <div className={styles.formOuter}>
@@ -17,7 +25,7 @@ const CommonForm = ({formik}) => {
                     placeholder="First Name"
                     type="text"
                 />
-                  <div style={{ color: 'red',marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                  <div style={pagestyle.formik}>
                     {formik.touched.firstName && formik.errors.firstName}
                   </div>
                   </div>
@@ -36,7 +44,7 @@ const CommonForm = ({formik}) => {
                     placeholder="Last Name"
                     type="text"
                 />
-                  <div style={{ color: 'red',marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                  <div style={pagestyle.formik}>
                     {formik.touched.lastName && formik.errors.lastName}
                   </div></div>
 
@@ -50,7 +58,7 @@ const CommonForm = ({formik}) => {
                     placeholder="Email"
                     type="text"
                 />
-                 <div style={{ color: 'red',marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                 <div style={pagestyle.formik}>
                     {formik.touched.email && formik.errors.email}
                   </div></div>
                 <div className={styles.div2}>
@@ -61,7 +69,7 @@ const CommonForm = ({formik}) => {
                     placeholder="Position"
                     type="text"
                 />
-                <div style={{ color: 'red',marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
+                <div style={pagestyle.formik}>
                     {formik.touched.position && formik.errors.position}
                   </div>
                 </div>

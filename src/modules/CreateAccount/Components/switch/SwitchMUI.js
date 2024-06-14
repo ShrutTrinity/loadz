@@ -17,7 +17,7 @@ const IOSSwitch = styled((props) => (
       transform: 'translateX(28px)',
       color: 'rgb(237, 202, 51)',
       '& + .MuiSwitch-track': {
-        backgroundColor:'black',
+        backgroundColor: 'black',
         opacity: 1,
       }
     }
@@ -46,8 +46,14 @@ const SwitchMUI = ({ handleSwitchValue, valueOfSwitch }) => {
 
   return (
     <FormControlLabel
-      sx={{ margin: '0 10px' }}
-      control={<IOSSwitch sx={{ margin: '0 10px' }} checked={valueOfSwitch} onChange={handleChange} />}
+      sx={{
+        margin: '0 10px'
+      }}
+      control={
+        <IOSSwitch
+          sx={{ margin: '0 10px' }}
+          checked={valueOfSwitch}
+          onChange={handleChange} />}
       label={!valueOfSwitch ? 'No' : 'Yes'}
     />
   );

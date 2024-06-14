@@ -34,7 +34,6 @@ const PreviousDriver = ({ openDialog, closeDialog }) => {
         open={openDialog}
         onClose={closeDialog}
         aria-describedby="alert-dialog-slide-description"
-
         sx={{
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
             maxWidth: 'unset',
@@ -52,7 +51,9 @@ const PreviousDriver = ({ openDialog, closeDialog }) => {
           }}>
           <div className={styles.body}>
             <header className={styles.header}>
-              <p className={styles.heading}>Previous Drivers</p>
+              <p className={styles.heading}>
+                Previous Drivers
+              </p>
               <div
                 className={styles.headingIcon}
                 onClick={closeDialog}
@@ -89,10 +90,11 @@ const PreviousDriver = ({ openDialog, closeDialog }) => {
                           }
                         }}
                         InputProps={{
-
                           startAdornment: (
-                            <InputAdornment position="start">
-                              <SearchIcon sx={{ color: 'black' }} />
+                            <InputAdornment
+                              position="start">
+                              <SearchIcon
+                                sx={{ color: 'black' }} />
                             </InputAdornment>
                           ),
                         }}
@@ -103,8 +105,13 @@ const PreviousDriver = ({ openDialog, closeDialog }) => {
                     </div>
 
                     <div className={styles.switchCover}>
-                      <Index style={allStyle.switchLable} label="Company Drivers" checked={true} />
-                      <Index style={allStyle.switchLable} label="Owner Operator Drivers" />
+                      <Index
+                        style={allStyle.switchLable}
+                        label="Company Drivers"
+                        checked={true} />
+                      <Index
+                        style={allStyle.switchLable}
+                        label="Owner Operator Drivers" />
                     </div>
 
                   </div>
@@ -112,7 +119,10 @@ const PreviousDriver = ({ openDialog, closeDialog }) => {
                   <div className={styles.contentWrapper}>
                     <div className={styles.box}>
                       <div className={styles.circle}>
-                        <img src={inspection} alt='pictureOfInspection' className={styles.image} />
+                        <img
+                          src={inspection}
+                          alt='pictureOfInspection'
+                          className={styles.image} />
                       </div>
                       <div className={styles.heading2}>
                         Driver Info

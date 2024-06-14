@@ -42,15 +42,14 @@ const  ArchiveAlertDialog = (props) => {
         borderRadius:'20px'
     }
   }
-
   return (
     <>
       <Dialog
         open={open}
         onClose={onClose}
-       
       >
-        <DialogTitle id="alert-dialog-title" style={dialogstyle.title} >
+        <DialogTitle id="alert-dialog-title" 
+        style={dialogstyle.title} >
           {"Are you sure you want to remove?"}
         </DialogTitle>
         <DialogActions style={dialogstyle.action}>

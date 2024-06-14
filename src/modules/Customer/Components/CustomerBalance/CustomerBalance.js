@@ -37,28 +37,46 @@ const CustomerBalance = ({ closeCustomerbalanceDialog, openCustomerbalanceDialog
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
             maxWidth: 'unset',
             borderRadius: '16px',
-            width:'100%'
+            width: '100%'
           }
         }}
       >
         <div className={styles.flex}>
           <div className={styles.customerDetails} >
             <div className={styles.iconbg} onClick={handlePrint}>
-              <img src={PrintIcon} alt='print' className={styles.printicon} />
+              <img
+                src={PrintIcon}
+                alt='print'
+                className={styles.printicon} />
             </div>
-            <FormControlLabel control={<Switch checked={switchOn} onChange={handleSwitchChange} sx={{
-              '& .MuiSwitch-switchBase.Mui-checked': {
-                color: 'rgb(237, 202, 51)',
-              },
-              '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                backgroundColor: 'rgb(237, 202, 51)',
-              },
-            }} />} label="Expand Balance Sheet" />
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={switchOn}
+                  onChange={handleSwitchChange}
+                  sx={{
+                    '& .MuiSwitch-switchBase.Mui-checked': {
+                      color: 'rgb(237, 202, 51)',
+                    },
+                    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                      backgroundColor: 'rgb(237, 202, 51)',
+                    },
+                  }} />}
+              label="Expand Balance Sheet" />
           </div>
-          {!switchOn && <CloseIcon sx={{ margin: '10px', cursor: 'pointer' }} onClick={closeCustomerbalanceDialog} />}
+          {!switchOn && <CloseIcon
+            sx={{
+              margin: '10px',
+              cursor: 'pointer'
+            }}
+            onClick={closeCustomerbalanceDialog} />}
         </div>
         <div className={styles.detail} id='print'>
-          <h2 className={styles.heading}>  {switchOn ? 'CUSTOMER BALANCE & AGING SUMMARY ' : 'CUSTOMER BALANCE & AGING SUMMARY 2'}</h2>
+          <h2 className={styles.heading}>
+            {switchOn ?
+              'CUSTOMER BALANCE & AGING SUMMARY ' :
+              'CUSTOMER BALANCE & AGING SUMMARY 2'}
+          </h2>
           <div className={styles.date}>
             As of : {Fulldate}
           </div>
@@ -69,7 +87,10 @@ const CustomerBalance = ({ closeCustomerbalanceDialog, openCustomerbalanceDialog
             </div>
             <div className={styles.rightFooter}>
               <h3 className={styles.text}>Powered by </h3>
-              <img src={loadzlogo} className={styles.LoadzLogo} alt='logo' />
+              <img
+                src={loadzlogo}
+                className={styles.LoadzLogo}
+                alt='logo' />
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import CustomStepper from '../Components/stepper/CustomStepper'
 import styles from './styles/setupPreference.module.scss'
 import BoxComponent from '../Components/formBox/Box'
@@ -19,9 +19,9 @@ const Preference = () => {
   const [isBack, setIsBack] = useState(false);
   const [isNext, setIsNext] = useState(false);
   const [value, setValue] = useState(true)
-  
 
-  const veryfySwitchValue = value ? priceTagsSchema : priceTagsSchemaSales 
+
+  const veryfySwitchValue = value ? priceTagsSchema : priceTagsSchemaSales
 
   const formik = useFormik({
     initialValues: {
@@ -30,11 +30,11 @@ const Preference = () => {
       waitRate: '',
       salesTax: ''
     },
-    validationSchema: veryfySwitchValue, 
+    validationSchema: veryfySwitchValue,
     onSubmit: (values) => {
-        setIsNext(!isNext)
-      
-      }
+      setIsNext(!isNext)
+
+    }
   });
 
   const handleClick = () => {
@@ -47,7 +47,7 @@ const Preference = () => {
 
   const BackTO_prev_Page = () => {
     setIsBack(!isBack);
-    
+
   };
 
   return (
@@ -81,28 +81,78 @@ const Preference = () => {
                     </label>
                     {value ?
                       <div>
-                        <Tags formik={formik} name='commission' symbol='%' tagTitle='Default Commission Rate' />
-                        <Tags formik={formik} name='wage' symbol='$' tagTitle='Default Hourly Wage' />
-                        <Tags formik={formik} name='waitRate' symbol='$' tagTitle='Company Wait Rate' />
+                        <Tags
+                          formik={formik}
+                          name='commission'
+                          symbol='%'
+                          tagTitle='Default Commission Rate'
+                        />
+                        <Tags
+                          formik={formik}
+                          name='wage'
+                          symbol='$'
+                          tagTitle='Default Hourly Wage'
+                        />
+                        <Tags
+                          formik={formik}
+                          name='waitRate'
+                          symbol='$'
+                          tagTitle='Company Wait Rate'
+                        />
                       </div>
                       :
                       <div>
-                        <Tags formik={formik} name='salesTax' symbol='%' tagTitle='Sales Tax Rate Amount' />
-                        <Tags formik={formik} name='commission' symbol='%' tagTitle='Default Commission Rate' />
-                        <Tags formik={formik} name='wage' symbol='$' tagTitle='Default Hourly Wage' />
-                        <Tags formik={formik} name='waitRate' symbol='$' tagTitle='Company Wait Rate' />
+                        <Tags
+                          formik={formik}
+                          name='salesTax'
+                          symbol='%'
+                          tagTitle='Sales Tax Rate Amount'
+                        />
+                        <Tags
+                          formik={formik}
+                          name='commission'
+                          symbol='%'
+                          tagTitle='Default Commission Rate'
+                        />
+                        <Tags
+                          formik={formik}
+                          name='wage'
+                          symbol='$'
+                          tagTitle='Default Hourly Wage'
+
+                        />
+                        <Tags
+                          formik={formik}
+                          name='waitRate'
+                          symbol='$'
+                          tagTitle='Company Wait Rate'
+                        />
                       </div>
                     }
                     <div className={styles.smallContainer}>
-                      <span className={styles.labTitle}>What time should your automatic invoices go out?
+                      <span className={styles.labTitle}>
+                        What time should your automatic invoices go out?
                       </span>
                       <div className={styles.labField}>
-                        <input type="time" step="number" value="23:59" name="commissionRate" placeholder="0.00" />
+                        <input
+                          type="time"
+                          step="number"
+                          value="23:59"
+                          name="commissionRate"
+                          placeholder="0.00"
+                        />
                       </div>
                     </div>
                     <div className={styles.buttonContainer}>
-                      <SolidButton buttonValue={'Back'} onClick={BackTO_prev_Page} />
-                      <SolidButton buttonValue={'NEXT'} onClick={formik.handleSubmit} />
+                      <SolidButton
+                        buttonValue={'Back'}
+                        onClick={BackTO_prev_Page}
+                      />
+                      <SolidButton
+                        buttonValue={'NEXT'}
+                        onClick={formik.handleSubmit}
+
+                      />
                     </div>
                   </div>
                 </form>

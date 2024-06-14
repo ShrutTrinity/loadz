@@ -27,8 +27,8 @@ const allStyle = {
     width: '100%'
   },
 }
-const EditDriverInvitation = ({ editDialog, EditDialogClose }) => {
-
+const EditDriverInvitation = (props) => {
+  const { editDialog, EditDialogClose } = props
   const [messageType, setMessageType] = useState('');
 
   const handleChange = (event) => {
@@ -40,7 +40,6 @@ const EditDriverInvitation = ({ editDialog, EditDialogClose }) => {
         open={editDialog}
         onClose={EditDialogClose}
         aria-describedby="alert-dialog-slide-description"
-
         sx={{
           '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper ': {
             width: '100%',

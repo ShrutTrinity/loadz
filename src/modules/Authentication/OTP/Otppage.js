@@ -10,24 +10,31 @@ import Card from '@components/card/Card';
 const Otppage = ({ childrenForCloseOtp }) => {
   const email = ' fenikothadiya@gmail.com'
 
+  const OtpStyle = {
+    textfield: {
+      marginLeft: "0.7rem",
+      borderBottom: '0',
+      zIndex: '2',
+      '& .MuiInputLabel-root': {
+        fontSize: 13,
+      },
+    }
+  }
+
   return (
     <>
       <div className={styles.container}>
 
         <Card button={<Reversebtn onBack={childrenForCloseOtp} />} >
-          <h6 className={styles.recover}>Please Enter OTP we've send to <br />
+          <h6 className={styles.recover}>
+            Please Enter OTP we've send to
+            <br />
             <b style={{ fontWeight: 700 }}>{email} </b>
           </h6>
           <form >
             <div className={styles.multiInput}>
               <TextField
-                sx={{
-                  marginLeft: "0.7rem", borderBottom: '0', zIndex: '2',
-                  '& .MuiInputLabel-root': {
-                    fontSize: 13,
-                  },
-                }}
-
+                style={OtpStyle.textfield}
                 InputProps={{ disableUnderline: true }}
                 type='number'
                 label="OTP"
@@ -43,7 +50,16 @@ const Otppage = ({ childrenForCloseOtp }) => {
             <Button
               type="submit"
               variant="contained"
-              sx={{ textTransform: 'none', marginTop: '10px', backgroundColor: "black", borderRadius: 18, width: "14rem", ":hover": { backgroundColor: "black" } }}
+              sx={{
+                textTransform: 'none',
+                marginTop: '10px',
+                backgroundColor: "black",
+                borderRadius: 18,
+                width: "14rem",
+                ":hover": {
+                  backgroundColor: "black"
+                }
+              }}
             >
               <RouterLink to="/subscription/company/2" className={styles.resetlink}>Verify OTP</RouterLink>
             </Button>

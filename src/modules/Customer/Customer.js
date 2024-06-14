@@ -17,7 +17,7 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
     setResponsiveDrawer(!responsiveDrawer)
   }
 
-  const BalancePopupRendered = () => {
+  const closeCustomerbalanceDialog = () => {
     setBalancePopupOpen(!BalancePopupOpen)
   }
 
@@ -31,7 +31,9 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
 
   return (
     <>
-      {BalancePopupOpen && <CustomerBalance BalancePopupRendered={BalancePopupRendered} />}
+      <CustomerBalance
+        closeCustomerbalanceDialog={closeCustomerbalanceDialog}
+        openCustomerbalanceDialog={BalancePopupOpen} />
       <CustomerDrawer
         height={dimensions.height}
         width={dimensions.width}
@@ -45,11 +47,9 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
         <div className={styles.backrow}></div>
         <div className={styles.CardWrapper}>
           <div className={styles.contentCard}>
-
             <div className={styles.drawerContainer}>
               <CustomerFunction />
             </div>
-
             <div className={styles.contentWrapper} ref={ref}>
               <div className={styles.heading}>
                 <ChatIcon className={styles.openDialogIcon} onClick={handleResponsiveDrawer} />
@@ -57,9 +57,10 @@ const Customer = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
               </div>
               <div className={styles.box}>
                 <div className={styles.circle}>
-
-                  <img src={inspection} alt='pictureOfInspection' className={styles.image} />
-
+                  <img
+                    src={inspection}
+                    alt='pictureOfInspection'
+                    className={styles.image} />
                 </div>
                 <div className={styles.heading2}>
                   Customer Info

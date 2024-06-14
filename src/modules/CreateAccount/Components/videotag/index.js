@@ -54,12 +54,23 @@ const Video = (props) => {
             >
               <CloseIcon fontSize="12" />
             </IconButton>
-            <div style={{ position: 'relative', width: '100%', paddingBottom: '56.33%' }}>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              paddingBottom: '56.33%'
+            }}>
               <iframe
                 src={props.srcLink}
                 title="Vimeo video"
                 allowFullScreen
-                style={{ width: '100%', position: 'absolute', top: 0, left: 0, height: '100%', border: '2px solid rgb(237, 202, 51)' }}
+                style={{
+                  width: '100%',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  height: '100%',
+                  border: '2px solid rgb(237, 202, 51)'
+                }}
               ></iframe>
             </div>
             <Box sx={{ mt: 2 }}>
@@ -70,14 +81,20 @@ const Video = (props) => {
                   fontWeight: 600,
                   '@media (max-width: 600px)': {
                     fontSize: '16px',
-
                   },
                 }}
               >
                 {props.title}
               </Typography>
 
-              <Typography display="block" variant="caption" color="text.secondary" sx={{ color: 'white', fontSize: '14px' }}>
+              <Typography
+                display="block"
+                variant="caption"
+                color="text.secondary"
+                sx={{
+                  color: 'white',
+                  fontSize: '14px'
+                }}>
                 {props.discription}
               </Typography>
             </Box>

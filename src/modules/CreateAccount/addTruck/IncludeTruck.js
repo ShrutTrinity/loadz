@@ -54,9 +54,9 @@ const IncludeTruck = () => {
   const addTrailers = () => {
     setTrailerCount((prevCount) => prevCount + 1)
   }
-  const to_Next_Page = () =>{
+  const to_Next_Page = () => {
     setNextPage(!nextPage)
-  
+
   }
   const back_To_Page = () => {
     setPrevPage(!prevPage)
@@ -82,7 +82,7 @@ const IncludeTruck = () => {
           discription='Add Trucks and Trailers to your profile. The more complete the information is in this step the better the reports will serve you.'
         />
       }
-      {nextPage ? <Webuser />: prevPage ? <AddDriver /> : skip ? <Webuser /> :
+      {nextPage ? <Webuser /> : prevPage ? <AddDriver /> : skip ? <Webuser /> :
         <div>
           <CustomStepper currentstep='5' />
           <div className={styles.page}>
@@ -96,32 +96,38 @@ const IncludeTruck = () => {
                   <label className={styles.switchCover}>
                     Do you have Trucks ?
                     <label className={styles.switchLabel}>
-                      <SwitchMUI valueOfSwitch={value} handleSwitchValue={handleSwitchVlue} />
+                      <SwitchMUI
+                        valueOfSwitch={value}
+                        handleSwitchValue={handleSwitchVlue} />
                     </label>
                   </label>
+
                   {value ? [...Array(TruckCount)].map((index) => (
                     <CommonTruckForm formik={formik} key={index} />
                   )) : [...Array(TruckCount)].map((index) => (
                     <Disabletruck key={index} />
                   ))}
-                  <div className={styles.TruckAddbutton} style={{ margin: '44px 0' }}>
+
+                  <div className={styles.TruckAddbutton}>
                     <div className={styles.add} onClick={addTruck}>
                       <span className={styles.plusicon}>+</span>
                       Add another content
                     </div>
                   </div>
-
                   <label className={styles.switchCover}>
                     Do you have Trailers ?
                     <label className={styles.switchLabel}>
-                      <SwitchMUI valueOfSwitch={value2}  handleSwitchValue={handleSwitchVlue2} />
+                      <SwitchMUI valueOfSwitch={value2}
+                        handleSwitchValue={handleSwitchVlue2} />
                     </label>
                   </label>
+
                   {value2 ? [...Array(TrailerCount)].map((index) => (
                     <CommonTrailers formik={formik} key={index} />
                   )) : [...Array(TrailerCount)].map((index) => (
-                    <Disabletrailer  key={index} />
+                    <Disabletrailer key={index} />
                   ))}
+
                   <div className={styles.bottomContainer}>
                     <div className={styles.TruckAddbutton}>
                       <div className={styles.add} onClick={addTrailers}>
@@ -130,9 +136,15 @@ const IncludeTruck = () => {
                       </div>
                     </div>
                     <div className={styles.buttons}>
-                      <SolidButton buttonValue={'Skip'} onClick={skipThis_Page} />
-                      <SolidButton buttonValue={'Back'} onClick={back_To_Page} />
-                      <SolidButton buttonValue={'next'} onClick={value ? formik.handleSubmit : to_Next_Page} />
+                      <SolidButton
+                        buttonValue={'Skip'}
+                        onClick={skipThis_Page} />
+                      <SolidButton
+                        buttonValue={'Back'}
+                        onClick={back_To_Page} />
+                      <SolidButton
+                        buttonValue={'next'}
+                        onClick={value ? formik.handleSubmit : to_Next_Page} />
                     </div>
                   </div>
                 </div>

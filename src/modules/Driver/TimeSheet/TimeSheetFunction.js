@@ -85,7 +85,6 @@ const TimeSheetFunction = () => {
           <div className={styles.componentName}>
             Drivers
           </div>
-
           <div className={styles.listoficon}>
             <Tooltip title="Send Email to All" placement="top">
               <MailIcon

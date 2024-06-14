@@ -3,6 +3,14 @@ import styles from './styles/commonTruck.module.scss';
 import CustomTextField from "@components/textfield/CustomeTextfield";
 
 const CommonTruckForm = ({ formik }) => {
+  const pagestyle = {
+    formik: {
+      color: 'red',
+      marginTop: '-20px',
+      marginLeft: '0',
+      fontSize: '12px'
+    }
+  }
   return (
     <div className={styles.truckForm}>
       <div className={styles.detail}>
@@ -14,7 +22,7 @@ const CommonTruckForm = ({ formik }) => {
             name='truckNo'
             formik={formik}
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+          <div style={pagestyle.formik}>
             {formik.touched.truckNo && formik.errors.truckNo}
           </div>
         </label>
@@ -26,7 +34,7 @@ const CommonTruckForm = ({ formik }) => {
             name='VIN'
             formik={formik}
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+          <div style={pagestyle.formik}>
             {formik.touched.VIN && formik.errors.VIN}
           </div>
         </label>
@@ -38,7 +46,7 @@ const CommonTruckForm = ({ formik }) => {
             name='color'
             formik={formik}
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+          <div style={pagestyle.formik}>
             {formik.touched.color && formik.errors.color}
           </div>
         </label>
@@ -50,7 +58,7 @@ const CommonTruckForm = ({ formik }) => {
             name='year'
             formik={formik}
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+          <div style={pagestyle.formik}>
             {formik.touched.year && formik.errors.year}
           </div>
         </label>
@@ -62,7 +70,7 @@ const CommonTruckForm = ({ formik }) => {
             name='mnufacturer'
             formik={formik}
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+          <div style={pagestyle.formik}>
             {formik.touched.mnufacturer && formik.errors.mnufacturer}
           </div>
         </label>
@@ -74,7 +82,7 @@ const CommonTruckForm = ({ formik }) => {
             name='model'
             formik={formik}
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+          <div style={pagestyle.formik}>
             {formik.touched.model && formik.errors.model}
           </div>
         </label>
@@ -86,7 +94,7 @@ const CommonTruckForm = ({ formik }) => {
             name='expiryDate'
             formik={formik}
           />
-          <div style={{ color: 'red', marginTop: '-20px', marginLeft: '0', fontSize: '12px' }}>
+          <div style={pagestyle.formik}>
             {formik.touched.expiryDate && formik.errors.expiryDate}
           </div>
         </label>
@@ -96,7 +104,6 @@ const CommonTruckForm = ({ formik }) => {
             required
             name='dumpTruck'
             sx={{
-
               color: 'balck',
               '&.Mui-checked': {
                 color: 'rgb(237, 202, 51)',

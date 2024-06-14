@@ -12,7 +12,6 @@ const allStyles = {
     textTransform: 'capitalize',
   }
 }
-
 const PriviousDriver = ({ openPreviousDriver, closePreviousDriver }) => {
   return (
     <>

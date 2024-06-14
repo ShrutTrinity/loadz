@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import styles from './styles/popup.module.scss';
 import { Dialog } from '@mui/material';
 
-const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,open,onOpen}) => {
+const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose, open, onOpen }) => {
   const popUpRef = useRef();
 
   useEffect(() => {
@@ -11,9 +11,7 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,open,onOpen}) => {
         onClose();
       }
     };
-
     document.addEventListener('click', handleClickOutside);
-
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
@@ -32,17 +30,22 @@ const FilePopUp = ({ imageUrlforPopUp, onSelect, onClose,open,onOpen}) => {
 
   return (
     <Dialog
-    open={open}
-    onClose={onClose}
-    aria-labelledby="alert-dialog-title"
-    aria-describedby="alert-dialog-description"
-  >
+      open={open}
+      onClose={onClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
       <div className={styles.container}>
         <label ref={popUpRef}>
-          <input type='file' className={styles.input} onChange={handleFileChange} />
+          <input type='file'
+            className={styles.input}
+            onChange={handleFileChange}
+          />
           <div className={styles.bordercover}>
             <div className={styles.popImage}>
-              <img src={imageUrlforPopUp} alt=""onClick={(event) => onOpen && onOpen(event)} />
+              <img src={imageUrlforPopUp}
+                alt=""
+                onClick={(event) => onOpen && onOpen(event)} />
               &nbsp;
               <div className={styles.fileFormate}>
                 JPEG, PNG, JPG

@@ -77,16 +77,28 @@ const Webuser = () => {
 
                   <div className={styles.flexitems}>
                     <div className={styles.add}>
-                      <span className={styles.plusicon} onClick={handleAddContact}>+</span>
-                      Add another user</div>
+                      <span
+                        className={styles.plusicon}
+                        onClick={handleAddContact}>
+                        +
+                      </span>
+                      Add another user
+                    </div>
                     <div style={{ display: 'flex' }}>
                       <div style={{ marginRight: '10px' }}>
-                        <Link to='/dashboard'> <SolidButton buttonValue='Skip' /></Link>
+                        <Link to='/dashboard'>
+                          <SolidButton
+                            buttonValue='Skip' /></Link>
                       </div>
                       <div style={{ marginRight: '10px' }}>
-                        <SolidButton buttonValue='Back' onClick={BackTO_prev_Page} />
+                        <SolidButton
+                          buttonValue='Back'
+                          onClick={BackTO_prev_Page} />
                       </div>
-                      <SolidButton buttonValue='Next' type='submit' onClick={formik.handleSubmit} />
+                      <SolidButton
+                        buttonValue='Next'
+                        type='submit'
+                        onClick={formik.handleSubmit} />
                     </div>
                   </div>
                 </div>

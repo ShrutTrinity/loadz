@@ -18,10 +18,19 @@ import Video from '../Components/videotag'
 import CustomTextField from '@components/textfield/CustomeTextfield';
 import Otppage from '../../Authentication/OTP/Otppage';
 import OtpPopupHandle from '@hooks/OtpPopupHandle';
-import {getValidationSchema} from '@validation/validationshema'
+import { getValidationSchema } from '@validation/validationshema'
 import { useFormik } from 'formik';
 
 const CreateAccount = () => {
+
+  const pagestyle = {
+    formik: {
+      color: 'red',
+      marginTop: '-16px',
+      marginBottom: '16px',
+      fontSize: '12px'
+    },
+  }
   const [showPassword, setShowPassword] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -36,7 +45,7 @@ const CreateAccount = () => {
       termsAndConditions: false,
       privacyPolicy: false,
     },
-    validationSchema:getValidationSchema,
+    validationSchema: getValidationSchema,
     onSubmit: (values) => {
       console.log(values)
 
@@ -60,7 +69,7 @@ const CreateAccount = () => {
   const handleClosePop = () => {
     setShowPopUp(false);
   }
-  
+
   const handleImageSelect = (imageUrl) => {
     setSelectedImage(imageUrl);
     setShowPopUp(false)
@@ -89,7 +98,7 @@ const CreateAccount = () => {
         discription='Create your companys administrators account'
       />}
       <FilePopUp
-      open={showPopUp}
+        open={showPopUp}
         imageUrlforPopUp={selectedImage || persionImage}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
@@ -97,149 +106,157 @@ const CreateAccount = () => {
       {optPopup && asisPopupOpen && <Otppage childrenForCloseOtp={forCloseOtpPopup} />}
       <CustomStepper currentstep='1' />
       <div className={styles.page}>
-      <BoxComponent className={styles.mainContainer} handleClick={handleClick}
-        children1={
-          <img src={Logo} className={styles.loadzLogo} alt='logo' />
-        }
-        children3={
-          <form onSubmit={formik.handleSubmit} noValidate>
-            <div className={styles.mainDiv}>
-              <div className={styles.firstHalf}>
+        <BoxComponent className={styles.mainContainer} handleClick={handleClick}
+          children1={
+            <img src={Logo} className={styles.loadzLogo} alt='logo' />
+          }
+          children3={
+            <form onSubmit={formik.handleSubmit} noValidate>
+              <div className={styles.mainDiv}>
+                <div className={styles.firstHalf}>
 
-                <CustomTextField
-                  id='email'
-                  label="Enter Address"
-                  placeholder="Enter Email"
-                  type='email'
-                  name='email'
-                  formik={formik}
-                  children4={
-                    <div className={styles.icon}>
-                      <EmailIcon />
-                    </div>
-                  }
-                  {...formik.getFieldProps('email')}
-                />
-                <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
-                  {formik.touched.email && formik.errors.email}
-                </div>
+                  <CustomTextField
+                    id='email'
+                    label="Enter Address"
+                    placeholder="Enter Email"
+                    type='email'
+                    name='email'
+                    formik={formik}
+                    children4={
+                      <div className={styles.icon}>
+                        <EmailIcon />
+                      </div>
+                    }
+                    {...formik.getFieldProps('email')}
+                  />
+                  <div style={pagestyle.formik}>
+                    {formik.touched.email && formik.errors.email}
+                  </div>
 
-                <div className={styles.combiner}>
-                  <div className={styles.combine1}>
-                    <CustomTextField
-                      label="First Name"
-                      type="text"
-                      formik={formik}
-                      name='firstName'
-                      placeholder="First Name"
-                    />
-                  <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
-                    {formik.touched.firstName && formik.errors.firstName}
-                  </div>
-                  </div>
-                  <div className={styles.combine2}>
-                    <CustomTextField
-                      label="Last Name"
-                      formik={formik}
-                      name='lastName'
-                      placeholder="Last Name"
-                    />
-                  <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
-                    {formik.touched.lastName && formik.errors.lastName}
-                  </div>
-                  </div>
-                </div>
-                <CustomTextField
-                  label="Password"
-                  formik={formik}
-                  id='password'
-                  name='password'
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Password"
-                  children4={
-                    <div style={{ cursor: 'pointer' }} onClick={togglePasswordVisibility}>
-                      {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                    </div>
-                  }
-
-                />
-                <div style={{ color: 'red', marginTop: '-16px', marginBottom: '16px', fontSize: '12px' }}>
-                  {formik.touched.password && formik.errors.password}
-                </div>
-                <div className={styles.bottomContainer}>
-                  <div className={styles.content1}>
-                    <span>
-                      <Checkbox
-                        required
-                        name='termsAndConditions'
-                        {...formik.getFieldProps('termsAndConditions')}
-                        sx={{
-                          marginLeft: '-0.5rem',
-                          color: grey[900],
-                          '&.Mui-checked': {
-                            color: grey[900],
-                          },
-                          transform: 'scale(0.7)'
-                        }}
+                  <div className={styles.combiner}>
+                    <div className={styles.combine1}>
+                      <CustomTextField
+                        label="First Name"
+                        type="text"
+                        formik={formik}
+                        name='firstName'
+                        placeholder="First Name"
                       />
-                    </span>
-                    <RouterLink to='/terms'>I have read and accepted the Loadz Online LLC Terms and Conditions</RouterLink>
-                  </div>
-                      <div style={{ color: 'red', marginTop: '-10px', marginBottom: '16px', fontSize: '12px' }}>
-                  {formik.touched.termsAndConditions && formik.errors.termsAndConditions}
-                </div>
-                  <div className={styles.content1}>
-                    <span>
-                      <Checkbox
-                        required
-                        name='privacyPolicy'
-                        {...formik.getFieldProps('privacyPolicy')}
-                        sx={{
-                          marginLeft: '-0.5rem',
-                          color: grey[900],
-                          '&.Mui-checked': {
-                            color: grey[900],
-                          },
-                          transform: 'scale(0.7)'
-                        }}
+                      <div style={pagestyle.formik}>
+                        {formik.touched.firstName && formik.errors.firstName}
+                      </div>
+                    </div>
+                    <div className={styles.combine2}>
+                      <CustomTextField
+                        label="Last Name"
+                        formik={formik}
+                        name='lastName'
+                        placeholder="Last Name"
                       />
-                    </span>
-                    <RouterLink to='/privacy'>I have read and accepted the Loadz Online LLC Privacy Policy</RouterLink>
+                      <div style={pagestyle.formik}>
+                        {formik.touched.lastName && formik.errors.lastName}
+                      </div>
+                    </div>
                   </div>
-                  
-                      <div style={{ color: 'red', marginTop: '-10px', marginBottom: '16px', fontSize: '12px' }}>
-                  {formik.touched.privacyPolicy && formik.errors.privacyPolicy}
+                  <CustomTextField
+                    label="Password"
+                    formik={formik}
+                    id='password'
+                    name='password'
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Password"
+                    children4={
+                      <div style={{ cursor: 'pointer' }} onClick={togglePasswordVisibility}>
+                        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </div>
+                    }
+
+                  />
+                  <div style={pagestyle.formik}>
+                    {formik.touched.password && formik.errors.password}
+                  </div>
+                  <div className={styles.bottomContainer}>
+                    <div className={styles.content1}>
+                      <span>
+                        <Checkbox
+                          required
+                          name='termsAndConditions'
+                          {...formik.getFieldProps('termsAndConditions')}
+                          sx={{
+                            marginLeft: '-0.5rem',
+                            color: grey[900],
+                            '&.Mui-checked': {
+                              color: grey[900],
+                            },
+                            transform: 'scale(0.7)'
+                          }}
+                        />
+                      </span>
+                      <RouterLink to='/terms'>I have read and accepted the Loadz Online LLC Terms and Conditions</RouterLink>
+                    </div>
+                    <div style={{ color: 'red', marginTop: '-10px', marginBottom: '16px', fontSize: '12px' }}>
+                      {formik.touched.termsAndConditions && formik.errors.termsAndConditions}
+                    </div>
+                    <div className={styles.content1}>
+                      <span>
+                        <Checkbox
+                          required
+                          name='privacyPolicy'
+                          {...formik.getFieldProps('privacyPolicy')}
+                          sx={{
+                            marginLeft: '-0.5rem',
+                            color: grey[900],
+                            '&.Mui-checked': {
+                              color: grey[900],
+                            },
+                            transform: 'scale(0.7)'
+                          }}
+                        />
+                      </span>
+                      <RouterLink to='/privacy'>I have read and accepted the Loadz Online LLC Privacy Policy</RouterLink>
+                    </div>
+
+                    <div style={{ color: 'red', marginTop: '-10px', marginBottom: '16px', fontSize: '12px' }}>
+                      {formik.touched.privacyPolicy && formik.errors.privacyPolicy}
+                    </div>
+                  </div>
+                  <div className={styles.button1}>
+                    <Button
+                      type='submit'
+                      variant='contained'
+                      sx={{
+                        backgroundColor: 'black',
+                        fontSize: '16px',
+                        fontWeight: '700',
+                        ':hover': { backgroundColor: 'black' },
+                        borderRadius: '5px',
+                        width: '224px',
+                        marginTop: '1rem',
+                        margin: '0 0rem'
+                      }}
+                      onSubmit={formik.handleSubmit}
+                    >
+                      CREATE AN ACCOUNT
+                    </Button>
+                  </div>
+                  <div className={styles.bottomLink}>
+                    <span>Already have an account?</span>&nbsp;
+                    <a href='/'>Login</a>
+                  </div>
                 </div>
-                </div>
-                <div className={styles.button1}>
-                  <Button
-                    type='submit'
-                    variant='contained'
-                    sx={{
-                      backgroundColor: 'black',
-                      fontSize: '16px',
-                      fontWeight: '700',
-                      ':hover': { backgroundColor: 'black' },
-                      borderRadius: '5px',
-                      width: '224px',
-                      marginTop: '1rem',
-                      margin: '0 0rem'
-                    }}
-                    onSubmit={formik.handleSubmit}
-                  >
-                    CREATE AN ACCOUNT
-                  </Button>
-                </div>
-                <div className={styles.bottomLink}>
-                  <span>Already have an account?</span>&nbsp;
-                  <a href='/'>Login</a>
-                </div>
+                <Send width="33.33%"
+                  className={styles.uploadimg}
+                  children={selectedImage ? <img src={selectedImage}
+                    alt='Selecte persion' onClick={handleClickOpen} /> :
+                    <img src={persionImage}
+                      alt='Default Person logo'
+                      onClick={handleClickOpen}
+                    />}
+                />
               </div>
-              <Send  width="33.33%"  className={styles.uploadimg} children={selectedImage ? <img src={selectedImage} alt='Selecte persion' onClick={handleClickOpen} /> : <img src={persionImage} alt='Default Person logo' onClick={handleClickOpen} />} />
-            </div>
-          </form>
-        }
-      />
+            </form>
+          }
+        />
       </div>
     </>
   )

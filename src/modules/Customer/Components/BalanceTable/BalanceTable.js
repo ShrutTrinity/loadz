@@ -22,46 +22,46 @@ const BalanceTable = () => {
       <Table aria-label="simple table">
         <TableHead sx={{ backgroundColor: '#e7cc0b', fontWeight: 800 }}>
           <TableRow>
-            <TableCell 
-            sx={{ 
-              fontWeight: 800, 
-              fontSize: '16px' 
-            }}>
-            Customer
+            <TableCell
+              sx={{
+                fontWeight: 800,
+                fontSize: '16px'
+              }}>
+              Customer
             </TableCell>
-            <TableCell 
-            sx={{ 
-              fontWeight: 800, 
-              fontSize: '16px' 
-            }}>
-            Current
+            <TableCell
+              sx={{
+                fontWeight: 800,
+                fontSize: '16px'
+              }}>
+              Current
             </TableCell>
-            <TableCell 
-            sx={{ 
-              fontWeight: 800, 
-              fontSize: '16px' 
-            }}>
+            <TableCell
+              sx={{
+                fontWeight: 800,
+                fontSize: '16px'
+              }}>
               1-30
             </TableCell>
-            <TableCell 
-            sx={{ 
-              fontWeight: 800, 
-              fontSize: '16px' 
-            }}>
+            <TableCell
+              sx={{
+                fontWeight: 800,
+                fontSize: '16px'
+              }}>
               31-60
             </TableCell>
-            <TableCell 
-            sx={{ 
-              fontWeight: 800, 
-              fontSize: '16px' 
-            }}>
+            <TableCell
+              sx={{
+                fontWeight: 800,
+                fontSize: '16px'
+              }}>
               61-90
             </TableCell>
-            <TableCell 
-            sx={{ 
-              fontWeight: 800, 
-              fontSize: '16px' 
-            }}> 
+            <TableCell
+              sx={{
+                fontWeight: 800,
+                fontSize: '16px'
+              }}>
               90
             </TableCell>
             <TableCell sx={{ fontWeight: 800, fontSize: '16px' }}>TOTAL</TableCell>
@@ -73,27 +73,69 @@ const BalanceTable = () => {
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell 
-              sx={{ 
-                fontWeight: 800, 
-                fontSize: '16px', 
-                color: 'white' 
-                }} 
-                component="th" 
+              <TableCell
+                sx={{
+                  fontWeight: 800,
+                  fontSize: '16px',
+                  color: 'white'
+                }}
+                component="th"
                 scope="row">
                 {row.name}
               </TableCell>
-              <TableCell sx={{ fontWeight: 800, fontSize: '16px', color: 'white' }}>{row.calories}</TableCell>
-              <TableCell sx={{ fontWeight: 800, fontSize: '16px', color: 'white' }}>{row.fat}</TableCell>
-              <TableCell sx={{ fontWeight: 800, fontSize: '16px', color: 'white' }}>{row.carbs}</TableCell>
-              <TableCell sx={{ fontWeight: 800, fontSize: '16px', color: 'white' }}>{row.protein}</TableCell>
-              <TableCell sx={{ fontWeight: 800, fontSize: '16px', color: 'white' }}>{row.protein}</TableCell>
-              <TableCell sx={{ fontWeight: 800, fontSize: '16px', color: 'white' }}>{row.protein}</TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 800,
+                  fontSize: '16px',
+                  color: 'white'
+                }}>
+                {row.calories}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 800,
+                  fontSize: '16px',
+                  color: 'white'
+                }}>
+                {row.fat}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 800,
+                  fontSize: '16px',
+                  color: 'white'
+                }}>
+                {row.carbs}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 800,
+                  fontSize: '16px',
+                  color: 'white'
+                }}>
+                {row.protein}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 800,
+                  fontSize: '16px',
+                  color: 'white'
+                }}>
+                {row.protein}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 800,
+                  fontSize: '16px',
+                  color: 'white'
+                }}>
+                {row.protein}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer>   
 
   )
 }
