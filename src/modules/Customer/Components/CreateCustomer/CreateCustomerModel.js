@@ -71,7 +71,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
               </div>
 
             </div>
-            <br />
+            
             <form className={styles.form}>
               <div className={styles.textfields}>
                 <CommonTextfield
@@ -98,7 +98,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   label='Customer Phone'
                   variant='outlined'
                 />
-                <div style={{ width: '100%', margin: '30px 0 5px 0' }}>
+                <div style={{ width: '100%', margin: '5px' }}>
                   <h5 className={styles.heading}>Address</h5>
                 </div>
                 <CommonTextfield
