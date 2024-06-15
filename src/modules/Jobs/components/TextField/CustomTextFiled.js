@@ -11,7 +11,7 @@ const CustomTextFiled = ({ label, placeholder, type, children4, name, id, requir
             fontSize: 13,
           },
           "& input::placeholder": {
-            fontSize: "13px"
+            fontSize: "8px"
           },
           width:'100%',
           marginBottom: '16px',

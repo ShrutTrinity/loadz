@@ -10,7 +10,6 @@ const ContactFrom = ({ index, handleAddForm, handleRemove }) => {
       <div style={{
         display: 'flex',
         gap: '10px',
-        marginTop: '10px',
         flexWrap: 'wrap'
       }}>
         <CommonTextfield
