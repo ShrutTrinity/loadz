@@ -175,9 +175,9 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                         },
                       }}
                     >
-                      {statesArray.map((term, index) => (
-                        <MenuItem key={index} value={term} style={createCustomerStyles.selectList}>
-                          {term}
+                      {statesArray.map((state, index) => (
+                        <MenuItem key={index} value={state} style={createCustomerStyles.selectList}>
+                          {state}
                         </MenuItem>
                       ))}
                     </Select>
