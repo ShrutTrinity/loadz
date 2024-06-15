@@ -85,27 +85,37 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen }) => {
               ${30.00}
             </div>
           </div>
-          <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-
-            <DemoContainer components={['DatePicker']}>
-              <DatePicker sx={{
-                width: '200px',
-                '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root': {
-                  color: 'rgb(237, 202, 51)'
-                },
-                '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
-                  color: 'rgb(237, 202, 51)'
-                },
-                '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
-                  borderColor: '#98999a'
-                }
-              }} label="Payment Date"
-              />
-            </DemoContainer>
-          </LocalizationProvider>
+          <hr ></hr>
           <div className={styles.flex2}>
-            <FormControl sx={{
+            <LocalizationProvider
+              dateAdapter={AdapterDayjs}
+            >
+
+              <DemoContainer components={['DatePicker']}
+              >
+                <DatePicker sx={{
+
+                  '& .css-10o2lyd-MuiStack-root': {
+                    paddingTop: '0px'
+                  },
+          
+                  '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root': {
+                    color: 'rgb(237, 202, 51)'
+                  },
+                  '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
+                    color: 'rgb(237, 202, 51)'
+                  },
+                  '& .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline ': {
+                    borderColor: '#98999a'
+                  }
+                }} label="Payment Date"
+                  slotProps={{ textField: { size: 'small' } }}
+
+                />
+              </DemoContainer>
+            </LocalizationProvider>
+
+            <FormControl size='small' sx={{
               width: '20%',
               '@media (max-width: 700px)': {
                 width: '100%'
@@ -140,14 +150,14 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen }) => {
               width='20%'
             />
             <FormControl sx={{
-              width: '50%', display: 'flex', alignItems: 'flex-end',
+              width: '30%',
               '@media (max-width: 700px)': {
                 width: '100%'
               }
             }}>
               <TextField
+                size='small'
                 sx={{
-                  width: `${50}%`,
                   margin: '15px 0 15px 0',
                   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     borderColor: 'rgba(0, 0, 0, 0.23)',
@@ -166,7 +176,7 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen }) => {
               />
             </FormControl>
           </div>
-          <hr className="MuiDivider-root MuiDivider-fullWidth muiltr-39bbo6"></hr>
+          <hr></hr>
           <div className={styles.card}>
             <CommonTextfield
               id='invioceNo'

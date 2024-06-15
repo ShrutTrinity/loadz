@@ -191,9 +191,12 @@ const CreateCustomer = () => {
 
           {/*  */}
           <div className={styles.industryInformation}>
-            <FormControl required sx={{ m: 1, width: '100%' }}>
-              <InputLabel
-                id="demo-simple-select-required-label" style={allStyle.labelStyle}
+            <FormControl required
+              sx={{
+                m: 1,
+                width: '100%'
+              }}>
+              <InputLabel id="demo-simple-select-required-label" style={allStyle.labelStyle}
               >
                 Business Classification
               </InputLabel>
@@ -211,13 +214,19 @@ const CreateCustomer = () => {
                 }}
               >
                 {businessClass.map((type) => (
-                  <MenuItem key={type.value} value={type.value} style={allStyle.menuItemStyle}>
+                  <MenuItem
+                    key={type.value}
+                    value={type.value}
+                    style={allStyle.menuItemStyle}>
                     <span style={allStyle.labelStyle}>{type.label}</span>
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
-            <FormControl required sx={{ m: 1, width: '100%' }}>
+            <FormControl required sx={{
+              m: 1,
+              width: '100%'
+            }}>
               <InputLabel
                 id="demo-simple-select-required-label" style={allStyle.labelStyle}
               >
@@ -237,17 +246,24 @@ const CreateCustomer = () => {
                 }}
               >
                 {industryArray.map((type) => (
-                  <MenuItem key={type.value} value={type.value} style={allStyle.menuItemStyle}>
-                    <span style={allStyle.labelStyle}>{type.label}</span>
+                  <MenuItem
+                    key={type.value}
+                    value={type.value}
+                    style={allStyle.menuItemStyle}>
+                    <span style={allStyle.labelStyle}>
+                      {type.label}
+                    </span>
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </div>
 
-          {/*  */}
           <div className={styles.addressInformation}>
-            <FormControl sx={{ m: 1, width: '100%' }}>
+            <FormControl sx={{
+              m: 1,
+              width: '100%'
+            }}>
               <TextField
                 id="outlined-basic"
                 label="Address 1"
