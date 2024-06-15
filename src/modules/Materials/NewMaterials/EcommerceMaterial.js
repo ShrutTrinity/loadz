@@ -185,9 +185,10 @@ const EcommerceMaterial = (props) => {
                       />
                     </div>
                     <div className={styles.categories}>
-                      <FormControl fullWidth sx={{
-                        backgroundColor: 'rgb(255,255,255)',
-                      }}>
+                      <FormControl fullWidth size='small'
+                        sx={{
+                          backgroundColor: 'rgb(255,255,255)',
+                        }}>
                         <InputLabel
                           id="demo-simple-select-label"
                           sx={{
@@ -231,10 +232,11 @@ const EcommerceMaterial = (props) => {
                       </FormControl>
                     </div>
                     <div className={styles.status}>
-                      <FormControl fullWidth sx={{
-                        backgroundColor: 'rgb(255,255,255)',
-                        fontSize: '13px'
-                      }}>
+                      <FormControl fullWidth size='small'
+                        sx={{
+                          backgroundColor: 'rgb(255,255,255)',
+                          fontSize: '13px'
+                        }}>
                         <InputLabel
                           id="demo-simple-select-label"
                           sx={{

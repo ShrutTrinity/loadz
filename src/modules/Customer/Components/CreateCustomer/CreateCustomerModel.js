@@ -3,6 +3,11 @@ import styles from './styles/createCustomer.module.scss';
 import ContactFrom from './ContactFrom';
 import CommonTextfield from '@Jobs/components/TextField/CommonTextfield';
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+
 
 const statesArray = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',
@@ -25,11 +30,16 @@ const createCustomerStyles = {
     padding: '17px 14px 17.5px 10px',
     fontSize: '13px',
     width: '100%',
+  },
+  selectList: {
+    fontSize: '13px',
   }
 }
 
 const CreateCustomer = ({ isOpen, handleClose }) => {
   const [contactForms, setContactForms] = useState([{ index: 0 }]);
+  const [state, setState] = useState('');
+  const [term, setTerm] = useState(netarray[0]);
 
   const handleAddForm = () => {
     const newIndex =
@@ -37,6 +47,14 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
         contactForms[contactForms.length - 1].index + 1 : 1;
     setContactForms(prevForms => [...prevForms, { index: newIndex }]);
   };
+
+  const handleState = (e) => {
+    setState(e.target.value)
+  }
+
+  const handleTerm = (e) => {
+    setTerm(e.target.value)
+  }
 
   const handleRemove = (indexToRemove) => {
     setContactForms(prevForms => prevForms.filter(form => form.index !== indexToRemove));
@@ -71,7 +89,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
               </div>
 
             </div>
-            
+
             <form className={styles.form}>
               <div className={styles.textfields}>
                 <CommonTextfield
@@ -117,20 +135,53 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   variant='outlined'
                 />
                 <div className={styles.selectFields}>
-                  <select
-                    className='form-select'
-                    style={createCustomerStyles.selectFiled}
-                    defaultValue={''}
-                    aria-label="Default select example"
-                    name="state"
-                  >
-                    <option value="" disabled >Select a State</option>
-                    {statesArray.map((state, index) => (
-                      <option key={index} value={state}>
-                        {state}
-                      </option>
-                    ))}
-                  </select>
+                  <FormControl fullWidth size='small'
+                    sx={{
+                      backgroundColor: 'rgb(255,255,255)',
+                      fontSize: '13px',
+                      marginTop: '13px'
+                    }}>
+                    <InputLabel
+                      id="demo-simple-select-label"
+                      sx={{
+                        fontSize: '13px',
+                        '&.Mui-focused': {
+                          color: 'rgb(237,202,51)',
+                        },
+                      }}
+                      required
+                    >
+                      State
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={state}
+                      defaultValue='10'
+                      label="State"
+                      onChange={handleState}
+                      required
+                      sx={{
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                      }}
+                      MenuProps={{
+                        PaperProps: {
+                          style: {
+                            maxHeight: 96,
+                            borderRadius: '12px'
+                          },
+                        },
+                      }}
+                    >
+                      {statesArray.map((term, index) => (
+                        <MenuItem key={index} value={term} style={createCustomerStyles.selectList}>
+                          {term}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </div>
                 <CommonTextfield
                   width='24'
@@ -162,25 +213,54 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   variant='outlined'
                 />
                 <div className={styles.selectFiledsforNet}>
-                  <select
-                    className="form-select"
-                    style={{
-                      borderColor: '#c4c4c4',
-                      padding: '17px 14px 18px 10px',
+                  <FormControl fullWidth size='small'
+                    sx={{
+                      backgroundColor: 'rgb(255,255,255)',
                       fontSize: '13px',
-                      width: '100%',
-                      margin: '15px 0'
-                    }}
-                    defaultValue={2}
-                    aria-label="Default select example"
-                    name="state"
-                  >
-                    {netarray.map((state, index) => (
-                      <option key={index} value={state}>
-                        {state}
-                      </option>
-                    ))}
-                  </select>
+                      marginTop: '13px'
+                    }}>
+                    <InputLabel
+                      id="demo-simple-select-label"
+                      sx={{
+                        fontSize: '13px',
+                        '&.Mui-focused': {
+                          color: 'rgb(237,202,51)',
+                        },
+                      }}
+                      required
+                    >
+                      Term
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={term}
+                      defaultValue='10'
+                      label="Term"
+                      onChange={handleTerm}
+                      required
+                      sx={{
+                        fontWeight: '300',
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                      }}
+                      MenuProps={{
+                        PaperProps: {
+                          style: {
+                            maxHeight: 96,
+                            borderRadius: '12px'
+                          },
+                        },
+                      }}
+                    >
+                      {netarray.map((term, index) => (
+                        <MenuItem key={index} value={term} style={createCustomerStyles.selectList}>
+                          {term}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </div>
                 <CommonTextfield
                   width='32'
