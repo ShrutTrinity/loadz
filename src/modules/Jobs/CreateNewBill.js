@@ -73,7 +73,7 @@ const CreateNewBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawe
             openSpecialRateForm={handleSpecialRateDialog}
             handleDeleteDialog={handleDeleteDialog}
             setEditData={setEditData}
-            />
+          />
         </div>
       </div>
     </>

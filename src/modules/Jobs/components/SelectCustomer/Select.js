@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const MenuProps = { 
+const MenuProps = {
     PaperProps: {
         style: {
             maxHeight: ITEM_HEIGHT + ITEM_PADDING_TOP,
@@ -20,14 +20,14 @@ const MenuProps = {
 };
 
 
-const SelectUser = ({openCreateUser}) => {
+const SelectUser = ({ openCreateUser }) => {
 
     const [personName, setPersonName] = useState([]);
 
     const button = <Button
         onClick={openCreateUser}
         sx={{
-            color: 'black', 
+            color: 'black',
             padding: '0',
             fontSize: '13px'
         }}>Create customer</Button>
@@ -43,56 +43,58 @@ const SelectUser = ({openCreateUser}) => {
                     ? theme.typography.fontWeightLight
                     : theme.typography.fontWeightMedium,
             fontSize: '13px',
-          
+
         };
     }
 
     const theme = useTheme();
 
     const handleChange = (event) => {
+        
         const {
             target: { value },
         } = event;
         setPersonName(
             typeof value === 'string' ? value.split(',') : value,
         );
+    
     };
 
     return (
         <>
-        <div>
-            <FormControl sx={{ marginBottom: '10px', width: '100%' ,'& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':{padding:'10px 14px'}}}>
-                <Select
-                    id="demo-multiple-chip"
-                    multiple
-                    value={personName}
-                    onChange={handleChange}
-                    input={<OutlinedInput id="select-multiple-chip" />}
-                    renderValue={(selected) => (
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
-                            {selected.map((value) => (
-                                <Chip
-                                    key={value}
-                                    label={value}
-                                    sx={{ fontSize: '13px', fontWeight: 300 }}
-                                />
-                            ))}
-                        </Box>
-                    )}
-                    MenuProps={MenuProps}
-                >
-                    {names.map((name) => (
-                        <MenuItem
-                            key={name}
-                            value={name}
-                            style={getStyles(name, personName, theme)}
-                        >
-                            {name}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-        </div>
+            <div>
+                <FormControl sx={{ marginBottom: '10px', width: '100%', '& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input': { padding: '10px 14px' } }}>
+                    <Select
+                        id="demo-multiple-chip"
+                        multiple
+                        value={personName}
+                        onChange={handleChange}
+                        input={<OutlinedInput id="select-multiple-chip" />}
+                        renderValue={(selected) => (
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                {selected.map((value) => (
+                                    <Chip
+                                        key={value}
+                                        label={value}
+                                        sx={{ fontSize: '13px', fontWeight: 300 }}
+                                    />
+                                ))}
+                            </Box>
+                        )}
+                        MenuProps={MenuProps}
+                    >
+                        {names.map((name) => (
+                            <MenuItem
+                                key={name}
+                                value={name}
+                                style={getStyles(name, personName, theme)}
+                            >
+                                {name}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </div>
         </>
     );
 };
