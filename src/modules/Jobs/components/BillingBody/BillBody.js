@@ -22,7 +22,6 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
     'TYPE D VULCAN WTFD-ASPHALT PLANT',
     'TYPE D VULCAN WEATHERFORD-ASPHALT PLANT'
   ]
-
   const units=[
    ' Create Units',
    ' Tons',
