@@ -23,11 +23,32 @@ const allStyle = {
 }
 
 const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDialog }) => {
-  const [value, setValue] = useState(true);
-  const [valueOfCommission, setValueOfCommission] = useState(false);
-  const [valueOfTax, setValueOfTax] = useState(true);
-  const [valueOfCharging, setValueOfCharging] = useState(false);
+
+  const Materials = [
+    'Create Materials',
+    'Millings',
+    'Select Fill',
+    'Caliche',
+    'Hotmix',
+    'Oversized Rock',
+    'Top Soil',
+    'TYPE D VULCAN WTFD-ASPHALT PLANT',
+    'TYPE D VULCAN WEATHERFORD-ASPHALT PLANT'
+  ]
+
+  const units = [
+    ' Create Units',
+    ' Tons',
+    'Yards',
+    'Hours',
+    'Loadz'
+  ]
+  const [value, setValue] = useState(true)
+  const [valueOfCommission, setValueOfCommission] = useState(false)
+  const [valueOfTax, setValueOfTax] = useState(true)
+  const [valueOfCharging, setValueOfCharging] = useState(false)
   const [unit, setUnit] = useState('');
+  const [materials, setMaterials] = useState('');
 
   const handleEditData = (rowData) => {
     setEditData(rowData);
@@ -35,119 +56,232 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
   };
 
   const handleChange = (event) => {
-    setUnit(event.target.value);
+    const selectedValue = event.target.value;
+    if (selectedValue === 0) {
+      openPopup();
+    } else {
+      setUnit(selectedValue);
+    }
   };
-
-  const toggleSwitch = (setter) => {
-    setter(prev => !prev);
+  const handleChangeMaterials = (event) => {
+    const selectedValue = event.target.value;
+    if (selectedValue === 0) {
+      openPopup();
+    } else {
+      setMaterials(selectedValue);
+    }
   };
+  const openPopup = () => {
+    console.log("A")
+  }
 
-  const Card = ({ heading, children }) => (
-    <div className={styles.cardiner}>
-      <h2 className={styles.cardinerHeading}>{heading}</h2>
-      {children}
-    </div>
-  );
+  const handleSwitchVlue = () => {
+    setValue(!value)
+    if (value === false) {
+      setValueOfTax(true)
+    }
+    if (value === true) {
+      setValueOfTax(false)
+    }
+  }
 
-  const SwitchWithLabel = ({ label, value, onChange }) => (
-    <div className={styles.switch1}>
-      <p className={styles.switchLabel}>{label}</p>
-      <SwitchMUI handleSwitchValue={onChange} valueOfSwitch={!value} />
-    </div>
-  );
+  const handleCommissionSitchValue = () => {
+    setValueOfCommission(!valueOfCommission)
+  }
 
-  const TextInputWithLabel = ({ label, placeholder, type = 'text', ...rest }) => (
-    <div className={styles.textContainer}>
-      <CustomTextFiled label={label} placeholder={placeholder} type={type} {...rest} />
-    </div>
-  );
+  const handleTaxSwitch = () => {
+    setValueOfTax(!valueOfTax)
+  }
+
+  const handleCharging = () => {
+    setValueOfCharging(!valueOfCharging)
+  }
+  const handleKeyDown = (event) => {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      event.preventDefault();
+      console.log("key is pressed")
+    }
+  };
 
   return (
-    <div className={styles.body}>
-      <div className={styles.cardContainer}>
-        <Card heading="Material Rates">
-          <h3 className={styles.h3}>Select the material being hauled</h3>
-          <TextInputWithLabel name='materials' label='Materials' placeholder='Select a materials' />
-          <div className={styles.cardDetail}>
-            <SwitchWithLabel label="Are You Selling The Material?" value={value} onChange={() => toggleSwitch(setValue)} />
-            <SwitchWithLabel label="Is It Taxable?" value={valueOfTax} onChange={() => toggleSwitch(setValueOfTax)} />
+    <>
+      <div className={styles.body}>
+        <div className={styles.cardContainer}>
+
+          {/* 1 */}
+          <div className={styles.cardiner}>
+            <h2 className={styles.cardinerHeading}>Material Rates</h2>
+            <h3 className={styles.h3}>Select the material being hauled</h3>
+            <div className={styles.textContainer}>
+              Materials
+              <Select
+                size='small'
+                value={materials}
+                name="persionTypeValue"
+                onChange={handleChangeMaterials}
+                required
+                sx={{
+                  width: '100%',
+                  background: 'white'
+                }}
+              >
+                {
+                  Materials.map((method, index) => (
+                    <MenuItem
+                      key={index}
+                      value={index}
+                      onClick={index === 0 && openPopup}>
+                      {method}
+                    </MenuItem>
+                  ))
+                }
+              </Select>
+            </div>
+            <div className={styles.cardDetail}>
+              <div className={styles.container}>
+                <div className={styles.switch1}>
+                  <p className={styles.switchLabel}>Are You Selling The Material?</p>
+                  <SwitchMUI handleSwitchValue={handleSwitchVlue} valueOfSwitch={!value} />
+                </div>
+                <div className={styles.switch2}>
+                  <p className={styles.switchLabel}>Is It Taxable?</p>
+                  <SwitchMUI handleSwitchValue={handleTaxSwitch} valueOfSwitch={!valueOfTax} />
+                </div>
+              </div>
+            </div>
+            {!value &&
+              <div className={styles.conditionalContainer}>
+                <CustomTextFiled
+                  id='invoice-rate'
+                  name='invoice-rate'
+                  type='number'
+                  onKeyDown={handleKeyDown}
+                  label='Material Invoice Rate'
+                  placeholder='$0.00'
+                />
+                <span>Enter the Material Invoice Rate</span>
+
+                <div className={styles.containerFirst}>
+                  <CustomTextFiled
+                    id='cost-rate'
+                    name='cost-rate'
+                    type='number'
+                    onKeyDown={handleKeyDown}
+                    label='Material Cost Rate'
+                    placeholder='$0.00'
+                  />
+                </div>
+              </div>
+            }
           </div>
-          {!value && (
-            <div className={styles.conditionalContainer}>
-              <TextInputWithLabel
-                id='invoice-rate'
-                name='invoice-rate'
-                type='number'
-                label='Material Invoice Rate'
+
+          {/* 2 */}
+          <div className={styles.cardiner}>
+            <h2 className={styles.cardinerHeading}>Hauling Rates</h2>
+            <h3 className={styles.h3}>Select the Unit of Measure that will appear on your invoice.</h3>
+            <div className={styles.textContainer}>
+              Unit
+              <Select
+                size='small'
+                value={unit}
+                name="persionTypeValue"
+                onChange={handleChange}
+                required
+                sx={{
+                  width: '100%',
+                  background: 'white'
+                }}
+              >
+                {
+                  units.map((method, index) => (
+                    <MenuItem
+                      key={index}
+                      value={index}
+                      onClick={index === 0 && openPopup}>
+                      {method}
+                    </MenuItem>
+                  ))
+                }
+              </Select>
+            </div>
+            <div className={styles.textContainer}>
+              <CustomTextFiled
+                name='materials'
+                label='Unit Invoice Rate'
                 placeholder='$0.00'
-              />
-              <span>Enter the Material Invoice Rate</span>
-              <TextInputWithLabel
-                id='cost-rate'
-                name='cost-rate'
                 type='number'
-                label='Material Cost Rate'
-                placeholder='$0.00'
+                onKeyDown={handleKeyDown}
               />
             </div>
-          )}
-        </Card>
-
-        <Card heading="Hauling Rates">
-          <h3 className={styles.h3}>Select the Unit of Measure that will appear on your invoice.</h3>
-          <div className={styles.textContainer}>
-            <Select
-              value={unit}
-              name="persionTypeValue"
-              onChange={handleChange}
-              required
-              sx={{ width: '100%', background: 'white' }}
-            >
-              <MenuItem value="Subcontractor">Subcontractor</MenuItem>
-              <MenuItem value="Owner Operator">Owner Operator</MenuItem>
-            </Select>
+            <div className={styles.conditionalSate2}>
+              <div className={styles.cardDetail}>
+                <div className={styles.switch1}>
+                  <p className={styles.switchLabel}>Do you pay In-House Drivers commission?</p>
+                  <SwitchMUI handleSwitchValue={handleCommissionSitchValue} valueOfSwitch={!valueOfCommission} />
+                </div>
+              </div>
+              {valueOfCommission &&
+                <div className={styles.textContainerDriverRate}>
+                  <CustomTextFiled
+                    name='DriverRate'
+                    onKeyDown={handleKeyDown}
+                    label='Driver Hourly Rate'
+                    placeholder='$0.00'
+                    type='number' />
+                </div>
+              }
+              <div>
+                <p className={styles.condition}>If you are paying hourly wages on this job, select “No”. (This Only Applies To In-house Drivers)</p>
+              </div>
+              {!value &&
+                <div className={styles.cardDetail}>
+                  <div className={styles.switch1}>
+                    <p className={styles.switchLabel}>Are you charging your customer for hauling ?</p>
+                    <SwitchMUI handleSwitchValue={handleCharging} valueOfSwitch={!valueOfCharging} />
+                  </div>
+                </div>
+              }
+              <div className={styles.textContainer}>
+                <CustomTextFiled
+                  name='Unit-Cost-Rate'
+                  onKeyDown={handleKeyDown}
+                  label='Unit Cost Rate'
+                  placeholder='$0.00'
+                  type='number' />
+              </div>
+            </div>
           </div>
-          <TextInputWithLabel name='materials' label='Unit Invoice Rate' placeholder='$0.00' type='number' />
-          <div className={styles.conditionalSate2}>
-            <SwitchWithLabel label="Do you pay In-House Drivers commission?" value={valueOfCommission} onChange={() => toggleSwitch(setValueOfCommission)} />
-            {
-              valueOfCommission && <TextInputWithLabel
-                name='DriverRate'
-                label='Driver Hourly Rate'
+
+          {/* 3 */}
+          <div className={styles.cardiner}>
+            <h2 className={styles.cardinerHeading}>Owner Operator / Subcontractor Rates</h2>
+            <div className={styles.textContainer}>
+              <CustomTextFiled
+                name='materials'
+                label='Subcontractor Unit Cost Rate'
                 placeholder='$0.00'
+                onKeyDown={handleKeyDown}
                 type='number' />
-            }
-            <p className={styles.condition}>If you are paying hourly wages on this job, select “No”. (This Only Applies To In-house Drivers)</p>
-            {
-              !value && <SwitchWithLabel
-                label="Are you charging your customer for hauling?"
-                value={valueOfCharging}
-                onChange={() => toggleSwitch(setValueOfCharging)} />
-            }
-            <TextInputWithLabel name='Unit-Cost-Rate' label='Unit Cost Rate' placeholder='$0.00' type='number' />
-          </div>
-        </Card>
+            </div>
+            <div className={styles.textContainer}>
+              <CustomTextFiled
+                name='materials'
+                label='Owner Operator Unit Cost Rate'
+                placeholder='$0.00'
+                type='number'
+                onKeyDown={handleKeyDown}
+              />
+            </div>
 
-        <Card heading="Owner Operator / Subcontractor Rates">
-          <TextInputWithLabel
-            name='materials'
-            label='Subcontractor Unit Cost Rate'
-            placeholder='$0.00'
-            type='number'
-          />
-          <TextInputWithLabel
-            name='materials'
-            label='Owner Operator Unit Cost Rate'
-            placeholder='$0.00'
-            type='number'
-          />
-          <div className={styles.note}>
-            <InfoOutlinedIcon size='large' />
-            <p className={styles.noteText}>
-              If you need to set a different rate for an owner operator or subcontractor, simply enter it and it will take precedence over the job-specified rate for that particular driver.
-            </p>
+            <div className={styles.note}>
+              <InfoOutlinedIcon size='large' />
+              <p className={styles.noteText}>
+                If you need to set a different rate for an owner operator or subcontractor, simply enter it and it will take precedence over the job-specified rate for that particular driver.
+              </p>
+            </div>
           </div>
-        </Card>
+          
+        </div>
       </div>
 
       <div className={styles.operatoroutter}>
@@ -174,7 +308,7 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
           </Button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

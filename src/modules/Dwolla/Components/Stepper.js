@@ -6,7 +6,6 @@ import { styled } from '@mui/material/styles';
 import StepLabel from '@mui/material/StepLabel';
 
 const steps = ['Create Customer', 'Create Owners And Document ', 'Funding Source'];
-
 const CustomStepIcon = styled('div')(({ theme, active }) => ({
   width: 24,
   height: 24,

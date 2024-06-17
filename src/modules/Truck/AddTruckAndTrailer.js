@@ -14,17 +14,17 @@ const allRouteStyle = {
   headerButton: {
     background: 'rgb(237, 202, 51)',
     color: 'rgb(0,0,0)',
-    height:'100%',
+
     borderRadius: '10px',
     fontWeight: '700',
-    padding: '10px 35px',
+    padding: '5px 15px',
     fontSize: '15px',
     textTransform: 'capitalize'
   },
 
   cardFunctionButton: {
     color: 'black',
-    padding: '10px',
+    padding: '10px 5px  ',
     width: '100%',
     fontWeight: '600',
     borderRadius: '10px',
@@ -34,7 +34,7 @@ const allRouteStyle = {
 }
 
 const AddTruckAndTrailer = (props) => {
-  
+
   const bodyStyle = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
   }
@@ -47,42 +47,25 @@ const AddTruckAndTrailer = (props) => {
     <>
       <div className={styles.container} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.header}>
-          <div className={styles.heading}>
-            Truck
-          </div>
           <div className={styles.bottomHeader}>
-            <div className={styles.headerButton}>
-            <Link to='/truck/modal' >
-              <Button
-                 style={allRouteStyle.headerButton}
-                variant="contained"
-              >
-                Add Trucks
-              </Button>
-              </Link>
-              <Link to='/Typehaul/all'>
-              <Button
-                style={allRouteStyle.headerButton} variant="contained">
-                Add Trailer
-              </Button>
-              </Link>
+            <div className={styles.heading}>
+              Truck
             </div>
             <TextField
-              size="large"
+              size="small"
               placeholder='Search Truck'
-              // value={searchValue}
-              // onChange={handleChange}
               sx={{
                 flexGrow: 1,
                 borderRadius: '10px',
-                maxWidth:'40%',
-                border:'1px solid black',
-                background: 'white',
+                maxWidth: '40%',
                 '@media (max-width: 652px)': {
                   maxWidth: '100%'
                 }
               }}
               InputProps={{
+                sx: {
+                  backgroundColor: 'white'
+                },
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon />
@@ -90,6 +73,23 @@ const AddTruckAndTrailer = (props) => {
                 )
               }}
             />
+            <div className={styles.headerButton}>
+              <Link to='/truck/modal' >
+                <Button
+                  style={allRouteStyle.headerButton}
+                  variant="contained"
+                >
+                  Add Trucks
+                </Button>
+              </Link>
+              <Link to='/Typehaul/all'>
+                <Button
+                  style={allRouteStyle.headerButton} variant="contained">
+                  Add Trailer
+                </Button>
+              </Link>
+            </div>
+
           </div>
         </div>
 
@@ -101,10 +101,10 @@ const AddTruckAndTrailer = (props) => {
             <div className={styles.cards}>
               {Data.map((item, index) => (
                 <div className={styles.card} key={index}>
-                  <h3 className={styles.cardHeading}>Truck No: {index +1}</h3>
+                  <h3 className={styles.cardHeading}>Truck No: {index + 1}</h3>
                   <div className={styles.cardContent}>
                     <div className={styles.cardImage}>
-                      <img src={item.url} alt='tractor Fram'/>
+                      <img src={item.url} alt='tractor Fram' />
                     </div>
                     <div className={styles.cardData}>
                       <div className={styles.cardValue}>

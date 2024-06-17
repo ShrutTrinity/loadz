@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './styles/addNew.module.scss';
+import styles from './styles/CreateNewJob.module.scss';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CustomTextField from '@components/textfield/CustomeTextfield';
@@ -14,7 +14,7 @@ import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import NewLocation from './components/AddNewLocation/NewLocation';
 import CommonTextfield from './components/TextField/CommonTextfield';
 
-const AddNew = (props) => {
+const CreateNewJob = (props) => {
   const [clickOnCreateCustomer, setClickOnCreateCustomer] = useState(false);
   const [addNotification, setAddNotification] = useState(1);
   const [openPopupOrigin, setOpenPopupOrigin] = useState(false)
@@ -217,4 +217,4 @@ const AddNew = (props) => {
   )
 }
 
-export default AddNew
+export default CreateNewJob

@@ -191,7 +191,7 @@ const CreateCustomer = ({ isOpen, handleClose }) => {
                   label='Zip'
                   variant='outlined'
                 />
-                <div style={{ width: '100%', margin: '30px 0 5px 0' }}>
+                <div style={{ width: '100%', margin: '5px' }}>
                   <h5 className={styles.heading}>Contact</h5>
                 </div>
                 <div className={styles.line} >

@@ -14,10 +14,10 @@ const CommonTextfield = (props) => {
             height: `${props.height}`,
 
           },
-          "& input::placeholder": {
-            fontSize: "9px"
+          '& .css-1pysi21-MuiFormLabel-root-MuiInputLabel-root':{
+            fontSize:'13px'
           },
-
+          
           '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: 'rgba(0, 0, 0, 0.23)',
           },
