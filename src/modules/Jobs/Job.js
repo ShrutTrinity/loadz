@@ -12,49 +12,55 @@ import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import Table from './components/JobDataTable/Table';
 import { Link } from 'react-router-dom';
-import DataTable from './components/JobDataTable/mobiletable';
+import MobileTable from './components/JobDataTable/SmallScreenTable';
 
 const useStyles = makeStyles(() => {
   return createStyles({
     search: {
-      margin: "3px"
-    }, clearIcon: {
-      cursor: 'pointer'
-    }
+      margin: "3px",
+    },
+    clearIcon: {
+      cursor: 'pointer',
+    },
   });
 });
+
 const Job = (props) => {
   const { search, clearIcon } = useStyles();
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [searchValue, setSearchValue] = useState("");
-  const [displayTable, setDisplayTable] = useState(true);
-  
+  const [desktopScreen, setDesktopScreen] = useState(window.innerWidth > 600);
+
   const bodyStyles = {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
     zIndex: 1,
   };
+
   useEffect(() => {
-    if (window.innerWidth >= 600) {
-      setDisplayTable(true);
-    } else {
-      setDisplayTable(false);
-    }
+    const handleResize = () => {
+      setDesktopScreen(window.innerWidth > 600);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   if (window.innerWidth <= 1300) {
     bodyStyles.width = '100%';
-    var bodyclick = props.handleDrawerClose;
   }
+
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchValue(value);
-    setShowClearIcon(event.target.value === "" ? "none" : "flex");
+    setShowClearIcon(value === "" ? "none" : "flex");
   };
 
   const handleClick = () => {
     setSearchValue("");
     setShowClearIcon("none");
   };
+
   const [switches, setSwitches] = useState([
     { label: 'All', checked: true },
     { label: 'Owner', checked: false },
@@ -72,10 +78,13 @@ const Job = (props) => {
     setSwitches(newSwitches);
   };
 
-
   return (
     <div>
-      <div className={styles.container} style={bodyStyles} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
+      <div
+        className={styles.container}
+        style={bodyStyles}
+        onClick={props.textSelectorOpen ? props.toggleTextSelector : props.handleDrawerClose}
+      >
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
           <div className={styles.label}>
@@ -103,8 +112,8 @@ const Job = (props) => {
                   flexGrow: 1,
                   '@media (max-width: 1200px)': {
                     marginBottom: '16px',
-                    width: '100%'
-                  }
+                    width: '100%',
+                  },
                 }}
                 InputProps={{
                   startAdornment: (
@@ -121,31 +130,34 @@ const Job = (props) => {
                     >
                       <ClearIcon />
                     </InputAdornment>
-                  )
+                  ),
                 }}
               />
             </FormControl>
             <Link to='/jobs/new'>
-              <Button variant="contained" sx={{
-                backgroundColor: 'rgb(237, 202, 51)',
-                color: 'black',
-                fontWeight: '600',
-                padding: '6px 12px',
-                '&:hover': {
+              <Button
+                variant="contained"
+                sx={{
                   backgroundColor: 'rgb(237, 202, 51)',
-                },
-              }}>
+                  color: 'black',
+                  fontWeight: '600',
+                  padding: '6px 12px',
+                  '&:hover': {
+                    backgroundColor: 'rgb(237, 202, 51)',
+                  },
+                }}
+              >
                 Add New Job
               </Button>
             </Link>
           </div>
         </div>
         <div className={styles.body}>
-          {displayTable ? <Table /> : <DataTable />}
+          {desktopScreen ? <Table /> : <MobileTable />}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Job;
