@@ -279,32 +279,32 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
               </p>
             </div>
           </div>
-          
-        </div>
-      </div>
 
-      <div className={styles.operatoroutter}>
-        <h2 className={styles.operatoroutterHeading}>Owner Operator / Subcontractor Special Rates</h2>
-        <p className={styles.operatoroutterSubtitle}>Please enter your special rates for owner-operators, and subcontractors here. Doing so will update the job rates of each individual.</p>
-      </div>
-
-      {formData && (
-        <div className={styles.table}>
-          <DataTable formData={formData} handleEdit={handleEditData} handleDeleteDialog={handleDeleteDialog} />
         </div>
-      )}
 
-      <div className={styles.bottomFunctions}>
-        <div className={styles.addRates}>
-          <Add buttonBehaviour={openSpecialRateForm} />Add
+        <div className={styles.operatoroutter}>
+          <h2 className={styles.operatoroutterHeading}>Owner Operator / Subcontractor Special Rates</h2>
+          <p className={styles.operatoroutterSubtitle}>Please enter your special rates for owner-operators, and subcontractors here. Doing so will update the job rates of each individual.</p>
         </div>
-        <div className={styles.functionBtns}>
-          <Button variant="contained" style={allStyle.btns}>
-            Close
-          </Button>
-          <Button variant="contained" style={allStyle.btns}>
-            Create
-          </Button>
+
+        {formData && (
+          <div className={styles.table}>
+            <DataTable formData={formData} handleEdit={handleEditData} handleDeleteDialog={handleDeleteDialog} />
+          </div>
+        )}
+
+        <div className={styles.bottomFunctions}>
+          <div className={styles.addRates}>
+            <Add buttonBehaviour={openSpecialRateForm} />Add
+          </div>
+          <div className={styles.functionBtns}>
+            <Button variant="contained" style={allStyle.btns}>
+              Close
+            </Button>
+            <Button variant="contained" style={allStyle.btns}>
+              Create
+            </Button>
+          </div>
         </div>
       </div>
     </>
