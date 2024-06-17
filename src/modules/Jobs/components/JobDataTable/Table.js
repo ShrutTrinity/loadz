@@ -25,14 +25,14 @@ const Table = () => {
       {
         Data.length === 0 ?
           <Empty /> :
-          <div style={{ minHeight: '420px',width: '100%', marginBottom:'60px'}}>
+          <div style={{ minHeight: '420px', width: '100%', marginBottom: '60px' }}>
             <DataGrid
-            
+
               sx={{
                 padding: '10px 10px 0 10px',
                 margin: '10px 10px 0 10px',
                 border: '2px solid gray',
-                minHeight:'420px',
+                minHeight: '420px',
                 borderRadius: '10px',
                 '& .css-gl260s-MuiDataGrid-columnHeadersInner': {
                   backgroundColor: 'rgb(233 235 236 / 65%)'
@@ -40,8 +40,8 @@ const Table = () => {
                 '& .css-levciy-MuiTablePagination-displayedRows': {
                   margin: 0
                 },
-                '& ..css-204u17-MuiDataGrid-main':{
-                  height:'420px'
+                '& ..css-204u17-MuiDataGrid-main': {
+                  height: '420px'
                 }
               }}
               rows={Data}

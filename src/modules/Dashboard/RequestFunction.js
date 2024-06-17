@@ -19,6 +19,7 @@ const style = {
   accordionSummary: {
     fontSize: '20px',
     fontWeight: '500',
+    padding: '8px',
     paddingLeft: '24px',
   },
   innerAccordionSummary: {

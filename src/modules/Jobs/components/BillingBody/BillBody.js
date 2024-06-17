@@ -1,13 +1,26 @@
-import React, { useState } from 'react'
-import styles from './styles/billBody.module.scss'
-import CustomTextFiled from '../TextField/CustomTextFiled'
-import SwitchMUI from '../CustomSwitch/Switch'
+import React, { useState } from 'react';
+import styles from './styles/billBody.module.scss';
+import CustomTextFiled from '../TextField/CustomTextFiled';
+import SwitchMUI from '../CustomSwitch/Switch';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Add from '../AddButton/Add';
 import Button from '@mui/material/Button';
 import DataTable from './DataTable';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+
+const allStyle = {
+  btns: {
+    backgroundColor: 'rgb(237, 202, 51)',
+    padding: '11px 50px',
+    fontSize: '16px',
+    color: 'black',
+    '&:hover': {
+      backgroundColor: 'rgb(237, 202, 51)'
+    },
+    '@media (max-width: 766px)': { fontSize: '4px', padding: '11px 30px' }
+  }
+}
 
 const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDialog }) => {
 
@@ -93,6 +106,8 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
     <>
       <div className={styles.body}>
         <div className={styles.cardContainer}>
+
+          {/* 1 */}
           <div className={styles.cardiner}>
             <h2 className={styles.cardinerHeading}>Material Rates</h2>
             <h3 className={styles.h3}>Select the material being hauled</h3>
@@ -158,7 +173,6 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
               </div>
             }
           </div>
-
 
           {/* 2 */}
           <div className={styles.cardiner}>
@@ -237,7 +251,6 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
             </div>
           </div>
 
-
           {/* 3 */}
           <div className={styles.cardiner}>
             <h2 className={styles.cardinerHeading}>Owner Operator / Subcontractor Rates</h2>
@@ -266,62 +279,36 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
               </p>
             </div>
           </div>
-
+          
         </div>
+      </div>
 
-        <div className={styles.operatoroutter}>
-          <h2 className={styles.operatoroutterHeading}>
-            Owner Operator / Subcontractor Special Rates
-          </h2>
-          <p className={styles.operatoroutterSubtitle}>Please enter your special rates for owner-operators, and subcontractors here. Doing so will update the job rates of each individual.</p>
+      <div className={styles.operatoroutter}>
+        <h2 className={styles.operatoroutterHeading}>Owner Operator / Subcontractor Special Rates</h2>
+        <p className={styles.operatoroutterSubtitle}>Please enter your special rates for owner-operators, and subcontractors here. Doing so will update the job rates of each individual.</p>
+      </div>
+
+      {formData && (
+        <div className={styles.table}>
+          <DataTable formData={formData} handleEdit={handleEditData} handleDeleteDialog={handleDeleteDialog} />
         </div>
+      )}
 
-        {
-          formData !== null &&
-          <div className={styles.table}>
-            <DataTable
-              formData={formData}
-              handleEdit={handleEditData}
-              handleDeleteDialog={handleDeleteDialog}
-            />
-          </div>
-        }
-
-        <div className={styles.bottomFunctions}>
-
-          <div className={styles.addRates}>
-            <Add buttonBehaviour={openSpecialRateForm} />Add
-          </div>
-
-          <div className={styles.functionBtns}>
-            <Button variant="contained" sx={{
-              backgroundColor: 'rgb(237, 202, 51)',
-              '&:hover': { backgroundColor: 'rgb(237, 202, 51)' },
-              padding: '11px 50px',
-              fontSize: '16px',
-              color: 'black',
-              '@media (max-width: 766px)': {
-                fontSize: '4px',
-                padding: '11px 30px'
-              }
-            }}
-            >Close</Button>
-            <Button variant="contained" sx={{
-              backgroundColor: 'rgb(237, 202, 51)',
-              '&:hover': { backgroundColor: 'rgb(237, 202, 51)' },
-              padding: '11px 50px',
-              fontSize: '16px',
-              color: 'black',
-              '@media (max-width: 766px)': {
-                fontSize: '4px',
-                padding: '11px 30px'
-              }
-            }}>Create</Button>
-          </div>
+      <div className={styles.bottomFunctions}>
+        <div className={styles.addRates}>
+          <Add buttonBehaviour={openSpecialRateForm} />Add
+        </div>
+        <div className={styles.functionBtns}>
+          <Button variant="contained" style={allStyle.btns}>
+            Close
+          </Button>
+          <Button variant="contained" style={allStyle.btns}>
+            Create
+          </Button>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BillBody
+export default BillBody;

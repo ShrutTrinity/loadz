@@ -91,13 +91,13 @@ const UserList = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
     bodyStyle.width = '100%';
     var bodyclick = handleDrawerClose;
   }
-  
+
   return (
     <>
       {
-        <InviteUserDialog 
-        inviteUserDialogOpen={inviteUserDialog} 
-        inviteUserDialogClose={handleInviteUserDialog}
+        <InviteUserDialog
+          inviteUserDialogOpen={inviteUserDialog}
+          inviteUserDialogClose={handleInviteUserDialog}
         />
       }
       <div
@@ -180,7 +180,9 @@ const UserList = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
               borderBottom: 1,
               borderColor: 'divider',
             }}>
-              <TabList onChange={handleChangeTab}>
+              <TabList onChange={handleChangeTab}
+                TabIndicatorProps={{ style: { backgroundColor: 'rgb(237, 202, 51)' } }}
+              >
                 <Tab
                   label="User"
                   value="1"
@@ -199,7 +201,7 @@ const UserList = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelecto
               </div>
             </TabPanel>
             <TabPanel value="2" sx={{ padding: '24px' }}>
-             <UserInvitation/>
+              <UserInvitation />
             </TabPanel>
           </TabContext>
         </Box>
