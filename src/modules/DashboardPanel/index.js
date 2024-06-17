@@ -3,8 +3,8 @@ import PersistentDrawerLeft from '@components/navbar/header';
 import { Route, Routes } from 'react-router-dom';
 import Body from '../Dashboard/body';
 import Job from '../Jobs/Job';
-import AddNew from '../Jobs/AddNew';
-import JobBill from '../Jobs/JobBill';
+import CreateNewJob from '../Jobs/CreateNewJob';
+import CreateNewBill from '../Jobs/CreateNewBill';
 import Index from '@components/Footer/Index';
 import Customer from '../Customer/Customer';
 import UninvoicedBody from '../Uninvoiced/UninvoicedBody';
@@ -121,7 +121,7 @@ const BaseLayout = () => {
           exact
           path='/jobs/new'
           element={
-            <AddNew
+            <CreateNewJob
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
@@ -143,7 +143,7 @@ const BaseLayout = () => {
           exact
           path='/jobs/billing/new'
           element={
-            <JobBill
+            <CreateNewBill
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}

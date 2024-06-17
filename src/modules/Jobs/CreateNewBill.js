@@ -5,7 +5,7 @@ import BillBody from './components/BillingBody/BillBody';
 import DeleteAlert from './components/BillingBody/DeleteAlert';
 import AddSpecialRate from './components/BillingBody/AddSpecialRate';
 
-const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose }) => {
+const CreateNewBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose }) => {
   const [isOpenSpecialRateDialog, setIsOpenSpecialRateDialog] = useState(false);
   const [openDeleteConfirmationDialog, setOpenDeleteConfirmationDialog] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
@@ -80,4 +80,4 @@ const JobBill = ({ textSelectorOpen, toggleTextSelector, open, handleDrawerClose
   );
 };
 
-export default JobBill;
+export default CreateNewBill;
