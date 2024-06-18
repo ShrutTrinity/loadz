@@ -9,7 +9,7 @@ const DriverDetail = (props) => {
   const { address, email, phoneNumber, balance, Commision, totalTimeLogged, rate } = props;
 
   const [lastClickedButton, setLastClickedButton] = useState(null);
-  const [reportsPopupVisible, setReportsPopupVisible] = useState(false);
+  const [reportsPopupVisible, setReportsPopupVisible] = useState(true);
   const [miscPayPopupVisible, setMiscPayPopupVisible] = useState(false);
   const [remainingHeight, setRemainingHeight] = useState(0);
   const [editDialog, setEditDialog] = useState(false);
@@ -102,7 +102,6 @@ const DriverDetail = (props) => {
         {reportsPopupVisible && <ReportTable height={remainingHeight} />}
         {miscPayPopupVisible && <MiscPayDetail height={remainingHeight} />}
       </div>
-
     </>
   );
 };

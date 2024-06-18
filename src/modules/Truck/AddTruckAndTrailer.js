@@ -23,6 +23,7 @@ const allRouteStyle = {
   },
 
   cardFunctionButton: {
+    fontSize:'13px',
     color: 'black',
     padding: '10px 5px  ',
     width: '100%',

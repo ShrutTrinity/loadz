@@ -86,8 +86,8 @@ const NewFuelLog = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelec
 
   return (
     <>
-       <FilePopUp
-      open={showPopUp}
+      <FilePopUp
+        open={showPopUp}
         imageUrlforPopUp={selectedImage || ImageUploadLogo}
         onSelect={handleImageSelect}
         onClose={handleClosePop}
@@ -135,7 +135,7 @@ const NewFuelLog = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelec
               borderBottom: 1,
               borderColor: 'divider',
             }}>
-              <TabList onChange={handleChange}>
+              <TabList onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: 'rgb(237, 202, 51)' } }}>
                 <Tab
                   label="Fuel Log Detail"
                   value="1"
@@ -270,12 +270,12 @@ const NewFuelLog = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelec
                 </div>
                 <div className={styles.secondContainer}>
                   <Send
-                  width="33.33%" 
+                    width="33.33%"
                     children={
                       selectedImage ?
                         <img src={selectedImage}
                           alt='Selecte Logo'
-                          
+
                           onClick={handleClickOpen} /> :
                         <div
                           className={styles.imageContainer}
@@ -283,8 +283,8 @@ const NewFuelLog = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelec
                           <img
                             src={ImageUploadLogo}
                             alt='Default Upload logo'
-                            onClick={handleClickOpen}     
-                          />                 
+                            onClick={handleClickOpen}
+                          />
                         </div>
                     }
                   />

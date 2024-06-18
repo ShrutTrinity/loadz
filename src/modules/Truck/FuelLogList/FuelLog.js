@@ -85,11 +85,10 @@ const FuelLog = (props) => {
 
   return (
     <>
-      {
-        <MileageReportDialog
-          mileageDialogOpen={mileageDialogOpen}
-          mileageDialogClose={handleMileageReportDialog}
-        />}
+      <MileageReportDialog
+        mileageDialogOpen={mileageDialogOpen}
+        mileageDialogClose={handleMileageReportDialog}
+      />
       <div
         className={styles.body}
         style={bodyStyle}
@@ -123,6 +122,7 @@ const FuelLog = (props) => {
                   label="Type"
                   onChange={handleChangeType}
                   required
+                  size="small"
                   sx={{
                     fontSize: '13px',
                   }}

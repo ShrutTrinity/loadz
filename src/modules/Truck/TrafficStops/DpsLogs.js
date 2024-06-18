@@ -64,10 +64,10 @@ const DpsLogs = (props) => {
 
   return (
     <>
-      {<ReportMileage
+      <ReportMileage
         mileageDialogOpen={mileageReportModel}
         mileageDialogClose={handleMileageReportModel}
-      />}
+      />
       <div className={styles.body} style={bodyStyle} onClick={props.textSelectorOpen ? props.toggleTextSelector : bodyclick}>
         <div className={styles.headerPart}>
           <div className={styles.headerName}>

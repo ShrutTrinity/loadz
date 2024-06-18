@@ -72,6 +72,7 @@
   .bodyCover {
     display: flex;
     width: 100%;
+    overflow-y: auto;
 
     .firstContainer {
       width: 50%;
@@ -145,7 +146,7 @@
 
       .secondContainer {
         width: 100%;
-        height: 70%;
+        height: 100%;
       }
     }
   }
@@ -168,7 +169,6 @@
       }
 
       .secondContainer {
-        width: 100%;
         height: 70%;
       }
     }

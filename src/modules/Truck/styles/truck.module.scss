@@ -19,7 +19,6 @@
       .headerButton {
         display: flex;
         gap: 6px;
-        // width: 100%;
       }
     }
   }
@@ -37,16 +36,13 @@
         overflow-y:auto ;
         flex-wrap: wrap;
         scroll-behavior: smooth;
-        height: 5%;
-        overflow-y: scroll;
-        overflow-x: scroll;
         gap: 1%;
 
         .card {
           background-color: $color_4;
           padding: 15px 20px;
           border-radius: 10px;
-          width: 45%;
+          width: 49%;
          
           margin-bottom: 1%;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import styles from './style/mileageReport.module.scss';
@@ -7,13 +7,14 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
+import { MenuItem, Select } from '@mui/material';
 
 const truckArray = [
-  'jhon', 'micle', 'sweed'
+  'thon','jhon', 'micle', 'sweed'
 ];
 
 const driverArray = [
-  'jhon', 'micle', 'sweed'
+  'dhon','jhon', 'micle', 'sweed'
 ];
 
 const createCustomerStyles = {
@@ -33,10 +34,24 @@ const createCustomerStyles = {
     width: '20%',
     borderRadius: '20px',
     textAlign: 'right'
+  },
+  selectList: {
+    fontSize: '13px',
   }
 }
 
 const ReportMileage = ({ mileageDialogOpen, mileageDialogClose }) => {
+
+  const [driverName, setDriverName] = useState('');
+  const [truck, setTruck] = useState('');
+
+  const handleDriverName = (event) => {
+    setDriverName(event.target.value);
+  }
+
+  const handleTruck = (event) => {
+    setTruck(event.target.value);
+  }
 
   return (
     <Dialog
@@ -61,7 +76,6 @@ const ReportMileage = ({ mileageDialogOpen, mileageDialogClose }) => {
             <span>The report will be exported as comma-separated values (CSV).</span>
           </div>
           <br />
-          <br />
           <div className={styles.dateContainer}>
             <div className={styles.dateContent}>
               <label className={styles.labelOfpart}>
@@ -70,7 +84,7 @@ const ReportMileage = ({ mileageDialogOpen, mileageDialogClose }) => {
               <div className={styles.datePicker2}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={['DatePicker']}>
-                    <DatePicker />
+                    <DatePicker slotProps={{ textField: { size: 'small' } }} />
                   </DemoContainer>
                 </LocalizationProvider>
               </div>
@@ -82,7 +96,7 @@ const ReportMileage = ({ mileageDialogOpen, mileageDialogClose }) => {
               <div className={styles.datePicker2}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={['DatePicker']}>
-                    <DatePicker />
+                    <DatePicker slotProps={{ textField: { size: 'small' } }} />
                   </DemoContainer>
                 </LocalizationProvider>
               </div>
@@ -94,20 +108,37 @@ const ReportMileage = ({ mileageDialogOpen, mileageDialogClose }) => {
               Trucks:
             </label>
             <div className={styles.selectFields}>
-              <select
-                className='form-select'
-                style={createCustomerStyles.selectFiled}
-                defaultValue={''}
-                aria-label="Default select example"
-                name="state"
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={truck}
+                defaultValue='10'
+                onChange={handleTruck}
+                required
+                size='small'
+                sx={{
+                  width: '100%',
+                  margin: '0px 0 8px',
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  backgroundColor: 'rgb(255,255,255)'
+                }}
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      maxHeight: 96,
+                      borderRadius: '12px'
+                    },
+                  },
+                }}
               >
-                <option disabled></option>
-                {truckArray.map((state, index) => (
-                  <option key={index} value={state}>
-                    {state}
-                  </option>
+                {truckArray.map((truck, index) => (
+                  <MenuItem key={index} value={truck} style={createCustomerStyles.selectList}>
+                    {truck}
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </div>
           </div>
 
@@ -116,20 +147,36 @@ const ReportMileage = ({ mileageDialogOpen, mileageDialogClose }) => {
               Driver:
             </label>
             <div className={styles.selectFields}>
-              <select
-                className='form-select'
-                style={createCustomerStyles.selectFiled}
-                defaultValue={''}
-                aria-label="Default select example"
-                name="state"
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={driverName}
+                defaultValue='10'
+                onChange={handleDriverName}
+                required
+                size='small'
+                sx={{
+                  width: '100%',
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  backgroundColor: 'rgb(255,255,255)'
+                }}
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      maxHeight: 96,
+                      borderRadius: '12px'
+                    },
+                  },
+                }}
               >
-                <option disabled></option>
-                {driverArray.map((state, index) => (
-                  <option key={index} value={state}>
-                    {state}
-                  </option>
+                {driverArray.map((driver, index) => (
+                  <MenuItem key={index} value={driver} style={createCustomerStyles.selectList}>
+                    {driver}
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </div>
           </div>
         </div>

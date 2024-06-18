@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './style/trafficShop.module.scss';
 import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Button, TextField } from '@mui/material';
+import { Button, MenuItem, Select, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -33,24 +33,38 @@ const TrafficShopStyle = {
     fontSize: '13px',
     width: '100%',
   },
+  selectList: {
+    fontSize: '13px',
+  }
 }
 
 const truckArray = [
-  'jhon', 'micle', 'sweed'
+  'thon','jhon', 'micle', 'sweed'
 ];
 
 const driverArray = [
-  'jhon', 'micle', 'sweed'
+  'dhon', 'jhon', 'micle', 'sweed'
 ];
 
 
-const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelector }) => {
+const TrafficShop = ({ open, handleDrawerClose, textSelectorOpen, toggleTextSelector }) => {
 
   const [value, setValue] = useState('1');
+  const [driverName, setDriverName] = useState('');
+  const [truck, setTruck] = useState('');
+
+  const handleDriverName = (event) => {
+    setDriverName(event.target.value);
+  }
+
+  const handleTruck = (event) =>{
+    setTruck(event.target.value);
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   const bodyStyle = {
     width: `calc(100% - ${open ? 290 : 0}px)`,
   }
@@ -94,7 +108,7 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
               borderBottom: 1,
               borderColor: 'divider',
             }}>
-              <TabList onChange={handleChange}>
+              <TabList onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: 'rgb(237, 202, 51)' } }}>
                 <Tab label="Dps Log Detail"
                   value="1"
                   style={value === '1' ? { ...TrafficShopStyle.selectedTab } : null}
@@ -110,6 +124,7 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
                   <div className={styles.TrafficShopInput}>
                     <div className={styles.mileage}>
                       <TextField
+                        size='small'
                         sx={{
                           background: 'rgb(255,255,255)',
                           fontSize: '13px',
@@ -120,12 +135,13 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
                       />
                     </div>
                     <div className={styles.date}>
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <LocalizationProvider dateAdapter={AdapterDayjs} >
                         <DemoContainer components={['DatePicker']}>
                           <DatePicker
+                            slotProps={{ textField: { size: 'small' } }}
                             sx={{
                               background: 'rgb(255,255,255)',
-                              width: '100%'
+                              width: '100%',
                             }}
                           />
                         </DemoContainer>
@@ -139,21 +155,35 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
                     <label className={styles.labelOfpart}>
                       Driver: *
                     </label>
-                    <select
-                      className='form-select'
-                      style={TrafficShopStyle.selectFiled}
-                      defaultValue={''}
-                      aria-label="Default select example"
-                      name="state"
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={driverName}
+                      defaultValue='10'
+                      onChange={handleDriverName}
                       required
+                      size='small'
+                      sx={{
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                        backgroundColor: 'rgb(255,255,255)'
+                      }}
+                      MenuProps={{
+                        PaperProps: {
+                          style: {
+                            maxHeight: 96,
+                            borderRadius: '12px'
+                          },
+                        },
+                      }}
                     >
-                      <option></option>
-                      {truckArray.map((state, index) => (
-                        <option key={index} value={state}>
-                          {state}
-                        </option>
+                      {driverArray.map((driver, index) => (
+                        <MenuItem key={index} value={driver} style={TrafficShopStyle.selectList}>
+                          {driver}
+                        </MenuItem>
                       ))}
-                    </select>
+                    </Select>
                   </div>
 
                   {/* 2nd */}
@@ -161,21 +191,35 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
                     <label className={styles.labelOfpart}>
                       Trucks: *
                     </label>
-                    <select
-                      className='form-select'
-                      style={TrafficShopStyle.selectFiled}
-                      defaultValue={''}
-                      aria-label="Default select example"
-                      name="state"
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={truck}
+                      defaultValue='10'
+                      onChange={handleTruck}
                       required
+                      size='small'
+                      sx={{
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                        backgroundColor: 'rgb(255,255,255)'
+                      }}
+                      MenuProps={{
+                        PaperProps: {
+                          style: {
+                            maxHeight: 96,
+                            borderRadius: '12px'
+                          },
+                        },
+                      }}
                     >
-                      <option></option>
-                      {driverArray.map((state, index) => (
-                        <option key={index} value={state}>
-                          {state}
-                        </option>
+                      {truckArray.map((driver, index) => (
+                        <MenuItem key={index} value={driver} style={TrafficShopStyle.selectList}>
+                          {driver}
+                        </MenuItem>
                       ))}
-                    </select>
+                    </Select>
                   </div>
                 </div>
 
@@ -187,6 +231,7 @@ const TrafficShop = ({ open, handleDrawerClose,textSelectorOpen,toggleTextSelect
                       fontSize: '13px',
                       width: '100%'
                     }}
+                    size='small'
                     required
                     label="Trafic Stop Razon"
                   />
