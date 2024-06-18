@@ -8,6 +8,8 @@ import Button from '@mui/material/Button';
 import DataTable from './DataTable';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import { Box, Chip } from '@mui/material';
+import AddMaterialDailog from './AddMaterialDailog';
 
 const allStyle = {
   btns: {
@@ -35,7 +37,6 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
     'TYPE D VULCAN WTFD-ASPHALT PLANT',
     'TYPE D VULCAN WEATHERFORD-ASPHALT PLANT'
   ]
-
   const units = [
     ' Create Units',
     ' Tons',
@@ -48,12 +49,17 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
   const [valueOfTax, setValueOfTax] = useState(true)
   const [valueOfCharging, setValueOfCharging] = useState(false)
   const [unit, setUnit] = useState('');
+  const [createMaterialPopUp, setCreateMaterialPopUp] = useState(false);
   const [materials, setMaterials] = useState('');
 
   const handleEditData = (rowData) => {
     setEditData(rowData);
     openSpecialRateForm();
   };
+
+  const handleOpenCreateMaterialPopUp = () => {
+    setCreateMaterialPopUp(!createMaterialPopUp)
+  }
 
   const handleChange = (event) => {
     const selectedValue = event.target.value;
@@ -65,8 +71,8 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
   };
   const handleChangeMaterials = (event) => {
     const selectedValue = event.target.value;
-    if (selectedValue === 0) {
-      openPopup();
+    if (selectedValue === 'Create Materials') {
+      handleOpenCreateMaterialPopUp();
     } else {
       setMaterials(selectedValue);
     }
@@ -103,8 +109,20 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
     }
   };
 
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
   return (
     <>
+    <AddMaterialDailog handleClose={handleOpenCreateMaterialPopUp} open={createMaterialPopUp} />
       <div className={styles.body}>
         <div className={styles.cardContainer}>
 
@@ -124,15 +142,22 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
                   width: '100%',
                   background: 'white'
                 }}
+                MenuProps={MenuProps}
+                renderValue={(selected) => (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    <Chip label={selected} />
+                  </Box>
+                )}
               >
                 {
                   Materials.map((method, index) => (
                     <MenuItem
                       key={index}
-                      value={index}
-                      onClick={index === 0 && openPopup}>
+                      value={method}
+                    >
                       {method}
                     </MenuItem>
+
                   ))
                 }
               </Select>
@@ -293,7 +318,6 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
             <DataTable formData={formData} handleEdit={handleEditData} handleDeleteDialog={handleDeleteDialog} />
           </div>
         )}
-
         <div className={styles.bottomFunctions}>
           <div className={styles.addRates}>
             <Add buttonBehaviour={openSpecialRateForm} />Add

@@ -110,7 +110,6 @@ const ApplyPayment = ({ handleApplyPaymentDialogClose, isOpen }) => {
                   }
                 }} label="Payment Date"
                   slotProps={{ textField: { size: 'small' } }}
-
                 />
               </DemoContainer>
             </LocalizationProvider>
