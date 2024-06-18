@@ -14,7 +14,6 @@ const AddUnitDialog = (props) => {
 
   return (
     <React.Fragment>
-
       <Dialog
         open={open}
         onClose={handleClose}
@@ -22,7 +21,7 @@ const AddUnitDialog = (props) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          {"Add new Units"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
