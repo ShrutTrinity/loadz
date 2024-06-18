@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { Box, Chip } from '@mui/material';
 import AddMaterialDailog from './AddMaterialDailog';
+import AddUnitDialog from './AddUnitDialog';
 
 const allStyle = {
   btns: {
@@ -38,7 +39,7 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
     'TYPE D VULCAN WEATHERFORD-ASPHALT PLANT'
   ]
   const units = [
-    ' Create Units',
+    'Create Units',
     ' Tons',
     'Yards',
     'Hours',
@@ -50,6 +51,7 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
   const [valueOfCharging, setValueOfCharging] = useState(false)
   const [unit, setUnit] = useState('');
   const [createMaterialPopUp, setCreateMaterialPopUp] = useState(false);
+  const [createUnitPopUp, setCreateUnitPopUp] = useState(false);
   const [materials, setMaterials] = useState('');
 
   const handleEditData = (rowData) => {
@@ -60,11 +62,14 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
   const handleOpenCreateMaterialPopUp = () => {
     setCreateMaterialPopUp(!createMaterialPopUp)
   }
+  const handleOpenCreateUnitPopUp = () => {
+    setCreateUnitPopUp(!createUnitPopUp)
+  }
 
   const handleChange = (event) => {
     const selectedValue = event.target.value;
-    if (selectedValue === 0) {
-      openPopup();
+    if (selectedValue === 'Create Units') {
+      handleOpenCreateUnitPopUp();
     } else {
       setUnit(selectedValue);
     }
@@ -77,9 +82,7 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
       setMaterials(selectedValue);
     }
   };
-  const openPopup = () => {
-    console.log("A")
-  }
+
 
   const handleSwitchVlue = () => {
     setValue(!value)
@@ -122,7 +125,8 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
 
   return (
     <>
-    <AddMaterialDailog handleClose={handleOpenCreateMaterialPopUp} open={createMaterialPopUp} />
+      <AddMaterialDailog handleClose={handleOpenCreateMaterialPopUp} open={createMaterialPopUp} />
+      <AddUnitDialog handleClose={handleOpenCreateUnitPopUp} open={createUnitPopUp}/>
       <div className={styles.body}>
         <div className={styles.cardContainer}>
 
@@ -216,13 +220,19 @@ const BillBody = ({ formData, setEditData, openSpecialRateForm, handleDeleteDial
                   width: '100%',
                   background: 'white'
                 }}
+                MenuProps={MenuProps}
+                renderValue={(selected) => (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    <Chip label={selected} />
+                  </Box>
+                )}
               >
                 {
                   units.map((method, index) => (
                     <MenuItem
                       key={index}
-                      value={index}
-                      onClick={index === 0 && openPopup}>
+                      value={method}
+                    >
                       {method}
                     </MenuItem>
                   ))
