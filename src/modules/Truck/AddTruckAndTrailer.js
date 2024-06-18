@@ -14,7 +14,6 @@ const allRouteStyle = {
   headerButton: {
     background: 'rgb(237, 202, 51)',
     color: 'rgb(0,0,0)',
-
     borderRadius: '10px',
     fontWeight: '700',
     padding: '5px 15px',

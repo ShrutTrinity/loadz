@@ -123,6 +123,18 @@
         
         .card {
           min-width: 100%;
+          
+          .cardContent {
+           flex-wrap: wrap;
+
+            .cardImage {
+             width: 100%;
+
+              img{
+                width: 100%;
+              }
+              }
+            }
         }}
       }
     }
