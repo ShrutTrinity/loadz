@@ -14,7 +14,7 @@ import Table from './components/JobDataTable/Table';
 import { Link } from 'react-router-dom';
 import MobileTable from './components/JobDataTable/SmallScreenTable';
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles(() => {  
   return createStyles({
     search: {
       margin: "3px",
@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => {
 });
 
 const Job = (props) => {
-  const { search, clearIcon } = useStyles();
+  const {search, clearIcon } = useStyles();
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [searchValue, setSearchValue] = useState("");
   const [desktopScreen, setDesktopScreen] = useState(window.innerWidth > 600);
@@ -79,11 +79,10 @@ const Job = (props) => {
   };
 
   return (
-    <div>
+
       <div
         className={styles.container}
         style={bodyStyles}
-        onClick={props.textSelectorOpen ? props.toggleTextSelector : props.handleDrawerClose}
       >
         <h1 className={styles.titleText}>Jobs</h1>
         <div className={styles.subcontainer}>
@@ -156,7 +155,7 @@ const Job = (props) => {
           {desktopScreen ? <Table /> : <MobileTable />}
         </div>
       </div>
-    </div>
+    
   );
 };
 

@@ -29,6 +29,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
+
 const PersistentDrawerLeft = ({
   setting,
   handleOpen,

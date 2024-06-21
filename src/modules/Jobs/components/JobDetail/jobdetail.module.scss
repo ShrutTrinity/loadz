@@ -1,0 +1,51 @@
+.container {
+  padding: 20px;
+  margin-top: 57px;
+  position: absolute;
+  right: 0;
+
+}
+
+.backLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.jobInfo {
+  text-align: left;
+}
+
+.jobNumber {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+.editButton,
+.invoiceButton {
+  margin-right: 10px;
+}
+
+.percentage {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.chartContainer {
+  text-align: right;
+  border: 1px solid black;
+}
+
+.detailsContainer {
+  margin-top: 20px;
+}
+
+.paper {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.notesButton {
+  display: inline;
+  margin-top: 20px;
+  height: auto;
+}

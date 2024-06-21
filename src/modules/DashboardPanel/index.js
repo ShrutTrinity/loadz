@@ -38,6 +38,7 @@ import Materials from '../Materials/Materials';
 import EcommerceMaterial from '../Materials/NewMaterials/EcommerceMaterial';
 import Categories from '../Materials/Catmaterials/Categories';
 import AddCategories from '../Materials/Catmaterials/AddCategories';
+import JobDetail from '../Jobs/components/JobDetail/JobDetail';
 
 const BaseLayout = () => {
 
@@ -500,6 +501,18 @@ const BaseLayout = () => {
           path='/catmaterials/categories/new'
           element={
             <AddCategories
+              handleDrawerClose={handleDrawerClose}
+              textSelectorOpen={textSelectorOpen}
+              toggleTextSelector={toggleTextSelector}
+              open={open}
+            />
+          }
+        />
+        <Route
+          exact
+          path='/jobs/ticket'
+          element={
+            <JobDetail
               handleDrawerClose={handleDrawerClose}
               textSelectorOpen={textSelectorOpen}
               toggleTextSelector={toggleTextSelector}
