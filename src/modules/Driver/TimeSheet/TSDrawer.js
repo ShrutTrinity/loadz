@@ -3,7 +3,7 @@ import React from 'react'
 import TimeSheetFunction from './TimeSheetFunction';
 
 const TSDrawer = (props) => {
-  const { openResponsiveDrawer, closeResponsiveDrawer, height, width, } = props
+  const { openResponsiveDrawer, closeResponsiveDrawer, height, width,timeSheetDetail } = props
   return (
     <>
       <Drawer
@@ -25,7 +25,7 @@ const TSDrawer = (props) => {
           hideBackdrop: true,
         }}
       >
-        <TimeSheetFunction />
+        <TimeSheetFunction timeSheetDetail={timeSheetDetail}/>
       </Drawer>
     </>
   )

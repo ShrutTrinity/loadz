@@ -5,6 +5,7 @@ import inspection from '@images/inspection.png'
 import TimeSheetFunction from './TimeSheetFunction';
 import useDimensions from '@hooks/useDimensions.js';
 import TSDrawer from './TSDrawer';
+import TimeSheetDetail from './TimeSheetDetail';
 
 const allStyle = {
   drawerButton: {
@@ -17,12 +18,18 @@ const allStyle = {
 }
 
 const TimeSheetScreen = (props) => {
-  const {open, handleDrawerClose, textSelectorOpen, toggleTextSelector} = props
+  const { open, handleDrawerClose, textSelectorOpen, toggleTextSelector } = props
   const [responsiveDrawer, setResponsiveDrawer] = useState(false);
+  const [timeSheetDetail, setTimeSheetDetail] = useState(false);
   const [ref, dimensions] = useDimensions();
 
   const handleResponsiveDrawer = () => {
     setResponsiveDrawer(!responsiveDrawer);
+  }
+
+  const handleTimeSheetDetailScreen = () => {
+    setTimeSheetDetail(true);
+    setResponsiveDrawer(false);
   }
 
   const bodyStyles = {
@@ -40,6 +47,7 @@ const TimeSheetScreen = (props) => {
         width={dimensions.width}
         openResponsiveDrawer={responsiveDrawer}
         closeResponsiveDrawer={handleResponsiveDrawer}
+        timeSheetDetail={handleTimeSheetDetailScreen}
       />
       <div className={styles.container}
         style={bodyStyles}
@@ -48,28 +56,30 @@ const TimeSheetScreen = (props) => {
         <div className={styles.CardWrapper}>
           <div className={styles.contentCard}>
             <div className={styles.drawerContainer}>
-              <TimeSheetFunction />
+              <TimeSheetFunction timeSheetDetail={handleTimeSheetDetailScreen} />
             </div>
             <div className={styles.contentWrapper} ref={ref}>
-              <div className={styles.box}>
-                <div className={styles.circle}>
-                  <img src={inspection} alt='pictureOfInspection' className={styles.image} />
+              {timeSheetDetail ? <TimeSheetDetail /> :
+                <div className={styles.box}>
+                  <div className={styles.circle}>
+                    <img src={inspection} alt='pictureOfInspection' className={styles.image} />
+                  </div>
+                  <div className={styles.heading2}>
+                    Driver Info
+                  </div>
+                  <div className={styles.drawerButton}>
+                    <Button
+                      style={allStyle.drawerButton}
+                      onClick={handleResponsiveDrawer}
+                    >
+                      View Driver Profile...
+                    </Button>
+                  </div>
+                  <div className={styles.detail}>
+                    Select a user to view their Info...
+                  </div>
                 </div>
-                <div className={styles.heading2}>
-                  Driver Info
-                </div>
-                <div className={styles.drawerButton}>
-                  <Button
-                    style={allStyle.drawerButton}
-                    onClick={handleResponsiveDrawer}
-                  >
-                    View Driver Profile...
-                  </Button>
-                </div>
-                <div className={styles.detail}>
-                  Select a user to view their Info...
-                </div>
-              </div>
+              }
             </div>
           </div>
         </div>
