@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './styles/body.module.scss'
 import Chart from 'react-apexcharts'
-
 var today = new Date();
 var dd = String(today.getDate());
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
