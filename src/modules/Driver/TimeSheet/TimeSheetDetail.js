@@ -80,7 +80,7 @@ const TimeSheetDetail = () => {
               onChange={handleChangeRange}
               sx={{
                 padding: '6px 9px',
-                fontSize: '14px'
+                fontSize: '14px',
               }}
             >
               {dateRanges.map((range, index) => (
