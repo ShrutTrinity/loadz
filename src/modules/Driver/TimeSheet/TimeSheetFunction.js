@@ -18,7 +18,9 @@ const allStyle = {
   }
 }
 
-const TimeSheetFunction = () => {
+const TimeSheetFunction = (props) => {
+
+  const { timeSheetDetail } = props
 
   const [mailSendDialog, setMailSendDialog] = useState(false);
   const [previousDriverDialog, setPreviousDriverDialog] = useState(false);
@@ -110,7 +112,7 @@ const TimeSheetFunction = () => {
           <Index style={allStyle.switchLable} label="Owner Operator Drivers" />
         </div>
 
-        <div className={styles.profile}>
+        <div className={styles.profile} onClick={timeSheetDetail}>
           <Avatar
             sx={{
               height: '40px',
