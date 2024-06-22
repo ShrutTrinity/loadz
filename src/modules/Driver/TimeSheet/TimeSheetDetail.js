@@ -81,6 +81,7 @@ const TimeSheetDetail = () => {
               sx={{
                 padding: '6px 9px',
                 fontSize: '14px',
+                maxHeight:'200px'
               }}
             >
               {dateRanges.map((range, index) => (
