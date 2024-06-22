@@ -1,51 +1,160 @@
+@import "@styles";
+
 .container {
   padding: 20px;
-  margin-top: 57px;
+  background-color: rgba(245, 245, 245, 1);
   position: absolute;
   right: 0;
+  height: 100%;
 
-}
+  .content {
+    display: flex;
+    width: 100%;
+    margin-top: 80px;
+    padding: 10px 20px;
+    border-radius: 18px;
+    height: calc(100% - 80px);
+    background-color: $color_4;
 
-.backLink {
-  text-decoration: none;
-  color: inherit;
-}
+    .detials {
+      display: flex;
+      flex-direction: column;
+      width: 33.33%;
 
-.jobInfo {
-  text-align: left;
-}
+      .jobNo {
+        padding: 10px 10px 10px 30px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
 
-.jobNumber {
-  font-size: 3rem;
-  margin: 10px 0;
-}
+        .jobHeader {
+          font-size: 16px;
+          font-weight: 300;
+          margin: 0;
+          color: rgb(107, 114, 128);
+        }
+        .jobNumber {
+          margin: 0;
+          font-size: 64px;
+          line-height: 1;
+          font-weight: 700;
+          color: rgb(107, 114, 128);
+        }
+        .jobButton {
+          display: flex;
+          margin: 0;
+          padding: 0;
+          gap: 8px;
+        }
+      }
 
-.editButton,
-.invoiceButton {
-  margin-right: 10px;
-}
+      .numericDetail {
+        display: flex;
+        width: 100%;
 
-.percentage {
-  font-size: 2rem;
-  margin-top: 20px;
-}
+        .percentage {
+          border-right: 5px solid rgb(245, 245, 245);
+          text-align: center;
+          padding: 10px;
+          border-top: 5px solid rgb(245, 245, 245);
+          width: 50%;
+          height: 130px;
+          @include center();
+          font-size: 20px;
+          font-weight: 700;
+        }
 
-.chartContainer {
-  text-align: right;
-  border: 2px solid black;
-}
+        .percentage:nth-child(2) {
+          flex-direction: column;
+          font-size: 13px;
+          border-right: none;
 
-.detailsContainer {
-  margin-top: 20px;
-}
+          .ratio {
+            font-weight: 400;
+          }
+        }
+      }
 
-.paper {
-  padding: 20px;
-  margin-bottom: 20px;
-}
+      .infoDetail {
+        display: flex;
+        width: 100%;
 
-.notesButton {
-  display: inline;
-  margin-top: 20px;
-  height: auto;
+        .percentage {
+          border-right: 5px solid rgb(245, 245, 245);
+          text-align: start;
+          padding: 10px;
+          border-top: 5px solid rgb(245, 245, 245);
+          width: 174px;
+          height: 100%;
+          font-size: 13px;
+          width: 50%;
+
+          .keysValue {
+            display: flex;
+            flex-direction: column;
+
+            .key {
+              font-weight: 700;
+              padding: 5px 0;
+            }
+          }
+        }
+
+        .percentage:nth-child(2) {
+          border-right: none;
+        }
+      }
+    }
+
+    .graphicalDetail {
+      width: 66.66%;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      margin-left: 40px;
+
+      .graph {
+        width: 100%;
+        border: 2px solid $color_1;
+        margin: 20px 0;
+      }
+
+      .discriptions {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .ticket {
+          display: flex;
+          flex-direction: column;
+          text-align: start;
+
+          .disc{
+            font-size: 13px;
+            font-weight: 400;
+            color: $color_1;
+          }
+        }
+
+
+        .heading{
+          font-size: 16px;
+          color: rgb(107, 114, 128);
+          font-weight: 700;
+        }
+
+        .notebtn{
+          width: 20%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+        }
+      }
+    }
+
+    .backLink {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
 }

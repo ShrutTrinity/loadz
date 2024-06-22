@@ -1,9 +1,28 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { Link } from 'react-router-dom';
-import { Button, Typography, Grid, Paper } from '@mui/material';
 import styles from './jobdetail.module.scss';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button } from '@mui/material';
+
+const allStyles = {
+  button: {
+    color: 'rgb(237, 202, 51)',
+    textTransform: 'capitalize',
+    padding: '0',
+    display: 'flex',
+    justifyContent: 'start',
+    fontSize: '16px'
+  },
+  notebtn: {
+    backgroundColor: 'none',
+    color: 'black',
+    textTransform: 'capitalize',
+    borderColor:'black',
+    borderRadius: '0px',
+    width:'70%'
+  }
+}
 
 const JobDetail = (props) => {
   const chartOptions = {
@@ -13,13 +32,12 @@ const JobDetail = (props) => {
     xaxis: {
       categories: [1, 2, 3, 4, 5]
     },
-      yaxis: {
-    logBase: 5,
-    min: 0,
-    max: 5,
-    tickAmount: 5,
-  },
-
+    yaxis: {
+      logBase: 5,
+      min: 0,
+      max: 5,
+      tickAmount: 5,
+    },
   };
 
   const chartSeries = [{
@@ -29,87 +47,108 @@ const JobDetail = (props) => {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
     zIndex: 1,
   };
+  
   return (
     <div className={styles.container} style={bodyStyles}>
-      <Link to="/jobs" className={styles.backLink}>
-        <ArrowBackIcon /> Back to Jobs Overview
-      </Link>
-      <Grid container spacing={2} className={styles.jobDetailContainer}>
-        <Grid item xs={12} sm={4} className={styles.jobInfo}>
-          <Typography variant="h4">Job No:</Typography>
-          <Typography variant="h1" className={styles.jobNumber}>248-1</Typography>
-          <Button variant="text" className={styles.editButton}>Edit</Button>
-          <Button variant="text" className={styles.invoiceButton}>Invoice Job</Button>
-          <Typography variant="h2" className={styles.percentage}>0%</Typography>
-          <Typography variant="subtitle1">Job Completion: 0.00/ Loads</Typography>
-        </Grid>
-        <Grid item xs={12} sm={8} className={styles.chartContainer}>
-          <Chart
-            options={chartOptions}
-            series={chartSeries}
-            type="bar"
-            width="100%"
-            height='300'  
-          />
-        </Grid>
-      </Grid>
-      <Grid container spacing={2} className={styles.detailsContainer}>
-        <Grid item xs={12} sm={2}>
-          <Paper className={styles.paper}>
-            <Typography variant="body1">Destination: </Typography>
-            <Typography variant="body1">Quarry Pit: aa</Typography>
-            <Typography variant="body1">Contractor Unit Rate: </Typography>
-            <Typography variant="body1">Unit: Loads</Typography>
-            <Typography variant="body1">Unit Sale Rate: $0.00</Typography>
-            <Typography variant="body1">Unit Cost Rate: $0.00</Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          <Paper className={styles.paper}>
-            <Typography variant="body1">Material: Caliche</Typography>
-            <Typography variant="body1">Material Sale Rate: $0.00</Typography>
-            <Typography variant="body1">Material Cost Rate: $0.00</Typography>
-            <Typography variant="body1">Commissions: </Typography>
-            <Typography variant="body1">Scale: </Typography>
-            <Typography variant="body1">Material Broker: </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          <Paper className={styles.paper}>
-            <Typography variant="body1">Ticket</Typography>
-            <Typography variant="body1">Fulfilled Qty: 0</Typography>
-            <Typography variant="body1">Total Tickets: 0</Typography>
-            <Typography variant="body1">Fulfilled Employee Count: 0</Typography>
-            <Typography variant="body1">Fulfilled Owner Operator Count: 0</Typography>
-            <Typography variant="body1">Fulfilled Sub Contractor Count: 0</Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          <Paper className={styles.paper}>
-            <Typography variant="body1">Hauling</Typography>
-            <Typography variant="body1">Hauling Sales: $0.00</Typography>
-            <Typography variant="body1">Hauling Cost: $0.00</Typography>
-            <Typography variant="body1">Employee Commissions: $0.00</Typography>
-            <Typography variant="body1">Subcontractor Costs: $0.00</Typography>
-            <Typography variant="body1">Owner Operator Costs: $0.00</Typography>
-            <Typography variant="body1">Hauling Revenue: $0.00</Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          <Paper className={styles.paper}>
-            <Typography variant="body1">Material</Typography>
-            <Typography variant="body1">Material Sales: $0.00</Typography>
-            <Typography variant="body1">Material Cost: $0.00</Typography>
-            <Typography variant="body1">Material Revenue: $0.00</Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={2}>
-        <Button variant="contained" className={styles.notesButton}>Notes</Button>
-        </Grid>
-      </Grid>
+
+      <section className={styles.content}>
+
+        <section className={styles.detials}>
+          <Link to="/jobs" className={styles.backLink}>
+            <ArrowBackIcon /> Back to Jobs Overview
+          </Link>
+          <div className={styles.jobNo}>
+            <h5 className={styles.jobHeader}>Job No:</h5>
+            <p className={styles.jobNumber}>248-1</p>
+            <div className={styles.jobButton}>
+              <Button variant='text' style={allStyles.button}>Edit</Button>
+              <Button variant='text' style={allStyles.button}>Invoice Job</Button>
+            </div>
+          </div>
+
+          <div className={styles.numericDetail}>
+            <section className={styles.percentage}>
+              0%
+            </section>
+            <section className={styles.percentage}>
+              <span>Job Completion:</span>
+              <span className={styles.ratio}>0.00/ Loads</span>
+            </section>
+          </div>
+
+          <section className={styles.infoDetail}>
+            <div className={styles.percentage}>
+              <div className={styles.keysValue}>
+                <span className={styles.key}>Destination:</span>
+                <span className={styles.key}>Quarry Pit:</span>
+                <span className={styles.key}>Contractor Unit Rate:</span>
+                <span className={styles.key}>Unit:</span>
+                <span className={styles.key}>Unit Sale Rate:</span>
+                <span className={styles.key}>Unit Cost Rate:</span>
+              </div>
+            </div>
+            <div className={styles.percentage}>
+              <div className={styles.keysValue}>
+                <span className={styles.key}>Material:</span>
+                <span className={styles.key}>Material Sale Rate:</span>
+                <span className={styles.key}>Material Cost Rate:</span>
+                <span className={styles.key}>Commissions:</span>
+                <span className={styles.key}>Scale:</span>
+                <span className={styles.key}>Material Broker:</span>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section className={styles.graphicalDetail}>
+          <div className={styles.graph}>
+            <Chart
+              options={chartOptions}
+              series={chartSeries}
+              type="bar"
+              width="100%"
+              height='300'
+            />
+          </div>
+
+          <div className={styles.discriptions}>
+            <div className={styles.ticket}>
+              <h4 className={styles.heading}>Ticket</h4>
+              <span className={styles.disc}>Fulfilled Qty: 0</span>
+              <span className={styles.disc}>Total Tickets: 0</span>
+              <span className={styles.disc}>Fulfilled Employee Count: 0</span>
+              <span className={styles.disc}>Fulfilled Owner Operator Count: 0</span>
+              <span className={styles.disc}>Fulfilled Sub Contractor Count: 0</span>
+            </div>
+
+            <div className={styles.ticket}>
+              <h4 className={styles.heading}>Hauling</h4>
+              <span className={styles.disc}>Hauling Sales: $0.00</span>
+              <span className={styles.disc}>Hauling Cost: $0.00</span>
+              <span className={styles.disc}>Employee Commissions: $0.00</span>
+              <span className={styles.disc}>Subcontractor Costs: $0</span>
+              <span className={styles.disc}>Owner Operator Costs: $0.00</span>
+              <span className={styles.disc}>Hauling Revenue: $0.00</span>
+            </div>
+
+            <div className={styles.ticket}>
+              <h4 className={styles.heading}>Material</h4>
+              <span className={styles.disc}>Material Sales: $0.00</span>
+              <span className={styles.disc}>Material Cost: $0.00</span>
+              <span className={styles.disc}>Material Revenue: $0.00</span>
+            </div>
+
+            <div className={styles.notebtn}>
+              <Button style={allStyles.notebtn} variant='outlined'>
+                Notes
+              </Button>
+            </div>
+          </div>
+        </section>
+
+      </section>
     </div>
   );
 }
 
 export default JobDetail;
-
