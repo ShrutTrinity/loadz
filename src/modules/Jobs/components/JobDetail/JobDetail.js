@@ -36,7 +36,6 @@ const JobDetail = (props) => {
       </Link>
       <Grid container spacing={2} className={styles.jobDetailContainer}>
         <Grid item xs={12} sm={4} className={styles.jobInfo}>
-        
           <Typography variant="h4">Job No:</Typography>
           <Typography variant="h1" className={styles.jobNumber}>248-1</Typography>
           <Button variant="text" className={styles.editButton}>Edit</Button>
