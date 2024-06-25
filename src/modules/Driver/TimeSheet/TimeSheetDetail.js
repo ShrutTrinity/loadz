@@ -13,11 +13,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { TableBody, Button, Input } from '@mui/material';
+import { TableBody, Button, } from '@mui/material';
 import rows1 from '../driverDetail.json';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ShiftTimeInput, { NewShiftTimeInput } from './ShiftTimeInput';
 
 const generateDateRanges = (numWeeks = 10) => {
   const startDate = startOfWeek(new Date(), { weekStartsOn: 1 });
@@ -52,13 +53,26 @@ const TimeSheetDetail = () => {
     },
     cell: {
       color: 'black',
+    },
+    deletebtn: {
+      cursor: 'pointer'
+    },
+    updateBtn:{
+      color: 'rgb(237, 202, 51)',
+      textTransform: 'none',
     }
   };
 
   const [selectedRange, setSelectedRange] = useState('');
   const [dateRanges, setDateRanges] = useState([]);
   const [expandedRows, setExpandedRows] = useState({});
-  const [shiftData, setShiftData] = useState({});
+  const [rows, setRows] = useState([]);
+  const [newShift, setNewShift] = useState({
+    'Clock In': { hours: '', minutes: '', period: 'AM' },
+    'Clock Out': { hours: '', minutes: '', period: 'AM' },
+    'Lunch In': { hours: '', minutes: '', period: 'AM' },
+    'Lunch Out': { hours: '', minutes: '', period: 'AM' }
+  });
 
   useEffect(() => {
     const ranges = generateDateRanges();
@@ -77,24 +91,32 @@ const TimeSheetDetail = () => {
     }));
   };
 
-  const handleInputChange = (index, field, value) => {
-    setShiftData(prevState => ({
-      ...prevState,
-      [index]: {
-        ...prevState[index],
-        [field]: value
-      }
-    }));
+  const handleInputChangeForShift = (e, index, field, part) => {
+    const updatedRows = [...rows];
+    updatedRows[index][field][part] = e.target.value;
+    setRows(updatedRows);
   };
-  const [rows, setRows] = useState([]);
-  const [newShift, setNewShift] = useState({ 'Clock In': '', 'Clock Out': '', 'Lunch In': '', 'Lunch Out': '' });
-  const handleInputChangefortextfield = (e, field) => {
-    setNewShift({ ...newShift, [field]: e.target.value });
+
+  const handleInputChangeForNewShift = (e, field, part) => {
+    setNewShift({
+      ...newShift,
+      [field]: { ...newShift[field], [part]: e.target.value }
+    });
   };
 
   const handleCreateShift = () => {
     setRows([...rows, newShift]);
-    setNewShift({ 'Clock In': '', 'Clock Out': '', 'Lunch In': '', 'Lunch Out': '' });
+    setNewShift({
+      'Clock In': { hours: '', minutes: '', period: 'AM' },
+      'Clock Out': { hours: '', minutes: '', period: 'AM' },
+      'Lunch In': { hours: '', minutes: '', period: 'AM' },
+      'Lunch Out': { hours: '', minutes: '', period: 'AM' }
+    });
+  };
+
+  const handleDeleteShift = (index) => {
+    const updatedRows = rows.filter((_, i) => i !== index);
+    setRows(updatedRows);
   };
 
   return (
@@ -148,9 +170,9 @@ const TimeSheetDetail = () => {
             <TableHead>
               <TableRow style={tableStyles.th}>
                 <TableCell />
-                <TableCell style={tableStyles.cell} align="left">Start</TableCell>
-                <TableCell style={tableStyles.cell} align="left">End</TableCell>
-                <TableCell style={tableStyles.cell} align="left">Commission</TableCell>
+                <TableCell style={tableStyles.cell} align="left">	Date</TableCell>
+                <TableCell style={tableStyles.cell} align="left">Regular Time (hr:min)	</TableCell>
+                <TableCell style={tableStyles.cell} align="left">Over Time (hr:min)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -167,85 +189,94 @@ const TimeSheetDetail = () => {
                     <TableCell align="left">{row.Commission}</TableCell>
                   </TableRow>
 
-                  {expandedRows[index] &&
-                    (
-                        <TableRow>
-                          <TableCell colSpan={4}>
-                            <Table>
-                              <TableHead>
-                                <TableRow>
-                                  <TableCell align="center">Clock In</TableCell>
-                                  <TableCell align="center">Clock Out</TableCell>
-                                  <TableCell align="center">Lunch In</TableCell>
-                                  <TableCell align="center">Lunch Out</TableCell>
-                                  <TableCell align="center">Breaks</TableCell>
-                                  <TableCell />
-                                  <TableCell />
-                                </TableRow>
-                              </TableHead>
-                              <TableBody>
-                                <TableRow>
-                                  <TableCell align="center">
-                                    <Input
-                                      type="time"
-                                      value={shiftData[index]?.clockIn || ''}
-                                      onChange={(e) => handleInputChangefortextfield(e, 'Clock In')}
-                                    // inputProps={{ step: 300 }}
-                                    />
-                                  </TableCell>
-                                  <TableCell align="center">
-                                    <Input
-                                      type="time"
-                                      value={shiftData[index]?.clockOut || ''}
-                                      onChange={(e) => handleInputChange(index, 'clockOut', e.target.value)}
-                                      InputProps={{
-                                        disableUnderline: true,
-                                        style: { border: 'none' }
-                                      }}
-                                    // inputProps={{ step: 300 }}
-                                    />
-                                  </TableCell>
-                                  <TableCell align="center">
-                                    <Input
-                                      type="time"
-                                      value={shiftData[index]?.lunchIn || ''}
-                                      onChange={(e) => handleInputChange(index, 'lunchIn', e.target.value)}
-                                      InputProps={{
-                                        disableUnderline: true,
-                                        style: { border: 'none' }
-                                      }}
-                                      inputProps={{ step: 300 }}
-                                    />
-                                  </TableCell>
-                                  <TableCell align="center">
-                                    <Input
-                                      type="time"
-                                      value={shiftData[index]?.lunchOut || ''}
-                                      onChange={(e) => handleInputChange(index, 'lunchOut', e.target.value)}
-                                      InputProps={{
-                                        disableUnderline: true,
-                                        style: { border: 'none' }
-                                      }}
-                                      inputProps={{ step: 300 }}
-                                    />
-                                  </TableCell>
-                                  <TableCell align="center">
-                                    Breaks
-                                  </TableCell>
-                                  <TableCell align="center">
-                                    <Button color="primary" onClick={handleCreateShift}>Create Shift</Button>
-                                  </TableCell>
-                                  <TableCell align="center">
-                                    <DeleteIcon />
-                                  </TableCell>
-                                </TableRow>
-                              </TableBody>
-                            </Table>
-                            <div className={styles.shiftActions}>
-                            </div>
-                          </TableCell>
-                        </TableRow>
-                    )}
+                  {expandedRows[index] && (
+                    <TableRow>
+                      <TableCell colSpan={4}>
+                        <Table>
+                          <TableHead>
+                            <TableRow>
+                              <TableCell align="center">Clock In</TableCell>
+                              <TableCell align="center">Clock Out</TableCell>
+                              <TableCell align="center">Lunch In</TableCell>
+                              <TableCell align="center">Lunch Out</TableCell>
+                              <TableCell align="center">Breaks</TableCell>
+                              <TableCell />
+                              <TableCell />
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                            {rows.map((shift, index) => (
+                              <TableRow key={`shift-${index}`}>
+                                <ShiftTimeInput
+                                  shiftPart={'Clock In'}
+                                  onChange={handleInputChangeForShift}
+                                  shift={shift}
+                                  index={index} />
+                                <ShiftTimeInput
+                                  shiftPart={'Clock Out'}
+                                  onChange={handleInputChangeForShift}
+                                  shift={shift}
+                                  index={index} />
+
+                                <ShiftTimeInput
+                                  shiftPart={'Lunch In'}
+                                  onChange={handleInputChangeForShift}
+                                  shift={shift}
+                                  index={index} />
+                                <ShiftTimeInput
+                                  shiftPart={'Lunch Out'}
+                                  onChange={handleInputChangeForShift}
+                                  shift={shift}
+                                  index={index} />
+
+                                
+
+                                <TableCell align="center" style={tableStyles.updateBtn}>Breaks</TableCell>
+                                <TableCell align="center">
+                                  <Button style={tableStyles.updateBtn} >
+                                    Update Shift
+                                  </Button>
+                                </TableCell>
+                                <TableCell align="center">
+                                  <DeleteIcon style={tableStyles.deletebtn} onClick={() => handleDeleteShift(index)} />
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                            <TableRow>
+                            <NewShiftTimeInput
+                                  shiftPart={'Clock In'}
+                                  onChange={handleInputChangeForNewShift}
+                                  shift={newShift}
+                                   />
+                            <NewShiftTimeInput
+                                  shiftPart={'Clock Out'}
+                                  onChange={handleInputChangeForNewShift}
+                                  shift={newShift}
+                                   />
+                            <NewShiftTimeInput
+                                  shiftPart={'Lunch In'}
+                                  onChange={handleInputChangeForNewShift}
+                                  shift={newShift}
+                                   />
+                            <NewShiftTimeInput
+                                  shiftPart={'Lunch Out'}
+                                  onChange={handleInputChangeForNewShift}
+                                  shift={newShift}
+                                   />
+
+                              <TableCell align="center" style={tableStyles.updateBtn}>Breaks</TableCell>
+                              <TableCell align="center">
+                                <Button style={tableStyles.updateBtn} onClick={handleCreateShift}>
+                                  Create Shift
+                                </Button>
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
+                        <div className={styles.shiftActions}></div>
+                      </TableCell>
+                    </TableRow>
+                  )}
                 </React.Fragment>
               ))}
             </TableBody>
