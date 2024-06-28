@@ -1,0 +1,15 @@
+@import "@styles";
+
+.header{
+  font-size: 13px;
+  font-weight: 300;
+  color: $color_1;
+}
+.date{
+  display: flex;
+  align-items: center;
+}
+.searchCover{
+  width: 40%;
+  margin-bottom: 16px;
+}
