@@ -7,13 +7,12 @@ import Subscription from '@modules/subcription/Subscription';
 import Termsconditions from '@components/Conditions/Termsconditions';
 import Privacy from '@components/Conditions/Privacy';
 import Create from '@modules/CustomerPortal/Create';
-import Welcome from '@modules/Company/Welcome';
+import Welcome from '@modules/company/Welcome';
 import CreateAccount from '@modules/CreateAccount/newAccount/CreateAccount';
 import SetupOfCompany from '@modules/CreateAccount/companySetup/SetupOfCompany';
 import Error from '@modules/ErrorPage/Error';
 import BaseLayout from '@modules/DashboardPanel';
-import CreateCustomer from './modules/Dwolla/CreateCustomer';
-
+import CreateCustomer from './modules/Dwolla/CreateCustomer'; 
 
 const App = () => {
  
