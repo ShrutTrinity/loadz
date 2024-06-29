@@ -15,8 +15,7 @@
   flex-wrap: nowrap;
 
   .headerName {
-    align-items: center;
-    display: flex;
+    @include flex-column();
     .blockIcon {
       font-size: 32px;
     }

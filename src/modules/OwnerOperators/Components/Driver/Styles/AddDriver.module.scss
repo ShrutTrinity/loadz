@@ -40,9 +40,7 @@
       padding: 4px 4px 5px;
       border-radius: 50%;
       cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      display: flex;
+      @include center();
       background-color: $color_3;
       height: 40%;
     }

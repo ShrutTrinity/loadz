@@ -1,4 +1,4 @@
-@import '@styles';
+@import "@styles";
 
 .header {
   padding: 13px 24px;
@@ -49,8 +49,7 @@
   }
 
   .createIcon {
-    display: flex;
-    justify-content: center;
+    @include flex-row();
 
     .iconCover {
       padding: 2px 2px 3px;

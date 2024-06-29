@@ -27,7 +27,7 @@
       display: flex;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-      .drawerContainer{
+      .drawerContainer {
         width: 26%;
       }
 
@@ -101,7 +101,7 @@
   }
 }
 
-@media only screen and (max-width:899px) {
+@media only screen and (max-width: 899px) {
   .container {
     .CardWrapper {
       .contentCard {
@@ -113,12 +113,11 @@
           width: 100%;
           position: relative;
 
-          .heading{
+          .heading {
             padding: 10px 15px;
             font-size: 20px;
-            display: flex;
+            @include flex-column();
             gap: 5px;
-            align-items: center;
             .openDialogIcon {
               display: block;
               position: relative;

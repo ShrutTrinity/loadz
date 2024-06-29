@@ -1,25 +1,24 @@
 @import "@styles";
 
-.flex{
-    @include center ();
-    justify-content: space-between;
-    .dollar{
-        font-size: 40px;
-
-    }
-}
-.flex2{
-    @include center ();
-    justify-content: flex-start;
-    gap: 10px;
-}
-.card{
-    box-shadow: rgba(0, 0.15, 0.15, 0.15) 1.95px 1.95px 2.6px;
-}
-                                          
-@media only screen and (max-width: 600px)    {
-    .flex2{ 
-        flex-direction: column;
-        gap: 0;
-    }
+.flex {
+  @include center();
+  justify-content: space-between;
+  .dollar {
+    font-size: 40px;
   }
+}
+.flex2 {
+  @include center();
+  justify-content: flex-start;
+  gap: 10px;
+}
+.card {
+  box-shadow: rgba(0, 0.15, 0.15, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@media only screen and (max-width: 600px) {
+  .flex2 {
+    flex-direction: column;
+    gap: 0;
+  }
+}

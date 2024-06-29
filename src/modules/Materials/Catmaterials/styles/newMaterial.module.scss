@@ -73,14 +73,12 @@
         }
 
         .size {
-          display: flex;
+          @include flex-row();
           flex-direction: column;
-          justify-content: center;
 
           .sizeFields {
-            display: flex;
+            @include flex-column();
             gap: 8px;
-            align-items: center;
           }
         }
       }

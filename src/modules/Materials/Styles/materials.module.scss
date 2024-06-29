@@ -1,5 +1,4 @@
 @import "@styles";
-@import "@styles";
 
 .body {
   margin-top: 57px;
@@ -11,11 +10,10 @@
 }
 
 .headerPart {
- display: flex;
- justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
   .headerName {
-    align-items: center;
-    display: flex;
+    @include flex-column();
     .blockIcon {
       font-size: 32px;
     }
@@ -29,38 +27,33 @@
   .functionButtons {
     display: flex;
 
-    .buttonsContainer{
+    .buttonsContainer {
       display: flex;
     }
-
-    }
-      .search{
-        width: 45%;
-        margin: 0 6px;
-      }
+  }
+  .search {
+    width: 45%;
+    margin: 0 6px;
+  }
 }
 
-
-
-.container{
+.container {
   margin-top: 30px;
 }
 
 @media only screen and (max-width: 991px) {
-
-  
-  .headerPart{
+  .headerPart {
     flex-wrap: wrap;
-    .functionButtons{
+    .functionButtons {
       flex-direction: column;
 
-      .functionButtons{
+      .functionButtons {
         width: 100%;
       }
     }
-  .search{
-    width: 100%;
-    margin: 0 6px;
-  }
+    .search {
+      width: 100%;
+      margin: 0 6px;
+    }
   }
 }

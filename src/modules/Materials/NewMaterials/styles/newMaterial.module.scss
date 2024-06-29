@@ -71,14 +71,12 @@
         }
 
         .size {
-          display: flex;
+          @include flex-row();
           flex-direction: column;
-          justify-content: center;
 
           .sizeFields {
-            display: flex;
+            @include flex-column();
             gap: 8px;
-            align-items: center;
           }
         }
       }
@@ -87,24 +85,24 @@
 }
 
 @media screen and (max-width: 599px) {
-  .body{
-    .content{
-      .tabScroll{
-        .form{
+  .body {
+    .content {
+      .tabScroll {
+        .form {
           overflow: auto;
 
-          .size{
-            .sizeFields{
+          .size {
+            .sizeFields {
               flex-direction: column;
               gap: 8px;
             }
           }
 
-          .size:nth-child(3){
+          .size:nth-child(3) {
             margin-top: 8px;
           }
         }
       }
     }
   }
-} 
+}

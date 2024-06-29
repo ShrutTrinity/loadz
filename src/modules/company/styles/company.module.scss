@@ -9,8 +9,7 @@
     background-color: $color_1;
     display: grid;
     position: relative;
-    justify-content: center;
-    align-items: center;
+    @include center();
     padding: 20px 0 0 90px;
 
     .videodiv2 {
@@ -26,9 +25,8 @@
       z-index: -1;
       background-repeat: no-repeat;
       background-position: 0;
-      background-size: 100%
+      background-size: 100%;
     }
-
 
     .heading {
       font-size: 72px;
@@ -61,14 +59,11 @@
           background-color: $color_3;
           height: 36px;
           width: 36px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
+          @include center();
         }
 
         .overview {
-          color: white;
+          color: $color_4;
           font-size: 20px;
           margin-left: 10px;
         }
@@ -81,10 +76,8 @@
         bottom: 0;
         z-index: 0;
         right: -15px;
-
       }
     }
-
   }
 
   .col2 {
@@ -94,10 +87,8 @@
     position: relative;
 
     .videodiv {
-      display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      @include center();
       width: 100%;
       margin-left: 20px;
 
@@ -119,20 +110,17 @@
 
         .getstarted {
           padding: 10px 30px;
-          color: white;
+          color: $color_4;
           font-weight: 700;
           border-radius: 10px;
           background-color: $color_1;
         }
       }
     }
-
-
   }
-
 }
 
-@media only screen and (max-width:1500px) {
+@media only screen and (max-width: 1500px) {
   .flex {
     .col1 {
       .overviewFlex {
@@ -142,9 +130,7 @@
       }
     }
   }
-
 }
-
 
 @media only screen and (max-width: 1200px) {
   .flex {
@@ -164,7 +150,6 @@
       }
 
       .videodiv2 {
-
         height: auto;
 
         display: flex;
@@ -179,7 +164,7 @@
       .overviewFlex {
         .phnImage {
           width: 400px;
-          right: 20px
+          right: 20px;
         }
 
         .flex2 {
@@ -203,7 +188,6 @@
       }
     }
   }
-
 }
 
 @media only screen and (max-width: 950px) {
@@ -236,9 +220,7 @@
 
       .videodiv2 {
         .video2 {
-
           height: 190px;
-
         }
       }
 
@@ -254,7 +236,6 @@
             font-size: 16px;
           }
         }
-
       }
     }
 
@@ -270,10 +251,8 @@
           }
         }
       }
-
     }
   }
-
 }
 
 @media only screen and (max-width: 300px) {
@@ -304,7 +283,6 @@
         }
       }
     }
-
   }
 }
 

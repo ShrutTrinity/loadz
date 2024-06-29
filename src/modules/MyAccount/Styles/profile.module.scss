@@ -5,7 +5,7 @@
   right: 0;
   margin-bottom: 30px;
   color: black;
-  
+
   .userProfile {
     padding: 20px;
     .heading {
@@ -17,9 +17,8 @@
       height: 100%;
       width: 100%;
       flex-wrap: wrap;
-      display: flex;
+      @include flex-column();
       position: relative;
-      align-items: center;
       flex-wrap: wrap;
       .detail {
         width: 44%;
@@ -49,9 +48,8 @@
         .running {
           border: 1px solid black;
           border-radius: 10px;
-          display: flex;
-          padding:20px 10px;
-          align-items: center;
+          @include flex-column();
+          padding: 20px 10px;
           color: black;
           .leftside {
             width: 60%;
@@ -61,7 +59,7 @@
             padding: 10px 0px;
             .icon {
               font-size: 60px;
-              }
+            }
           }
           .rightside {
             width: 40%;
@@ -76,7 +74,7 @@
         flex-direction: column;
         height: 100%;
         width: 20%;
-        .btn{
+        .btn {
           background-color: white;
           font-size: 14px;
           padding: 5px 30px;
@@ -84,16 +82,15 @@
         .btn:hover {
           background-color: rgb(30, 30, 30);
           color: white;
-          transition:1s;
+          transition: 1s;
         }
       }
     }
-
   }
 
   .companyProfile {
-    padding:40px 20px;
-    
+    padding: 40px 20px;
+
     .heading {
       font-weight: 700;
     }
@@ -101,16 +98,15 @@
       border: 1px solid black;
       padding: 30px;
       width: 100%;
-      display: flex;
+      @include flex-column();
       position: relative;
-      align-items: center;
       .detail {
         width: 40%;
         padding: 10px;
         display: flex;
         gap: 20px;
         .img {
-            @include center();
+          @include center();
           height: 120px;
           width: 120px;
           border: 4px solid rgb(245, 245, 245);
@@ -137,7 +133,7 @@
           line-height: 0.5;
           border-bottom: 2px solid rgb(0, 0, 0);
         }
-        .contorl{
+        .contorl {
           display: flex;
           flex-direction: column;
           gap: 10px;
@@ -146,98 +142,95 @@
       }
       .editbtn {
         width: 35%;
-        
-        .heading2{
+
+        .heading2 {
           font-weight: 700;
           font-size: 16px;
           display: inline;
           line-height: 0.5;
           border-bottom: 2px solid rgb(0, 0, 0);
-
         }
-        .detail2{
+        .detail2 {
           margin: 20px 0;
           display: flex;
           flex-direction: column;
           gap: 10px;
           font-size: 13px;
         }
-        .btn{
+        .btn {
           background-color: white;
           font-size: 14px;
           position: absolute;
           right: 0;
-          margin:0 20px;
+          margin: 0 20px;
           padding: 5px 30px;
         }
         .btn:hover {
           background-color: rgb(30, 30, 30);
           color: white;
-          transition:1s;
+          transition: 1s;
         }
       }
     }
-
   }
 }
 
-@media only screen and (max-width:600px) {
-  .container{
-    .userProfile{
-      .profileContainer{
+@media only screen and (max-width: 600px) {
+  .container {
+    .userProfile {
+      .profileContainer {
+        flex-direction: column;
+        @include center();
+        .detail {
+          @include center();
+          width: 100%;
+          flex-direction: column;
+        }
+        .session {
+          width: auto;
+          display: flex;
+          min-width: 70%;
+          flex-direction: column;
+          .running {
+            flex-direction: column;
+            @include center();
+            .leftside {
+              width: 100%;
+              @include center();
+              flex-direction: column;
+            }
+            .rightside {
+              width: 100%;
+            }
+          }
+        }
+        .editbtn {
+          width: auto;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .companyProfile {
+    margin-bottom: 60px;
+    padding: 40px 10px;
+    .profileContainer {
       flex-direction: column;
       @include center();
-      .detail{
-        @include center();
-        width: 100%;
-        flex-direction: column;
-      }
-      .session{
-        width: auto;
-        display: flex;
-        min-width: 70%;
-        flex-direction: column;
-        .running{
-          flex-direction: column;
-          @include center();
-          .leftside{
-            width: 100%;
-            @include center();
-            flex-direction: column;
-          }
-          .rightside{
-            width: 100%;
-          }
-        }
-      }
-      .editbtn{
-        width: auto;
-        margin-top: 20px;
-      }
-    }
-    
-  }
-}
-.companyProfile{
-  margin-bottom: 60px;
-  padding: 40px 10px;
-  .profileContainer{
-    flex-direction: column;
-    @include center();
-    padding: 10px !important;
+      padding: 10px !important;
       .detail {
         width: 100% !important;
         flex-direction: column;
         gap: 0px;
       }
-      .switches{
+      .switches {
         width: 100% !important;
       }
-      .editbtn{
-        width: 100% !important; 
-          .btn{
-            position: relative !important;
-          }
+      .editbtn {
+        width: 100% !important;
+        .btn {
+          position: relative !important;
+        }
       }
     }
   }

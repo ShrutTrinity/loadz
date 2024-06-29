@@ -1,150 +1,144 @@
 @import "@styles";
 
-
-
 .root {
-    @include center();
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    -webkit-tap-highlight-color: transparent;
-    z-index: -1;
-    background-color: $background-color_1;
+  @include center();
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  -webkit-tap-highlight-color: transparent;
+  z-index: -1;
+  background-color: $background-color_1;
 }
 
 .container {
-    height: 100%;
-    @include center();
+  height: 100%;
+  @include center();
 }
 
 .cover {
-    background-color: $color_4;
-    color: $color_1;
-    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    box-shadow: $box_Shadow;
-    margin: 32px;
-    position: relative;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    max-height: calc(100% - 64px);
-    max-width: 600px;
-    border-radius: 16px;
+  background-color: $color_4;
+  color: $color_1;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: $box_Shadow;
+  margin: 32px;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100% - 64px);
+  max-width: 600px;
+  border-radius: 16px;
 
-    .card {
+  .card {
+    width: 100%;
+
+    .heading {
+      color: $color_4;
+      padding: 1rem;
+      font-size: 24px;
+      background-color: $background-color_2;
+    }
+  }
+
+  form {
+    padding: 0.5rem 1rem 0 1rem;
+
+    .textField1 {
+      width: 450px;
+    }
+
+    input::placeholder {
+      color: #adadad;
+      font-size: 13px;
+    }
+
+    .input {
+      @include flex-column();
+      flex-direction: row;
+      margin: 16px 0;
+
+      .passIcon {
+        margin-left: 0.5rem;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+    }
+
+    .middleLine {
+      display: flex;
+      flex-direction: row;
+
+      .firstPart {
+        @include flex-column();
         width: 100%;
+        justify-content: flex-start;
+        flex-direction: row;
+      }
 
-        .heading {
-            color: $color_4;
-            padding: 1rem;
-            font-size: 24px;
-            background-color: $background-color_2;
+      .label {
+        font-size: 0.813rem;
+        font-weight: 300;
+      }
+
+      .secondPart {
+        @include flex-column();
+        width: 100%;
+        justify-content: flex-end;
+        flex-direction: row;
+
+        .a1 {
+          font-size: 13px;
+          font-weight: 500;
+          margin-right: 12px;
         }
+      }
     }
 
-    form {
-        padding: 0.5rem 1rem 0 1rem;
+    .rules {
+      display: flex;
+      flex-direction: column;
 
-        .textField1 {
-            width: 450px;
-        }
+      ol {
+        margin: 0.5rem 1rem;
+        list-style: decimal;
+        color: $color_5;
+        font-size: 0.813rem;
+      }
+    }
+  }
 
-        input::placeholder {
-            color: #adadad;
-            font-size: 13px;
-        }
+  .bottom {
+    @include flex-row();
 
-        .input {
-            @include flex-column();
-            flex-direction: row;
-            margin: 16px 0;
+    .a2 {
+      color: $color_2;
+      font-size: 0.813rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.75rem;
+    }
+  }
 
-            .passIcon {
-                margin-left: 0.5rem;
-                padding: 0.5rem;
-                cursor: pointer;
-            }
-
-        }
-
-        .middleLine {
-            display: flex;
-            flex-direction: row;
-
-            .firstPart {
-                @include flex-column();
-                width: 100%;
-                justify-content: flex-start;
-                flex-direction: row;
-            }
-
-            .label {
-                font-size: 0.813rem;
-                font-weight: 300;
-            }
-
-            .secondPart {
-                @include flex-column();
-                width: 100%;
-                justify-content: flex-end;
-                flex-direction: row;
-
-                .a1{
-                    font-size: 13px;
-                    font-weight: 500;
-                    margin-right: 12px;
-                }
-            }
-        }
-
-        .rules {
-            display: flex;
-            flex-direction: column;
-
-            ol {
-                margin: 0.5rem 1rem;
-                list-style: decimal;
-                color: $color_5;
-                font-size: 0.813rem;
-            }
-        }
-
+  @media screen and (max-width: 960px) {
+    .heading {
+      padding: 1rem;
+      font-size: 20px;
     }
 
-    .bottom {
-        display: flex;
-        justify-content: center;
-
-        .a2 {
-            color: $color_2;
-            font-size: 0.813rem;
-            padding-top: 0.5rem;
-            padding-bottom: 0.75rem;
-        }
+    .textField1 {
+      width: 300px;
     }
 
-    @media screen and (max-width: 960px) {
-        .heading {
-            padding: 1rem;
-            font-size: 20px;
-        }
-
-        .textField1 {
-            width: 300px;
-        }
-
-        .textField1:nth-child(1) {
-            width: 100%;
-        }
+    .textField1:nth-child(1) {
+      width: 100%;
     }
+  }
 
-    @media screen and (max-width: 300px) {
-
-        ol,
-        .a2,
-        .a,
-        .label {
-            font-size: $verySmall_font;
-        }
+  @media screen and (max-width: 300px) {
+    ol,
+    .a2,
+    .a,
+    .label {
+      font-size: $verySmall_font;
     }
+  }
 }

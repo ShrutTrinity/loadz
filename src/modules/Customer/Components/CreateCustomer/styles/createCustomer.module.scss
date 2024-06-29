@@ -1,3 +1,5 @@
+@import "@styles";
+
 .addCustomer {
   font-weight: 700;
   font-size: 22px;
@@ -5,7 +7,7 @@
   justify-content: space-between;
   padding: 0px 10px;
   display: flex;
-  color: black;
+  color: $color_1;
 }
 
 .savebtn {
@@ -15,8 +17,8 @@
   padding: 0 10px;
   border-radius: 20px;
   font-weight: 300;
-  color: white;
-  background-color: black;
+  color: $color_4;
+  background-color: $color_1;
 }
 
 .box {
@@ -34,7 +36,7 @@
   .newCustomer {
     font-weight: 700;
     font-size: 20px;
-    color: black;
+    color: $color_1;
   }
 
   .enterdetail {
@@ -74,8 +76,8 @@
     .btn {
       border: none;
       font-size: 14px;
-      color: rgb(237, 202, 51);
-      background-color: white;
+      color: $color_3;
+      background-color: $color_4;
     }
   }
 

@@ -1,7 +1,6 @@
-@import '@styles';
+@import "@styles";
 
 .body {
-
   overflow-y: scroll;
   overflow-x: hidden;
 
@@ -152,7 +151,7 @@
     }
   }
 
-  .table{
+  .table {
     padding: 0 0 25px 0;
     width: 100%;
     overflow-x: scroll;
@@ -190,10 +189,10 @@
       .cardiner {
         margin-bottom: 16px;
         width: 100%;
-        }
       }
+    }
 
-    .bottomFunctions {  
+    .bottomFunctions {
       flex-direction: column;
       align-items: flex-start;
       .functionBtns {
@@ -201,22 +200,22 @@
         flex-direction: column;
       }
     }
-    button{
+    button {
       font-size: 14px;
       padding: 8px 30px;
     }
   }
 }
 
-@media only screen and (max-width: 300px){
-  body{
-    .cardContainer{
-      .switch1{
+@media only screen and (max-width: 300px) {
+  body {
+    .cardContainer {
+      .switch1 {
         flex-wrap: wrap;
       }
 
-      .cardiner{
-        .cardinerHeading{
+      .cardiner {
+        .cardinerHeading {
           font-size: 22px !important;
           width: 80%;
         }
