@@ -1,7 +1,5 @@
 @import "@styles";
 
-
-
 .header {
   width: 100vw;
   background-color: inherit;
@@ -21,12 +19,11 @@
 
       .part1 {
         color: $color_1;
-        display: flex;
+        @include flex-column();
         margin: 0px;
         font-size: 13px;
         font-weight: 600;
         line-height: 1.5;
-        align-items: center;
         margin-bottom: 2px;
         gap: 6px;
       }

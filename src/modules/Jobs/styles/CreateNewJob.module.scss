@@ -1,7 +1,5 @@
 @import "../../styleVariables.scss";
 
-
-
 .body {
   width: 100%;
   margin-top: 57px;
@@ -26,20 +24,18 @@
         
         .part1 {
           color: $color_1;
-          display: flex;
+          @include flex-column();
           margin: 0px;
           font-size: 13px;
           font-weight: 600;
           line-height: 1.5;
-          align-items: center;
           margin-bottom: 12px;
           gap: 6px;
         }
       }
       .part2 {
-        align-items: center;
+        @include flex-column();
         max-width: 100%;
-        display: flex;
 
         .headerText {
           margin: 0 8px;
@@ -102,19 +98,16 @@
         width: 100%;
 
         .m1 {
+          @include flex-row();
           width: 50%;
           flex-direction: column;
-          justify-content: center;
-          display: flex;
           padding: 0 7px;
           margin: 8px 0 8px 0;
         }
         .btn {
           height: 30px;
           width: 37px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @include center();
           border-radius: 50%;
           background-color: $color_3;
         }
@@ -125,8 +118,7 @@
         margin: 0 6px;
 
         .l1 {
-          display: flex;
-          align-items: center;
+          @include flex-column();
           font-weight: 600;
           font-size: 14px;
           margin: 0 16px 0 -11px;

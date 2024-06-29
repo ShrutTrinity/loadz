@@ -6,8 +6,7 @@
   color: $color_1;
 }
 .date{
-  display: flex;
-  align-items: center;
+  @include flex-column();
 }
 .searchCover{
   width: 40%;

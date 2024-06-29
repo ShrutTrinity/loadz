@@ -102,7 +102,6 @@
     background-color: $color_4;
 
     .searchbar {
-      // background-color: aliceblue;
       padding: 5px 5px;
     }
 
@@ -151,9 +150,8 @@
 
           .heading {
             font-size: 20px;
-            display: flex;
+            @include flex-column();
             gap: 5px;
-            align-items: center;
             .openDialogIcon {
               display: block;
               position: relative;

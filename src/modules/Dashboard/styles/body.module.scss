@@ -50,7 +50,6 @@
         @include center();
         text-align: center;
         width: 45%;
-        // height: 90%;
         text-decoration: none;
 
         .context {
@@ -74,7 +73,7 @@
     margin-top: 20px;
     .title {
       font-size: 22px;
-      color: white;
+      color: $color_4;
       font-weight: 400;
       padding: 20px;
     }

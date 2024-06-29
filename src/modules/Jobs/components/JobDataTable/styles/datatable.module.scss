@@ -1,38 +1,36 @@
-.card{
-    border: 2px solid black;
-    padding: 20px;
-    border-radius: 20px;
-    
+@import "@styles";
+
+.card {
+  border: 2px solid $color_1;
+  padding: 20px;
+  border-radius: 20px;
 }
-.check{
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgb(224, 224, 224);
+.check {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.datarow {
+  @include flex-column();
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-.datarow {
-    // display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .dataitem {
-    margin-left: 10px;
-    display: flex;
-    padding-bottom: 10px;
-    width: 97%;
-    border-bottom: 1px solid rgb(224, 224, 224);
-    justify-content: space-between;
-  }
-  
-  .datakey {
-    font-weight: bold;
-    font-size: 15px;
-  }
-  
-  .datavalue {
-    font-size: 15px;
-  }
-  
+.dataitem {
+  margin-left: 10px;
+  display: flex;
+  padding-bottom: 10px;
+  width: 97%;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  justify-content: space-between;
+}
+
+.datakey {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.datavalue {
+  font-size: 15px;
+}

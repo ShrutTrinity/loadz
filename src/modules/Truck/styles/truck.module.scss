@@ -27,13 +27,12 @@
     padding-top: 25px;
 
     .content {
-      
       .cards {
         margin-top: 30px;
         display: flex;
         height: 50vh;
         padding-bottom: 20px;
-        overflow-y:auto ;
+        overflow-y: auto;
         flex-wrap: wrap;
         scroll-behavior: smooth;
         gap: 1%;
@@ -43,7 +42,7 @@
           padding: 15px 20px;
           border-radius: 10px;
           width: 49%;
-         
+
           margin-bottom: 1%;
 
           .cardHeading {
@@ -60,7 +59,7 @@
               max-width: 33.33%;
               min-width: 33.32%;
 
-              img{
+              img {
                 width: 100%;
               }
             }
@@ -70,7 +69,7 @@
               width: 100%;
               flex-direction: column;
               justify-content: flex-start;
-              width: max-content; 
+              width: max-content;
               gap: 8px;
 
               .cardValue {
@@ -111,27 +110,28 @@
 @media only screen and (max-width: 1030px) {
   .container {
     .bodyContainer {
-      .content{
-      .cards {
-        height: unset;
-        max-height: 64vh;
-        overflow-y: auto;
-        
-        .card {
-          min-width: 100%;
-          
-          .cardContent {
-           flex-wrap: wrap;
+      .content {
+        .cards {
+          height: unset;
+          max-height: 64vh;
+          overflow-y: auto;
 
-            .cardImage {
-             width: 100%;
+          .card {
+            min-width: 100%;
 
-              img{
+            .cardContent {
+              flex-wrap: wrap;
+
+              .cardImage {
                 width: 100%;
-              }
+
+                img {
+                  width: 100%;
+                }
               }
             }
-        }}
+          }
+        }
       }
     }
   }
@@ -155,11 +155,11 @@
               flex-direction: column;
               align-items: center;
 
-              .cardImage{
+              .cardImage {
                 width: 100%;
                 margin-bottom: 10px;
               }
-              .cardData{
+              .cardData {
                 align-items: flex-start;
               }
               .cardFunctionality {
