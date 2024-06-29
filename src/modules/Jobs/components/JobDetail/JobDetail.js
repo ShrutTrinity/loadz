@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import styles from './jobdetail.module.scss';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button } from '@mui/material';
+import CSV from '@images/csv.png';
+import DetailTab from './Components/DetailTab';
 
 const allStyles = {
   button: {
@@ -18,9 +20,16 @@ const allStyles = {
     backgroundColor: 'none',
     color: 'black',
     textTransform: 'capitalize',
-    borderColor:'black',
+    borderColor: 'black',
     borderRadius: '0px',
-    width:'70%'
+    width: '70%'
+  },
+  fnBtn:{
+    backgroundColor: 'rgb(237, 202, 51)',
+    color:'rgb(0,0,0)',
+    fontSize:'13px',
+    padding:'15px',
+    borderRadius:'18px'
   }
 }
 
@@ -47,12 +56,11 @@ const JobDetail = (props) => {
     width: `calc(100% - ${props.open ? 290 : 0}px)`,
     zIndex: 1,
   };
-  
+
   return (
     <div className={styles.container} style={bodyStyles}>
 
       <section className={styles.content}>
-
         <section className={styles.detials}>
           <Link to="/jobs" className={styles.backLink}>
             <ArrowBackIcon /> Back to Jobs Overview
@@ -79,22 +87,22 @@ const JobDetail = (props) => {
           <section className={styles.infoDetail}>
             <div className={styles.percentage}>
               <div className={styles.keysValue}>
-                <span className={styles.key}>Destination:</span>
-                <span className={styles.key}>Quarry Pit:</span>
-                <span className={styles.key}>Contractor Unit Rate:</span>
-                <span className={styles.key}>Unit:</span>
-                <span className={styles.key}>Unit Sale Rate:</span>
-                <span className={styles.key}>Unit Cost Rate:</span>
+                <span className={styles.key}>Destination:<span></span> </span>
+                <span className={styles.key}>Quarry Pit: <span className={styles.keyDetail}>l</span></span>
+                <span className={styles.key}>Contractor Unit Rate:<span className={styles.keyDetail}></span></span>
+                <span className={styles.key}>Unit:<span className={styles.keyDetail}>Yards</span></span>
+                <span className={styles.key}>Unit Sale Rate:<span className={styles.keyDetail}>$0.00</span></span>
+                <span className={styles.key}>Unit Cost Rate:<span className={styles.keyDetail}>$0.00</span></span>
               </div>
             </div>
             <div className={styles.percentage}>
               <div className={styles.keysValue}>
-                <span className={styles.key}>Material:</span>
-                <span className={styles.key}>Material Sale Rate:</span>
-                <span className={styles.key}>Material Cost Rate:</span>
-                <span className={styles.key}>Commissions:</span>
-                <span className={styles.key}>Scale:</span>
-                <span className={styles.key}>Material Broker:</span>
+                <span className={styles.key}>Material:<span className={styles.keyDetail}>Oversized Rock</span></span>
+                <span className={styles.key}>Material Sale Rate:<span className={styles.keyDetail}>$0.00</span></span>
+                <span className={styles.key}>Material Cost Rate:<span className={styles.keyDetail}>$0.00</span></span>
+                <span className={styles.key}>Commissions:<span className={styles.keyDetail}></span></span>
+                <span className={styles.key}>Scale:<span className={styles.keyDetail}></span></span>
+                <span className={styles.key}>Material Broker:<span className={styles.keyDetail}></span></span>
               </div>
             </div>
           </section>
@@ -147,6 +155,24 @@ const JobDetail = (props) => {
         </section>
 
       </section>
+
+      <section className={styles.buttonContent}>
+        <header className={styles.header}>
+          <h4 className={styles.title}>Tickets</h4>
+
+          <div className={styles.function}>
+            <div className={styles.csv}>
+              <img src={CSV} alt='csv Img' />
+            </div>
+            <Button style={allStyles.fnBtn}>
+              Add New Ticket
+            </Button>
+          </div>
+        </header>
+
+        <DetailTab />
+      </section>
+
     </div>
   );
 }

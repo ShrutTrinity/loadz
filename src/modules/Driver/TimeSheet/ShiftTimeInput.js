@@ -67,4 +67,4 @@ const NewShiftTimeInput = ({ shiftPart, onChange, shift }) => {
   );
 };
 
-export {NewShiftTimeInput}
+export  {NewShiftTimeInput};
