@@ -23,7 +23,7 @@ const ShiftTimeInput = ({ shiftPart, onChange, shift, index }) => {
         name="period"
         value={shift[shiftPart].period}
         onChange={(e) => onChange(e, index, shiftPart, 'period')}
-        style={{ padding: '2.5px', border: 'none', fontSize: '13px', '-webkit-appearance': 'none' }}
+        style={{ padding: '2.5px', border: 'none', fontSize: '13px', 'WebkitAppearance': 'none' }}
       >
         <option value="AM">AM</option>
         <option value="PM">PM</option>
@@ -33,8 +33,6 @@ const ShiftTimeInput = ({ shiftPart, onChange, shift, index }) => {
 };
 
 export default ShiftTimeInput;
-
-
 
 const NewShiftTimeInput = ({ shiftPart, onChange, shift }) => {
   return (
@@ -58,9 +56,10 @@ const NewShiftTimeInput = ({ shiftPart, onChange, shift }) => {
         name="period"
         value={shift[shiftPart].period}
         onChange={(e) => onChange(e, shiftPart, 'period')}
-        style={{ padding: '2.5px', border: 'none', fontSize: '13px', '-webkit-appearance': 'none' }}
+        style={{ padding: '2.5px', border: 'none', fontSize: '13px', 'WebkitAppearance': 'none' }}
       >
-        <option value="AM">AM</option>
+        <option value="AM" disabled>_ _</option>
+        <option value="AM2">AM</option>
         <option value="PM">PM</option>
       </select>
     </TableCell>

@@ -140,12 +140,19 @@ const TimeSheetDetail = () => {
       <div className={styles.heading}></div>
       <section className={styles.body}>
         <section className={styles.driverDetails}>
-          <h4 className={styles.driverName}>KENT DODDS</h4>
+          <h4 className={styles.driverName}>
+            KENT DODDS
+          </h4>
           <div className={styles.details}>
             <section className={styles.mainCol}>
-              <h4 className={styles.detail}>Address: ...</h4>
-              <h4 className={styles.detail}>Email: ...</h4>
-              <h4 className={styles.detail}>Phone Number:
+              <h4 className={styles.detail}>
+                Address: ...
+              </h4>
+              <h4 className={styles.detail}>
+                Email: ...
+              </h4>
+              <h4 className={styles.detail}>
+                Phone Number:
                 <span className={styles.number}>
                   (635) 328-4017
                 </span>
@@ -186,25 +193,36 @@ const TimeSheetDetail = () => {
             <TableHead>
               <TableRow style={tableStyles.th}>
                 <TableCell />
-                <TableCell style={tableStyles.cell} align="left">Date</TableCell>
-                <TableCell style={tableStyles.cell} align="left">Regular Time (hr:min)</TableCell>
-                <TableCell style={tableStyles.cell} align="left">Over Time (hr:min)</TableCell>
+                <TableCell style={tableStyles.cell} align="left">
+                  Date
+                </TableCell>
+                <TableCell style={tableStyles.cell} align="left">
+                  Regular Time (hr:min)
+                </TableCell>
+                <TableCell style={tableStyles.cell} align="left">
+                  Over Time (hr:min)
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row, rowIndex) => (
                 <React.Fragment key={rowIndex}>
-                  <TableRow onClick={() => handleRowClick(rowIndex)}>
+                  <TableRow >
                     <TableCell>
-                      {expandedRows[rowIndex] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                      {expandedRows[rowIndex] ?
+                        <ExpandLessIcon onClick={() => handleRowClick(rowIndex)} />
+                        : <ExpandMoreIcon onClick={() => handleRowClick(rowIndex)} />}
                     </TableCell>
                     <TableCell align="left" component="th" scope="row">
                       {row.Start}
                     </TableCell>
-                    <TableCell align="left">{row.End}</TableCell>
-                    <TableCell align="left">{row.Commission}</TableCell>
+                    <TableCell align="left">
+                      {row.End}
+                    </TableCell>
+                    <TableCell align="left">
+                      {row.Commission}
+                    </TableCell>
                   </TableRow>
-
                   {expandedRows[rowIndex] && (
                     <TableRow>
                       <TableCell colSpan={4}>
@@ -225,29 +243,39 @@ const TimeSheetDetail = () => {
                               <TableRow key={`shift-${shiftIndex}`}>
                                 <ShiftTimeInput
                                   shiftPart="Clock In"
-                                  onChange={(e) => handleInputChangeForShift(e, rowIndex, shiftIndex, "Clock In", e.target.name)}
+                                  onChange={
+                                    (e) =>
+                                      handleInputChangeForShift(e, rowIndex, shiftIndex, "Clock In", e.target.name)}
                                   shift={shift}
                                   index={rowIndex}
                                 />
                                 <ShiftTimeInput
                                   shiftPart="Clock Out"
-                                  onChange={(e) => handleInputChangeForShift(e, rowIndex, shiftIndex, "Clock Out", e.target.name)}
+                                  onChange={
+                                    (e) =>
+                                      handleInputChangeForShift(e, rowIndex, shiftIndex, "Clock Out", e.target.name)}
                                   shift={shift}
                                   index={rowIndex}
                                 />
                                 <ShiftTimeInput
                                   shiftPart="Lunch In"
-                                  onChange={(e) => handleInputChangeForShift(e, rowIndex, shiftIndex, "Lunch In", e.target.name)}
+                                  onChange={
+                                    (e) =>
+                                      handleInputChangeForShift(e, rowIndex, shiftIndex, "Lunch In", e.target.name)}
                                   shift={shift}
                                   index={rowIndex}
                                 />
                                 <ShiftTimeInput
                                   shiftPart="Lunch Out"
-                                  onChange={(e) => handleInputChangeForShift(e, rowIndex, shiftIndex, "Lunch Out", e.target.name)}
+                                  onChange={
+                                    (e) =>
+                                      handleInputChangeForShift(e, rowIndex, shiftIndex, "Lunch Out", e.target.name)}
                                   shift={shift}
                                   index={rowIndex}
                                 />
-                                <TableCell align="center" style={tableStyles.updateBtn}>Breaks</TableCell>
+                                <TableCell align="center" style={tableStyles.updateBtn}>
+                                  Breaks
+                                </TableCell>
                                 <TableCell align="center">
                                   <Button style={tableStyles.updateBtn}>Update Shift</Button>
                                 </TableCell>
